@@ -1,7 +1,9 @@
 import Card from "./components/Card"
 import NavBar from "./components/NavBar";
 import Token from "./components/Token";
+import TokenResults from "./components/TokenResults";
 import TokenStat from "./components/TokenStat";
+import WalletResults from "./components/WalletResults";
 import WidgetData from "./components/WidgetData";
 import WidgetIntro from "./components/WidgetIntro";
 
@@ -82,9 +84,10 @@ function App() {
             <hr/>
             <h5>Add Surge as custom token to your wallet</h5>
             <p>Add the Surge Contract Address, choose Network: Smart Chain</p><br/>
-            <div className="dApp">
-              <a href="https://app.xsurge.net">Trade Now</a>
-            </div>
+            <div className="dApp text-center">
+                <a href="https://app.xsurge.net">Trade Now</a>
+              </div>
+            
           </WidgetData>
         </Card>
         
@@ -110,7 +113,7 @@ function App() {
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                               <div className="form-group">
                                   <select className="form-select surgeSelect" aria-label="Token Select" id="userSelect">
-                                      <option selected value="noToken">Choose an Option</option>
+                                      <option defaultValue="noToken">Choose an Option</option>
                                           <option value="wallet">Wallet Address</option>
                                           <option value="sUSD">SurgeUSD</option>
                                           <option value="sETH">SurgeETH</option>
@@ -131,41 +134,12 @@ function App() {
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resultsSpacer" id="calcResults">
                               
                               {/* Results for Wallet Address */}
-                              <div className="calcResults" id="resultsWallet">
-                                  <h3>Your Amount</h3>
-                                  <hr className="hrSpacer"/>
-                                  <div className="loader" id="resultsLoading"></div>
-                                  <div id="walletResultsDiv">
-                                      <table className="table table-borderless priceTable" >
-                                        <tbody id="walletResults"></tbody>
-                                      </table>
-                                      <p><em>Powered by BscScan.com APIs</em></p>
-                                  </div>
-                              </div>
+                              <WalletResults/>
 
                               {/* Results per Token */}
-                              <div className="calcResults" id="resultsToken">
-                                  <h3>Your Amount</h3>
-                                  <hr className="hrSpacer"/>
-                                  <table className="table table-borderless priceTable">
-                                  <tbody>
-                                      <tr>
-                                          <td>Current Balance:</td>
-                                          <td id="tokenBalance">Loading</td>
-                                      </tr>
-                                      <tr>
-                                          <td id="tokenName"></td>
-                                          <td id="tokenValue">Loading</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Current Value (USD):</td>
-                                          <td id="tokenValueUSD">Loading</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                              </div>
+                              <TokenResults/>
+
                           </div>
-                          
                           
                       </div>
           </WidgetData>

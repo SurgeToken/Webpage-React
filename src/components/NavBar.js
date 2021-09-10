@@ -1,3 +1,5 @@
+
+
 function NavBar(){
     return (
         <div className="header-container2">
@@ -12,7 +14,7 @@ function NavBar(){
                         <a href="https://app.xsurge.net">Trade</a>
                     </div>
                     <div className="navSocial">
-
+                        
                     </div>
                 </div>
             </header>

@@ -1,6 +1,7 @@
 import Card from "./components/Card"
 import NavBar from "./components/NavBar";
 import Token from "./components/Token";
+import TokenStat from "./components/TokenStat";
 import WidgetData from "./components/WidgetData";
 import WidgetIntro from "./components/WidgetIntro";
 
@@ -101,66 +102,9 @@ function App() {
         <Card>
           <WidgetData>
           <h3 className="">Token Statistics</h3>
-                      <div>
-                          <img className="sWordmark" src="assets/img/SURGEUSDWhite.png" alt="surgeusd"/>
-                          <table className="table table-borderless statsTable">
-                            <tbody>
-                              <tr>
-                                  <td>Price:</td>
-                                  <td id="sUSDPrice">Loading</td>
-                              </tr>
-                              <tr>
-                                  <td>Holders:</td>
-                                  <td id="sUSDHolders">Loading</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                      </div>
-                      <div>
-                          <img className="sWordmark" src="assets/img/SURGEETHWhite.png" alt="surgeeth"/>
-                          <table className="table table-borderless statsTable">
-                            <tbody>
-                              <tr>
-                                  <td>Price:</td>
-                                  <td id="sETHPrice">Loading</td>
-                              </tr>
-                              <tr>
-                                  <td>Holders:</td>
-                                  <td id="sETHHolders">Loading</td>
-                              </tr>
-                            </tbody>
-                          </table><br/>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
-                      </div>
-                      {/* <div>
-                          <img className="sWordmark" src="assets/img/SURGEBTCWhite.png" alt="surgebtc"/>
-                          <table className="table table-borderless statsTable">
-                            <tbody>
-                              <tr>
-                                  <td>Price:</td>
-                                  <td id="sBTCPrice">Loading</td>
-                              </tr>
-                              <tr>
-                                  <td>Holders:</td>
-                                  <td id="sBTCHolders">Loading</td>
-                              </tr>
-                            </tbody>
-                          </table><br/>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
-                      </div> */}
-                      {/* <div>
-                          <img className="sWordmark" src="assets/img/SURGEADAWhite.png" alt="surgeada"/>
-                          <table className="table table-borderless statsTable">
-                          <tbody>
-                              <tr>
-                                  <td>Price:</td>
-                                  <td id="sADAPrice">Loading</td>
-                              </tr>
-                              <tr>
-                                  <td>Holders:</td>
-                                  <td id="sADAHolders">Loading</td>
-                              </tr>
-                            </tbody>
-                          </table><br/>(Token Stats, to include your amount, auto refresh every 15-30 seconds)
-                      </div> */}
+                      <TokenStat img="assets/img/SURGEUSDWhite.png" tokenPrice="sUSDPrice" tokenHolderCount="sUSDHolders" />
+                      <TokenStat img="assets/img/SURGEETHWhite.png" tokenPrice="sETHPrice" tokenHolderCount="sETHHolders" />
+                      
                       <hr/>
                       <div className="row spacer4">
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -177,7 +121,7 @@ function App() {
                           </div>
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                               <div className="input-group mb-3 ">
-                                  <input type="text" className="form-control surgeAmount" placeholder="" aria-label="Wallet Address" aria-describedby="basic-addon1" id="userInput"/>
+                                  <input type="text" className="form-control surgeAmount" placeholder="Choose an option" aria-label="Wallet Address" aria-describedby="basic-addon1" id="userInput"/>
                               </div>
                               <div className="float-end">
                                   <button className="calcBtn" id="calcBtn">Show</button>

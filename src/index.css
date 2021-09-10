@@ -450,6 +450,7 @@
     background-image: -webkit-linear-gradient( 
 0deg
  , rgb(0 43 56 / 84%) 0%, rgb(0 44 58 / 75%) 100%);
+    box-shadow: 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%), 0 3px 5px -1px rgb(0 0 0 / 20%);
     -webkit-box-shadow: 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%), 0 3px 5px -1px rgb(0 0 0 / 20%);
     -moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
     margin-top: 24px;
@@ -931,15 +932,8 @@ display:flex !important;
 .widget-activity-four .timeline-line .item-timeline .t-dot:after {
     content: '';
     position: absolute;
-    border-color: inherit;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
     left: 5px;
     transform: translateX(-50%);
-    border-color: #e0e6ed;
     width: 0;
     height: auto;
     top: 12px;
@@ -948,6 +942,9 @@ display:flex !important;
     border-top-width: 0;
     border-bottom-width: 0;
     border-radius: 0;
+    border-color: #e0e6ed;
+    border-left-width: 1px;
+    border-style: solid;
 }
 .widget-activity-four .timeline-line .item-timeline.timeline-primary .t-dot:before {
     background-color: #1b55e2;
@@ -2971,6 +2968,7 @@ display:flex !important;
       z-index: 9999;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
+      transform: translate3d(0, 0, 0);
       -webkit-transform: translate3d(0, 0, 0);
       width: 255px;
       background-color: #060818;

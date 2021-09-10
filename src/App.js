@@ -1,5 +1,6 @@
 import Card from "./components/Card"
 import NavBar from "./components/NavBar";
+import Token from "./components/Token";
 import WidgetData from "./components/WidgetData";
 import WidgetIntro from "./components/WidgetIntro";
 
@@ -90,25 +91,9 @@ function App() {
         <Card>
           <WidgetData>
             <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
-              <img className="sWordmark" src="assets/img/SURGEUSDWhite.png" alt="surgeusd" />
-              <div className="contractAddress text-end">
-                <p className="cAddress" id="SurgeUSD">0x14fEe7d23233AC941ADd278c123989b86eA7e1fF  <i onClick={() => navigator.clipboard.writeText('0x14fEe7d23233AC941ADd278c123989b86eA7e1fF')} className="far fa-copy"></i></p>
-              </div>
+              <Token img="assets/img/SURGEUSDWhite.png" tokenName="SurgeUSD" tokenAddress="0x14fEe7d23233AC941ADd278c123989b86eA7e1fF" />
               <hr/>
-              <img className="sWordmark" src="assets/img/SURGEETHWhite.png" alt="surgeeth" />
-              <div className="contractAddress text-end">
-                <p className="cAddress" id="SurgeETH">0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef  <i onClick={() => navigator.clipboard.writeText('0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef')} className="far fa-copy"></i></p>
-                </div>
-                {/* <hr/>
-                  <img className="sWordmark" src="assets/img/SURGEBTCWhite.png" >
-                  <div className="contractAddress text-end">
-                    <p className="cAddress" id="SurgeBTC">inserthere  <i onClick="copyAddress('SurgeBTC');return false;" className="far fa-copy"></i></p>
-                  </div> */}
-                {/* <hr/>
-                  <img className="sWordmark" src="assets/img/SURGEADAWhite.png" >
-                  <div className="contractAddress text-end">
-                    <p className="cAddress" id="SurgeADA">inserthere  <i onClick="copyAddress('SurgeADA');return false;" className="far fa-copy"></i></p>
-                  </div> */}
+              <Token img="assets/img/SURGEETHWhite.png" tokenName="SurgeETH" tokenAddress="0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef" />
           </WidgetData>
         </Card>
         

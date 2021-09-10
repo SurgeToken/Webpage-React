@@ -4,7 +4,6 @@ COPY package.json ./
 RUN apk add --no-cache git
 RUN yarn install --production
 COPY . .
-RUN npm run prebuild
 RUN node --max_old_space_size=512 node_modules/.bin/react-scripts build
 
 FROM nginx:alpine

@@ -1,6 +1,7 @@
 import { collection, onSnapshot } from "@firebase/firestore";
 import { useEffect, useState } from "react";
 import Card from "./components/Card"
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Token from "./components/Token";
 import TokenResults from "./components/TokenResults";
@@ -159,6 +160,9 @@ function App() {
           </WidgetData>
         </Card>
         
+        {/* Holder */}
+        <Card className="holderDiv"/>
+
         {/* xToken Addresses */}
         <Card>
           <WidgetData>
@@ -167,7 +171,7 @@ function App() {
           </WidgetData>
         </Card>
 
-        
+        <Footer/>
 
         {/* CopyMSG */}
         <div className="centerpoint widgetMsg" id="copyMSG" >

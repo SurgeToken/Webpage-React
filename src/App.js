@@ -128,7 +128,7 @@ function App() {
                           </div>
                           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                               <div className="input-group mb-3 ">
-                                  <input type="text" className="form-control surgeAmount" placeholder="Choose an option" aria-label="Wallet Address" aria-describedby="basic-addon1" id="userInput"/>
+                                  <input type="text" className="form-control surgeAmount surgeInput" placeholder="Choose an option" aria-label="Wallet Address" aria-describedby="basic-addon1" id="userInput"/>
                               </div>
                               <div className="float-end">
                                   <button className="calcBtn" id="calcBtn">Show</button>
@@ -158,7 +158,6 @@ function App() {
               <Token img="assets/img/SURGEETHWhite.png" tokenName="SurgeETH" tokenAddress="0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef" />
           </WidgetData>
         </Card>
-        
         
         {/* xToken Addresses */}
         <Card>

@@ -1701,6 +1701,19 @@ display:flex !important;
     margin-right: 25px;
     margin-bottom: 25px;
   }
+
+  .surgeInput{
+    height: auto;
+    border: 1px solid #1b2e4b;
+    color: #009688;
+    font-size: 15px;
+    padding: 8px 10px;
+    letter-spacing: 1px;
+    height: calc(1.4em + 1.4rem + 2px);
+    padding: .75rem 1.25rem;
+    border-radius: 6px;
+    background: #1b2e4b;
+  }
   
   
   

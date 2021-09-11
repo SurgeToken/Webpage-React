@@ -1,3 +1,5 @@
+import { collection, onSnapshot } from "@firebase/firestore";
+import { useEffect, useState } from "react";
 import Card from "./components/Card"
 import NavBar from "./components/NavBar";
 import Token from "./components/Token";
@@ -6,10 +8,22 @@ import TokenStat from "./components/TokenStat";
 import WalletResults from "./components/WalletResults";
 import WidgetData from "./components/WidgetData";
 import WidgetIntro from "./components/WidgetIntro";
-
+import db from "./firebase";
 
 
 function App() {
+
+  const [blogs, setBlogs] = useState([]);
+
+  
+  useEffect(
+    () => 
+      onSnapshot(collection(db, "blogs"),(snapshot) => 
+        setBlogs(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+      ),
+    []
+   );
+
   return (
     <div>
       <div className="fullscreen-bg">
@@ -23,39 +37,26 @@ function App() {
         
         <NavBar/>
       
-        <WidgetIntro>
-        <div id="home">
-          <div className="widget-chart-one">
-            <div>
-              <h3>Welcome to <strong>xSURGE</strong></h3>
-              <h4>The Defi Revolution</h4>
-              <h5>
-                Explore our fast growing smart chain ecosystem that fosters innovation and encourages a truly decentralized future through on-chain liquidity, and fully renounced ownership.
-              </h5>
-            </div>
-          </div>
-        </div>
-      </WidgetIntro>
+        <WidgetIntro/>
       
-        {/* Countdown */}
         <Card>
           <WidgetData>
-          <div className="coming-soon-cont">
             <div>
-              <img className="sWordmark" src="assets/img/SURGEBTCWhite.png" alt="countdown"/>
+              <h3>Latest Updates</h3>
             </div>
-            <br/>
-            <div id="timer">
-                <div className="days"><span className="count">--</span> <span className="text">Days</span></div>
-                <div className="hours"><span className="count">--</span> <span className="text">Hours</span></div>
-                <div className="min"><span className="count">--</span> <span className="text">Mins</span></div>
-                <div className="sec"><span className="count">--</span> <span className="text">Secs</span></div>
-            </div> 
-          </div>
+            {blogs.map((blog) => (
+              <div key={blog.id}>
+                <h4>{blog.title}</h4>
+                <h5>{blog.text}</h5>
+                <hr/>
+              </div>
+              
+            ))}
+              
           </WidgetData>
         </Card>
-        
-        {/* How It Works */}
+
+          {/* How It Works */}
         <Card>
           <WidgetData>
             <h3>How Surge is different</h3>
@@ -69,6 +70,19 @@ function App() {
             <hr/>
             <h3>xSurge Whitepaper</h3>
             <h5>The xSurge Whitepaper will be available soon</h5>
+          </WidgetData>
+        </Card>
+        
+        {/* Countdown */}
+        <Card>
+          <WidgetData>
+          <div className="coming-soon-cont">
+            <div>
+              <img className="sWordmark" src="assets/img/SURGEBTCWhite.png" alt="countdown"/>
+            </div>
+            <br/>
+            <div id="timer"></div> 
+          </div>
           </WidgetData>
         </Card>
         
@@ -88,16 +102,6 @@ function App() {
                 <a href="https://app.xsurge.net">Trade Now</a>
               </div>
             
-          </WidgetData>
-        </Card>
-        
-        {/* Token Addresses */}
-        <Card>
-          <WidgetData>
-            <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
-              <Token img="assets/img/SURGEUSDWhite.png" tokenName="SurgeUSD" tokenAddress="0x14fEe7d23233AC941ADd278c123989b86eA7e1fF" />
-              <hr/>
-              <Token img="assets/img/SURGEETHWhite.png" tokenName="SurgeETH" tokenAddress="0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef" />
           </WidgetData>
         </Card>
         
@@ -145,6 +149,17 @@ function App() {
           </WidgetData>
         </Card>
         
+        {/* Token Addresses */}
+        <Card>
+          <WidgetData>
+            <em><h3>Find your favorite <strong>Token</strong> contract address here:</h3></em>
+              <Token img="assets/img/SURGEUSDWhite.png" tokenName="SurgeUSD" tokenAddress="0x14fEe7d23233AC941ADd278c123989b86eA7e1fF" />
+              <hr/>
+              <Token img="assets/img/SURGEETHWhite.png" tokenName="SurgeETH" tokenAddress="0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef" />
+          </WidgetData>
+        </Card>
+        
+        
         {/* xToken Addresses */}
         <Card>
           <WidgetData>
@@ -152,6 +167,8 @@ function App() {
             <p>Relaunch Coming Soon</p>
           </WidgetData>
         </Card>
+
+        
 
         {/* CopyMSG */}
         <div className="centerpoint widgetMsg" id="copyMSG" >

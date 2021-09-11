@@ -2,8 +2,8 @@
 
 function Footer(props){
     return (
-        <div class="masonry-footer">
-                <div class="navSocialFooter">
+        <div className="masonry-footer">
+                <div className="navSocialFooter">
                     <a href="https://discord.gg/XSURGE">
                             <img className="social1" src="assets/img/discord.png" alt="Discord Logo" />
                         </a>

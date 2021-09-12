@@ -115,6 +115,7 @@ const MainPage = () => {
                 <h3 className="">Token Statistics</h3>
                             <TokenStat img="assets/img/SURGEUSDWhite.png" tokenPrice="sUSDPrice" tokenHolderCount="sUSDHolders" />
                             <TokenStat img="assets/img/SURGEETHWhite.png" tokenPrice="sETHPrice" tokenHolderCount="sETHHolders" />
+                            <TokenStat img="assets/img/SURGEBTCWhite.png" tokenPrice="sBTCPrice" tokenHolderCount="sBTCHolders" />
                             
                             <hr/>
                             <div className="row spacer4">
@@ -125,7 +126,7 @@ const MainPage = () => {
                                                 <option value="wallet">Wallet Address</option>
                                                 <option value="sUSD">SurgeUSD</option>
                                                 <option value="sETH">SurgeETH</option>
-                                                {/* <option value="sBTC">SurgeBTC</option> */}
+                                                <option value="sBTC">SurgeBTC</option>
                                                 {/* <option value="sADA">SurgeADA</option> */}
                                         </select>
                                     </div>
@@ -160,6 +161,8 @@ const MainPage = () => {
                     <Token img="assets/img/SURGEUSDWhite.png" tokenName="SurgeUSD" tokenAddress="0x14fEe7d23233AC941ADd278c123989b86eA7e1fF" />
                     <hr/>
                     <Token img="assets/img/SURGEETHWhite.png" tokenName="SurgeETH" tokenAddress="0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef" />
+                    <hr/>
+                    <Token img="assets/img/SURGEBTCWhite.png" tokenName="SurgeBTC" tokenAddress="0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1" />
                 </WidgetData>
             </Card>
             

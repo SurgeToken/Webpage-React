@@ -58,7 +58,7 @@
     <script>
       // Set the date we're counting down to
       var getYear = new Date().getFullYear();
-      var countDownDate = new Date("Sept 12, "+ getYear +" 15:00:00 GMT-0400").getTime();
+      var countDownDate = new Date("Sept 19, "+ getYear +" 15:00:00 GMT-0400").getTime();
   
       // Update the count down every 1 second
       var countdownfunction = setInterval(function() {
@@ -83,10 +83,10 @@
       
       // If the count down is over, write some text 
       if (distance < 0) {
-          clearInterval(countdownfunction);
-          document.getElementById("timer").innerHTML = "SurgeBTC LAUNCH!";
-      }
-      }, 1000);
+            clearInterval(countdownfunction);
+            document.getElementById("timer").innerHTML = "<div class='dApp'><a href='https://app.xsurge.net' target='_blank'>Buy SurgeADA Now</a></div>";
+        }
+        }, 1000);
   </script>
   
   <script>

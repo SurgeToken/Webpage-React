@@ -13,6 +13,9 @@ function NavBar(){
                     <div className="dApp">
                         <a href="https://app.xsurge.net">Trade</a>
                     </div>
+                    <div className="dApp2">
+                            <a href="https://xsurgemerch.com/" rel="noreferrer" target="_blank">Shop</a>
+                        </div>
                     <div className="navSocial">
                         <a href="https://discord.gg/XSURGE">
                             <img className="social1" src="assets/img/discord.png" alt="Discord Logo" />

@@ -37,30 +37,28 @@ const MainPage = () => {
             
             <div className="container">
             
-            
             <NavBar/>
             
             <WidgetIntro/>
             
+            {/* Countdown */}
             <Card>
                 <WidgetData>
-                <div>
-                    <h3>Latest Updates</h3>
-                </div>
-                {blogs.map((blog) => (
-                    <div key={blog.id}>
-                    <h4>{blog.title}</h4>
-                    <h5>{blog.text}</h5>
-                    <hr/>
+                <div className="coming-soon-cont">
+                        <img className="sWordmark spacer4" src="assets/img/SURGEADAWhite.png" alt="SurgeADA" />
+                        <div className="spacer4">
+                            <div id="timer">
+                                <div className="days"><span className="count">--</span> <span className="text">Days</span></div>
+                                <div className="hours"><span className="count">--</span> <span className="text">Hours</span></div>
+                                <div className="min"><span className="count">--</span> <span className="text">Mins</span></div>
+                                <div className="sec"><span className="count">--</span> <span className="text">Secs</span></div>
+                            </div> 
+                        </div>
                     </div>
-                    
-                ))}
-                <Link to="/updates">See More Updates</Link>
-                    
                 </WidgetData>
             </Card>
     
-                {/* How It Works */}
+            {/* How It Works */}
             <Card>
                 <WidgetData>
                 <h3>How Surge is different</h3>
@@ -77,18 +75,25 @@ const MainPage = () => {
                 </WidgetData>
             </Card>
             
-            {/* Countdown */}
+            {/* Latest Updates */}
             <Card>
                 <WidgetData>
-                <div className="coming-soon-cont">
                 <div>
-                    <img className="sWordmark" src="assets/img/SURGEBTCWhite.png" alt="countdown"/>
+                    <h3>Latest Updates</h3>
                 </div>
-                <br/>
-                <div id="timer"></div> 
-                </div>
+                {blogs.map((blog) => (
+                    <div key={blog.id}>
+                    <h4>{blog.title}</h4>
+                    <h5>{blog.blurb} <Link to="/updates">Read Update</Link></h5>
+                    <hr/>
+                    </div>
+                    
+                ))}
+                <Link to="/updates">Read All Updates</Link>
+                    
                 </WidgetData>
             </Card>
+            
             
             {/* How To Buy */}
             <Card>

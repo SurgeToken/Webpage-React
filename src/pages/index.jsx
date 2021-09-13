@@ -1,7 +1,6 @@
 import React from "react";
 
-import { collection, onSnapshot } from "@firebase/firestore";
-import { useEffect, useState } from "react";
+
 import Card from "../components/Card"
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
@@ -11,21 +10,19 @@ import TokenStat from "../components/TokenStat";
 import WalletResults from "../components/WalletResults";
 import WidgetData from "../components/WidgetData";
 import WidgetIntro from "../components/WidgetIntro";
-import db from "../firebase";
 import { Link } from "react-router-dom";
 
 //Functional Component 
 const MainPage = () => {
-    const [blogs, setBlogs] = useState([]);
 
-  
-    useEffect(
-        () => 
-        onSnapshot(collection(db, "blogs"),(snapshot) => 
-            setBlogs(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
-        ),
-        []
-    );
+    const redis = require('redis');
+    const client = redis.createClient('redis', 6793);
+
+    client.on('connect', function() {
+        console.log('Connected!');
+      });
+
+    
 
     return (
         <div>
@@ -81,14 +78,7 @@ const MainPage = () => {
                 <div>
                     <h3>Latest Updates</h3>
                 </div>
-                {blogs.map((blog) => (
-                    <div key={blog.id}>
-                    <h4>{blog.title}</h4>
-                    <h5>{blog.blurb} <Link to="/updates">Read Update</Link></h5>
-                    <hr/>
-                    </div>
-                    
-                ))}
+                
                 <Link to="/updates">Read All Updates</Link>
                     
                 </WidgetData>

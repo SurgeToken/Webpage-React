@@ -2,23 +2,11 @@ import React from "react";
 import Card from "../components/Card"
 import NavBar from "../components/NavBar";
 import WidgetData from "../components/WidgetData";
-import { collection, onSnapshot } from "@firebase/firestore";
-import { useEffect, useState } from "react";
-import db from "../firebase";
 import { Link } from "react-router-dom";
 import UpdateCard from "../components/UpdateCard";
 
 const Updates = () => {
-    const [blogs, setBlogs] = useState([]);
-
-  
-  useEffect(
-    () => 
-      onSnapshot(collection(db, "blogs"),(snapshot) => 
-        setBlogs(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
-      ),
-    []
-   );
+    
   return (
     <div>
         <div className="fullscreen-bg">
@@ -37,14 +25,6 @@ const Updates = () => {
         </div>
 
         <UpdateCard>
-            {blogs.map((blog) => (
-                <WidgetData>
-                    <div key={blog.id}>
-                        <h4>{blog.title}</h4>
-                        <h5>{blog.text}</h5>
-                    </div>
-                </WidgetData>
-              ))}
           </UpdateCard>
         </div>
     </div>

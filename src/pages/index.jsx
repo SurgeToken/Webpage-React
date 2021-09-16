@@ -11,6 +11,7 @@ import WalletResults from "../components/WalletResults";
 import WidgetData from "../components/WidgetData";
 import WidgetIntro from "../components/WidgetIntro";
 import { Link } from "react-router-dom";
+import Web3 from "web3";
 
 //Functional Component 
 const MainPage = () => {
@@ -65,7 +66,7 @@ const MainPage = () => {
             </Card>
             
             {/* Latest Updates */}
-            <Card>
+            {/* <Card>
                 <WidgetData>
                 <div>
                     <h3>Latest Updates</h3>
@@ -74,7 +75,7 @@ const MainPage = () => {
                 <Link to="/updates">Read All Updates</Link>
                     
                 </WidgetData>
-            </Card>
+            </Card> */}
             
             
             {/* How To Buy */}

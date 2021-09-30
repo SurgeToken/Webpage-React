@@ -7,7 +7,7 @@ function NavBar(){
                 <div className="nav-logo align-self-center">
                     <div className="navLogo">
                         <a className="navbar-brand" href="index.html">
-                            <img className="logoNav1" src="assets/img/xsurge.png" alt="logo" />
+                            <img className="logoNav1" src="assets/img/xsurgenew.png" alt="logo" />
                         </a>
                     </div>
                     <div className="dApp">

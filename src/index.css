@@ -1,6 +1,4 @@
-html, body{
-  background-color: #000;
-}
+
 
 .layout-spacing {
     padding-bottom: 25px;
@@ -1566,14 +1564,11 @@ display:flex !important;
     color: #888ea8;
     height: 100%;
     font-size: 0.875rem;
-    background: #020b17;
+    background-color: #000;
     overflow-x: hidden;
     overflow-y: auto;
     letter-spacing: 0.0312rem;
     font-family: 'Open Sans' !important; 
-    background-image: linear-gradient(#00323840 .1em, transparent .1em), linear-gradient( 
-  90deg
-   , #00323840 .1em, transparent .1em);
       background-size: 0.6em 0.6em;
     /* src: url('assets/fonts/goodtimes.ttf'); */
     max-width: 1600px;

@@ -11,7 +11,6 @@ import WalletResults from "../components/WalletResults";
 import WidgetData from "../components/WidgetData";
 import WidgetIntro from "../components/WidgetIntro";
 import { Link } from "react-router-dom";
-import Web3 from "web3";
 
 //Functional Component 
 const MainPage = () => {
@@ -19,11 +18,6 @@ const MainPage = () => {
 
     return (
         <div>
-            <div className="fullscreen-bg">
-            <video loop muted autoPlay className="fullscreen-bg__video ">
-                <source src="assets/vid/video4.mp4" type="video/mp4"/>
-            </video>
-            </div>
             
             <div className="container">
             
@@ -64,19 +58,6 @@ const MainPage = () => {
                 <h5>The xSurge Whitepaper will be available soon</h5>
                 </WidgetData>
             </Card>
-            
-            {/* Latest Updates */}
-            {/* <Card>
-                <WidgetData>
-                <div>
-                    <h3>Latest Updates</h3>
-                </div>
-                
-                <Link to="/updates">Read All Updates</Link>
-                    
-                </WidgetData>
-            </Card> */}
-            
             
             {/* How To Buy */}
             <Card>

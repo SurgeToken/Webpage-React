@@ -1,3 +1,7 @@
+html, body{
+  background-color: #000;
+}
+
 .layout-spacing {
     padding-bottom: 25px;
 }

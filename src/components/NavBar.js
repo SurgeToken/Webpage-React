@@ -10,31 +10,23 @@ function NavBar(){
                             <img className="logoNav1" src="assets/img/xsurgenew.png" alt="logo" />
                         </a>
                     </div>
-                    <div className="dApp">
-                        <a href="https://app.xsurge.net">Trade</a>
-                    </div>
-                    <div className="dApp2">
-                            <a href="https://xsurgemerch.com/" rel="noreferrer" target="_blank">Shop</a>
-                        </div>
+                    
                     <div className="navSocial">
                         <a href="https://discord.gg/XSURGE">
-                            <img className="social1" src="assets/img/discord.png" alt="Discord Logo" />
+                            Documentation
                         </a>
-                        <a href="https://instagram.com/XSURGEDEFI">
-                            <img className="social1" src="assets/img/instagram.png" alt="Instagram Logo" />
+                        <a href="https://xsurgemerch.com/">
+                            Store
                         </a>
                         <a href="https://twitter.com/XSURGEDEFI">
-                            <img className="social1" src="assets/img/twitter.png" alt="Twitter Logo" />
+                            Community
                         </a>
                         <a href="https://www.reddit.com/r/XSURGE">
-                            <img className="social1" src="assets/img/reddit.png" alt="Reddit Logo" />
+                            Help
                         </a>
-                        <a href="https://t.me/XSURGEDEFI">
-                            <img className="social1" src="assets/img/telegram.png" alt="Telegram Logo" />
-                        </a>
-                        <a href="https://www.facebook.com/groups/XSURGEDEFI">
-                            <img className="social1" src="assets/img/facebook.png" alt="Facebook Logo" />
-                        </a>
+                        <div className="dApp">
+                            <a href="https://app.xsurge.net">Trade</a>
+                        </div>
                     </div>
                 </div>
             </header>

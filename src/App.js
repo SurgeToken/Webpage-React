@@ -13,7 +13,6 @@ class App extends Component {
     return <HashRouter>
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route exact path="/updates" component={Updates} />
         </Switch>
       </HashRouter>
   }

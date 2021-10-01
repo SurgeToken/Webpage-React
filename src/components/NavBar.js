@@ -1,36 +1,34 @@
-
+import Navbar from 'react-bootstrap/Navbar'
+import {Container} from 'react-bootstrap'
+import Nav from 'react-bootstrap/Nav'
 
 function NavBar(){
     return (
-        <div className="header-container2">
-            <header className="header navbar navbar-expand-sm">
-                <div className="nav-logo align-self-center">
-                    <div className="navLogo">
-                        <a className="navbar-brand" href="index.html">
-                            <img className="logoNav1" src="assets/img/xsurgenew.png" alt="logo" />
-                        </a>
-                    </div>
-                    
-                    <div className="navSocial">
-                        <a href="https://discord.gg/XSURGE">
-                            Documentation
-                        </a>
-                        <a href="https://xsurgemerch.com/">
-                            Store
-                        </a>
-                        <a href="https://twitter.com/XSURGEDEFI">
-                            Community
-                        </a>
-                        <a href="https://www.reddit.com/r/XSURGE">
-                            Help
-                        </a>
-                        <div className="dApp">
-                            <a href="https://app.xsurge.net">Trade</a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        </div>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Brand href="#home">
+                    <img
+                    alt=""
+                    src="assets/img/xsurgenew.png"
+                    className="d-inline-block align-top logoNav1"
+                    />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="justify-content-end" style={{ width: "100%" }}>
+                        <Nav.Link href="#documentation">Documentation</Nav.Link>
+                        <Nav.Link href="https://xsurgemerch.com/">Store</Nav.Link>
+                        <Nav.Link href="#community">Community</Nav.Link>
+                        <Nav.Link href="#help">Help</Nav.Link>
+                        <Nav.Link className="dApp" href="https://app.xsurge.net">
+                        <img
+                        alt=""
+                        src="assets/img/appicon.png"
+                        className="d-inline-block align-middle appicon"
+                        />Go to App</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+                
+        </Navbar>
     )
 }
 

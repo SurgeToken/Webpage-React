@@ -83,6 +83,16 @@ const MainPage = () => {
                           
                     </Col>
                 </Row>
+                <Row className="spacer2 text-center">
+                    <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
+                        <span className="herospan1">Core Features</span>
+                        <br/>
+                        <h1 className="heroH1">Five tokens for you to<br/>invest and start<br/>earning.</h1>
+                    </Col>
+                    <Col xs={12} sm={12} md={7} lg={7} xl={7} >
+                        <Image src="assets/img/App 1.svg" className="app1Img" fluid />     
+                    </Col>
+                </Row>
             
             </div>
     );

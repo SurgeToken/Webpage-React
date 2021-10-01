@@ -77,6 +77,18 @@ body {
   width: 60%;
 }
 
+.app1Img{
+  position: absolute;
+  right:0;
+}
+
+.app1{
+  text-align: start;
+  font-size: 3.2rem;
+  font-weight: 800;
+  padding-left: 8%;
+}
+
 
 .btnDApp{
   margin-left: 8%;
@@ -179,6 +191,26 @@ body {
     box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
     font-size: .6rem !important;
   }
+  .spacer2{
+    margin-top: 20%;
+  }
+  .heroH1{
+    font-size: 1.5rem;
+    text-align: start;
+    font-weight: 800;
+  }
+
+  .app1Img{
+    position: absolute;
+    right:0;
+    width: 50%;
+  }
+  
+  .app1{
+    margin-top: 2%;
+    padding-left: 8%;
+
+  }
 }
 
 @media screen and (min-width: 837px) and (max-width: 1116px) {
@@ -210,6 +242,26 @@ body {
   .feeBtns{
     margin-top: 3%;
   }
+  .spacer2{
+    margin-top: 20%;
+  }
+  .heroH1{
+    font-size: 2.1rem;
+    text-align: start;
+    font-weight: 800;
+  }
+
+  .app1Img{
+    position: absolute;
+    right:0;
+    width: 50%;
+  }
+  
+  .app1{
+    margin-top: 2%;
+    padding-left: 8%;
+
+  }
   
 }
 
@@ -223,6 +275,10 @@ body {
   }
   .spacer{
     margin-top: 10%;
+  }
+
+  .spacer2{
+    margin-top: 20%;
   }
 
   .hiw{
@@ -245,6 +301,24 @@ body {
 
   .feeBtns{
     margin-top: 3%;
+  }
+
+  .heroH1{
+    font-size: 3rem;
+    text-align: start;
+    font-weight: 800;
+  }
+
+  .app1Img{
+    position: absolute;
+    right:0;
+    width: 50%;
+  }
+  
+  .app1{
+    margin-top: 2%;
+    padding-left: 8%;
+
   }
   
 }
@@ -332,6 +406,12 @@ body {
   .herospan{
     color: #24b4ab;
   }
+
+  .herospan1{
+    color: #24b4ab;
+    font-size: 1rem;
+  }
+
   
 /*Coming Soon CSS*/
 /*

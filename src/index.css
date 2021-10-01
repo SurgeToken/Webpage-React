@@ -142,7 +142,42 @@ body {
     margin-top:5%;
   }
   .cta{
-    margin-top: -15%;
+    margin-top: -5%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .fees{
+    font-size: 1rem;
+    font-weight: 800;
+    margin-top: -11%;
+  }
+
+  .feeBtns{
+    margin-top: 3%;
+  }
+
+  .dApp2 {
+    text-decoration: none;
+    color: #29CBC1 !important;
+    font-weight: 800;
+    background: transparent !important;
+    padding: 10px 20px !important;
+    border-radius: 30px;
+    border-color: white ;
+    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+    font-size: .6rem !important;
+  }
+
+  .dApp3 {
+    text-decoration: none;
+    color: #29CBC1 !important;
+    font-weight: 800;
+    background: #0B3131 !important;
+    padding: 10px 20px !important;
+    border-radius: 30px;
+    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+    font-size: .6rem !important;
   }
 }
 
@@ -173,7 +208,7 @@ body {
   }
 
   .feeBtns{
-    margin-top: 1%;
+    margin-top: 3%;
   }
   
 }
@@ -242,12 +277,12 @@ body {
   }
 
   .appicon{
-    width: 25px;
+    width: 20px;
     margin-right: 10px;
   }
 
   .papericon{
-    width: 20px;
+    width: 15px;
     margin-right: 10px;
   }
   /* 
@@ -276,7 +311,18 @@ body {
     border-radius: 30px;
     border-color: white ;
     box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-  
+    font-size: .8rem !important;
+  }
+
+  .dApp3 {
+    text-decoration: none;
+    color: #29CBC1 !important;
+    font-weight: 800;
+    background: #0B3131 !important;
+    padding: 10px 20px !important;
+    border-radius: 30px;
+    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+    font-size: .8rem !important;
   }
 
 

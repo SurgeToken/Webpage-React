@@ -64,7 +64,7 @@ const MainPage = () => {
                         </Row>
                         <Row>
                             <div className="feeBtns">
-                                <Button className="dApp btnDApp2">
+                                <Button className="dApp3 btnDApp2">
                                 <img
                                 alt=""
                                 src="assets/img/appicon.png"

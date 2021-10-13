@@ -80,6 +80,7 @@ body {
 .app1Img{
   position: absolute;
   right:0;
+  width: 50%;
 }
 
 .app1{
@@ -194,6 +195,9 @@ body {
   .spacer2{
     margin-top: 20%;
   }
+  .spacer3{
+    margin-top: 30%;
+  }
   .heroH1{
     font-size: 1.5rem;
     text-align: start;
@@ -245,6 +249,9 @@ body {
   .spacer2{
     margin-top: 20%;
   }
+  .spacer3{
+    margin-top: 30%;
+  }
   .heroH1{
     font-size: 2.1rem;
     text-align: start;
@@ -280,6 +287,9 @@ body {
   .spacer2{
     margin-top: 20%;
   }
+  .spacer3{
+    margin-top: 30%;
+  }
 
   .hiw{
     font-size: 1.8rem;
@@ -312,6 +322,18 @@ body {
   .app1Img{
     position: absolute;
     right:0;
+    width: 50%;
+  }
+
+  .app2Img{
+    position: absolute;
+    left:0;
+    width: 50%;
+  }
+
+  .certikImg{
+    position: absolute;
+    right:5px;
     width: 50%;
   }
   

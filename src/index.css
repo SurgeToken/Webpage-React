@@ -105,6 +105,8 @@ body {
   font-weight: 800;
 }
 
+
+
 @media screen and (max-width: 329px) {
   .intro{
     font-size: 3rem;
@@ -272,10 +274,9 @@ body {
   
 }
 
- 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1117px) and (max-width: 1299) {
   .intro{
-    font-size: 3.2rem;
+    font-size: 2.2rem;
     font-weight: 800;
     margin-top: 31%;
     padding-left: 8%;
@@ -283,12 +284,77 @@ body {
   .spacer{
     margin-top: 10%;
   }
+  .hiw{
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+  .cta{
+    margin-top: -15%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
 
+  .fees{
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-top: -11%;
+  }
+
+  .feeBtns{
+    margin-top: 3%;
+  }
   .spacer2{
     margin-top: 20%;
   }
   .spacer3{
     margin-top: 30%;
+  }
+  .heroH1{
+    font-size: 2.1rem;
+    text-align: start;
+    font-weight: 800;
+  }
+
+  .app1Img{
+    position: absolute;
+    right:0;
+    width: 50%;
+  }
+  
+  .app1{
+    margin-top: 2%;
+    padding-left: 8%;
+
+  }
+  
+}
+ 
+@media screen and (min-width: 1300px) and (max-width: 2559px)  {
+  .intro{
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-top: 31%;
+    padding-left: 8%;
+  }
+
+
+  .spacer1{
+    margin-top: 10%;
+  }
+
+  .spacer2{
+    margin-top: 15%;
+  }
+  .spacer3{
+    margin-top: 30%;
+  }
+
+  .spacer4{
+    margin-top: 14%;
+  }
+
+  .spacer5{
+    margin-top: 15%;
   }
 
   .hiw{
@@ -305,7 +371,7 @@ body {
   .fees{
     font-size: 1.8rem;
     font-weight: 800;
-    margin-top: -11%;
+    margin-top: -22%;
   
   }
 
@@ -333,8 +399,9 @@ body {
 
   .certikImg{
     position: absolute;
-    right:5px;
+    right:0;
     width: 50%;
+    padding-right: 5%;
   }
   
   .app1{
@@ -343,6 +410,15 @@ body {
 
   }
   
+}
+
+@media screen and (min-width: 2560px) {
+  .spacer2{
+    margin-top: 20%;
+  }
+  .spacer3{
+    margin-top: 30%;
+  }
 }
 
 

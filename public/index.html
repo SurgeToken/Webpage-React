@@ -56,7 +56,7 @@
 
 
     <script>
-      // Set the date we're counting down to
+      /* // Set the date we're counting down to
       var getYear = new Date().getFullYear();
       var countDownDate = new Date("Sept 19, "+ getYear +" 15:00:00 GMT-0400").getTime();
   
@@ -86,7 +86,7 @@
             clearInterval(countdownfunction);
             document.getElementById("timer").innerHTML = "<div class='dApp'><a href='https://app.xsurge.net' target='_blank'>Buy SurgeADA Now</a></div>";
         }
-        }, 1000);
+        }, 1000); */
   </script>
   
   <script>
@@ -361,12 +361,12 @@
             });
   
         //initial call for token stats
-        getTokenStats();
+        //getTokenStats();
   
         //run getTokenStats every 10 seconds
-        setInterval(function(){ 
+        /* setInterval(function(){ 
             getTokenStats();
-        }, 15000);
+        }, 15000); */
        
   
         $('#userSelect').on('change', function() {
@@ -432,7 +432,7 @@
             
         });
   
-        setInterval(function(){ 
+        /* setInterval(function(){ 
             if($("#calcResults").is(":visible")){
                 switch($("#userSelect").val()){
                     case "wallet":
@@ -450,7 +450,7 @@
                 }
             }
             
-        }, 15000);
+        }, 15000); */
         
         
     });

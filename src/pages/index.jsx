@@ -4,8 +4,10 @@ import NavBar from "../components/NavBar";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image'
-import Button from 'react-bootstrap/Button'
+import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
+import Tabs from 'react-bootstrap/Tabs';
+
 
 
 //Functional Component 
@@ -19,7 +21,7 @@ const MainPage = () => {
             
             <NavBar/>
 
-                <Row className="spacer">
+                <Row className="spacer1">
                     <Col xs={12} sm={12} md={4} lg={4} xl={4} className="mx-auto">
                         <p className="intro">
                             The Surge tokens<br/>
@@ -39,7 +41,7 @@ const MainPage = () => {
                         <Image src="assets/img/shapehero.png" className="heroImage" fluid />    
                     </Col>
                 </Row>
-                <Row className="spacer text-center">
+                <Row className="spacer1 text-center">
                     <Col>
                     <p className="hiw">
                             Each transaction triggers a fee that raises the price of Surge relative to<br/>
@@ -47,22 +49,19 @@ const MainPage = () => {
                         </p>
                     </Col>
                 </Row>
-                <Row className="spacer text-center">
+                <Row className="spacer1 text-center">
                     <Col>
                         <Image src="assets/img/atom.svg" className="atomImg" fluid />    
                     </Col>
                 </Row>
-                <Row className="spacer text-center">
+                <Row className="spacer5 text-center">
                     <Col>
-                    <Image src="assets/img/cta.svg" className="cta" fluid />
-                        <Row className="fees">
+                        <Image src="assets/img/cta.svg" className="cta" fluid />
                             <div className="fees">
                                 Surge is the first of it's type that only<br/>
                                 <span className="herospan">allows growth</span>, even in a bearish market.<br/>
                                 With low fees such as <span className="herospan">6% to buy, 6% to sell &<br/> 2% for wallet-to-wallet transfers</span>
                             </div>
-                        </Row>
-                        <Row>
                             <div className="feeBtns">
                                 <Button className="dApp3 btnDApp2">
                                 <img
@@ -79,8 +78,6 @@ const MainPage = () => {
                                 />Whitepaper
                                 </Button>
                             </div>
-                        </Row>
-                          
                     </Col>
                 </Row>
                 
@@ -114,6 +111,13 @@ const MainPage = () => {
                     </Col>
                     <Col xs={12} sm={12} md={7} lg={7} xl={7} >
                         <Image src="assets/img/certik.svg" className="certikImg" fluid />     
+                    </Col>
+                </Row>
+                <Row className="spacer3">
+                    <Col xs={12} sm={12} md={12} lg={12} xl={12} className="app1 text-center">
+                        <span className="herospan1 ">Statistics</span>
+                        <br/>
+                        <h4 className="heroH1 text-center">Values Statistics</h4>
                     </Col>
                 </Row>
                 

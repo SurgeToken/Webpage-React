@@ -14,7 +14,7 @@ function NavBar(){
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="justify-content-end" style={{ width: "100%" }}>
-                        <Nav.Link href="#surgeeducation">Surge Education</Nav.Link>
+                        <Nav.Link href="#education">Surge Education</Nav.Link>
                         <Nav.Link href="https://xsurgemerch.com/">Store</Nav.Link>
                         <Nav.Link href="#community">Community</Nav.Link>
                         <Nav.Link href="#help">Help</Nav.Link>

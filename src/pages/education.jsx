@@ -8,17 +8,7 @@ const Education = () => {
     
   return (
     <div>
-        
-        <div className="container">
-        
-
-            <div className="dApp pad spacer5">
-                <Link to="/">Back</Link>
-            </div>
-
-        <UpdateCard>
-          </UpdateCard>
-        </div>
+       <NavBar/>
     </div>
   );
 };

@@ -1,12 +1,15 @@
 import React from "react";
 
 import NavBar from "../components/NavBar";
+import VS from "../components/VS";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+import Token from "../components/Token";
 
 
 
@@ -96,14 +99,21 @@ const MainPage = () => {
                     <Col xs={12} sm={12} md={7} lg={7} xl={7} >
                         <Image src="assets/img/App 2.png" className="app2Img" fluid />     
                     </Col>
-                    <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
-                        <span className="herospan1">Core Features</span>
+                    <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app2">
+                        <span className="herospan2">Core Features</span>
                         <br/>
-                        <h1 className="heroH1">No Liquidity Pool & No<br/>Exchanges.</h1>
+                        <h1 className="heroH2">No Liquidity Pool & No Exchanges.</h1>
                     </Col>
                     
                 </Row>
-                <Row className="spacer3 text-center">
+
+                <Row className="">
+                    <Col xs={12} sm={12} md={12} lg={12} xl={12} >
+                        <Image src="assets/img/shape.png" className="shape" />     
+                    </Col>
+                </Row>
+
+                <Row className="spacer4 text-center">
                     <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
                         <span className="herospan1">Certified</span>
                         <br/>
@@ -113,13 +123,16 @@ const MainPage = () => {
                         <Image src="assets/img/certik.svg" className="certikImg" fluid />     
                     </Col>
                 </Row>
-                <Row className="spacer3">
+                <Row className="spacervs">
                     <Col xs={12} sm={12} md={12} lg={12} xl={12} className="app1 text-center">
                         <span className="herospan1 ">Statistics</span>
                         <br/>
                         <h4 className="heroH1 text-center">Values Statistics</h4>
+                        <Image src="assets/img/shape2.png" className="shape2" fluid />
+                        
                     </Col>
                 </Row>
+                <VS/>
                 
             
             </div>

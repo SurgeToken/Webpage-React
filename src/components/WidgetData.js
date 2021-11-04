@@ -1,6 +1,6 @@
 function WidgetData(props){
     return (
-        <div className="widget widget-chart-one spacer5">
+        <div className="widget spacer1">
             {props.children}
         </div>
     )

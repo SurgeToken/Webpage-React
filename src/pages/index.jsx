@@ -2,14 +2,10 @@ import React from "react";
 
 import NavBar from "../components/NavBar";
 import VS from "../components/VS";
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
-import Token from "../components/Token";
 
 
 

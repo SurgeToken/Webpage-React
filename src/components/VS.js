@@ -49,10 +49,10 @@ class VS extends React.Component{
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} sm={12} className="tokenChart">
+                    <Col xs={12} sm={12} md={6} lg={6} xl={6} className="tokenChart">
                         <WidgetChart/>
                    </Col>
-                    <Col xs={12} sm={12} className="tokenCalc">
+                    <Col xs={12} sm={12} md={6} lg={6} xl={6} className="tokenCalc">
                        <WidgetCalc/>
                     </Col>
                 </Row>

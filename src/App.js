@@ -1,9 +1,9 @@
 import MainPage from "./pages";
-import Updates from "./pages/updates"
+import Education from "./pages/education.jsx";
 
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Route, Switch, HashRouter } from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 
 
 
@@ -13,6 +13,7 @@ class App extends Component {
     return <HashRouter>
         <Switch>
           <Route exact path="/" component={MainPage} />
+          <Route exact path="/education" component={Education} />
         </Switch>
       </HashRouter>
   }

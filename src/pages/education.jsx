@@ -29,7 +29,7 @@ const Education = () => {
               <Accordion.Body>
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edLogo">
-                  <Image src="assets/img/xtrader1.png" className="" />
+                  <Image src="assets/img/xtrader1.png" className="edImg" />
                 </Col>
               </Row>
               <Row>
@@ -43,7 +43,7 @@ const Education = () => {
               </Row>
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edImg">
-                  <Image src="assets/img/xtrader2.png" className="" />
+                  <Image src="assets/img/xtrader2.png" className="edImg4" />
                 </Col>
               </Row>
               <Row>
@@ -78,7 +78,7 @@ const Education = () => {
               </Row>
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edLogo">
-                  <Image src="assets/img/xtrader7.png" className="" />
+                  <Image src="assets/img/xtrader7.png" className="edImg4" />
                 </Col>
               </Row>
               <Row>
@@ -94,7 +94,7 @@ const Education = () => {
               </Row>
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edLogo">
-                  <Image src="assets/img/xtrader9.png" className="" />
+                  <Image src="assets/img/xtrader9.png" className="edImg5" />
                 </Col>
               </Row>
               <Row>
@@ -128,7 +128,7 @@ const Education = () => {
               </Row>
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edLogo">
-                  <Image src="assets/img/xtrader12.png" className="" />
+                  <Image src="assets/img/xtrader12.png" className="edImg5" />
                 </Col>
               </Row>
               <Row>
@@ -169,7 +169,6 @@ const Education = () => {
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
                 <p><strong>Here are the most current contract address for reference:</strong></p>
-                <p>
                   <ul>
                     <li>SurgeUSD (SUSD): 0x14fEe7d23233AC941ADd278c123989b86eA7e1fF </li>
                     <li>SurgeETH (SETH): 0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef </li>
@@ -177,10 +176,8 @@ const Education = () => {
                     <li>SurgeADA (SADA): 0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF </li>
                     <li>SurgeUseless (SUSLS): 0x2e62e57d1D36517D4b0F329490AC1b78139967C0 </li>
                   </ul>
-                </p>
                 <p><strong>When Selling Surge Tokens:</strong></p>
                 <p>Add these custom tokens to your wallet before you sell.  These are what you receive back:</p>
-                <p>
                   <ul>
                     <li>When Selling SurgeADA - You get: Binance-Peg Cardano Token: 0x3ee2200efb3400fabb9aacf31297cbdd1d435d47 </li>
                     <li>When Selling SurgeBTC - You get: Binance-Peg BTCB Token: 0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c</li>
@@ -190,13 +187,12 @@ const Education = () => {
 
 </li>
                   </ul>
-                </p>
                 </Col>
               </Row>
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
-              <Accordion.Header>SurgeFund: Everything tou need to know and How it Works</Accordion.Header>
+              <Accordion.Header>SurgeFund: Everything you need to know and How it Works</Accordion.Header>
               <Accordion.Body>
                 <Row>
                   <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
@@ -220,12 +216,10 @@ const Education = () => {
                   <h4 className="edH4">To see your current claim:</h4>
                   <p>Use the SurgeFund Tracker Bot on our Discord Server at <a href="https://discord.gg/ZPkuvkqCmS">XSurge Official Discord</a></p>
                   <p>You can also use this site or our dApp: </p>
-                  <p>
-                    <ul>
+                  <ul>
                       <li><a href="https://subscribe.manraj.ca">https://subscribe.manraj.ca</a></li>
                       <li><a href="https://app.xsurge.net/">https://app.xsurge.net/</a></li>
-                    </ul> 
-                  </p>
+                    </ul>
                   <h4 className="edH4">To answer some frequent questions/concerns we hear:</h4>
                   <p>As of now, there is only little BNB (22 BNB as of Oct 24, 2021) in the contract with some tokens pending the sell to BNB using write function 8 of the contract. Mark sells tokens sent to this contract for BNB manually so it may take sometime for token donations to show as BNB in the pool. You can view the fund holdings here: <a href="https://bscscan.com/tokenholdings?a=0x95c8ee08b40107f5bd70c28c4fd96341c8ead9c7">BSCScan</a></p>
                   <p>The current amount in the pool, if low, leaves little to go around and the people owed the most have the most claim. Because of this, I would hold until the pool grows over time if your current claim is small.</p>
@@ -292,7 +286,6 @@ const Education = () => {
                 <p>
                   We'll start by accessing the dApp and connecting our wallet to initiate a claim:
                 </p>
-                <p>
                   <ol>
                     <li>Go to <a href="https://app.xsurge.net/">xSurge dApp</a></li>
                     <li>
@@ -304,7 +297,6 @@ const Education = () => {
                     </li>
                     <li><em>Both methods of connecting are below</em></li>
                   </ol>
-                </p>
                 </Col>
               </Row>
               <Row>
@@ -339,13 +331,11 @@ const Education = () => {
                 <p>
                   As shown below, from the homescreen on your wallet app:
                 </p>
-                <p>
                   <ol>
                     <li><em>Go to Settings</em></li>
                     <li><em>Select WalletConnect</em></li>
                     <li><em>Enable Permissions (if prompted)</em></li>
                   </ol>
-                </p>
                 </Col>
               </Row>
               <Row>
@@ -515,12 +505,11 @@ const Education = () => {
 
                   <p>Our price is determined by two factors: • Volatility of the Backing Asset in the Contract • XSurge Price Value Equation (Price = Backing Asset in the Contract ÷ Token Total Supply)</p>
 
-                  <p>Our exchange system is entirely unique from other tokens currently on the market. For this reason, we have coined specific terms by which this exchange system can be referred: 
+                  <p>Our exchange system is entirely unique from other tokens currently on the market. For this reason, we have coined specific terms by which this exchange system can be referred:</p>
                     <ul>
                       <li>The Liquidity pairing is designed as a SwapPair Liquidity (SWPL) System, in which a swapper contract is employed to perform an autonomous swap to the backing asset using the chain's native coin. In our case, SmartChain BNB (BEP20).</li>
                       <li>The price action algorithm is described as a Price-Increase Tax Ratio (PTR). This algorithm allocates the tax on purchases and sales to shift the ratio between the Backing Asset and the dynamic Total Supply of the token more in favor of the backing asset. PTR maintains a consistent increase in token value to the backing asset regardless of the type of transaction executed.</li>
                     </ul>
-                  </p>
 
                   <h4 className="edH4">PTR Contract Buy</h4>
                   <p>There is a set % tax for both buys and sells. On a buy, new tokens are minted into the total supply. In this example, I'll use 6% as an example. So the Total Supply of Tokens increases and the buyer will receive:</p>
@@ -562,6 +551,7 @@ const Education = () => {
                   <p>NOTE: Out of suspicion, we made sure to do this under conditions that wouldn't leave me vulnerable to an attack. Immediately on opening the webpage, my Antivirus tipped me off to 8 separate fraudulent transaction attempts that led to this writeup. Do not try this at home</p>
                   <p>
                   I recommend to everyone:
+                  </p>
                   <ol>
                     <li>
                       Don't research the token you were dusted with. Disable it, and forget about it.
@@ -594,7 +584,6 @@ const Education = () => {
                       </ul>
                     </li>
                   </ol> 
-                  </p>
                   <p>Lastly, ALWAYS verify contract addresses to officially released announcements before starting, in the middle of entering, and before confirming (triple verification) any transactions.</p>
                   <p>These safe practices take a bit of extra time, but it would save a lot of people money if they were followed like their livelihood depended on it.</p>
                   
@@ -638,12 +627,12 @@ const Education = () => {
                   <p>SENDING THROUGH THE NORMAL MEANS (like a buy) WILL NOT RECEIVE THE BACKING ASSET. You must use the "sell" contract function to sell an entered about of tokens after connecting BSCScan to your wallet.</p>
                   <p>
                     You'll need to follow these steps:
+                  </p>
                     <ol>
                     <li>Open bscscan on your desktop, open your wallet page to view your holdings and click the surge token to open the contract</li>
                     <li>Click "Write Contract" in the tabs below</li>
                     <li>Click "Connect to Web3" link. Click TW and a QR Code will appear</li>
                     </ol>
-                  </p>
                   </Col>
                 </Row>
                 <Row>
@@ -661,13 +650,13 @@ const Education = () => {
                   
                   <p>
                     Next...
+                  </p>
                     <ul>
                     <li>Go to Trust Wallet on your phone</li>
                     <li>Click Settings in the lower bar</li>
                     <li>Click Wallet Connect <em>(You may have to allow the app permission to use the camera)</em></li>
                     <li>Scan the QR Code</li>
                     </ul>
-                  </p>
                   </Col>
                 </Row>
                 <Row>

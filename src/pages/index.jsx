@@ -13,7 +13,6 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup'
 class MainPage extends React.Component{
 
     
-
     render(){
         return (
             <div>

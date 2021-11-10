@@ -14,7 +14,7 @@ function Token(props){
                         <td  className="tokenAddress">{props.tokenAddress} <FaRegCopy /></td>
                         <td  className="tokenPrice">${props.tokenPrice}</td>
                         <td  className="tokenHolders">{props.tokenHolderCount} holders</td>
-                        <td  className="tokenMeta"><a href="{props.tokenMeta}"><img alt="" src="assets/img/metamask.png" className="imgMeta"/> </a></td>
+                        <td  className="tokenMeta"><a href={props.tokenMeta}><img alt="" src="assets/img/metamask.png" className="imgMeta"/> </a></td>
                     </tr>
                 </tbody>
             </table>

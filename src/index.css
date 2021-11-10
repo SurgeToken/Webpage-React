@@ -1199,6 +1199,13 @@ body {
       width: 13%;
     }
 
+    .tokenMeta{
+      width: 5%;
+    }
+    .imgMeta{
+      width: 50%;
+    }
+
   /**End Main Page CSS**/
 
   /**Begin Education Page CSS**/

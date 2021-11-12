@@ -53,7 +53,8 @@ const tokens = [
 const redis = require('redis');
 const client = redis.createClient({
 	host: 'redis',
-	port: 6793
+	port: 6793,
+	password: 'super_secret_redis_password'
 });
 
 

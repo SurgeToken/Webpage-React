@@ -8,6 +8,7 @@ import SUSLSJSON from './json/surge_useless_abi.json';
 import XUSDJSON from './json/surge_xusd_abi.json';
 import Web3 from 'web3';
 import {useState, useEffect} from 'react';
+import { createClient } from 'redis';
 
 const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 
@@ -56,15 +57,15 @@ const tokens = [
 
 	export default function VSTokens() {
 
-		const redis = require('redis');
-const client = redis.createClient({
-	host: 'redis',
-	port: 6793
-});
-
-client.on('error', err => {
-	console.log('Error' + err);
-})
+		(async () => {
+			const client = createClient();
+		  
+			client.on('error', (err) => console.log('Redis Client Error', err));
+		  
+			await client.connect();
+		  
+			const value = await client.get('key');
+		  })();
 
 		const [tokenComponents, setTokenComponents] = useState([]);
 	

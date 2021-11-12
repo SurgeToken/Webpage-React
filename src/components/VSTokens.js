@@ -50,7 +50,13 @@ const tokens = [
 		}
 	]
 
-const redis = require('redis');
+
+
+
+
+	export default function VSTokens() {
+
+		const redis = require('redis');
 const client = redis.createClient({
 	host: 'redis',
 	port: 6793
@@ -59,11 +65,6 @@ const client = redis.createClient({
 client.on('error', err => {
 	console.log('Error' + err);
 })
-
-
-
-	export default function VSTokens() {
-
 
 		const [tokenComponents, setTokenComponents] = useState([]);
 	

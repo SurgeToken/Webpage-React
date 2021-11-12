@@ -1139,7 +1139,7 @@ body {
 
     .tokenList{
       padding: 30px 20px 30px 20px;
-      margin: 2% 5% 5% 5%;
+      margin: 5% 5% 5% 5%;
     }
 
     .statTxt{
@@ -1183,17 +1183,20 @@ body {
     }
 
     .tokenAddress{
+      padding-top: 14px !important;
       font-size: 1rem;
       text-align: end;
       width: 37%;
     }
 
     .tokenPrice{
+      padding-top: 14px !important;
       text-align: end;
       font-size: 1rem;
       width: 20%;
     }
     .tokenHolders{
+      padding-top: 14px !important;
       text-align: end;
       font-size: 1rem;
       width: 13%;
@@ -1203,7 +1206,12 @@ body {
       width: 5%;
     }
     .imgMeta{
-      width: 50%;
+      width: 100%;
+    }
+
+    .metaBtn{
+      border: none;
+      background: none;
     }
 
   /**End Main Page CSS**/

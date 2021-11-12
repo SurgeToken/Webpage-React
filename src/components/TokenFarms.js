@@ -5,41 +5,12 @@ import Web3 from 'web3';
 const web3 = new Web3(Web3.givenProvider);
 
 const tokens = [
-    {
-            'address': '0x14fEe7d23233AC941ADd278c123989b86eA7e1fF',
-            'decimals': 1,
-            'name': 'SurgeUSD',
-            'symbol': 'sUSD'
-        },
+    
         {
-            'address': '0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef',
-            'decimals': 1,
-            'name': 'SurgeETH',
-            'symbol': 'sETH'
-        },
-        {
-            'address': '0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1',
-            'decimals': 1,
-            'name': 'SurgeBTC',
-            'symbol': 'sBTC'
-        },
-        {
-            'address': '0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF',
-            'decimals': 1,
-            'name': 'SurgeADA',
-            'symbol': 'sADA'
-        },
-        {
-            'address': '0x2e62e57d1D36517D4b0F329490AC1b78139967C0',
-            'decimals': 1,
-            'name': 'SurgeUSELESS',
-            'symbol': 'sUSLS'
-        },
-        {
-            'address': '0x254246331cacbC0b2ea12bEF6632E4C6075f60e2',
+            'address': '0x579aaF9882A1941885fADa7A6243cEACf3037659',
             'decimals': 18,
-            'name': 'xUSD',
-            'symbol': 'xUSD'
+            'name': 'xUSD-BNB FARM',
+            'symbol': 'xUSDBNBFARM'
         }
     ]
 
@@ -69,7 +40,7 @@ const tokens = [
         }
     }
 
-function TokenStats(props){
+function TokenFarms(props){
 
     
 
@@ -93,4 +64,4 @@ function TokenStats(props){
     )
 }
 
-export default TokenStats;
+export default TokenFarms;

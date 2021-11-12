@@ -1,12 +1,12 @@
 import React from "react";
 
 import NavBar from "../components/NavBar";
-import VS from "../components/VS";
+import VSTokens from "../components/VSTokens";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import VSFarms from "../components/VSFarms";
 
 
 //Functional Component 
@@ -85,7 +85,7 @@ class MainPage extends React.Component{
                         <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
                             <span className="herospan1">Core Features</span>
                             <br/>
-                            <h1 className="heroH1">Five tokens for you to<br/>invest and start<br/>earning.</h1>
+                            <h1 className="heroH1">Six tokens for you to<br/>invest and start<br/>earning.</h1>
                         </Col>
                         <Col xs={12} sm={12} md={7} lg={7} xl={7} >
                             <Image src="assets/img/App 1.png" className="app1Img" fluid />     
@@ -129,7 +129,17 @@ class MainPage extends React.Component{
                         </Col>
                     </Row>
                     
-                    <VS/>
+                    <VSTokens/>
+
+                    <Row className="">
+                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className="app1 text-center">
+                            <h4 className="heroH1 text-center">Surge Farms</h4>
+                            <Image src="assets/img/shape2.png" className="shape2" fluid />
+                            
+                        </Col>
+                    </Row>
+
+                    <VSFarms/>
                     
                 
                 </div>

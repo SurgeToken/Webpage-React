@@ -12818,10 +12818,10 @@
   dependencies:
     "redis-errors" "^1.0.0"
 
-"redis@^4.0.0-rc.1":
-  "integrity" "sha512-xR9oq5ag8ltOGD5dKaRwe/gFGKISWiaomBU+QC8SSOhK5RujHj9YvTQ1cEM6FcNKpiHTLDesevzsnPqkxIcbHw=="
-  "resolved" "https://registry.npmjs.org/redis/-/redis-4.0.0-rc.1.tgz"
-  "version" "4.0.0-rc.1"
+"redis@^4.0.0-rc.3":
+  "integrity" "sha512-yvijGYWp3aOvqpFgqovUWLWSdHgjUEtScqJmjTfUXj/4kEHuSW2TERFQelIBnrGeKh8//eYlLpCFKCjDYT4NQw=="
+  "resolved" "https://registry.npmjs.org/redis/-/redis-4.0.0-rc.3.tgz"
+  "version" "4.0.0-rc.3"
   dependencies:
     "cluster-key-slot" "1.1.0"
     "generic-pool" "3.8.2"

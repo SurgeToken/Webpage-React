@@ -78,12 +78,13 @@ function TokenStats(props){
             <table className="table table-borderless tokenTable" >
                 <tbody>
                     <tr>
-                        <td className="tokenName">
-                            <img alt="" src="assets/img/logo.png" className="tokenLogo"/>  <span className="tName"  aria-label="">{props.tokenName}</span>
+                        <td className="tokenImg">
+                            <img alt="" src="assets/img/logo.png" className="tokenLogo"/> 
                         </td>
+                        <td className="tokenName">{props.tokenName}</td>
                         <td  className="tokenAddress">{props.tokenAddress} <FaRegCopy /></td>
                         <td  className="tokenPrice">{props.tokenPrice}</td>
-                        <td  className="tokenHolders">{props.tokenHolderCount} holders</td>
+                        <td className="tokenBSC"><Button className="bscBtn"><a href={props.tokenBSC} rel="noreferrer" target="_blank"><img alt="" src="assets/img/bsc.png" className="imgBSC"/></a></Button></td>
                         <td  className="tokenMeta"><Button className="metaBtn" onClick={addToMetamask.bind(this, props.tokenSymbol)}><img alt="" src="assets/img/metamask.png" className="imgMeta"/></Button></td>
                     </tr>
                 </tbody>

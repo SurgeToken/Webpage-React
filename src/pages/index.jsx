@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import VSFarms from "../components/VSFarms";
+import VST from "../components/VST";
+import VSF from "../components/VSF";
 
 
 //Functional Component 
@@ -122,14 +124,23 @@ class MainPage extends React.Component{
                     </Row>
 
                     <Row className="spacervs">
-                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className="app1 text-center">
-                            <h4 className="heroH1 text-center">Surge Tokens</h4>
+                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className="text-center">
+                            <h4 className="heroH1 text-center">Surge Assets</h4>
                             <Image src="assets/img/shape2.png" className="shape2" fluid />
                             
                         </Col>
                     </Row>
+
+                    <Row className="spacerToken">
+                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsLeftPanel ">
+                            <VST />
+                        </Col>
+                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsRightPanel ">
+                            <VSF />
+                        </Col>
+                    </Row>
                     
-                    <VSTokens/>
+                    {/* <VSTokens/>
 
                     <Row className="">
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} className="app1 text-center">
@@ -139,7 +150,7 @@ class MainPage extends React.Component{
                         </Col>
                     </Row>
 
-                    <VSFarms/>
+                    <VSFarms/> */}
                     
                 
                 </div>

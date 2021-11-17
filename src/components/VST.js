@@ -126,7 +126,7 @@ export default function VST() {
                             </tr>
                             <tr>
                                 <td className="">
-                                    <div className="cAddressData">{this.state.tokenAddress}</div>
+                                    <div className="cAddressData"></div>
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>

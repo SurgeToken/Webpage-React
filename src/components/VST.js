@@ -75,13 +75,12 @@ const tokens = [
 
 export default function VST() {
 
-    const [tokenAddress] = useState([]);
-
+    const [selectedToken, setSelectedToken] = useState(tokens[0]);
 
     const tokenChange = (e) => {
         let tokenSymbol = e.target.value;
-        const tokenData = tokens.filter(token => Object.values(token).some(val => val.includes(tokenSymbol)));
-
+        const tokenData = tokens.filter(token => token.symbol === tokenSymbol);
+        setSelectedToken(tokenData);
     }
     
 
@@ -89,11 +88,11 @@ export default function VST() {
             <div className="widget spacerToken tokenList2">
                 <Form.Select className="tokenSelect" onChange={tokenChange}>
                     <option>Select a Surge Token</option>
-                    {Object.keys(tokens).map((token) => {
-                    return (
-                        <option value={tokens[token].symbol}>{tokens[token].name}</option>
-                    );
-                   
+                    {tokens.map((token) => {
+                        return (
+                            <option value={token.symbol}>{token.name}</option>
+                        );
+
                     })}
                 </Form.Select>
                 

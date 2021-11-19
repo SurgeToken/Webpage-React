@@ -125,7 +125,7 @@ export default function VST() {
                             </tr>
                             <tr>
                                 <td className="">
-                                    <div className="cAddressData"></div>
+                                    <div className="cAddressData">{selectedToken.address}</div>
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>

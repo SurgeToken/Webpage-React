@@ -161,7 +161,6 @@ body {
 /**********************************/
 
 
-
 @media screen and (min-width: 365px) and (max-width: 399px) {
   .shape{
     position: absolute;
@@ -645,6 +644,384 @@ body {
 
 }
 
+@media screen and (min-width: 580px) and (max-width: 767px) {
+	/*Begin Main Page CSS*/
+	.shape{
+		position: absolute;
+		right: 0;
+		width: 15%;
+		margin-top: -15%;
+	  }
+	  .shape2{
+		position: absolute;
+		right: 40px;
+		width: 15%;
+		margin-top: -10%;
+	  }
+	
+	  .tokenChart{
+		margin-top: 5%;
+		padding-left: 5%;
+		padding-right: 1%
+	  }
+	  .tokenCalc{
+		margin-top: 5%;
+		padding-left: 1%;
+		padding-right: 5%
+	  }
+	  .vstatsButtons{
+		margin-top: 5%;
+		margin-right: 15%;
+		margin-left: 5%;
+	  }
+	
+	  .tokenButton{
+		font-size: 1rem;
+		width: 140px;
+		background-color: transparent !important;
+		border-color: white;
+		border-top: transparent !important;
+		border-right: transparent !important;
+		border-left: transparent !important;
+	  }
+	
+	  .tokenLogo{
+		width: 30%;
+		margin-top: -5px;
+	  }
+	  .intro{
+		font-size: 1.6rem;
+		font-weight: 800;
+		margin-top: 31%;
+		padding-left: 8%;
+	  }
+	  .hiw{
+		font-size: 1rem;
+		font-weight: 800;
+	  }
+	
+	  .atomImg{
+		margin-top:5%;
+	  }
+	  .cta{
+		margin-top: -5%;
+		padding-left: 15%;
+		padding-right: 15%;
+	  }
+	
+	  .fees{
+		font-size: 1rem;
+		font-weight: 800;
+		margin-top: -24%;
+	  }
+	
+	  .feeBtns{
+		margin-top: 3%;
+	  }
+	
+	  .dApp2 {
+		text-decoration: none;
+		color: #29CBC1 !important;
+		font-weight: 800;
+		background: transparent !important;
+		padding: 10px 20px !important;
+		border-radius: 30px;
+		border-color: white ;
+		box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+		font-size: .6rem !important;
+	  }
+	
+	  .dApp3 {
+		text-decoration: none;
+		color: #29CBC1 !important;
+		font-weight: 800;
+		background: #0B3131 !important;
+		padding: 10px 20px !important;
+		border-radius: 30px;
+		box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+		font-size: .6rem !important;
+	  }
+	  .spacer1{
+		margin-top: 10%;
+	  }
+	  .spacer2{
+		margin-top: 20%;
+	  }
+	  .spacer3{
+		margin-top: 30%;
+	  }
+	  .spacer4{
+		margin-top: 35%;
+	  }
+	  .spacer5{
+		margin-top: 15%;
+	  }
+	  .spacervs{
+		margin-top: 10%;
+	  }
+	  .heroH1{
+		font-size: 1.5rem;
+		text-align: start;
+		font-weight: 800;
+	  }
+	
+	  .app1Img{
+		position: absolute;
+		right:0;
+		width: 50%;
+	  }
+	
+	  .app2Img{
+		position: absolute;
+		left:0;
+		width: 50%;
+	  }
+	  
+	  .app1{
+		margin-top: 2%;
+		padding-left: 8%;
+	
+	  }
+	
+	  .herospan1{
+		color: #24b4ab;
+		font-size: 1rem;
+	  }
+	  .heroH1{
+		font-size: 2.1rem;
+		text-align: start;
+		font-weight: 800;
+	  }
+	
+	  .herospan2{
+		color: #24b4ab;
+		font-size: 1rem;
+		position: absolute;
+		right: 2%;
+	  }
+	  .heroH2{
+		font-size: 2.1rem;
+		text-align: end;
+		font-weight: 800;
+		margin-right: 5%;
+	  }
+	
+	
+	
+	  .token{
+		border-radius: 25px;
+		margin-top: 25px;
+		margin-bottom: 25px;
+		background-color: rgb(10,47,48, 0.6) !important;
+		padding: 5px 15px 5px 15px !important;
+		font-size: 1rem;
+		
+	  }
+	
+	  .tokenLogo{
+		width: 100%;
+		margin-top: 0;
+	  }
+	
+	  .tokenImg{
+		width: 5%;
+	  }
+	
+	  .tokenTable{
+		color: white;
+		margin-bottom: 0;
+	  }
+	
+	  .tokenName{
+		font-size: .65em;
+		width: 15%;
+		padding-top: 22px !important;
+	  }
+	
+	  .tName{
+		margin-left: 5%;
+	  }
+	
+	  .tokenAddress{
+		padding-top: 22px !important;
+		font-size: .65rem;
+		text-align: end;
+		width: 37%;
+	  }
+	
+	  .tokenPrice{
+		padding-top: 22px !important;
+		text-align: end;
+		font-size: .7rem;
+		width: 20%;
+	  }
+	  .tokenHolders{
+		padding-top: 14px !important;
+		text-align: end;
+		font-size: 1rem;
+		width: 13%;
+	  }
+	
+	  .tokenList{
+		padding: 30px 20px 30px 20px;
+		margin: 5% 5% 5% 5%;
+	  }
+	
+	  .btn{
+		padding: 0;
+	  }
+	
+	  .tokenMeta{
+		width: 5%;
+	  }
+	  .imgMeta{
+		width: 25px;
+	  }
+	
+	  .metaBtn{
+		border: none;
+		background: none;
+		padding-top: 8px;
+	  }
+	
+	  .bscBtn{
+		border: none;
+		background: none;
+		padding-top: 8px;
+	  }
+	
+	  .imgBSC{
+		width:25px
+	  }
+	
+	  .tokenBSC{
+		width:2%
+	  }
+	
+	  .tokenData{
+		padding: 10% 5% 5% 5%;
+	  }
+	
+	  .statsTable{
+		color: white;
+	  }
+	
+	  .dot{
+		width: 5%;
+		margin-top: -.5%;
+	  }
+	
+	  .assetsLeftPanel{
+		padding-left:5%;
+		padding-right: 5%;
+	  } 
+	
+	  .assetsRightPanel{
+		margin-top: 15px;
+		padding-left: 5%;
+		padding-right: 5%;
+	  } 
+	
+	  .coloredTD{
+		background-color: #0B2F30 !important;
+		border-radius: 25px;
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+		margin-bottom: 2%;
+	  }
+	
+	  .uncoloredTD{
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+		margin-bottom: 2%;
+	  }
+	
+	  .cValueSpacer{
+		margin-bottom: 5%;
+	  }
+	
+	  .cValueTxt{
+		font-size: 1rem;
+		margin-left: 1%;
+	  }
+	
+	  .cAddressData{
+		text-align: center;
+	  }
+	  
+	  .uLabel{
+		text-align: center;
+		font-size: 1.5rem;
+	  }
+	  
+	  .tdLabel{
+		float:left;
+		width:50%;
+	  }
+	  .tdData{
+		float:right;
+		width:50%;
+		text-align: end;
+	  }
+	
+	  .tableSpacer{
+		margin-top: 5%;
+	  }
+	  /*End Main Page*/
+	
+	  /**Begin Education Page CSS**/
+	  .edLogo{
+		text-align: center;
+		margin-top: 3%;
+		margin-bottom: 3%;
+	  }
+	  
+	  .edStep{
+		width: 50%;
+	  }
+	  
+	  .edImg{
+		text-align: center;
+		margin-top: 3%;
+		margin-bottom: 3%;
+	  }
+	  
+	  .edImg2{
+		width: 85%;
+	  }
+	  
+	  .edImg3{
+		width: 35%;
+	  }
+	  
+	  .edTitle{
+		text-align: center;
+		margin-top: 5%;
+		width: 50%;
+	  }
+	  
+	  .edToken{
+		margin-left: 5%;
+		margin-bottom: 1%;
+	  }
+	  
+	  .edToken2{
+		margin-left: 5%;
+		margin-top: 3%;
+		margin-bottom: 1%;
+	  }
+	  
+	  .edText{
+		font-size: 1rem;
+		text-align: justify;
+	  }
+	  
+	  .edH4{
+		margin-top: 3%;
+	  }
+	/**End Education Page CSS**/
+}
+
 @media screen and (min-width: 768px) and (max-width: 836px) {
   /*Begin Main Page CSS*/
   .shape{
@@ -1023,7 +1400,7 @@ body {
 /**End Education Page CSS**/
 }
 
-@media screen and (min-width: 837px) and (max-width: 1116px) {
+@media screen and (min-width: 837px) and (max-width: 1299px) {
   
   /*Begin Main Page CSS */
   .shape{

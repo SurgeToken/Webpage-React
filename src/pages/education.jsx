@@ -718,7 +718,80 @@ const Education = () => {
             <Accordion.Item eventKey="0">
               <Accordion.Header>What is xUSD?</Accordion.Header>
               <Accordion.Body>
-              
+				 <Row>
+                <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                	<p>Launched on November 8th, this token is the beginning of the XSurge ecosystem.</p>
+					<p>XUSD is pegged to the US Dollar by utilizing BUSD as its underlying asset. This will make xUSD more of a stable coin with the same attributes as other surge tokens. You will be able to buy/sell xUSD through the token itself just like every other surge, but we will also launch XUSD on PancakeSwap, initially paired with BNB. Pairing xUSD with other Assets in liquidity will allow xUSD to benefit from that Asset going up or down in price. When BNB goes up 0.5% or down 1% xUSD will be traded against it to keep the price reflective of its real world value. Day Traders / Arbitrage Traders will be able to profit off of this structure. The token will have the traditional XSurge price gain algorithm employed but will serve its extended purpose as an intermediary token between all existing Surge Variant tokens. Staking Liquidity for XUSD will be highly incentivized via reduced taxation + Passive XUSD Dividends. The more XUSD staked in different trading pools, the more Arbitrage (TX Volume) it will gain. We are starting with the XUSD - BNB Pool, but will be adding new trading pools over time and allow their Liquidity Providers to receive passive income</p>
+                </Col>
+              </Row>
+              </Accordion.Body>
+            </Accordion.Item>
+			<Accordion.Item eventKey="1">
+              <Accordion.Header>xUSD's Utility</Accordion.Header>
+              <Accordion.Body>
+				 <Row>
+                <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                	<p>XUSD will benefit the Surge Ecosystem as being its primary intermediary asset. In its use-case as an intermediary token, with XUSD, traders can swap from one asset to the other and play the market for profit or swap in preference to another asset. To encourage the exploration of this feature, XUSD fees will be extremely low making arbitrage trading highly appealing for investors. The maximum net loss from fees alone will be 1%.</p>
+					<p>Here’s the fee breakdown:</p>
+					<ul>
+						<li>Buy/Stake - .75% fee</li>
+						<li>Sells - .25% fee</li>
+						<li>Transfers - .25% fee</li>
+					</ul>
+					<p>A portion of these fees will be allocated toward paying those who provide + lock their liquidity tokens across the various xUSD pools. The more liquidity pools xUSD is paired with, the more trading pairs exist, and the more xUSD benefits from Global Crypto Volatility.</p>
+                </Col>
+              </Row>
+              </Accordion.Body>
+            </Accordion.Item>
+			<Accordion.Item eventKey="2">
+              <Accordion.Header>How can xUSD benefit other tokens?</Accordion.Header>
+              <Accordion.Body>
+				 <Row>
+                <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                	<p>XUSD will have another Utility as an underlying asset. With such low fees, one could pair a new or existing token with XUSD instead of BNB on Pancakeswap, making it so the volatility of BNB does not negatively impact their token, and instead their token will be slowly appreciating alongside XUSD! For example, if there is XUSD in a Pool with any random Token, and XUSD goes up 10% in value, if there are no buys/sells into that pool it will bring the price of the Random Token up 10% with it.</p>
+					<p>As BitCoin or other major assets have downward or upward market trends, holders will be more encouraged to stake into XUSD to take advantage of higher value opportunities and hedge against risk. This will significantly boost transaction volume for all assets tethered to it; thereby increasing the price value of each asset. This transaction volume to correct the price, can originate from hobbyist day traders, crypto trading bots, and even centralized exchanges! The more liquidity in a pool, the more transaction volume needed to correct the price differences!</p>
+                </Col>
+              </Row>
+              </Accordion.Body>
+            </Accordion.Item>
+			<Accordion.Item eventKey="3">
+              <Accordion.Header>xUSD and Yield Farming</Accordion.Header>
+              <Accordion.Body>
+				 <Row>
+                <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                	<p>What is Yield Farming you ask?  Yield Farming is simply a way to gain rewards from staking liquidity. From the date of launch onward, those that choose to participate will be able to Purchase/Stake xUSD and BNB into PancakeSwap, but their Liquidity Pool Tokens will be locked away for three months. This operation is completely tax free and mints you “Farm Tokens” (LP Tokens) that signify a pairing of XUSD/BNB. As long as you hold these Farm Tokens and do not withdraw your liquidity, you will be able to Claim xUSD weekly from the Yield Farming Contract. This XUSD comes from the buy/sell/transfer tax taken. </p>
+					<p>LP Tokens are a token that signifies the pairing of two assets. Typically, traditional tokens are a single cryptocurrency that can be paired with something else in liquidity to give it value. To create a liquidity pool, the pairing of two assets can be given a name to make said pairing an entity. For example 100  XUSD paired with 10 BNB is equal to 1 “Farm Token”, a singular token that represents the pairing.</p>
+					<p>When LP Tokens are locked, Farm Tokens are minted to the locker. Farm Tokens can be sold for the underlying LP Tokens, they can also extract their share of Liquidity Tax Free if desired as long as the tokens have been locked for at least 90 days. As long as the LP is locked the buyer will be able to claim XUSD dividends weekly from the Yield Farm Contract. After 90 days or whenever the buyer decides to unlock his LP tokens, he will be able to withdraw an equal amount of XUSD and BNB. If Farm Tokens are redeemed for the underlying liquidity, the user is no longer able to claim rewards in XUSD. You may only claim XUSD Dividends weekly if you have Liquidity Locked in a Yield Farm Contract.</p>
+                </Col>
+              </Row>
+              </Accordion.Body>
+            </Accordion.Item>
+			<Accordion.Item eventKey="4">
+              <Accordion.Header>Benefits of Yield Farming</Accordion.Header>
+              <Accordion.Body>
+				 <Row>
+                <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                	<ul>
+						<li>The investor that chose to stake will have access to the xUSD kept in the yield farm. The yield farm will constantly accrue XUSD as purchases, sells, and transfers are made.</li>
+						<br />
+						<li>The majority of the value gained from these XUSD movements is allocated to the yield farm. For every XUSD Transaction ⅕ or 20% of the tax is routed in the form of XUSD to the yield farm. In addition, each staker gains value from the rising price floor of XUSD itself, each time it goes up in value. Note: On day two after launch, tax allocation to the yield farm contract will go from ⅕ (20%) to ¼ (25%)</li>
+						<br />
+						<li>Only the Locked liquidity gains rewards offering more profit to those that choose to stake and lock their Liquidity Tokens.</li>
+						<br />
+						<li>The amount of gain to each investor that stakes is determined by their stake in the pool. So if an investor owns 50% of the Yield Farm liquidity tokens, they will receive that percentage of allocated XUSD from taxations.</li>
+					</ul>
+                </Col>
+              </Row>
+              </Accordion.Body>
+            </Accordion.Item>
+			<Accordion.Item eventKey="5">
+              <Accordion.Header>Utility as an Underlying Asset</Accordion.Header>
+              <Accordion.Body>
+				 <Row>
+                <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                	<p>XUSD can be paired with anything as an underlying asset. As an underlying asset that continues to appreciate with volume, it can add significant capital growth to an investor's holdings. XUSD will be able to pair with and transfer between any asset, allowing for even more arbitrage opportunities as a trader. XUSD is a stable-yet appreciating underlying asset to which an investor can base the wealth of their token on, offering significant capital growth over time and volume from having XUSD represent the Token’s store of value.</p>
+                </Col>
+              </Row>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

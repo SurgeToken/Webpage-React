@@ -1,73 +1,72 @@
 .widget {
-    position: relative;
-    padding: 20px;
-    border-radius: 25px;
-    border: 1px solid #051415;
-    background-color: rgba(3, 19, 27, 68%);
-    -webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
-    -moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
-    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
-    
+	position: relative;
+	padding: 20px;
+	border-radius: 25px;
+	border: 1px solid #051415;
+	background-color: rgba(3, 19, 27, 68%);
+	-webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	
 }
 
 .widget2 {
-    position: relative;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #104f5b47;
-    background-image: -webkit-linear-gradient(0deg, rgb(0 32 41 / 82%) 0%, rgb(1 40 60 / 76%) 100%);
-    -webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
-    -moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
-    box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	position: relative;
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid #104f5b47;
+	background-image: -webkit-linear-gradient(0deg, rgb(0 32 41 / 82%) 0%, rgb(1 40 60 / 76%) 100%);
+	-webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
 }
 
 .widgetMsg {
-    position: fixed;
-  top: 50%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #104f5b47;
-  background-image: -webkit-linear-gradient(90deg,#006b71fc 0%, #0dbcbd 100%);
-  color: #002738;
-  font-size: 1.4em;
-  font-weight: bold;
-  -webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
-  -moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
-  box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid #104f5b47;
+	background-image: -webkit-linear-gradient(90deg,#006b71fc 0%, #0dbcbd 100%);
+	color: #002738;
+	font-size: 1.4em;
+	font-weight: bold;
+	-webkit-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
+	box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
 }
 
 .cAddress{
-    background-color: #011b1f94;
-    padding: 4px 10px 4px 1em;
-    width: 100%;
-    margin-top: 10px;
-    border: 1px solid #006a7b87;
+	background-color: #011b1f94;
+	padding: 4px 10px 4px 1em;
+	width: 100%;
+	margin-top: 10px;
+	border: 1px solid #006a7b87;
 }
 
 .cAddress i {
-    margin-left: 5px;
+	margin-left: 5px;
 }
 
 html {
-  min-height: 100%; 
+	min-height: 100%; 
 }
 
 body {
-  color: white;
-  height: 100%;
-  font-size: 0.875rem;
-  background-color: #030a0d;
-  overflow-x: hidden;
-  overflow-y: auto;
-  letter-spacing: 0.0312rem;
-  font-family: 'Open Sans' !important; 
-    background-size: 0.6em 0.6em;
-  /* src: url('assets/fonts/goodtimes.ttf'); */
-  max-width: 1600px;
-  margin: 0 auto; 
+	color: white;
+	height: 100%;
+	font-size: 0.875rem;
+	background-color: #030a0d;
+	overflow-x: hidden;
+	overflow-y: auto;
+	letter-spacing: 0.0312rem;
+	font-family: 'Open Sans' !important; 
+	background-size: 0.6em 0.6em;
+	max-width: 1600px;
+	margin: 0 auto; 
 }
 
 .row {
@@ -75,559 +74,1040 @@ body {
 	margin-left: 0px;
 }
 
+/* 
+=====================
+	Navigation Bar
+=====================
+*/
+.logoNav1{
+	width: 250px;
+}
+
+.nav-link{
+	color: white !important;
+	margin-right: 30px;
+	font-size: 1.1em;
+}
+  
+.bg-dark{
+	background-color: transparent !important;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.appicon{
+	width: 20px;
+	margin-right: 10px;
+}
+
+.papericon{
+	width: 15px;
+	margin-right: 10px;
+}
+/* 
+=====================
+	END Navigation Bar
+=====================
+*/
+
+/* 
+=====================
+	dApp
+=====================
+*/
+.dApp {
+	text-decoration: none;
+	color: #29CBC1 !important;
+	font-weight: 800;
+	background: #0B3131 !important;
+	padding: 10px 20px !important;
+	border-radius: 30px;
+	box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+}
+
+.dApp2 {
+	text-decoration: none;
+	color: #29CBC1 !important;
+	font-weight: 800;
+	background: transparent !important;
+	padding: 10px 20px !important;
+	border-radius: 30px;
+	border-color: white ;
+	box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	font-size: .8rem !important;
+}
+
+.dApp3 {
+	text-decoration: none;
+	color: #29CBC1 !important;
+	font-weight: 800;
+	background: #0B3131 !important;
+	padding: 10px 20px !important;
+	border-radius: 30px;
+	box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	font-size: .8rem !important;
+}
+
+.herospan{
+	color: #24b4ab;
+}
+
+/* 
+=====================
+	END dApp
+=====================
+*/
+
+/*
+===============================
+	Main Page
+===============================
+*/
+.shape{
+	position: absolute;
+	right: 0;
+	width: 15%;
+	margin-top: 5%;
+}
+
+.shape2{
+	position: absolute;
+	right: 40px;
+	width: 15%;
+	margin-top: -10%
+}
+
+.tokenChart{
+	margin-top: 5%;
+	padding-left: 10%;
+	padding-right: 1%
+}
+.tokenCalc{
+	margin-top: 5%;
+	padding-left: 1%;
+	padding-right: 10%
+}
+.vstatsButtons{
+	margin-top: 5%;
+	margin-right: 15%;
+	margin-left: 15%;
+}
+
+.tokenName{
+	font-size: 1em;
+	margin-left: -5px;
+}
+
+.tokenButton{
+	font-size: 1rem;
+	width: 140px;
+	background-color: transparent !important;
+	border-color: white;
+	border-top: transparent !important;
+	border-right: transparent !important;
+	border-left: transparent !important;
+}
+
+.tokenLogo{
+	width: 30%;
+	margin-top: -5px;
+}
+
+#intro_container {
+	text-align: center;
+}
+
+.intro{
+	font-size: 3.2rem;
+	font-weight: 800;
+	margin-top: 31%;
+}
+
+.spacer1{
+	margin-top: 10%;
+}
+
+.spacer2{
+	margin-top: 15%;
+}
+.spacer3{
+	margin-top: 30%;
+}
+.spacer4{
+	margin-top: 30%;
+}
+
+.spacer5{
+	margin-top: 15%;
+}
+.spacervs{
+	margin-top: 30%;
+}
+
+.cta{
+	margin-top: -15%;
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.fees{
+	font-size: 1.8rem;
+	font-weight: 800;
+	margin-top: -22%;
+}
+
+.feeBtns{
+	margin-top: 3%;
+}
+
 .heroImage{
-  padding-right: 5%;
+	padding-right: 5%;
 }
 
 .atomImg{
-  width: 60%;
+	width: 60%;
 }
 
 .app1Img{
-  position: absolute;
-  right:0;
-  width: 50%;
+	position: absolute;
+	right:0;
+	width: 50%;
+}
+
+.app2Img{
+	position: absolute;
+	left:0;
+	width: 50%;
 }
 
 .dropdown-menu{
-  background-color: #030a0d !important;
+	background-color: #030a0d !important;
 }
 
 .dropdown-item {
-  color: #fff;
+	color: #fff;
 }
 
 .nav-image{
-  width: 25%;
-  margin-right: 15px;
+	width: 25%;
+	margin-right: 15px;
+	max-width: 31.5px;
 }
 
 .dropdown-divider{
-  color: white !important;
+	color: white !important;
+}
+
+.certikImg{
+	position: absolute;
+	right:0;
+	width: 50%;
+	padding-right: 5%;
 }
 
 .app1{
-  text-align: start;
-  font-size: 3.2rem;
-  font-weight: 800;
-  padding-left: 8%;
+	text-align: start;
+	font-size: 3.2rem;
+	font-weight: 800;
+	padding-left: 8%;
+	margin-top: 2%;
+}
+
+.app2{
+	margin-top: 2%;
+	padding-left: 8%;
 }
 
 .btnDApp{
-  margin-left: 8%;
-  border: transparent;
+	border: transparent;
 }
 .btnDApp2{
-  border: transparent;
-  margin-right: 5%;
+	border: transparent;
+	margin-right: 5%;
 }
 
 .hiw{
-  font-size: 2rem;
-  font-weight: 800;
+	font-size: 2rem;
+	font-weight: 800;
 }
 
-/**Surge Education**/
+.herospan1{
+	color: #24b4ab;
+	font-size: 1rem;
+}
 
+.heroH1{
+	font-size: 3rem;
+	text-align: start;
+	font-weight: 800;
+}
+
+.herospan2{
+	color: #24b4ab;
+	font-size: 1rem;
+	position: absolute;
+	right: 2%;
+}
+
+.heroH2{
+	font-size: 3rem;
+	text-align: end;
+	font-weight: 800;
+	margin-right:5%;
+}
+
+.tokens {
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding-left: 10%;
+	padding-right: 10%
+}
+
+.spacerToken {
+	margin-top: 5%;
+	margin-bottom:5%;
+}
+
+.dot {
+	width: 5%;
+	margin-top: -.5%;
+}
+
+.tokenList{
+	padding: 30px 20px 30px 20px;
+	margin: 5% 5% 5% 5%;
+}
+
+.tokenList2 {
+	padding: 30px 20px 30px 20px;
+}
+
+.statTxt {
+	font-size: 1.2rem;
+	margin-left: 15px;
+}
+
+.tokenStats {
+	margin-top: 5%;
+}
+/*
+===============================
+	End Main Page
+===============================
+*/
+
+/*
+===============================
+	Surge Education
+===============================
+*/
 .accordion{
-  margin-left: 5%;
-  margin-right: 5%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .accordion-flush .accordion-item .accordion-button{
-  background-color: #030a0d;
-  color: #fff;
+	background-color: #030a0d;
+	color: #fff;
 }
 
 .accordion-item{
-  border-bottom: 1px solid rgba(255,255,225);
-    background-color: transparent;
+	border-bottom: 1px solid rgba(255,255,225);
+	background-color: transparent;
 }
 
-.accordion-button::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+.accordion-button::after {	
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
 }
 
 .tokenSelect{
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+	background-color: transparent;
+	color: #fff;
+	border: none;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+}
+
+.edLogo{
+	text-align: center;
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.edStep{
+	width: 50%;
+}
+
+.edImg{
+	text-align: center;
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.edImg2{
+	width: 85%;
+}
+
+.edImg3{
+	width: 35%;
+}
+
+.edImg4{
+	width: 50%;
+}
+
+.edImg5{
+	width: 85%;
+}
+
+.edTitle{
+	text-align: center;
+	width: 50%;
+}
+.edText{
+	font-size: 1rem;
+	text-align: justify;
+}
+
+.edH4{
+	margin-top: 3%;
 }
 
 .edToken, .edToken2{
 	padding-left: 5%;
 	margin-bottom: 1%;
 }
-  
+
 .edToken2 {
 	margin-top: 3%;
 }
 
-/**********************************/
-
-@media screen and (min-width: 320px) and (max-width: 399px) {
-  .shape{
-    position: absolute;
-    right: 0;
-    width: 15%;
-  }
-  .shape2{
-    position: absolute;
-    right: 40px;
-    width: 15%;
-    margin-top: -10%;
-  }
-  .btnDApp{
-    margin-left: 35%;
-    border: transparent;
-  }
-  .heroImage{
-    padding-right: 5%;
-    padding-left: 5%;
-  }
-  .tokenChart{
-    margin-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%
-  }
-  .tokenCalc{
-    margin-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%
-  }
-  .vstatsButtons{
-    margin-top: 5%;
-    margin-right: 15%;
-    margin-left: 5%;
-  }
-  .tokenName{
-    font-size: 1em;
-    margin-left: -6px;
-  }
-  .tokenButton{
-    font-size: .6rem;
-    width: 68px;
-    background-color: transparent !important;
-    border-color: white;
-    border-top: transparent !important;
-    border-right: transparent !important;
-    border-left: transparent !important;
-    padding: 0px !important;
-  }
-  .logoNav1{
-    width: 150px !important;
-    margin-left: 5%;
-  }
-  .tokenLogo{
-    width: 30%;
-    margin-top: -3px;
-  }
-  .intro{
-    font-size: 1.6rem;
-    font-weight: 800;
-    margin-top: 5%;
-    padding-left: 24%;
-  }
-  .hiw{
-    font-size: 1rem;
-    font-weight: 800;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-  .atomImg{
-    margin-top:5%;
-    width: 90%;
-  }
-  .cta{
-    margin-top: -5%;
-    padding-left: 5%;
-    padding-right: 5%;
-    height: 155%
-  }
-  .fees{
-    font-size: 0.7rem;
-    font-weight: 800;
-    margin-top: -34%;
-  }
-  .feeBtns{
-    margin-top: 2%;
-  }
-  .dApp2 {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: transparent !important;
-    padding: 10px 20px !important;
-    border-radius: 30px;
-    border-color: white ;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-    font-size: .6rem !important;
-  }
-  .dApp3 {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: #0B3131 !important;
-    padding: 7px 10px !important;
-    border-radius: 30px;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-    font-size: .6rem !important;
-  }
-  .spacer1{
-    margin-top: 10%;
-  }
-  .spacer2{
-    margin-top: 20%;
-  }
-  .spacer3{
-    margin-top: 55%;
-  }
-  .spacer4{
-    margin-top: 50%;
-  }
-  .spacervs{
-    margin-top: 10%;
-  }
-  .heroH1{
-    font-size: 1.5rem;
-    text-align: start;
-    font-weight: 800;
-  }
-  .app1Img{
-    position: absolute;
-    right:0;
-    width: 60%;
-  }
-  .app2Img{
-    position: absolute;
-    left:0;
-    width: 60%;
-    margin-top: 25%
-  }
-  .app1{
-    margin-top: 2%;
-    padding-left: 8%;
-
-  }
-  .app2{
-    margin-top: 2%;
-    padding-left: 8%;
-  }
-  .certikImg{
-    padding-right: 1%;
-    padding-left: 5%;
-  }
-  .herospan{
-    color: #24b4ab;
-  }
-  .herospan1{
-    color: #24b4ab;
-    font-size: .8rem;
-  }
-  .herospan2{
-    color: #24b4ab;
-    font-size: .8rem;
-    position: absolute;
-    right: 5%;
-  }
-  .heroH2{
-    font-size: 1.5rem;
-    text-align: end;
-    font-weight: 800;
-    margin-right: 5%;
-  }
-
-  /**Begin Education Page CSS**/
-  .edLogo{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .edStep{
-    width: 50%;
-  }
-  
-  .edImg{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .edImg2{
-    width: 85%;
-  }
-  
-  .edImg3{
-    width: 35%;
-  }
-
-  .edImg4{
-    width: 50%;
-  }
-  
-  .edTitle{
-    text-align: center;
-    margin-top: 5%;
-    width: 85%;
-  }
-
-  .edText{
-    font-size: 1rem;
-    text-align: justify;
-  }
-  
-  .edH4{
-    margin-top: 3%;
-  }
-/**End Education Page CSS**/
+.assets{
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
-@media screen and (min-width: 400px) and (max-width: 579px) {
-  /*Begin Main Page CSS*/
-  .shape{
-    position: absolute;
-    right: 0;
-    width: 15%;
-  }
-  .shape2{
-    position: absolute;
-    right: 40px;
-    width: 15%;
-    margin-top: -10%;
-  }
-
-  .btnDApp{
-    margin-left: 35%;
-    border: transparent;
-  }
-
-  .heroImage{
-    padding-right: 5%;
-    padding-left: 5%;
-  }
-
-  .tokenChart{
-    margin-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%
-  }
-  .tokenCalc{
-    margin-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%
-  }
-  .vstatsButtons{
-    margin-top: 5%;
-    margin-right: 15%;
-    margin-left: 5%;
-  }
-
-  .tokenName{
-    font-size: 1em;
-    margin-left: -6px;
-  }
-
-  .tokenButton{
-    font-size: .6rem;
-    width: 75px;
-    background-color: transparent !important;
-    border-color: white;
-    border-top: transparent !important;
-    border-right: transparent !important;
-    border-left: transparent !important;
-    padding: 0px !important;
-  }
-
-  .logoNav1{
-    width: 150px !important;
-    margin-left: 5%;
-  }
-
-  .tokenLogo{
-    width: 30%;
-    margin-top: -3px;
-  }
-  .intro{
-    font-size: 1.6rem;
-    font-weight: 800;
-    margin-top: 5%;
-    padding-left: 26%;
-  }
-  .hiw{
-    font-size: 1rem;
-    font-weight: 800;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  .atomImg{
-    margin-top:5%;
-    width: 90%;
-  }
-  .cta{
-    margin-top: -5%;
-    padding-left: 5%;
-    padding-right: 5%;
-    height: 155%
-  }
-
-  .fees{
-    font-size: 0.9rem;
-    font-weight: 800;
-    margin-top: -36%;
-  }
-
-  .feeBtns{
-    margin-top: 2%;
-  }
-
-  .dApp2 {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: transparent !important;
-    padding: 10px 20px !important;
-    border-radius: 30px;
-    border-color: white ;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-    font-size: .6rem !important;
-  }
-
-  .dApp3 {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: #0B3131 !important;
-    padding: 10px 20px !important;
-    border-radius: 30px;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-    font-size: .6rem !important;
-  }
-  .spacer1{
-    margin-top: 10%;
-  }
-  .spacer2{
-    margin-top: 20%;
-  }
-  .spacer3{
-    margin-top: 55%;
-  }
-  .spacer4{
-    margin-top: 50%;
-  }
-  .spacervs{
-    margin-top: 10%;
-  }
-  .heroH1{
-    font-size: 1.5rem;
-    text-align: start;
-    font-weight: 800;
-  }
-
-
-  .app1Img{
-    position: absolute;
-    right:0;
-    width: 60%;
-  }
-
-  .app2Img{
-    position: absolute;
-    left:0;
-    width: 60%;
-    margin-top: 25%
-  }
-  
-  .app1{
-    margin-top: 2%;
-    padding-left: 8%;
-
-  }
-
-  .app2{
-    margin-top: 2%;
-    padding-left: 8%;
-
-  }
-
-  .certikImg{
-    padding-right: 1%;
-    padding-left: 5%;
-  }
-
-  .herospan{
-    color: #24b4ab;
-  }
-
-  .herospan1{
-    color: #24b4ab;
-    font-size: .8rem;
-  }
-
-  .herospan2{
-    color: #24b4ab;
-    font-size: .8rem;
-    position: absolute;
-    right: 5%;
-  }
-  .heroH2{
-    font-size: 1.5rem;
-    text-align: end;
-    font-weight: 800;
-    margin-right: 5%;
-  }
-  /*End Main Page CSS*/
-
-  /**Begin Education Page CSS**/
-  .edLogo{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .edStep{
-    width: 50%;
-  }
-  
-  .edImg{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .edImg2{
-    width: 85%;
-  }
-  
-  .edImg3{
-    width: 35%;
-  }
-
-  .edImg4{
-    width: 50%;
-  }
-  
-  .edTitle{
-    text-align: center;
-    margin-top: 5%;
-    width: 85%;
-  }
-
-  .edText{
-    font-size: 1rem;
-    text-align: justify;
-  }
-  
-  .edH4{
-    margin-top: 3%;
-  }
-/**End Education Page CSS**/
-
+.assetsLeftPanel{
+	padding-left:5%;
 }
 
-@media screen and (min-width: 580px) and (max-width: 767px) {
+.assetsRightPanel{
+	padding-right: 5%;
+}
+
+.token {
+	border-radius: 25px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	background-color: rgb(10,47,48, 0.6) !important;
+	padding: 15px !important;
+	font-size: 1rem;
+	
+}
+
+.tokenLogo{
+	width: 50%;
+}
+
+.tokenImg{
+	width: 5%;
+}
+
+.tokenTable{
+	color: white;
+	margin-bottom: 0;
+}
+
+.tokenName{
+	padding-top: 20px !important;
+	width: 15%;
+}
+
+.tokenAddress{
+	padding-top: 20px !important;
+	font-size: 1rem;
+	text-align: end;
+	width: 37%;
+}
+
+.tokenPrice{
+	padding-top: 20px !important;
+	text-align: end;
+	font-size: 1rem;
+	width: 20%;
+}
+
+.tokenHolders{
+	padding-top: 14px !important;
+	text-align: end;
+	font-size: 1rem;
+	width: 13%;
+}
+
+.tokenMeta{
+	width: 5%;
+}
+
+.tokenBSC{
+	width:5%
+}
+
+.imgMeta{
+	width: 30px;
+}
+
+.imgBSC{
+	width:30px
+}
+
+.metaBtn{
+	border: none;
+	background: none;
+}
+
+.bscBtn{
+	border: none;
+	background: none;
+}
+
+.tokenData{
+	padding: 10% 5% 5% 5%;
+}
+
+.statsTable{
+	color: white;
+}
+
+.coloredTD{
+	background-color: #0B2F30 !important;
+	border-radius: 25px;
+	padding-left: 5% !important;
+	padding-right: 5% !important;
+	margin-bottom: 2%;
+}
+.uncoloredTD{
+	padding-left: 5% !important;
+	padding-right: 5% !important;
+	margin-bottom: 2%;
+}
+
+.cValueSpacer{
+	margin-bottom: 5%;
+}
+
+.cValueTxt{
+	font-size: 1rem;
+	margin-left: 1%;
+}
+
+.cAddressData{
+	text-align: center;
+}
+
+.uLabel{
+	text-align: center;
+	font-size: 1.5rem;
+}
+.tdLabel{
+	float:left;
+	width:50%;
+}
+.tdData{
+	float:right;
+	width:50%;
+	text-align: end;
+}
+
+.tableSpacer{
+	margin-top: 5%;
+}
+/*
+===============================
+	END Surge Education
+===============================
+*/
+
+/*
+===============================
+	One Sheet
+===============================
+*/
+#surge-one-sheet-container {
+	text-align: center;
+	margin-top: 20px;
+}
+#surge-one-sheet-img {
+	max-width: 100%;
+}
+/*
+===============================
+	End One Sheet
+===============================
+*/
+
+/*
+===============================
+	@media queries
+===============================
+*/
+@media screen and (max-width: 1600px) {
+	.hiw{
+		font-size: 1.8rem;
+	}
+}
+
+@media screen and (max-width: 1425px) {
+	.intro {
+		font-size: 2.8rem;
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.intro {
+		font-size: 2.5rem;
+	}
+}
+
+@media screen and (max-width: 1140px) {
+	.intro {
+		font-size: 2rem;
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	.nav-link {
+		font-size: 1em;
+	}
+
+	.intro {
+		font-size: 1.7rem;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.dApp {
+		margin-right: 0px;
+		margin-top: 10px;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 837px) {
+	/*Begin Main Page CSS */
+	.vstatsButtons{
+		margin-left: 10%;
+	}
+
+	.intro{
+		font-size: 1.3rem;
+	}
+
+	.spacer {
+		margin-top: 10%;
+	}
+
+	.hiw {
+		font-size: 1.3rem;
+	}
+
+	.fees {
+		font-size: 1.3rem;
+	}
+
+	.spacer2 {
+		margin-top: 20%;
+	}
+
+	.spacer4 {
+		margin-top: 15%;
+	}
+
+	.spacervs {
+		margin-top: 10%;
+	}
+
+	.heroH1{
+		font-size: 2.1rem;
+	}
+
+	.heroH1 {
+		font-size: 2.1rem;
+	}
+
+	.tokenList {
+		padding: 30px 20px 30px 20px;
+		margin: 5% 5% 5% 5%;
+	}
+
+	.tokenLogo {
+		width: 100%;
+		padding-top: 5px;
+	}
+
+	.tokenName {
+		font-size: .8em;
+		padding-top: 23px !important;
+		width: 13%;
+	}
+
+	.tName {
+		margin-left: 5%;
+	}
+
+	.tokenAddress{
+		padding-top: 23px !important;
+		font-size: .8rem;
+		width: 30%;
+	}
+
+	.tokenPrice{
+		padding-top: 23px !important;
+		font-size: .8rem;
+		width: 15%;
+	}
+
+	.assetsLeftPanel {
+		padding-left:5%;
+	} 
+
+	.assetsRightPanel {
+		padding-right: 5%;
+	}
+	/*End Main Page CSS*/
+
+	/*Begin Education Page CSS*/
+	.edTitle{
+		margin-top: 5%;
+	}
+	/*End Education Page CSS*/
+}
+
+@media screen and (max-width: 767px) {
+	/*Begin Main Page CSS*/
+	.tokenCalc {
+		padding-right: 5%
+	}
+
+	.intro {
+		padding: 0;
+		text-align: center;
+		margin-top: 0;
+	}
+
+	.vstatsButtons{
+		margin-left: 5%;
+	}
+
+	.hiw {
+		font-size: 1rem;
+	}
+
+	.cta{
+	  margin-top: -5%;
+	  padding-left: 15%;
+	  padding-right: 15%;
+	}
+  
+	.fees{
+		font-size: 1rem;
+		margin-top: -24%;
+	}
+  
+	.feeBtns{
+	  margin-top: 3%;
+	}
+  
+	.dApp2 {
+	  text-decoration: none;
+	  color: #29CBC1 !important;
+	  font-weight: 800;
+	  background: transparent !important;
+	  padding: 10px 20px !important;
+	  border-radius: 30px;
+	  border-color: white ;
+	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	  font-size: .6rem !important;
+	}
+  
+	.dApp3 {
+	  text-decoration: none;
+	  color: #29CBC1 !important;
+	  font-weight: 800;
+	  background: #0B3131 !important;
+	  padding: 10px 20px !important;
+	  border-radius: 30px;
+	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	  font-size: .6rem !important;
+	}
+	.spacer1{
+	  margin-top: 10%;
+	}
+	.spacer2{
+	  margin-top: 20%;
+	}
+	.spacer3{
+	  margin-top: 30%;
+	}
+	.spacer4{
+	  margin-top: 35%;
+	}
+	.spacer5{
+	  margin-top: 15%;
+	}
+	.spacervs{
+	  margin-top: 10%;
+	}
+	.heroH1{
+	  font-size: 1.5rem;
+	  text-align: start;
+	  font-weight: 800;
+	}
+  
+	.app1Img{
+	  position: absolute;
+	  right:0;
+	  width: 50%;
+	}
+  
+	.app2Img{
+	  position: absolute;
+	  left:0;
+	  width: 50%;
+	}
+	
+	.app1{
+	  margin-top: 2%;
+	  padding-left: 8%;
+  
+	}
+  
+	.herospan1{
+	  color: #24b4ab;
+	  font-size: 1rem;
+	}
+	.heroH1{
+	  font-size: 2.1rem;
+	  text-align: start;
+	  font-weight: 800;
+	}
+  
+	.herospan2{
+	  color: #24b4ab;
+	  font-size: 1rem;
+	  position: absolute;
+	  right: 2%;
+	}
+	.heroH2{
+	  font-size: 2.1rem;
+	  text-align: end;
+	  font-weight: 800;
+	  margin-right: 5%;
+	}
+	.token{
+	  border-radius: 25px;
+	  margin-top: 25px;
+	  margin-bottom: 25px;
+	  background-color: rgb(10,47,48, 0.6) !important;
+	  padding: 5px 15px 5px 15px !important;
+	  font-size: 1rem;
+	  
+	}
+
+	.heroImage {
+		padding-right: 15%;
+	}
+  
+	.tokenLogo{
+	  width: 100%;
+	  margin-top: 0;
+	}
+  
+	.tokenImg{
+	  width: 5%;
+	}
+  
+	.tokenTable{
+	  color: white;
+	  margin-bottom: 0;
+	}
+  
+	.tokenName{
+	  font-size: .65em;
+	  width: 15%;
+	  padding-top: 22px !important;
+	}
+  
+	.tName{
+	  margin-left: 5%;
+	}
+  
+	.tokenAddress{
+	  padding-top: 22px !important;
+	  font-size: .65rem;
+	  text-align: end;
+	  width: 37%;
+	}
+  
+	.tokenPrice{
+	  padding-top: 22px !important;
+	  text-align: end;
+	  font-size: .7rem;
+	  width: 20%;
+	}
+	.tokenHolders{
+	  padding-top: 14px !important;
+	  text-align: end;
+	  font-size: 1rem;
+	  width: 13%;
+	}
+  
+	.tokenList{
+	  padding: 30px 20px 30px 20px;
+	  margin: 5% 5% 5% 5%;
+	}
+  
+	.btn{
+	  padding: 0;
+	}
+  
+	.tokenMeta{
+	  width: 5%;
+	}
+	.imgMeta{
+	  width: 25px;
+	}
+  
+	.metaBtn{
+	  border: none;
+	  background: none;
+	  padding-top: 8px;
+	}
+  
+	.bscBtn{
+	  border: none;
+	  background: none;
+	  padding-top: 8px;
+	}
+  
+	.imgBSC{
+	  width:25px
+	}
+  
+	.tokenBSC{
+	  width:2%
+	}
+  
+	.tokenData{
+	  padding: 10% 5% 5% 5%;
+	}
+  
+	.statsTable{
+	  color: white;
+	}
+  
+	.dot{
+	  width: 5%;
+	  margin-top: -.5%;
+	}
+  
+	.assetsLeftPanel{
+	  padding-left:5%;
+	  padding-right: 5%;
+	} 
+  
+	.assetsRightPanel{
+	  margin-top: 15px;
+	  padding-left: 5%;
+	  padding-right: 5%;
+	} 
+  
+	.coloredTD{
+	  background-color: #0B2F30 !important;
+	  border-radius: 25px;
+	  padding-left: 5% !important;
+	  padding-right: 5% !important;
+	  margin-bottom: 2%;
+	}
+  
+	.uncoloredTD{
+	  padding-left: 5% !important;
+	  padding-right: 5% !important;
+	  margin-bottom: 2%;
+	}
+  
+	.cValueSpacer{
+	  margin-bottom: 5%;
+	}
+  
+	.cValueTxt{
+	  font-size: 1rem;
+	  margin-left: 1%;
+	}
+  
+	.cAddressData{
+	  text-align: center;
+	}
+	
+	.uLabel{
+	  text-align: center;
+	  font-size: 1.5rem;
+	}
+	
+	.tdLabel{
+	  float:left;
+	  width:50%;
+	}
+	.tdData{
+	  float:right;
+	  width:50%;
+	  text-align: end;
+	}
+  
+	.tableSpacer{
+	  margin-top: 5%;
+	}
+	/*End Main Page*/
+  
+	/**Begin Education Page CSS**/
+	.edLogo{
+	  text-align: center;
+	  margin-top: 3%;
+	  margin-bottom: 3%;
+	}
+	
+	.edStep{
+	  width: 50%;
+	}
+	
+	.edImg{
+	  width: 85%;
+	}
+	
+	.edImg2{
+	  width: 85%;
+	}
+	
+	.edImg3{
+	  width: 35%;
+	}
+	
+	.edTitle{
+	  text-align: center;
+	  margin-top: 5%;
+	  width: 50%;
+	}
+	
+	.edText{
+	  font-size: 1rem;
+	  text-align: justify;
+	}
+	
+	.edH4{
+	  margin-top: 3%;
+	}
+  /**End Education Page CSS**/
+  }
+
+@media screen and (max-width: 580px) {
 	/*Begin Main Page CSS*/
 	.shape{
 		position: absolute;
@@ -671,12 +1151,6 @@ body {
 	  .tokenLogo{
 		width: 30%;
 		margin-top: -5px;
-	  }
-	  .intro{
-		font-size: 1.6rem;
-		font-weight: 800;
-		margin-top: 31%;
-		padding-left: 8%;
 	  }
 	  .hiw{
 		font-size: 1rem;
@@ -994,1483 +1468,642 @@ body {
 	/**End Education Page CSS**/
 }
 
-@media screen and (min-width: 768px) and (max-width: 836px) {
+@media screen and (max-width: 400px) {
   /*Begin Main Page CSS*/
   .shape{
-    position: absolute;
-    right: 0;
-    width: 15%;
-    margin-top: -15%;
+	position: absolute;
+	right: 0;
+	width: 15%;
   }
   .shape2{
-    position: absolute;
-    right: 40px;
-    width: 15%;
-    margin-top: -10%;
+	position: absolute;
+	right: 40px;
+	width: 15%;
+	margin-top: -10%;
+  }
+
+  .heroImage{
+	margin-top: 10px;
   }
 
   .tokenChart{
-    margin-top: 5%;
-    padding-left: 5%;
-    padding-right: 1%
+	margin-top: 5%;
+	padding-left: 5%;
+	padding-right: 5%
   }
   .tokenCalc{
-    margin-top: 5%;
-    padding-left: 1%;
-    padding-right: 5%
+	margin-top: 5%;
+	padding-left: 5%;
+	padding-right: 5%
   }
   .vstatsButtons{
-    margin-top: 5%;
-    margin-right: 15%;
-    margin-left: 5%;
+	margin-top: 5%;
+	margin-right: 15%;
+	margin-left: 5%;
+  }
+
+  .tokenName{
+	font-size: 1em;
+	margin-left: -6px;
   }
 
   .tokenButton{
-    font-size: 1rem;
-    width: 140px;
-    background-color: transparent !important;
-    border-color: white;
-    border-top: transparent !important;
-    border-right: transparent !important;
-    border-left: transparent !important;
+	font-size: .6rem;
+	width: 75px;
+	background-color: transparent !important;
+	border-color: white;
+	border-top: transparent !important;
+	border-right: transparent !important;
+	border-left: transparent !important;
+	padding: 0px !important;
+  }
+
+  .logoNav1{
+	width: 150px !important;
+	margin-left: 5%;
   }
 
   .tokenLogo{
-    width: 30%;
-    margin-top: -5px;
+	width: 30%;
+	margin-top: -3px;
   }
-  .intro{
-    font-size: 1.6rem;
-    font-weight: 800;
-    margin-top: 31%;
-    padding-left: 8%;
-  }
+
   .hiw{
-    font-size: 1rem;
-    font-weight: 800;
+	font-size: 1rem;
+	font-weight: 800;
+	padding-left: 5%;
+	padding-right: 5%;
   }
 
   .atomImg{
-    margin-top:5%;
+	margin-top:5%;
+	width: 90%;
   }
   .cta{
-    margin-top: -5%;
-    padding-left: 15%;
-    padding-right: 15%;
+	margin-top: -5%;
+	padding-left: 5%;
+	padding-right: 5%;
+	height: 155%
   }
 
   .fees{
-    font-size: 1rem;
-    font-weight: 800;
-    margin-top: -24%;
+	font-size: 0.9rem;
+	font-weight: 800;
+	margin-top: -36%;
   }
 
   .feeBtns{
-    margin-top: 3%;
+	margin-top: 2%;
   }
 
   .dApp2 {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: transparent !important;
-    padding: 10px 20px !important;
-    border-radius: 30px;
-    border-color: white ;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-    font-size: .6rem !important;
+	text-decoration: none;
+	color: #29CBC1 !important;
+	font-weight: 800;
+	background: transparent !important;
+	padding: 10px 20px !important;
+	border-radius: 30px;
+	border-color: white ;
+	box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	font-size: .6rem !important;
   }
 
   .dApp3 {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: #0B3131 !important;
-    padding: 10px 20px !important;
-    border-radius: 30px;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-    font-size: .6rem !important;
+	text-decoration: none;
+	color: #29CBC1 !important;
+	font-weight: 800;
+	background: #0B3131 !important;
+	padding: 10px 20px !important;
+	border-radius: 30px;
+	box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	font-size: .6rem !important;
   }
   .spacer1{
-    margin-top: 10%;
+	margin-top: 10%;
   }
   .spacer2{
-    margin-top: 20%;
+	margin-top: 20%;
   }
   .spacer3{
-    margin-top: 30%;
+	margin-top: 55%;
   }
   .spacer4{
-    margin-top: 35%;
-  }
-  .spacer5{
-    margin-top: 15%;
+	margin-top: 50%;
   }
   .spacervs{
-    margin-top: 10%;
+	margin-top: 10%;
   }
   .heroH1{
-    font-size: 1.5rem;
-    text-align: start;
-    font-weight: 800;
+	font-size: 1.5rem;
+	text-align: start;
+	font-weight: 800;
   }
 
+
   .app1Img{
-    position: absolute;
-    right:0;
-    width: 50%;
+	position: absolute;
+	right:0;
+	width: 60%;
   }
 
   .app2Img{
-    position: absolute;
-    left:0;
-    width: 50%;
+	position: absolute;
+	left:0;
+	width: 60%;
+	margin-top: 25%
   }
   
   .app1{
-    margin-top: 2%;
-    padding-left: 8%;
-
-  }
-
-  .herospan1{
-    color: #24b4ab;
-    font-size: 1rem;
-  }
-  .heroH1{
-    font-size: 2.1rem;
-    text-align: start;
-    font-weight: 800;
-  }
-
-  .herospan2{
-    color: #24b4ab;
-    font-size: 1rem;
-    position: absolute;
-    right: 2%;
-  }
-  .heroH2{
-    font-size: 2.1rem;
-    text-align: end;
-    font-weight: 800;
-    margin-right: 5%;
-  }
-
-
-
-  .token{
-    border-radius: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: rgb(10,47,48, 0.6) !important;
-    padding: 5px 15px 5px 15px !important;
-    font-size: 1rem;
-    
-  }
-
-  .tokenLogo{
-    width: 100%;
-    margin-top: 0;
-  }
-
-  .tokenImg{
-    width: 5%;
-  }
-
-  .tokenTable{
-    color: white;
-    margin-bottom: 0;
-  }
-
-  .tokenName{
-    font-size: .65em;
-    width: 15%;
-    padding-top: 22px !important;
-  }
-
-  .tName{
-    margin-left: 5%;
-  }
-
-  .tokenAddress{
-    padding-top: 22px !important;
-    font-size: .65rem;
-    text-align: end;
-    width: 37%;
-  }
-
-  .tokenPrice{
-    padding-top: 22px !important;
-    text-align: end;
-    font-size: .7rem;
-    width: 20%;
-  }
-  .tokenHolders{
-    padding-top: 14px !important;
-    text-align: end;
-    font-size: 1rem;
-    width: 13%;
-  }
-
-  .tokenList{
-    padding: 30px 20px 30px 20px;
-    margin: 5% 5% 5% 5%;
-  }
-
-  .btn{
-    padding: 0;
-  }
-
-  .tokenMeta{
-    width: 5%;
-  }
-  .imgMeta{
-    width: 25px;
-  }
-
-  .metaBtn{
-    border: none;
-    background: none;
-    padding-top: 8px;
-  }
-
-  .bscBtn{
-    border: none;
-    background: none;
-    padding-top: 8px;
-  }
-
-  .imgBSC{
-    width:25px
-  }
-
-  .tokenBSC{
-    width:2%
-  }
-
-  .tokenData{
-    padding: 10% 5% 5% 5%;
-  }
-
-  .statsTable{
-    color: white;
-  }
-
-  .dot{
-    width: 5%;
-    margin-top: -.5%;
-  }
-
-  .assetsLeftPanel{
-    padding-left:5%;
-    padding-right: 5%;
-  } 
-
-  .assetsRightPanel{
-    margin-top: 15px;
-    padding-left: 5%;
-    padding-right: 5%;
-  } 
-
-  .coloredTD{
-    background-color: #0B2F30 !important;
-    border-radius: 25px;
-    padding-left: 5% !important;
-    padding-right: 5% !important;
-    margin-bottom: 2%;
-  }
-
-  .uncoloredTD{
-    padding-left: 5% !important;
-    padding-right: 5% !important;
-    margin-bottom: 2%;
-  }
-
-  .cValueSpacer{
-    margin-bottom: 5%;
-  }
-
-  .cValueTxt{
-    font-size: 1rem;
-    margin-left: 1%;
-  }
-
-  .cAddressData{
-    text-align: center;
-  }
-  
-  .uLabel{
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  
-  .tdLabel{
-    float:left;
-    width:50%;
-  }
-  .tdData{
-    float:right;
-    width:50%;
-    text-align: end;
-  }
-
-  .tableSpacer{
-    margin-top: 5%;
-  }
-  /*End Main Page*/
-
-  /**Begin Education Page CSS**/
-  .edLogo{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .edStep{
-    width: 50%;
-  }
-  
-  .edImg{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .edImg2{
-    width: 85%;
-  }
-  
-  .edImg3{
-    width: 35%;
-  }
-  
-  .edTitle{
-    text-align: center;
-    margin-top: 5%;
-    width: 50%;
-  }
-  
-  .edText{
-    font-size: 1rem;
-    text-align: justify;
-  }
-  
-  .edH4{
-    margin-top: 3%;
-  }
-/**End Education Page CSS**/
-}
-
-@media screen and (min-width: 837px) and (max-width: 1299px) {
-  
-  /*Begin Main Page CSS */
-  .shape{
-    position: absolute;
-    right: 0;
-    width: 15%;
-    margin-top: -15%;
-  }
-  .shape2{
-    position: absolute;
-    right: 40px;
-    width: 15%;
-    margin-top: -10%;
-  }
-
-  .tokenChart{
-    margin-top: 5%;
-    padding-left: 10%;
-    padding-right: 1%
-  }
-  .tokenCalc{
-    margin-top: 5%;
-    padding-left: 1%;
-    padding-right: 10%
-  }
-  .vstatsButtons{
-    margin-top: 5%;
-    margin-right: 15%;
-    margin-left: 10%;
-
-  }
-
-
-  .tokenButton{
-    font-size: 1rem;
-    width: 140px;
-    background-color: transparent !important;
-    border-color: white;
-    border-top: transparent !important;
-    border-right: transparent !important;
-    border-left: transparent !important;
-  }
-
-  .tokenLogo{
-    width: 30%;
-    margin-top: -5px;
-  }
-  .intro{
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-top: 31%;
-    padding-left: 8%;
-  }
-  .spacer{
-    margin-top: 10%;
-  }
-  .hiw{
-    font-size: 1.3rem;
-    font-weight: 800;
-  }
-  .cta{
-    margin-top: -15%;
-    padding-left: 15%;
-    padding-right: 15%;
-  }
-
-  .fees{
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-top: -23%;
-  }
-
-  .feeBtns{
-    margin-top: 3%;
-  }
-  .spacer1{
-    margin-top: 10%;
-  }
-  .spacer2{
-    margin-top: 20%;
-  }
-  .spacer3{
-    margin-top: 30%;
-  }
-  .spacer4{
-    margin-top: 15%;
-  }
-  .spacer5{
-    margin-top: 15%;
-  }
-  .spacervs{
-    margin-top: 10%;
-  }
-  .heroH1{
-    font-size: 2.1rem;
-    text-align: start;
-    font-weight: 800;
-  }
-
-  .app1Img{
-    position: absolute;
-    right:0;
-    width: 50%;
-  }
-  
-  .app1{
-    margin-top: 2%;
-    padding-left: 8%;
+	margin-top: 2%;
+	padding-left: 8%;
 
   }
 
   .app2{
-    margin-top: 2%;
-    padding-left: 8%;
+	margin-top: 2%;
+	padding-left: 8%;
 
-  }
-
-  .herospan1{
-    color: #24b4ab;
-    font-size: 1rem;
-  }
-  .heroH1{
-    font-size: 2.1rem;
-    text-align: start;
-    font-weight: 800;
-  }
-
-  .herospan2{
-    color: #24b4ab;
-    font-size: 1rem;
-    position: absolute;
-    right: 2%;
-  }
-  .heroH2{
-    font-size: 2.1rem;
-    text-align: end;
-    font-weight: 800;
-    margin-right: 5%;
-  }
-
-
-
-  .token{
-    border-radius: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: rgb(10,47,48, 0.6) !important;
-    padding: 15px !important;
-    font-size: 1rem;
-    
-  }
-
-  .tokenList{
-    padding: 30px 20px 30px 20px;
-    margin: 5% 5% 5% 5%;
-  }
-
-  .tokenLogo{
-    width: 100%;
-    padding-top: 5px;
-  }
-
-  .tokenImg{
-    width: 5%;
-  }
-
-
-  .tokenTable{
-    color: white;
-    margin-bottom: 0;
-  }
-
-  .tokenName{
-    font-size: .8em;
-    padding-top: 23px !important;
-    width: 13%;
-  }
-
-
-  .tName{
-    margin-left: 5%;
-  }
-
-  .tokenAddress{
-    padding-top: 23px !important;
-    font-size: .8rem;
-    text-align: end;
-    width: 30%;
-  }
-
-  .tokenPrice{
-    padding-top: 23px !important;
-    text-align: end;
-    font-size: .8rem;
-    width: 15%;
-  }
-
-  .tokenMeta{
-    width: 5%;
-  }
-
-  .tokenBSC{
-    width:5%
-  }
-
-  .imgMeta{
-    width: 30px;
-  }
-
-  .imgBSC{
-    width:30px
-  }
-
-  .metaBtn{
-    border: none;
-    background: none;
-  }
-
-  .bscBtn{
-    border: none;
-    background: none;
-  }
-
-  .tokenData{
-    padding: 10% 5% 5% 5%;
-  }
-
-  .statsTable{
-    color: white;
-  }
-
-  .assetsLeftPanel{
-    padding-left:5%;
-  } 
-
-  .assetsRightPanel{
-    padding-right: 5%;
-  } 
-
-  .coloredTD{
-    background-color: #0B2F30 !important;
-    border-radius: 25px;
-    padding-left: 5% !important;
-    padding-right: 5% !important;
-    margin-bottom: 2%;
-  }
-
-  .uncoloredTD{
-    padding-left: 5% !important;
-    padding-right: 5% !important;
-    margin-bottom: 2%;
-  }
-
-  .cValueSpacer{
-    margin-bottom: 5%;
-  }
-
-  .cValueTxt{
-    font-size: 1rem;
-    margin-left: 1%;
-  }
-
-  .cAddressData{
-    text-align: center;
-  }
-  
-  .uLabel{
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  
-  .tdLabel{
-    float:left;
-    width:50%;
-  }
-  .tdData{
-    float:right;
-    width:50%;
-    text-align: end;
-  }
-
-  .tableSpacer{
-    margin-top: 5%;
-  }
-  /*End Main Page CSS*/
-
-  /*Begin Education Page CSS*/
-  .edLogo{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .edStep{
-    width: 50%;
-  }
-  
-  .edImg{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: 3%;
-  }
-  
-  .edImg2{
-    width: 85%;
-  }
-  
-  .edImg3{
-    width: 35%;
-  }
-  
-  .edTitle{
-    text-align: center;
-    margin-top: 5%;
-    width: 50%;
-  }
-  
-  .edText{
-    font-size: 1rem;
-    text-align: justify;
-  }
-  
-  .edH4{
-    margin-top: 3%;
-  }
-/*End Education Page CSS*/
-  
-}
-
-@media screen and (min-width: 1300px) and (max-width: 2559px)  {
-
-  /**Begin Main Page CSS**/
-    .shape{
-      position: absolute;
-      right: 0;
-      width: 15%;
-      margin-top: 5%;
-    }
-    .shape2{
-      position: absolute;
-      right: 40px;
-      width: 15%;
-      margin-top: -10%
-    }
-    .tokens{
-      margin-top: 5%;
-      margin-bottom: 5%;
-      padding-left: 10%;
-      padding-right: 10%
-    }
-    .vstatsButtons{
-      margin-top: 5%;
-      margin-right: 15%;
-      margin-left: 15%;
-
-    }
-    .tokenButton{
-      font-size: 1rem;
-      width: 140px;
-      background-color: transparent !important;
-      border-color: white;
-      border-top: transparent !important;
-      border-right: transparent !important;
-      border-left: transparent !important;
-    }
-    
-    .intro{
-      font-size: 3.2rem;
-      font-weight: 800;
-      margin-top: 31%;
-      padding-left: 8%;
-    }
-    .spacer1{
-      margin-top: 10%;
-    }
-    .spacer2{
-      margin-top: 15%;
-    }
-    .spacer3{
-      margin-top: 30%;
-    }
-    .spacer4{
-      margin-top: 30%;
-    }
-    .spacer5{
-      margin-top: 15%;
-    }
-    .spacervs{
-      margin-top: 30%;
-    }
-    .spacerToken{
-      margin-top: 5%;
-      margin-bottom:5%;
-    }
-    .hiw{
-      font-size: 1.8rem;
-      font-weight: 800;
-    }
-    .cta{
-      margin-top: -15%;
-      padding-left: 15%;
-      padding-right: 15%;
-    }
-    .fees{
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-top: -22%;
-    
-    }
-    .feeBtns{
-      margin-top: 3%;
-    }
-    .app1Img{
-      position: absolute;
-      right:0;
-      width: 50%;
-    }
-    .app2Img{
-      position: absolute;
-      left:0;
-      width: 50%;
-    }
-    .certikImg{
-      position: absolute;
-      right:0;
-      width: 50%;
-      padding-right: 5%;
-    }
-    .app1{
-      margin-top: 2%;
-      padding-left: 8%;
-
-    }
-    .app2{
-      margin-top: 2%;
-      padding-left: 8%;
-
-    }
-    .herospan1{
-      color: #24b4ab;
-      font-size: 1rem;
-    }
-    .heroH1{
-      font-size: 3rem;
-      text-align: start;
-      font-weight: 800;
-    }
-    .herospan2{
-      color: #24b4ab;
-      font-size: 1rem;
-      position: absolute;
-      right: 2%;
-    }
-    .heroH2{
-      font-size: 3rem;
-      text-align: end;
-      font-weight: 800;
-      margin-right:5%;
-    }
-
-    .dot{
-      width: 5%;
-      margin-top: -.5%;
-    }
-
-    .tokenList{
-      padding: 30px 20px 30px 20px;
-      margin: 5% 5% 5% 5%;
-    }
-
-    .tokenList2{
-      padding: 30px 20px 30px 20px;
-    }
-
-    .statTxt{
-      font-size: 1.2rem;
-      margin-left: 15px;
-    }
-
-    .tokenStats{
-      margin-top: 5%;
-    }
-
-    .assets{
-      padding-top: 5%;
-      padding-bottom: 5%;
-    }
-    .assetsLeftPanel{
-      padding-left:5%;
-    } 
-
-    .assetsRightPanel{
-      padding-right: 5%;
-    } 
-
-
-    .token{
-      border-radius: 25px;
-      margin-top: 25px;
-      margin-bottom: 25px;
-      background-color: rgb(10,47,48, 0.6) !important;
-      padding: 15px !important;
-      font-size: 1rem;
-      
-    }
-
-    .tokenLogo{
-      width: 50%;
-    }
-
-    .tokenImg{
-      width: 5%;
-    }
-
-    .tokenTable{
-      color: white;
-      margin-bottom: 0;
-    }
-
-    .tokenName{
-      font-size: 1em;
-      padding-top: 20px !important;
-      width: 15%;
-    }
-
-    .tokenAddress{
-      padding-top: 20px !important;
-      font-size: 1rem;
-      text-align: end;
-      width: 37%;
-    }
-
-    .tokenPrice{
-      padding-top: 20px !important;
-      text-align: end;
-      font-size: 1rem;
-      width: 20%;
-    }
-    .tokenHolders{
-      padding-top: 14px !important;
-      text-align: end;
-      font-size: 1rem;
-      width: 13%;
-    }
-
-    .tokenMeta{
-      width: 5%;
-    }
-
-    .tokenBSC{
-      width:5%
-    }
-
-    .imgMeta{
-      width: 30px;
-    }
-
-    .imgBSC{
-      width:30px
-    }
-
-    .metaBtn{
-      border: none;
-      background: none;
-    }
-
-    .bscBtn{
-      border: none;
-      background: none;
-    }
-
-    .tokenData{
-      padding: 10% 5% 5% 5%;
-    }
-
-    .statsTable{
-      color: white;
-    }
-
-    .coloredTD{
-      background-color: #0B2F30 !important;
-      border-radius: 25px;
-      padding-left: 5% !important;
-      padding-right: 5% !important;
-      margin-bottom: 2%;
-    }
-
-    .uncoloredTD{
-      padding-left: 5% !important;
-      padding-right: 5% !important;
-      margin-bottom: 2%;
-    }
-
-    .cValueSpacer{
-      margin-bottom: 5%;
-    }
-
-    .cValueTxt{
-      font-size: 1rem;
-      margin-left: 1%;
-    }
-
-    .cAddressData{
-      text-align: center;
-    }
-    
-    .uLabel{
-      text-align: center;
-      font-size: 1.5rem;
-    }
-    
-    .tdLabel{
-      float:left;
-      width:50%;
-    }
-    .tdData{
-      float:right;
-      width:50%;
-      text-align: end;
-    }
-
-    .tableSpacer{
-      margin-top: 5%;
-    }
-
-
-  /**End Main Page CSS**/
-
-  /**Begin Education Page CSS**/
-    .edLogo{
-      text-align: center;
-      margin-top: 3%;
-      margin-bottom: 3%;
-    }
-    
-    .edStep{
-      width: 50%;
-    }
-    
-    .edImg{
-      text-align: center;
-      margin-top: 3%;
-      margin-bottom: 3%;
-    }
-    
-    .edImg2{
-      width: 85%;
-    }
-    
-    .edImg3{
-      width: 35%;
-    }
-
-    .edImg4{
-      width: 50%;
-    }
-
-    .edImg5{
-      width: 85%;
-    }
-    
-    .edTitle{
-      text-align: center;
-      width: 50%;
-    }
-    
-    .edText{
-      font-size: 1rem;
-      text-align: justify;
-    }
-    
-    .edH4{
-      margin-top: 3%;
-    }
-  /**End Education Page CSS**/
-  
-  
-}
-
-@media screen and (min-width: 2560px) {
-  .shape{
-    position: absolute;
-    right: 0;
-    width: 15%;
-    margin-top: 5%;
-  }
-
-  .shape2{
-    position: absolute;
-    right: 40px;
-    width: 15%;
-    margin-top: -10%
-  }
-
-  .tokenChart{
-    margin-top: 5%;
-    padding-left: 10%;
-    padding-right: 1%
-  }
-  .tokenCalc{
-    margin-top: 5%;
-    padding-left: 1%;
-    padding-right: 10%
-  }
-  .vstatsButtons{
-    margin-top: 5%;
-    margin-right: 15%;
-    margin-left: 15%;
-
-  }
-
-  .tokenName{
-    font-size: 1em;
-    margin-left: -5px;
-  }
-
-  .tokenButton{
-    font-size: 1rem;
-    width: 140px;
-    background-color: transparent !important;
-    border-color: white;
-    border-top: transparent !important;
-    border-right: transparent !important;
-    border-left: transparent !important;
-  }
-
-  .tokenLogo{
-    width: 30%;
-    margin-top: -5px;
-  }
-
-  .intro{
-    font-size: 3.2rem;
-    font-weight: 800;
-    margin-top: 31%;
-    padding-left: 8%;
-  }
-
-
-  .spacer1{
-    margin-top: 10%;
-  }
-
-  .spacer2{
-    margin-top: 15%;
-  }
-  .spacer3{
-    margin-top: 30%;
-  }
-
-  .spacer4{
-    margin-top: 30%;
-  }
-
-  .spacer5{
-    margin-top: 15%;
-  }
-  .spacervs{
-    margin-top: 30%;
-  }
-  .hiw{
-    font-size: 1.8rem;
-    font-weight: 800;
-  }
-
-  .cta{
-    margin-top: -15%;
-    padding-left: 15%;
-    padding-right: 15%;
-  }
-
-  .fees{
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-top: -22%;
-  
-  }
-
-  .feeBtns{
-    margin-top: 3%;
-  }
-
-  
-
-  .app1Img{
-    position: absolute;
-    right:0;
-    width: 50%;
-  }
-
-  .app2Img{
-    position: absolute;
-    left:0;
-    width: 50%;
   }
 
   .certikImg{
-    position: absolute;
-    right:0;
-    width: 50%;
-    padding-right: 5%;
+	padding-right: 1%;
+	padding-left: 5%;
   }
-  
-  .app1{
-    margin-top: 2%;
-    padding-left: 8%;
 
-  }
-  
-
-  .app2{
-    margin-top: 2%;
-    padding-left: 8%;
-
+  .herospan{
+	color: #24b4ab;
   }
 
   .herospan1{
-    color: #24b4ab;
-    font-size: 1rem;
-  }
-  .heroH1{
-    font-size: 3rem;
-    text-align: start;
-    font-weight: 800;
+	color: #24b4ab;
+	font-size: .8rem;
   }
 
   .herospan2{
-    color: #24b4ab;
-    font-size: 1rem;
-    position: absolute;
-    right: 2%;
+	color: #24b4ab;
+	font-size: .8rem;
+	position: absolute;
+	right: 5%;
   }
   .heroH2{
-    font-size: 3rem;
-    text-align: end;
-    font-weight: 800;
-    margin-right:5%;
+	font-size: 1.5rem;
+	text-align: end;
+	font-weight: 800;
+	margin-right: 5%;
   }
+  /*End Main Page CSS*/
+
+  /**Begin Education Page CSS**/
+  .edLogo{
+	text-align: center;
+	margin-top: 3%;
+	margin-bottom: 3%;
+  }
+  
+  .edStep{
+	width: 50%;
+  }
+  
+  .edImg{
+	text-align: center;
+	margin-top: 3%;
+	margin-bottom: 3%;
+  }
+  
+  .edImg2{
+	width: 85%;
+  }
+  
+  .edImg3{
+	width: 35%;
+  }
+
+  .edImg4{
+	width: 50%;
+  }
+  
+  .edTitle{
+	text-align: center;
+	margin-top: 5%;
+	width: 85%;
+  }
+
+  .edText{
+	font-size: 1rem;
+	text-align: justify;
+  }
+  
+  .edH4{
+	margin-top: 3%;
+  }
+/**End Education Page CSS**/
+
 }
 
-
-
-
-
-
-  /* 
-  =====================
-      Navigation Bar
-  =====================
-  */
-
-  .logoNav1{
-    width: 250px;
-  }
+@media screen and (max-width: 320px) {
+	.shape{
+	  position: absolute;
+	  right: 0;
+	  width: 15%;
+	}
+	.shape2{
+	  position: absolute;
+	  right: 40px;
+	  width: 15%;
+	  margin-top: -10%;
+	}
+	.btnDApp{
+	  margin-left: 35%;
+	  border: transparent;
+	}
+	.heroImage{
+	  padding-right: 5%;
+	  padding-left: 5%;
+	}
+	.tokenChart{
+	  margin-top: 5%;
+	  padding-left: 5%;
+	  padding-right: 5%
+	}
+	.tokenCalc{
+	  margin-top: 5%;
+	  padding-left: 5%;
+	  padding-right: 5%
+	}
+	.vstatsButtons{
+	  margin-top: 5%;
+	  margin-right: 15%;
+	  margin-left: 5%;
+	}
+	.tokenName{
+	  font-size: 1em;
+	  margin-left: -6px;
+	}
+	.tokenButton{
+	  font-size: .6rem;
+	  width: 68px;
+	  background-color: transparent !important;
+	  border-color: white;
+	  border-top: transparent !important;
+	  border-right: transparent !important;
+	  border-left: transparent !important;
+	  padding: 0px !important;
+	}
+	.logoNav1{
+	  width: 150px !important;
+	  margin-left: 5%;
+	}
+	.tokenLogo{
+	  width: 30%;
+	  margin-top: -3px;
+	}
+	.intro{
+	  font-size: 1.6rem;
+	  font-weight: 800;
+	  margin-top: 5%;
+	  padding-left: 24%;
+	}
+	.hiw{
+	  font-size: 1rem;
+	  font-weight: 800;
+	  padding-left: 5%;
+	  padding-right: 5%;
+	}
+	.atomImg{
+	  margin-top:5%;
+	  width: 90%;
+	}
+	.cta{
+	  margin-top: -5%;
+	  padding-left: 5%;
+	  padding-right: 5%;
+	  height: 155%
+	}
+	.fees{
+	  font-size: 0.7rem;
+	  font-weight: 800;
+	  margin-top: -34%;
+	}
+	.feeBtns{
+	  margin-top: 2%;
+	}
+	.dApp2 {
+	  text-decoration: none;
+	  color: #29CBC1 !important;
+	  font-weight: 800;
+	  background: transparent !important;
+	  padding: 10px 20px !important;
+	  border-radius: 30px;
+	  border-color: white ;
+	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	  font-size: .6rem !important;
+	}
+	.dApp3 {
+	  text-decoration: none;
+	  color: #29CBC1 !important;
+	  font-weight: 800;
+	  background: #0B3131 !important;
+	  padding: 7px 10px !important;
+	  border-radius: 30px;
+	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	  font-size: .6rem !important;
+	}
+	.spacer1{
+	  margin-top: 10%;
+	}
+	.spacer2{
+	  margin-top: 20%;
+	}
+	.spacer3{
+	  margin-top: 55%;
+	}
+	.spacer4{
+	  margin-top: 50%;
+	}
+	.spacervs{
+	  margin-top: 10%;
+	}
+	.heroH1{
+	  font-size: 1.5rem;
+	  text-align: start;
+	  font-weight: 800;
+	}
+	.app1Img{
+	  position: absolute;
+	  right:0;
+	  width: 60%;
+	}
+	.app2Img{
+	  position: absolute;
+	  left:0;
+	  width: 60%;
+	  margin-top: 25%
+	}
+	.app1{
+	  margin-top: 2%;
+	  padding-left: 8%;
   
-  .nav-link{
-    color: white !important;
-    margin-right: 30px;
-    font-size: 1.1em;
-  }
+	}
+	.app2{
+	  margin-top: 2%;
+	  padding-left: 8%;
+	}
+	.certikImg{
+	  padding-right: 1%;
+	  padding-left: 5%;
+	}
+	.herospan{
+	  color: #24b4ab;
+	}
+	.herospan1{
+	  color: #24b4ab;
+	  font-size: .8rem;
+	}
+	.herospan2{
+	  color: #24b4ab;
+	  font-size: .8rem;
+	  position: absolute;
+	  right: 5%;
+	}
+	.heroH2{
+	  font-size: 1.5rem;
+	  text-align: end;
+	  font-weight: 800;
+	  margin-right: 5%;
+	}
   
-  .bg-dark{
-    background-color: transparent !important;
-    margin-left: 2%;
-    margin-right: 2%;
-  }
-
-  .appicon{
-    width: 20px;
-    margin-right: 10px;
-  }
-
-  .papericon{
-    width: 15px;
-    margin-right: 10px;
-  }
-  /* 
-  =====================
-      dApp
-  =====================
-  */
+	/**Begin Education Page CSS**/
+	.edLogo{
+	  text-align: center;
+	  margin-top: 3%;
+	  margin-bottom: 3%;
+	}
+	
+	.edStep{
+	  width: 50%;
+	}
+	
+	.edImg{
+	  text-align: center;
+	  margin-top: 3%;
+	  margin-bottom: 3%;
+	}
+	
+	.edImg2{
+	  width: 85%;
+	}
+	
+	.edImg3{
+	  width: 35%;
+	}
   
-  .dApp {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: #0B3131 !important;
-    padding: 10px 20px !important;
-    border-radius: 30px;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
+	.edImg4{
+	  width: 50%;
+	}
+	
+	.edTitle{
+	  text-align: center;
+	  margin-top: 5%;
+	  width: 85%;
+	}
   
+	.edText{
+	  font-size: 1rem;
+	  text-align: justify;
+	}
+	
+	.edH4{
+	  margin-top: 3%;
+	}
+  /**End Education Page CSS**/
   }
 
-  .dApp2 {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: transparent !important;
-    padding: 10px 20px !important;
-    border-radius: 30px;
-    border-color: white ;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-    font-size: .8rem !important;
-  }
-
-  .dApp3 {
-    text-decoration: none;
-    color: #29CBC1 !important;
-    font-weight: 800;
-    background: #0B3131 !important;
-    padding: 10px 20px !important;
-    border-radius: 30px;
-    box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-    font-size: .8rem !important;
-  }
-
-
-
-  
-
-  .herospan{
-    color: #24b4ab;
-  }
-
-  
-
-  
-/*Coming Soon CSS*/
 /*
-	===============================
-			@Import	Function - test3
-	===============================
+===============================
+	@Import	Function - test3
+===============================
 */
+
 /*
-	===============================
-			@Import	Mixins
-	===============================
+===============================
+	@Import	Mixins
+===============================
 */
 
-
+/* 
+=====================
+	Coming Soon CSS
+=====================
+*/
 .ethsurge{
-  margin-left: -20px;
+	margin-left: -20px;
 }
-  
+
 .coming-soon-container {
-  display: flex; 
+	display: flex; 
 }
-  
+
 .coming-soon-cont {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 }
-  
+
 .coming-soon-cont .coming-soon-content > h4 {
-  font-size: 40px;
-  margin-top: 30px;
-  font-weight: 700;
-  color: #2fb3ab;
-  margin-bottom: 10px;
-  text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.101961); 
+	font-size: 40px;
+	margin-top: 30px;
+	font-weight: 700;
+	color: #2fb3ab;
+	margin-bottom: 10px;
+	text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.101961); 
 }
 
 .coming-soon-cont .coming-soon-content > h5 {
-  font-size: 20px;
-  margin-top: 30px;
-  font-weight: 700;
-  color: #2fb3ab;
-  margin-bottom: 0;
-  text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.101961); 
+	font-size: 20px;
+	margin-top: 30px;
+	font-weight: 700;
+	color: #2fb3ab;
+	margin-bottom: 0;
+	text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.101961); 
 }
-    
+	
 .coming-soon-cont .coming-soon-content > p:not(.terms-conditions) {
-  font-size: 16px;
-  color: #888ea8;
-  font-weight: 700;
-  margin-bottom: 50px; 
+	font-size: 16px;
+	color: #888ea8;
+	font-weight: 700;
+	margin-bottom: 50px; 
 }
 
 .coming-soon-cont #timer {
-  display: flex; 
+	display: flex; 
 }
-      
+
 .coming-soon-cont #timer .days, .coming-soon-cont #timer .hours, .coming-soon-cont #timer .min {
-  padding: 28px 0;
-  background: #009688;
-  color: #fff;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 2px;
-  text-align: center;
-  height: 95px;
-  width: 95px;
-  margin-right: 15px; 
+	padding: 28px 0;
+	background: #009688;
+	color: #fff;
+	border-radius: 4px;
+	font-weight: 600;
+	font-size: 15px;
+	letter-spacing: 2px;
+	text-align: center;
+	height: 95px;
+	width: 95px;
+	margin-right: 15px; 
 }
 
 .coming-soon-cont #timer .sec {
-  padding: 28px 0;
-  background: #009688;
-  color: #fff;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 2px;
-  text-align: center;
-  height: 95px;
-  width: 95px;
-  margin-right: 15px;
-  margin-right: 0; 
+	padding: 28px 0;
+	background: #009688;
+	color: #fff;
+	border-radius: 4px;
+	font-weight: 600;
+	font-size: 15px;
+	letter-spacing: 2px;
+	text-align: center;
+	height: 95px;
+	width: 95px;
+	margin-right: 15px;
+	margin-right: 0; 
 }
 
 .coming-soon-cont #timer .days .count, .coming-soon-cont #timer .days .text {
-  display: block; 
+	display: block; 
 }
 
 .coming-soon-cont #timer .hours .count, .coming-soon-cont #timer .hours .text {
-  display: block; 
+	display: block; 
 }
 
 .coming-soon-cont #timer .min .count, .coming-soon-cont #timer .min .text {
-  display: block; 
+	display: block; 
 }
 
 .coming-soon-cont #timer .sec .count, .coming-soon-cont #timer .sec .text {
-  display: block; 
+	display: block; 
 }
 
 .coming-soon-cont .coming-soon-content > h3 {
-  font-size: 21px;
-  font-weight: 700;
-  margin-top: 75px;
-  margin-bottom: 40px;
-  color: #2fb3ab; 
+	font-size: 21px;
+	font-weight: 700;
+	margin-top: 75px;
+	margin-bottom: 40px;
+	color: #2fb3ab; 
 }
 
 .coming-soon-cont .coming-soon-wrap form .field-wrapper {
-  position: relative;
-  display: flex;
-  width: 100%; 
+	position: relative;
+	display: flex;
+	width: 100%; 
 }
 
 .coming-soon-cont .coming-soon-wrap form .field-wrapper svg {
-  position: absolute;
-  top: 11px;
-  color: #009688;
-  fill: rgba(0, 150, 136, 0.09);
-  left: 8px; 
+	position: absolute;
+	top: 11px;
+	color: #009688;
+	fill: rgba(0, 150, 136, 0.09);
+	left: 8px; 
 }
 
 .coming-soon-cont .coming-soon-wrap form .field-wrapper input {
-  padding: 10px 97px 10px 45px; 
+	padding: 10px 97px 10px 45px; 
 }
 
 .coming-soon-cont .coming-soon-wrap form .field-wrapper input::-webkit-input-placeholder, .coming-soon-cont .coming-soon-wrap form .field-wrapper input::-ms-input-placeholder, .coming-soon-cont .coming-soon-wrap form .field-wrapper input::-moz-placeholder {
-  color: #d3d3d3;
-  font-size: 14px; 
+	color: #d3d3d3;
+	font-size: 14px; 
 }
 
 .coming-soon-cont .coming-soon-wrap form .field-wrapper button.btn {
-  align-self: center;
-  position: absolute;
-  right: 0;
-  padding: 10px 17px;
-  border-bottom-left-radius: 20px;
-  background: #009688;
-  border-color: #009688; 
+	align-self: center;
+	position: absolute;
+	right: 0;
+	padding: 10px 17px;
+	border-bottom-left-radius: 20px;
+	background: #009688;
+	border-color: #009688; 
 }
 
 .coming-soon-cont .coming-soon-wrap form .field-wrapper button.btn:hover {
-  transform: none; 
+	transform: none; 
 }
 
 .coming-soon-cont .social {
-  /* text-align: center; */
-  color: #009688;
-  margin: 45px 0 0 0; 
+	/* text-align: center; */
+	color: #009688;
+	margin: 45px 0 0 0; 
 }
 
 .coming-soon-cont .social li {
-  margin: 0; 
+	margin: 0; 
 }
 
 .coming-soon-cont .social li:not(:last-child) {
-  margin-right: 10px;
-  padding-right: 10px;
-  border-right: 2px solid #3b3f5c; 
+	margin-right: 10px;
+	padding-right: 10px;
+	border-right: 2px solid #3b3f5c; 
 }
 
 .coming-soon-cont .social svg {
-  color: #009688;
-  width: 35px;
-  height: 35px; 
+	color: #009688;
+	width: 35px;
+	height: 35px; 
 }
 
 .coming-soon-cont .terms-conditions {
-  max-width: 480px;
-  margin: 0 auto;
-  color: #bfc9d4;
-  font-weight: 600;
-  margin-top: 70px; 
+	max-width: 480px;
+	margin: 0 auto;
+	color: #bfc9d4;
+	font-weight: 600;
+	margin-top: 70px; 
 }
 
 .coming-soon-cont .terms-conditions a {
-  color: #009688;
-  font-weight: 700; 
+	color: #009688;
+	font-weight: 700; 
 }
-  
+
 .coming-soon-image {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2487,105 +2120,107 @@ body {
 }
 
 .coming-soon-image .img-overlay-content {
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55); 
+	height: 100%;
+	background: rgba(0, 0, 0, 0.55); 
 }
 
 .coming-soon-image .img-overlay-content p {
-  color: #fff;
-  position: absolute; 
+	color: #fff;
+	position: absolute; 
 }
 
 .coming-soon-image .l-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(-45deg,#060818,#2fb3ab, #0e1726, #0e1726);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(-45deg,#060818,#2fb3ab, #0e1726, #0e1726);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  
-  50% {
-    background-position: 100% 50%;
-  }
-  
-  100% {
-    background-position: 0% 50%;
-  }
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .coming-soon-image .l-image .img-content {
-  display: flex;
-  justify-content: center;
-  height: 100%; 
+	display: flex;
+	justify-content: center;
+	height: 100%; 
 }
 
 .coming-soon-image .l-image img {
-  width: 577px;
-  align-self: center; 
+	width: 577px;
+	align-self: center; 
 }
-  
+
 .coming-soon-image2 .l-image .img-content {
-  display: none; 
+	display: none; 
 }
   
-@media (max-width: 991px) {
-  .coming-soon-cont {
-    width: 100%; 
-  }
-  
-  .coming-soon-cont .coming-soon-wrap {
-    min-width: auto; 
-  }
-  
-  .coming-soon-image {
-    display: none;
-    justify-content: center;
-    height: 100%; } 
-  }
-  
-  @media (max-width: 575px) {
-    .coming-soon-cont #timer {
-      display: flex;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      margin-right: -15px;
-      margin-left: -15px;
-      justify-content: center; 
-    }
-    
-    .coming-soon-cont #timer .hours:not(:last-child) {
-      margin-right: 0; 
-    }
-    
-    .coming-soon-cont #timer .days, .coming-soon-cont #timer .hours, .coming-soon-cont #timer .min, .coming-soon-cont #timer .sec {
-      -ms-flex: 0 0 40%;
-      flex: 0 0 40%;
-      max-width: 40%;
-      margin-bottom: 15px;
-      margin-bottom: 15px;
-      padding: 14px 0;
-      height: 71px; 
-    } 
-  }
-  
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .coming-soon-cont .coming-soon-wrap {
-      width: 100%; 
-    }
-    .coming-soon-cont .coming-soon-container {
-      height: 100%; 
-    } 
-  }
+@media only screen and (max-width: 991px) {
+	.coming-soon-cont {
+		width: 100%;
+	}
 
+	.coming-soon-cont .coming-soon-wrap {
+		min-width: auto; 
+	}
 
-  
+	.coming-soon-image {
+		display: none;
+		justify-content: center;
+		height: 100%; } 
+	}
+
+@media only screen and (max-width: 575px) {
+	.coming-soon-cont #timer {
+		display: flex;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		margin-right: -15px;
+		margin-left: -15px;
+		justify-content: center; 
+	}
+	
+	.coming-soon-cont #timer .hours:not(:last-child) {
+		margin-right: 0; 
+	}
+	
+	.coming-soon-cont #timer .days, .coming-soon-cont #timer .hours, .coming-soon-cont #timer .min, .coming-soon-cont #timer .sec {
+		-ms-flex: 0 0 40%;
+		flex: 0 0 40%;
+		max-width: 40%;
+		margin-bottom: 15px;
+		margin-bottom: 15px;
+		padding: 14px 0;
+		height: 71px; 
+	} 
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.coming-soon-cont .coming-soon-wrap {
+		width: 100%; 
+	}
+	.coming-soon-cont .coming-soon-container {
+		height: 100%; 
+	} 
+}
+/* 
+=====================
+	END Coming Soon CSS
+=====================
+*/

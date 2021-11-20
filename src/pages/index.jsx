@@ -25,12 +25,14 @@ class MainPage extends React.Component{
     
                     <Row className="spacer1">
                         <Col xs={12} sm={12} md={4} lg={4} xl={4} className="mx-auto">
+						<div id="intro_container">
                             <p className="intro">
                                 The Surge tokens<br/>
                                 <span className="herospan"><em>*never go down*</em></span><br/>
                                 given its protocol.
                             </p>
                             <br/>
+
                             <Button className="dApp btnDApp">
                             <img
                             alt=""
@@ -38,6 +40,7 @@ class MainPage extends React.Component{
                             className="d-inline-block align-middle appicon"
                             />Go to App
                             </Button>
+						</div>
                         </Col>
                         <Col xs={12} sm={12} md={8} lg={8} xl={8} >
                             <Image src="assets/img/shapehero.png" className="heroImage" fluid />    

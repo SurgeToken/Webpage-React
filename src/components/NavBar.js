@@ -8,7 +8,7 @@ import Image from 'react-bootstrap/Image';
 class NavBar extends Component{
     render(){
         return (
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark">
                     <LinkContainer to="/">
                         <Navbar.Brand to="/">
                             <img
@@ -58,7 +58,12 @@ class NavBar extends Component{
                                     Facebook
                                 </NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="#whitepaper">Whitepaper</Nav.Link>
+							<LinkContainer to="/whitepaper">
+                                <Nav.Link>Whitepaper</Nav.Link>
+                            </LinkContainer>
+							<LinkContainer to="/onesheet">
+                                <Nav.Link>One Sheet</Nav.Link>
+                            </LinkContainer>
                             <Nav.Link className="dApp" href="https://app.xsurge.net">
                             <img
                             alt=""

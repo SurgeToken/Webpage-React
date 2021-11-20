@@ -87,7 +87,6 @@ export default function VST() {
     return (
             <div className="widget spacerToken tokenList2">
                 <Form.Select className="tokenSelect" onChange={tokenChange}>
-                    <option>Select a Surge Token</option>
                     {tokens.map((token) => {
                         return (
                             <option value={token.symbol}>{token.name}</option>
@@ -110,12 +109,12 @@ export default function VST() {
                                     <div className="tdData">price data</div>
                                 </td>
                             </tr>
-                            <tr>
+                           {/*  <tr>
                                 <td colSpan="5" className="uncoloredTD">
                                     <div className="tdLabel">Holders</div>
                                     <div className="tdData">holder data</div>
                                 </td>
-                            </tr>
+                            </tr> */}
                             <tr><td>&nbsp;</td></tr>
                             <tr>
                                 <td colSpan="5" className="coloredTD">
@@ -125,7 +124,7 @@ export default function VST() {
                             </tr>
                             <tr>
                                 <td className="">
-                                    <div className="cAddressData"></div>
+                                    <div className="cAddressData">{selectedToken.address}</div>
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>
@@ -136,13 +135,13 @@ export default function VST() {
                             </tr>
                             <tr>
                                 <td colSpan="5" className="coloredTD">
-                                    <div className="tdLabel">uasset name</div>
+                                    <div className="tdLabel">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
                                     <div className="tdData"><FaRegCopy/></div>
                                 </td>
                             </tr>
                             <tr>
                                 <td className="">
-                                    <div className="cAddressData">contract addresss</div>
+                                    <div className="cAddressData">{selectedToken.uassetaddress}</div>
                                 </td>
                             </tr>
                         </tbody>

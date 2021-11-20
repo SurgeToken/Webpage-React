@@ -38,7 +38,7 @@ class MainPage extends React.Component{
                             alt=""
                             src="assets/img/appicon.png"
                             className="d-inline-block align-middle appicon"
-                            />Go to App
+                            /><a target="_blank" href="https://app.xsurge.net/">Go to App</a>
                             </Button>
 						</div>
                         </Col>
@@ -73,14 +73,15 @@ class MainPage extends React.Component{
                                     alt=""
                                     src="assets/img/appicon.png"
                                     className="d-inline-block align-middle appicon"
-                                    />Get Started
+                                    /><a target="_blank" href="https://app.xsurge.net/">Go to App</a>
                                     </Button>
                                     <Button className="dApp2">
                                     <img
                                     alt=""
                                     src="assets/img/paper.png"
                                     className="d-inline-block align-middle papericon"
-                                    />Whitepaper
+                                    />
+									<a target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</a>
                                     </Button>
                                 </div>
                         </Col>

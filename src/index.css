@@ -148,6 +148,13 @@ body {
 	font-size: .8rem !important;
 }
 
+.dApp a,
+.dApp2 a,
+.dApp3 a {
+	text-decoration: none;
+	color: #29CBC1
+}
+
 .herospan{
 	color: #24b4ab;
 }
@@ -817,17 +824,9 @@ body {
 	}
   
 	.dApp2 {
-	  text-decoration: none;
-	  color: #29CBC1 !important;
-	  font-weight: 800;
-	  background: transparent !important;
-	  padding: 10px 20px !important;
-	  border-radius: 30px;
-	  border-color: white ;
-	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-	  font-size: .6rem !important;
+		font-size: .6rem !important;
 	}
-  
+
 	.dApp3 {
 	  text-decoration: none;
 	  color: #29CBC1 !important;
@@ -1174,18 +1173,6 @@ body {
 	
 	  .feeBtns{
 		margin-top: 3%;
-	  }
-	
-	  .dApp2 {
-		text-decoration: none;
-		color: #29CBC1 !important;
-		font-weight: 800;
-		background: transparent !important;
-		padding: 10px 20px !important;
-		border-radius: 30px;
-		border-color: white ;
-		box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-		font-size: .6rem !important;
 	  }
 	
 	  .dApp3 {
@@ -1556,18 +1543,6 @@ body {
 	margin-top: 2%;
   }
 
-  .dApp2 {
-	text-decoration: none;
-	color: #29CBC1 !important;
-	font-weight: 800;
-	background: transparent !important;
-	padding: 10px 20px !important;
-	border-radius: 30px;
-	border-color: white ;
-	box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-	font-size: .6rem !important;
-  }
-
   .dApp3 {
 	text-decoration: none;
 	color: #29CBC1 !important;
@@ -1787,17 +1762,7 @@ body {
 	.feeBtns{
 	  margin-top: 2%;
 	}
-	.dApp2 {
-	  text-decoration: none;
-	  color: #29CBC1 !important;
-	  font-weight: 800;
-	  background: transparent !important;
-	  padding: 10px 20px !important;
-	  border-radius: 30px;
-	  border-color: white ;
-	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
-	  font-size: .6rem !important;
-	}
+
 	.dApp3 {
 	  text-decoration: none;
 	  color: #29CBC1 !important;

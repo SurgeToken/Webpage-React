@@ -58,9 +58,7 @@ class NavBar extends Component{
                                     Facebook
                                 </NavDropdown.Item>
                             </NavDropdown>
-							<LinkContainer to="/whitepaper">
-                                <Nav.Link>Whitepaper</Nav.Link>
-                            </LinkContainer>
+							<Nav.Link target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</Nav.Link>
 							<LinkContainer to="/onesheet">
                                 <Nav.Link>One Sheet</Nav.Link>
                             </LinkContainer>

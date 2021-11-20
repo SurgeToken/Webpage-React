@@ -105,8 +105,8 @@ export default function VST() {
                         <tbody>
                             <tr>
                                 <td colSpan="5" className="coloredTD">
-                                    <div className="tdLabel">Price</div>
-                                    <div className="tdData">price data</div>
+                                    <div className="tdLabel tdPrice">Price</div>
+                                    <div className="tdData tdPriceData">price data</div>
                                 </td>
                             </tr>
                            {/*  <tr>
@@ -123,8 +123,8 @@ export default function VST() {
                                 </td>
                             </tr>
                             <tr>
-                                <td className="">
-                                    <div className="cAddressData">{selectedToken.address}</div>
+                                <td className="cAddressData">
+                                    {selectedToken.address}
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>
@@ -135,13 +135,13 @@ export default function VST() {
                             </tr>
                             <tr>
                                 <td colSpan="5" className="coloredTD">
-                                    <div className="tdLabel">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
+                                    <div className="tdLabel tdUnderlyingAsset">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
                                     <div className="tdData"><FaRegCopy/></div>
                                 </td>
                             </tr>
                             <tr>
-                                <td className="">
-                                    <div className="cAddressData">{selectedToken.uassetaddress}</div>
+                                <td className="cAddressData">
+                                    {selectedToken.uassetaddress}
                                 </td>
                             </tr>
                         </tbody>

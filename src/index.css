@@ -608,6 +608,11 @@ body {
 
 .cAddressData{
 	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+	max-width: 0;
+	margin: 0 auto;
 }
 
 .uLabel{
@@ -616,12 +621,19 @@ body {
 }
 .tdLabel{
 	float:left;
-	width:50%;
+	width:75%;
 }
 .tdData{
 	float:right;
-	width:50%;
+	width:25%;
 	text-align: end;
+}
+
+.tdPrice{
+	width:25%;
+}
+.tdPriceData{
+	width:75%;
 }
 
 .tableSpacer{
@@ -999,10 +1011,6 @@ body {
 	  padding: 10% 5% 5% 5%;
 	}
   
-	.statsTable{
-	  color: white;
-	}
-  
 	.dot{
 	  width: 5%;
 	  margin-top: -.5%;
@@ -1041,26 +1049,12 @@ body {
 	  font-size: 1rem;
 	  margin-left: 1%;
 	}
-  
-	.cAddressData{
-	  text-align: center;
-	}
 	
 	.uLabel{
 	  text-align: center;
 	  font-size: 1.5rem;
 	}
-	
-	.tdLabel{
-	  float:left;
-	  width:50%;
-	}
-	.tdData{
-	  float:right;
-	  width:50%;
-	  text-align: end;
-	}
-  
+
 	.tableSpacer{
 	  margin-top: 5%;
 	}
@@ -1310,6 +1304,10 @@ body {
 		padding: 30px 20px 30px 20px;
 		margin: 5% 5% 5% 5%;
 	  }
+
+	.cAddressData{ 
+		width: 80%;
+	}
 	
 	  .btn{
 		padding: 0;
@@ -1344,10 +1342,6 @@ body {
 	
 	  .tokenData{
 		padding: 10% 5% 5% 5%;
-	  }
-	
-	  .statsTable{
-		color: white;
 	  }
 	
 	  .dot{
@@ -1388,24 +1382,10 @@ body {
 		font-size: 1rem;
 		margin-left: 1%;
 	  }
-	
-	  .cAddressData{
-		text-align: center;
-	  }
 	  
 	  .uLabel{
 		text-align: center;
 		font-size: 1.5rem;
-	  }
-	  
-	  .tdLabel{
-		float:left;
-		width:50%;
-	  }
-	  .tdData{
-		float:right;
-		width:50%;
-		text-align: end;
 	  }
 	
 	  .tableSpacer{
@@ -1625,6 +1605,10 @@ body {
 	text-align: end;
 	font-weight: 800;
 	margin-right: 5%;
+  }
+  .tdLabel,
+  .tdData {
+	  font-size: .75em;
   }
   /*End Main Page CSS*/
 

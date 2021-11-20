@@ -105,7 +105,7 @@ class MainPage extends React.Component{
                         <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app2">
                             <span className="herospan2">Core Features</span>
                             <br/>
-                            <h1 className="heroH2">No Liquidity Pool & No Exchanges.</h1>
+                            <h1 className="heroH2">Internal Liquidity Pool & Market Maker.</h1>
                         </Col>
                         
                     </Row>

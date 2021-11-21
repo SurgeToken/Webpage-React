@@ -79,6 +79,7 @@ export default function VST() {
 
     const tokenChange = (e) => {
         let tokenSymbol = e.target.value;
+        console.log(tokenSymbol);
         const tokenData = tokens.filter(token => token.symbol === tokenSymbol);
         setSelectedToken(tokenData);
     }
@@ -119,7 +120,8 @@ export default function VST() {
                             <tr>
                                 <td colSpan="5" className="coloredTD">
                                     <div className="tdLabel">Contract Address</div>
-                                    <div className="tdData"><FaRegCopy/></div>
+                                    <div className="tdData"><FaRegCopy onClick={() => {navigator.clipboard.writeText(selectedToken.address)}}
+/></div>
                                 </td>
                             </tr>
                             <tr>
@@ -135,8 +137,9 @@ export default function VST() {
                             </tr>
                             <tr>
                                 <td colSpan="5" className="coloredTD">
-                                    <div className="tdLabel tdUnderlyingAsset">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
-                                    <div className="tdData"><FaRegCopy/></div>
+                                    <div className="tdLabel">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
+                                    <div className="tdData"><FaRegCopy onClick={() => {navigator.clipboard.writeText(selectedToken.uassetaddress)}}
+/></div>
                                 </td>
                             </tr>
                             <tr>

@@ -61,75 +61,66 @@ class MainPage extends React.Component{
                     </Row>
                     <Row className="spacer5 text-center">
                         <Col>
-                            <Image src="assets/img/cta.svg" className="cta" fluid />
-                                <div className="fees">
-                                    Surge is the first of it's type that only<br/>
-                                    <span className="herospan">allows growth</span>, even in a bearish market.<br/>
-                                    With low fees such as <span className="herospan">6% to buy, 6% to sell &<br/> 2% for wallet-to-wallet transfers</span>
-                                </div>
-                                <div className="feeBtns">
-                                    <Button className="dApp3 btnDApp2">
-                                    <img
-                                    alt=""
-                                    src="assets/img/appicon.png"
-                                    className="d-inline-block align-middle appicon"
-                                    /><a target="_blank" href="https://app.xsurge.net/">Go to App</a>
-                                    </Button>
-                                    <Button className="dApp2">
-                                    <img
-                                    alt=""
-                                    src="assets/img/paper.png"
-                                    className="d-inline-block align-middle papericon"
-                                    />
+							<div id="cta_fees_container">
+								<div className="fees">
+									Surge is the first of it's type that only<br/>
+									<span className="herospan">allows growth</span>, even in a bearish market.<br/>
+									With low fees such as <span className="herospan">6% to buy, 6% to sell &<br/> 2% for wallet-to-wallet transfers</span>
+								</div>
+								<div className="feeBtns">
+									<Button className="dApp3 btnDApp2">
+									<img
+									alt=""
+									src="assets/img/appicon.png"
+									className="d-inline-block align-middle appicon"
+									/><a target="_blank" href="https://app.xsurge.net/">Go to App</a>
+									</Button>
+									<Button className="dApp2">
+									<img
+									alt=""
+									src="assets/img/paper.png"
+									className="d-inline-block align-middle papericon"
+									/>
 									<a target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</a>
-                                    </Button>
-                                </div>
+									</Button>
+								</div>
+							</div>
                         </Col>
                     </Row>
                     
                     <Row className="spacer2 text-center">
                         <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
-                            <span className="herospan1">Core Features</span>
-                            <br/>
+                            <h6 className="heroh6">Core Features</h6>
                             <h1 className="heroH1">Six tokens for you to<br/>invest and start<br/>earning.</h1>
                         </Col>
-                        <Col xs={12} sm={12} md={7} lg={7} xl={7} >
+                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">
                             <Image src="assets/img/App 1.png" className="app1Img" fluid />     
                         </Col>
                     </Row>
                     
                     <Row className="spacer3 text-center">
-                        <Col xs={12} sm={12} md={7} lg={7} xl={7} >
+                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image">
                             <Image src="assets/img/App 2.png" className="app2Img" fluid />     
                         </Col>
-                        <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app2">
-                            <span className="herospan2">Core Features</span>
-                            <br/>
-                            <h1 className="heroH2">Internal Liquidity Pool & Market Maker.</h1>
-                        </Col>
-                        
-                    </Row>
-    
-                    <Row className="">
-                        <Col xs={12} sm={12} md={12} lg={12} xl={12} >
-                            <Image src="assets/img/shape.png" className="shape" />     
-                        </Col>
+						<Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1 app1_right">
+							<h6 className="heroh6 heroh6_right">Core Features</h6>
+							<h1 className="heroH1 heroH1_right">Internal Liquidity Pool & Market Maker.</h1>
+						</Col>
                     </Row>
     
                     <Row className="spacer4 text-center">
                         <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
-                            <span className="herospan1">Certified</span>
-                            <br/>
+                            <h6 className="heroh6">Certified</h6>
                             <h1 className="heroH1">Surge Certified<br/>by Certik.</h1>
                         </Col>
-                        <Col xs={12} sm={12} md={7} lg={7} xl={7} >
+                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">
                             <Image src="assets/img/certik.svg" className="certikImg" fluid />     
                         </Col>
                     </Row>
 
                     <Row className="spacervs">
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} className="text-center">
-                            <h4 className="heroH1 text-center">Surge Assets</h4>
+                            <h4 className="heroH1 text-center" id="surge-assets">Surge Assets</h4>
                             <Image src="assets/img/shape2.png" className="shape2" fluid />
                             
                         </Col>

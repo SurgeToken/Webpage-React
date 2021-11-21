@@ -74,6 +74,10 @@ body {
 	margin-left: 0px;
 }
 
+.clear {
+	clear: both;
+}
+
 /* 
 =====================
 	Navigation Bar
@@ -237,16 +241,21 @@ body {
 .spacer2{
 	margin-top: 15%;
 }
+
 .spacer3{
-	margin-top: 30%;
+	margin-top: 15%;
 }
 .spacer4{
-	margin-top: 30%;
+	margin-top: 15%;
 }
 
 .spacer5{
 	margin-top: 15%;
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2464.44 964.22'%3E%3Cdefs%3E%3Cstyle%3E.cls-1,.cls-2{fill:%2329cbc1;}.cls-1{isolation:isolate;opacity:0.05;}%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M210.14,17.78H2288.46c103.3,0,187,82,187,183.11v598c0,101.14-83.74,183.12-187,183.12H210.14c-103.3,0-187-82-187-183.12v-598C23.1,99.76,106.84,17.78,210.14,17.78Z' transform='translate(-17.56 -17.78)'/%3E%3Cpath class='cls-2' d='M2470.44,763.82a6.59,6.59,0,0,0,9.14.94,6.28,6.28,0,0,0,1-9,6.61,6.61,0,0,0-9.15-.94A6.28,6.28,0,0,0,2470.44,763.82Z' transform='translate(-17.56 -17.78)'/%3E%3Cpath class='cls-2' d='M19,631a6.61,6.61,0,0,0,9.16,1,6.28,6.28,0,0,0,1-9,6.6,6.6,0,0,0-9.15-1A6.29,6.29,0,0,0,19,631Z' transform='translate(-17.56 -17.78)'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
 }
+
 .spacervs{
 	margin-top: 30%;
 }
@@ -260,7 +269,6 @@ body {
 .fees{
 	font-size: 1.8rem;
 	font-weight: 800;
-	margin-top: -22%;
 }
 
 .feeBtns{
@@ -275,17 +283,6 @@ body {
 	width: 60%;
 }
 
-.app1Img{
-	position: absolute;
-	right:0;
-	width: 50%;
-}
-
-.app2Img{
-	position: absolute;
-	left:0;
-	width: 50%;
-}
 
 .dropdown-menu{
 	background-color: #030a0d !important;
@@ -305,25 +302,23 @@ body {
 	color: white !important;
 }
 
-.certikImg{
-	position: absolute;
-	right:0;
-	width: 50%;
-	padding-right: 5%;
+#cta_fees_container {
+	padding: 30px 0px;
 }
 
-.app1{
+.app1 {
 	text-align: start;
 	font-size: 3.2rem;
 	font-weight: 800;
-	padding-left: 8%;
+	padding-left: 3%;
 	margin-top: 2%;
+	width: 50%;
 }
 
-.app2{
-	margin-top: 2%;
-	padding-left: 8%;
+.app1_image {
+	width: 50%;
 }
+
 
 .btnDApp{
 	border: transparent;
@@ -338,9 +333,11 @@ body {
 	font-weight: 800;
 }
 
-.herospan1{
+.heroh6{
 	color: #24b4ab;
 	font-size: 1rem;
+	margin: 0;
+	margin-bottom: 15px;
 }
 
 .heroH1{
@@ -349,18 +346,12 @@ body {
 	font-weight: 800;
 }
 
-.herospan2{
-	color: #24b4ab;
-	font-size: 1rem;
-	position: absolute;
-	right: 2%;
+.heroh6_right{
+	text-align: end;
 }
 
-.heroH2{
-	font-size: 3rem;
+.heroH1_right {
 	text-align: end;
-	font-weight: 800;
-	margin-right:5%;
 }
 
 .tokens {
@@ -371,7 +362,7 @@ body {
 }
 
 .spacerToken {
-	margin-top: 5%;
+	margin-top: 2%;
 	margin-bottom:5%;
 }
 
@@ -381,12 +372,12 @@ body {
 }
 
 .tokenList{
-	padding: 30px 20px 30px 20px;
-	margin: 5% 5% 5% 5%;
+	padding: 30px 20px;
+	margin: 5%;
 }
 
 .tokenList2 {
-	padding: 30px 20px 30px 20px;
+	padding: 30px 20px;
 }
 
 .statTxt {
@@ -708,6 +699,10 @@ body {
 		margin-top: 10px;
 		text-align: center;
 	}
+
+	.heroH1 {
+		font-size: 2.1rem;
+	}
 }
 
 @media screen and (max-width: 837px) {
@@ -736,20 +731,8 @@ body {
 		margin-top: 20%;
 	}
 
-	.spacer4 {
-		margin-top: 15%;
-	}
-
 	.spacervs {
 		margin-top: 10%;
-	}
-
-	.heroH1{
-		font-size: 2.1rem;
-	}
-
-	.heroH1 {
-		font-size: 2.1rem;
 	}
 
 	.tokenList {
@@ -828,7 +811,6 @@ body {
   
 	.fees{
 		font-size: 1rem;
-		margin-top: -24%;
 	}
   
 	.feeBtns{
@@ -849,70 +831,11 @@ body {
 	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
 	  font-size: .6rem !important;
 	}
-	.spacer1{
-	  margin-top: 10%;
-	}
-	.spacer2{
-	  margin-top: 20%;
-	}
-	.spacer3{
-	  margin-top: 30%;
-	}
-	.spacer4{
-	  margin-top: 35%;
-	}
-	.spacer5{
-	  margin-top: 15%;
-	}
-	.spacervs{
-	  margin-top: 10%;
-	}
-	.heroH1{
+
+	.heroH1 {
 	  font-size: 1.5rem;
-	  text-align: start;
-	  font-weight: 800;
 	}
-  
-	.app1Img{
-	  position: absolute;
-	  right:0;
-	  width: 50%;
-	}
-  
-	.app2Img{
-	  position: absolute;
-	  left:0;
-	  width: 50%;
-	}
-	
-	.app1{
-	  margin-top: 2%;
-	  padding-left: 8%;
-  
-	}
-  
-	.herospan1{
-	  color: #24b4ab;
-	  font-size: 1rem;
-	}
-	.heroH1{
-	  font-size: 2.1rem;
-	  text-align: start;
-	  font-weight: 800;
-	}
-  
-	.herospan2{
-	  color: #24b4ab;
-	  font-size: 1rem;
-	  position: absolute;
-	  right: 2%;
-	}
-	.heroH2{
-	  font-size: 2.1rem;
-	  text-align: end;
-	  font-weight: 800;
-	  margin-right: 5%;
-	}
+
 	.token{
 	  border-radius: 25px;
 	  margin-top: 25px;
@@ -1162,7 +1085,6 @@ body {
 	  .fees{
 		font-size: 1rem;
 		font-weight: 800;
-		margin-top: -24%;
 	  }
 	
 	  .feeBtns{
@@ -1179,71 +1101,11 @@ body {
 		box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
 		font-size: .6rem !important;
 	  }
-	  .spacer1{
-		margin-top: 10%;
-	  }
-	  .spacer2{
-		margin-top: 20%;
-	  }
-	  .spacer3{
-		margin-top: 30%;
-	  }
-	  .spacer4{
-		margin-top: 35%;
-	  }
-	  .spacer5{
-		margin-top: 15%;
-	  }
-	  .spacervs{
-		margin-top: 10%;
-	  }
-	  .heroH1{
-		font-size: 1.5rem;
-		text-align: start;
-		font-weight: 800;
-	  }
-	
-	  .app1Img{
-		position: absolute;
-		right:0;
-		width: 50%;
-	  }
-	
-	  .app2Img{
-		position: absolute;
-		left:0;
-		width: 50%;
-	  }
-	  
-	  .app1{
-		margin-top: 2%;
-		padding-left: 8%;
-	
-	  }
-	
-	  .herospan1{
-		color: #24b4ab;
-		font-size: 1rem;
-	  }
-	  .heroH1{
-		font-size: 2.1rem;
-		text-align: start;
-		font-weight: 800;
-	  }
-	
-	  .herospan2{
-		color: #24b4ab;
-		font-size: 1rem;
-		position: absolute;
-		right: 2%;
-	  }
-	  .heroH2{
-		font-size: 2.1rem;
-		text-align: end;
-		font-weight: 800;
-		margin-right: 5%;
-	  }
-	
+
+		.heroH1 {
+			font-size: 1.2rem;
+		}
+
 	
 	
 	  .token{
@@ -1516,7 +1378,6 @@ body {
   .fees{
 	font-size: 0.9rem;
 	font-weight: 800;
-	margin-top: -36%;
   }
 
   .feeBtns{
@@ -1533,83 +1394,21 @@ body {
 	box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
 	font-size: .6rem !important;
   }
-  .spacer1{
-	margin-top: 10%;
-  }
-  .spacer2{
-	margin-top: 20%;
-  }
-  .spacer3{
-	margin-top: 55%;
-  }
-  .spacer4{
-	margin-top: 50%;
-  }
-  .spacervs{
-	margin-top: 10%;
-  }
-  .heroH1{
-	font-size: 1.5rem;
-	text-align: start;
-	font-weight: 800;
-  }
 
+  .heroH1 {
+	font-size: 1rem;
+}
 
-  .app1Img{
-	position: absolute;
-	right:0;
-	width: 60%;
-  }
+.tokenList2{
+	padding: 30px 0px;
+}
 
-  .app2Img{
-	position: absolute;
-	left:0;
-	width: 60%;
-	margin-top: 25%
-  }
-  
-  .app1{
-	margin-top: 2%;
-	padding-left: 8%;
-
-  }
-
-  .app2{
-	margin-top: 2%;
-	padding-left: 8%;
-
-  }
-
-  .certikImg{
-	padding-right: 1%;
-	padding-left: 5%;
-  }
-
-  .herospan{
-	color: #24b4ab;
-  }
-
-  .herospan1{
-	color: #24b4ab;
-	font-size: .8rem;
-  }
-
-  .herospan2{
-	color: #24b4ab;
-	font-size: .8rem;
-	position: absolute;
-	right: 5%;
-  }
-  .heroH2{
-	font-size: 1.5rem;
-	text-align: end;
-	font-weight: 800;
-	margin-right: 5%;
-  }
   .tdLabel,
   .tdData {
 	  font-size: .75em;
   }
+
+
   /*End Main Page CSS*/
 
   /**Begin Education Page CSS**/
@@ -1672,12 +1471,7 @@ body {
 	  margin-top: -10%;
 	}
 	.btnDApp{
-	  margin-left: 35%;
 	  border: transparent;
-	}
-	.heroImage{
-	  padding-right: 5%;
-	  padding-left: 5%;
 	}
 	.tokenChart{
 	  margin-top: 5%;
@@ -1716,12 +1510,6 @@ body {
 	  width: 30%;
 	  margin-top: -3px;
 	}
-	.intro{
-	  font-size: 1.6rem;
-	  font-weight: 800;
-	  margin-top: 5%;
-	  padding-left: 24%;
-	}
 	.hiw{
 	  font-size: 1rem;
 	  font-weight: 800;
@@ -1741,7 +1529,6 @@ body {
 	.fees{
 	  font-size: 0.7rem;
 	  font-weight: 800;
-	  margin-top: -34%;
 	}
 	.feeBtns{
 	  margin-top: 2%;
@@ -1756,69 +1543,6 @@ body {
 	  border-radius: 30px;
 	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
 	  font-size: .6rem !important;
-	}
-	.spacer1{
-	  margin-top: 10%;
-	}
-	.spacer2{
-	  margin-top: 20%;
-	}
-	.spacer3{
-	  margin-top: 55%;
-	}
-	.spacer4{
-	  margin-top: 50%;
-	}
-	.spacervs{
-	  margin-top: 10%;
-	}
-	.heroH1{
-	  font-size: 1.5rem;
-	  text-align: start;
-	  font-weight: 800;
-	}
-	.app1Img{
-	  position: absolute;
-	  right:0;
-	  width: 60%;
-	}
-	.app2Img{
-	  position: absolute;
-	  left:0;
-	  width: 60%;
-	  margin-top: 25%
-	}
-	.app1{
-	  margin-top: 2%;
-	  padding-left: 8%;
-  
-	}
-	.app2{
-	  margin-top: 2%;
-	  padding-left: 8%;
-	}
-	.certikImg{
-	  padding-right: 1%;
-	  padding-left: 5%;
-	}
-	.herospan{
-	  color: #24b4ab;
-	}
-	.herospan1{
-	  color: #24b4ab;
-	  font-size: .8rem;
-	}
-	.herospan2{
-	  color: #24b4ab;
-	  font-size: .8rem;
-	  position: absolute;
-	  right: 5%;
-	}
-	.heroH2{
-	  font-size: 1.5rem;
-	  text-align: end;
-	  font-weight: 800;
-	  margin-right: 5%;
 	}
   
 	/**Begin Education Page CSS**/

@@ -671,6 +671,14 @@ body {
 	}
 }
 
+@media screen and (max-width: 1399px) {
+	.dApp {
+		margin-right: 0px;
+		margin-top: 10px;
+		text-align: center;
+	}
+}
+
 @media screen and (max-width: 1300px) {
 	.intro {
 		font-size: 2.5rem;
@@ -694,12 +702,6 @@ body {
 }
 
 @media screen and (max-width: 991px) {
-	.dApp {
-		margin-right: 0px;
-		margin-top: 10px;
-		text-align: center;
-	}
-
 	.heroH1 {
 		font-size: 2.1rem;
 	}

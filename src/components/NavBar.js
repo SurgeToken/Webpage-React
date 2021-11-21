@@ -3,12 +3,13 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Component } from 'react';
 import {LinkContainer} from 'react-router-bootstrap';
+import { HashLink } from 'react-router-hash-link';
 import Image from 'react-bootstrap/Image';
 
 class NavBar extends Component{
     render(){
         return (
-            <Navbar collapseOnSelect expand="xl" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="xxl" bg="dark" variant="dark">
                     <LinkContainer to="/">
                         <Navbar.Brand to="/">
                             <img
@@ -22,7 +23,8 @@ class NavBar extends Component{
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="justify-content-end" style={{ width: "100%" }}>
-                            <LinkContainer to="/education">
+                            <HashLink className="nav-link" to="/#surge-assets">Surge Assets</HashLink>
+							<LinkContainer to="/education">
                                 <Nav.Link>Surge Education</Nav.Link>
                             </LinkContainer>
                         

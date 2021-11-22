@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
-import TokenData from './TokenData';
 import { FaRegCopy, FaCheck } from "react-icons/fa";
 import Image from 'react-bootstrap/Image';
 import SUSDJSON from './json/surge_usd_abi.json';

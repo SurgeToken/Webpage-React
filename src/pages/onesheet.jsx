@@ -11,7 +11,7 @@ const OneSheet = () => {
 			<NavBar/>
 			<Row>
 				<Col xs={12} sm={12} md={12} lg={12} xl={12} id="surge-one-sheet-container">
-					<Image src="assets/img/surge-one-sheet.png" id="surge-one-sheet-img" />
+					<Image src="assets/img/xsurge-onesheet.jpeg" id="surge-one-sheet-img" />
 				</Col>
 			</Row>
 		</div>

@@ -21,7 +21,8 @@ const tokens = [
 		'symbol': 'sUSD',
         'uassetname': 'Binance-Pegged USD',
         'uassetsymbol': 'BUSD',
-        'uassetaddress': '0xe9e7cea3dedca5984780bafc599bd69add087d56'
+        'uassetaddress': '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+		'wei_unit': 'ether'
 	},
 	{
 		'address': '0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef',
@@ -30,7 +31,8 @@ const tokens = [
 		'symbol': 'sETH',
         'uassetname': 'Binance-Pegged ETH',
         'uassetsymbol': 'BETH',
-        'uassetaddress': '0x2170ed0880ac9a755fd29b2688956bd959f933f8'
+        'uassetaddress': '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
+		'wei_unit': 'ether'
 	},
 	{
 		'address': '0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1',
@@ -39,7 +41,8 @@ const tokens = [
 		'symbol': 'sBTC',
         'uassetname': 'Binance-Pegged BTC',
         'uassetsymbol': 'BBTC',
-        'uassetaddress': '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c'
+        'uassetaddress': '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+		'wei_unit': 'ether'
 	},
 	{
 		'address': '0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF',
@@ -48,7 +51,8 @@ const tokens = [
 		'symbol': 'sADA',
         'uassetname': 'Binance-Pegged ADA',
         'uassetsymbol': 'BADA',
-        'uassetaddress': '0x3ee2200efb3400fabb9aacf31297cbdd1d435d47'
+        'uassetaddress': '0x3ee2200efb3400fabb9aacf31297cbdd1d435d47',
+		'wei_unit': 'ether'
 	},
 	{
 		'address': '0x2e62e57d1D36517D4b0F329490AC1b78139967C0',
@@ -57,7 +61,8 @@ const tokens = [
 		'symbol': 'sUSLS',
         'uassetname': 'Useless',
         'uassetsymbol': 'USLS',
-        'uassetaddress': '0x2cd2664ce5639e46c6a3125257361e01d0213657'
+        'uassetaddress': '0x2cd2664ce5639e46c6a3125257361e01d0213657',
+		'wei_unit': 'gwei'
 	},
 	{
 		'address': '0x254246331cacbC0b2ea12bEF6632E4C6075f60e2',
@@ -66,7 +71,8 @@ const tokens = [
 		'symbol': 'xUSD',
         'uassetname': 'Binance-Pegged USD',
         'uassetsymbol': 'BUSD',
-        'uassetaddress': '0xe9e7cea3dedca5984780bafc599bd69add087d56'
+        'uassetaddress': '0xe9e7cea3dedca5984780bafc599bd69add087d56',
+		'wei_unit': 'ether'
 	}
 ]
 
@@ -92,16 +98,16 @@ export default function VST() {
         
     }
 
-    const getTokenPrice = async (tokenABI, tokenAddress) => {
+    const getTokenPrice = async (tokenABI, tokenAddress, weiUnit) => {
         const contract = new web3.eth.Contract(tokenABI, tokenAddress);
         const priceRaw = await contract.methods.calculatePrice().call();
-        const price = web3.utils.fromWei(priceRaw, 'ether');
+        const price = web3.utils.fromWei(priceRaw, weiUnit);
         return price;
     }
 
     const getTokenStats = (tokenConfig) => {
         const promiseArray = tokenConfig.map(async (token) => {
-            const tokenPrice = await getTokenPrice(token.abi, token.address);
+            const tokenPrice = await getTokenPrice(token.abi, token.address, token.wei_unit);
             const tokenStats = {
                 name: token.name,
                 symbol: token.symbol,

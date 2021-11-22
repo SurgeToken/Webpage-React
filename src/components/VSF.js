@@ -1,10 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import { FaRegCopy, FaCheck } from "react-icons/fa";
-import Web3 from 'web3';
-import {useState, useEffect} from 'react';
-
-const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
+import {useState} from 'react';
 
 const farms = [
 	{

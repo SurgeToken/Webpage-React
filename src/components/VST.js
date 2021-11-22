@@ -22,7 +22,12 @@ const tokens = [
         'uassetname': 'Binance-Pegged USD',
         'uassetsymbol': 'BUSD',
         'uassetaddress': '0xe9e7cea3dedca5984780bafc599bd69add087d56',
-		'wei_unit': 'ether'
+		'wei_unit': 'ether',
+		'fees': {
+			'buy': 6,
+			'sell': 6,
+			'transfer': 2
+		}
 	},
 	{
 		'address': '0x5B1d1BBDCc432213F83b15214B93Dc24D31855Ef',
@@ -32,7 +37,12 @@ const tokens = [
         'uassetname': 'Binance-Pegged ETH',
         'uassetsymbol': 'BETH',
         'uassetaddress': '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
-		'wei_unit': 'ether'
+		'wei_unit': 'ether',
+		'fees': {
+			'buy': 6,
+			'sell': 6,
+			'transfer': 2
+		}
 	},
 	{
 		'address': '0xb68c9D9BD82BdF4EeEcB22CAa7F3Ab94393108a1',
@@ -42,7 +52,12 @@ const tokens = [
         'uassetname': 'Binance-Pegged BTC',
         'uassetsymbol': 'BBTC',
         'uassetaddress': '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
-		'wei_unit': 'ether'
+		'wei_unit': 'ether',
+		'fees': {
+			'buy': 6,
+			'sell': 6,
+			'transfer': 3
+		}
 	},
 	{
 		'address': '0xbF6bB9b8004942DFb3C1cDE3Cb950AF78ab8A5AF',
@@ -52,7 +67,12 @@ const tokens = [
         'uassetname': 'Binance-Pegged ADA',
         'uassetsymbol': 'BADA',
         'uassetaddress': '0x3ee2200efb3400fabb9aacf31297cbdd1d435d47',
-		'wei_unit': 'ether'
+		'wei_unit': 'ether',
+		'fees': {
+			'buy': 4,
+			'sell': 4,
+			'transfer': 2
+		}
 	},
 	{
 		'address': '0x2e62e57d1D36517D4b0F329490AC1b78139967C0',
@@ -62,7 +82,12 @@ const tokens = [
         'uassetname': 'Useless',
         'uassetsymbol': 'USLS',
         'uassetaddress': '0x2cd2664ce5639e46c6a3125257361e01d0213657',
-		'wei_unit': 'gwei'
+		'wei_unit': 'gwei',
+		'fees': {
+			'buy': 8,
+			'sell': 8,
+			'transfer': 4
+		}
 	},
 	{
 		'address': '0x254246331cacbC0b2ea12bEF6632E4C6075f60e2',
@@ -72,7 +97,12 @@ const tokens = [
         'uassetname': 'Binance-Pegged USD',
         'uassetsymbol': 'BUSD',
         'uassetaddress': '0xe9e7cea3dedca5984780bafc599bd69add087d56',
-		'wei_unit': 'ether'
+		'wei_unit': 'ether',
+		'fees': {
+			'buy': .75,
+			'sell': .25,
+			'transfer': .25
+		}
 	}
 ]
 
@@ -217,11 +247,26 @@ export default function VST() {
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>
+							<tr>
+                                <td className="">
+                                    <div className="uLabel">Fees</div>
+                                </td>
+                            </tr>
+							<tr>
+								<td colSpan="5" className="coloredTD">
+									<div className="tdLabel tdFeeLabel">Buy</div>
+									<div className="tdData tdFee">{selectedToken.fees['buy']}%</div>
+									<div className="tdLabel tdFeeLabel">Sell</div>
+									<div className="tdData tdFee">{selectedToken.fees['sell']}%</div>
+									<div className="tdLabel tdFeeLabel">Transfer</div>
+									<div className="tdData tdFee">{selectedToken.fees['transfer']}%</div>
+								</td>
+							</tr>
                             <tr>
                                 <td className="">
                                     <div className="uLabel">Underlying Asset</div>
                                 </td>
-                            </tr>
+							</tr>
                             <tr>
                                 <td colSpan="5" className="coloredTD">
                                     <div className="tdLabel tdUnderlyingAsset">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>

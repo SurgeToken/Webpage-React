@@ -646,6 +646,11 @@ body {
 	text-align: end;
 }
 
+.tdFeeLabel,
+.tdFee {
+	width: 50%;
+}
+
 .hidden{
 	display: none;
 }
@@ -804,14 +809,6 @@ body {
 		padding-top: 23px !important;
 		font-size: .8rem;
 		width: 15%;
-	}
-
-	.assetsLeftPanel {
-		padding-left:5%;
-	} 
-
-	.assetsRightPanel {
-		padding-right: 5%;
 	}
 	/*End Main Page CSS*/
 
@@ -978,15 +975,8 @@ body {
 	  margin-top: -.5%;
 	}
   
-	.assetsLeftPanel{
-	  padding-left:5%;
-	  padding-right: 5%;
-	} 
-  
 	.assetsRightPanel{
 	  margin-top: 15px;
-	  padding-left: 5%;
-	  padding-right: 5%;
 	} 
   
 	.coloredTD{
@@ -1249,17 +1239,6 @@ body {
 		width: 5%;
 		margin-top: -.5%;
 	  }
-	
-	  .assetsLeftPanel{
-		padding-left:5%;
-		padding-right: 5%;
-	  } 
-	
-	  .assetsRightPanel{
-		margin-top: 15px;
-		padding-left: 5%;
-		padding-right: 5%;
-	  } 
 	
 	  .coloredTD{
 		background-color: #0B2F30 !important;

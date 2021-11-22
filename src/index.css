@@ -319,6 +319,9 @@ body {
 	width: 50%;
 }
 
+.app1_right {
+	padding-right: 3%;
+}
 
 .btnDApp{
 	border: transparent;

@@ -590,6 +590,12 @@ body {
 .statsTable{
 	color: white;
 }
+.tokenStatsTable{
+	color: white;
+}
+.farmStatsTable{
+	color: white;
+}
 
 .coloredTD{
 	background-color: #0B2F30 !important;
@@ -628,12 +634,16 @@ body {
 }
 .tdLabel{
 	float:left;
-	width:75%;
+	width:50%;
 }
 .tdData{
 	float:right;
-	width:25%;
+	width:35%;
 	text-align: end;
+}
+
+.hidden{
+	display: none;
 }
 
 .tdPrice{

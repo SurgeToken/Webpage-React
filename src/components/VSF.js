@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import { FaRegCopy, FaCheck } from "react-icons/fa";
-import Image from 'react-bootstrap/Image';
 import Web3 from 'web3';
 import {useState, useEffect} from 'react';
 

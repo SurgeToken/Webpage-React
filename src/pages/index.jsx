@@ -128,10 +128,10 @@ class MainPage extends React.Component{
 
                     <Row className="spacerToken">
                         <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsLeftPanel ">
-                            <VST />
+                            {/* <VST /> */}
                         </Col>
                         <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsRightPanel ">
-                            <VSF />
+                            {/* <VSF /> */}
                         </Col>
                     </Row>
                     

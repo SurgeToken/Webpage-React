@@ -1,12 +1,10 @@
 import React from "react";
 
 import NavBar from "../components/NavBar";
-import VSTokens from "../components/VSTokens";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
-import VSFarms from "../components/VSFarms";
 import VST from "../components/VST";
 import VSF from "../components/VSF";
 
@@ -134,18 +132,6 @@ class MainPage extends React.Component{
                             {/* <VSF /> */}
                         </Col>
                     </Row>
-                    
-                    {/* <VSTokens/>
-
-                    <Row className="">
-                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className="app1 text-center">
-                            <h4 className="heroH1 text-center">Surge Farms</h4>
-                            <Image src="assets/img/shape2.png" className="shape2" fluid />
-                            
-                        </Col>
-                    </Row>
-
-                    <VSFarms/> */}
                     
                 
                 </div>

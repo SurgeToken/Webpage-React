@@ -13,7 +13,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/education" component={Education} />
-		  <Route exact path="/onesheet" component={OneSheet} />
+		      <Route exact path="/onesheet" component={OneSheet} />
         </Switch>
       </HashRouter>
 	}

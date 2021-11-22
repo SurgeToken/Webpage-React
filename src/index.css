@@ -183,7 +183,7 @@ body {
 
 .shape2{
 	position: absolute;
-	right: 40px;
+	right: 100px;
 	width: 15%;
 	margin-top: -10%
 }
@@ -365,7 +365,7 @@ body {
 }
 
 .spacerToken {
-	margin-top: 2%;
+	margin-top: 3%;
 	margin-bottom:5%;
 }
 
@@ -1065,7 +1065,7 @@ body {
 	  }
 	  .shape2{
 		position: absolute;
-		right: 40px;
+		right: 100px;
 		width: 15%;
 		margin-top: -10%;
 	  }
@@ -1338,7 +1338,7 @@ body {
   }
   .shape2{
 	position: absolute;
-	right: 40px;
+	right: 100px;
 	width: 15%;
 	margin-top: -10%;
   }
@@ -1498,7 +1498,7 @@ body {
 	}
 	.shape2{
 	  position: absolute;
-	  right: 40px;
+	  right: 100px;
 	  width: 15%;
 	  margin-top: -10%;
 	}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
+import Image from 'react-bootstrap/Image';
 import { FaRegCopy, FaCheck } from "react-icons/fa";
 import {useState} from 'react';
 
@@ -60,9 +61,9 @@ const farms = [
 			</Form.Select>
 			
 			{!selectedFarmByUSer?"":
-			<div className="tokenData">
-				<div className="cValueSpacer1">
-					&nbsp;
+			<div className="tokenData farm">
+				<div className="cValueSpacer">
+					<Image src="assets/img/dot.png" className="dot" fluid /> <span className="cValueTxt">Current <span className="herospan"> stats:</span></span>
 				</div>
 			
 				<table className="table table-borderless farmStatsTable" cellSpacing="0">
@@ -76,8 +77,8 @@ const farms = [
 							</td>
 						</tr>
 						<tr>
-							<td className="">
-								<div className="cAddressData">{selectedFarm.address}</div>
+							<td className="cAddressData">
+								{selectedFarm.address}
 							</td>
 						</tr>
 					</tbody>

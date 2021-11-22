@@ -595,6 +595,7 @@ body {
 }
 .farmStatsTable{
 	color: white;
+	
 }
 
 .coloredTD{
@@ -623,9 +624,9 @@ body {
 	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis; 
-	max-width: 0;
+	text-overflow: ellipsis;
 	margin: 0 auto;
+	max-width: 0;
 }
 
 .uLabel{
@@ -634,11 +635,11 @@ body {
 }
 .tdLabel{
 	float:left;
-	width:50%;
+	width:75%;
 }
 .tdData{
 	float:right;
-	width:35%;
+	width:25%;
 	text-align: end;
 }
 

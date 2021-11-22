@@ -191,8 +191,8 @@ export default function VST() {
                         <tbody>
                             <tr>
                                 <td colSpan="5" className="coloredTD">
-                                    <div className="tdLabel">Price</div>
-                                    <div className="tdData">{selectedToken.price}</div>
+                                    <div className="tdLabel tdPrice">Price</div>
+                                    <div className="tdData tdPriceData">{selectedToken.price}</div>
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>
@@ -206,8 +206,8 @@ export default function VST() {
                                 </td>
                             </tr>
                             <tr>
-                                <td className="">
-                                    <div className="cAddressData">{selectedToken.address}</div>
+                                <td className="cAddressData">
+									{selectedToken.address}
                                 </td>
                             </tr>
                             <tr><td>&nbsp;</td></tr>
@@ -218,15 +218,15 @@ export default function VST() {
                             </tr>
                             <tr>
                                 <td colSpan="5" className="coloredTD">
-                                    <div className="tdLabel">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
+                                    <div className="tdLabel tdUnderlyingAsset">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
                                     <div className="tdData"><FaRegCopy id="copy-icon-uaddress" onClick={() => uaddressCopy(selectedToken.uassetaddress)}/>
                                     <FaCheck id="copy-icon-okay-uaddress" className="hidden" />
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td className="">
-                                    <div className="cAddressData">{selectedToken.uassetaddress}</div>
+                                <td className="cAddressData">
+									{selectedToken.uassetaddress}
                                 </td>
                             </tr>
                         </tbody>

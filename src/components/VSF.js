@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import TokenStats from './TokenStats';
-import { FaRegCopy } from "react-icons/fa";
+import { FaRegCopy, FaCheck } from "react-icons/fa";
 import Image from 'react-bootstrap/Image';
 import Web3 from 'web3';
 import {useState, useEffect} from 'react';
@@ -21,19 +21,41 @@ const farms = [
 	export default function VSF() {
 
 		const [selectedFarm, setSelectedFarm] = useState(farms[0]);
+		const [selectedFarmByUSer, setSelectedFarmByUser] = useState(false);
 
 		const farmChange = (e) => {
+			setSelectedFarmByUser(true);
 			let farmSymbol = e.target.value;
+			if(farmSymbol === "0"){
+				setSelectedFarmByUser(false); return
+			}
 			const farmData = farms.filter(farm => farm.symbol === farmSymbol)[0];
-			console.log({farmSymbol, farmData, setSelectedFarm, selectedFarm})
 
 			setSelectedFarm(farmData);
+		}
+
+		const addressCopy = function(address) {
+
+			// Copy to clipboard
+			navigator.clipboard.writeText(address);
+	
+			// "Copied" animation
+			let icon1 = document.querySelector("#copy-icon-address");
+			let icon2 = document.querySelector("#copy-icon-okay-address");
+			icon1.classList.add("hidden");
+			icon2.classList.remove("hidden"); 
+			
+			setTimeout(()=>{
+				icon2.classList.add("hidden");
+				icon1.classList.remove("hidden"); 
+			}, 2000);
 		}
 
 			
 		return (
 			<div className="widget spacerToken tokenList2">
 			<Form.Select className="farmSelect" onChange={(ev) => farmChange(ev)}>
+				<option value ="0" selected>Select a Farm</option>
 				{farms.map((farm) => {
 					return (
 						<option value={farm.symbol}>{farm.name}</option>
@@ -42,18 +64,20 @@ const farms = [
 				})}
 			</Form.Select>
 			
-
+			{!selectedFarmByUSer?"":
 			<div className="tokenData">
-				<div className="cValueSpacer">
-					
+				<div className="cValueSpacer1">
+					&nbsp;
 				</div>
 			
-				<table className="table table-borderless statsTable" cellSpacing="0">
+				<table className="table table-borderless farmStatsTable" cellSpacing="0">
 					<tbody>
 						<tr>
 							<td colSpan="5" className="coloredTD">
 								<div className="tdLabel">Contract Address</div>
-								<div className="tdData"><FaRegCopy onClick={() => {navigator.clipboard.writeText(selectedFarm.address)}}/></div>
+								<div className="tdData"><FaRegCopy id="copy-icon-address" onClick={() => addressCopy(selectedFarm.address)}/>
+                                    <FaCheck id="copy-icon-okay-address" className="hidden" />
+									</div>
 							</td>
 						</tr>
 						<tr>
@@ -65,7 +89,7 @@ const farms = [
 				</table>
 	   
 			</div>
-
+			}
 		</div>
 			)
 	

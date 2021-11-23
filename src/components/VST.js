@@ -85,6 +85,7 @@ const tokens = [
 		'wei_unit': 'gwei',
 		'fees': {
 			'buy': 8,
+			'stake': 6,
 			'sell': 8,
 			'transfer': 4
 		}
@@ -100,6 +101,7 @@ const tokens = [
 		'wei_unit': 'ether',
 		'fees': {
 			'buy': .75,
+			'stake': .75,
 			'sell': .25,
 			'transfer': .25
 		}
@@ -255,24 +257,21 @@ export default function VST() {
 							<tr>
 								<td className="tdFee tdFeeFirst">
 									<div className="coloredTD tdFeeContainer">
-										<div className="tdLabel tdFeeLabel">Buy</div>
-										<div className="tdData tdFeeData">{selectedToken.fees['buy']}%</div>
-										<div className="clear"></div>
+										<div className="tdLabel tdFeeLabel">Buy {selectedToken.fees['stake'] ? '/ Stake' : ''}</div>
 									</div>
+									<div className="tdData tdFeeData">{selectedToken.fees['buy']}% {selectedToken.fees['stake'] ? ' / '+selectedToken.fees['stake']+'%' : ''}</div>
 								</td>
 								<td className="tdFee">
 									<div className="coloredTD tdFeeContainer">
 										<div className="tdLabel tdFeeLabel">Sell</div>
-										<div className="tdData tdFeeData">{selectedToken.fees['sell']}%</div>
-										<div className="clear"></div>
 									</div>
+									<div className="tdData tdFeeData">{selectedToken.fees['sell']}%</div>
 								</td>
 								<td className="tdFee tdFeeLast">
 									<div className="coloredTD tdFeeContainer">
 										<div className="tdLabel tdFeeLabel">Transfer</div>
-										<div className="tdData tdFeeData">{selectedToken.fees['transfer']}%</div>
-										<div className="clear"></div>
 									</div>
+									<div className="tdData tdFeeData">{selectedToken.fees['transfer']}%</div>
 								</td>
 							</tr>
 							<tr><td colSpan="3">&nbsp;</td></tr>

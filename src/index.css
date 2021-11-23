@@ -234,6 +234,10 @@ body {
 	margin-top: 31%;
 }
 
+#intro_disclaimer {
+	font-size: .7em;
+}
+
 .spacer1{
 	margin-top: 10%;
 }
@@ -648,7 +652,9 @@ body {
 
 .tdFeeLabel,
 .tdFeeData {
-	width: 50%;
+	width: 100%;
+	float: none;
+	text-align: center;
 }
 
 .tdFee {
@@ -1222,6 +1228,11 @@ body {
 		padding: 30px 20px 30px 20px;
 		margin: 5% 5% 5% 5%;
 	  }
+
+	.tdFeeLabel,
+	.tdFeeData {
+		font-size: .75em;
+	}
 
 	.cAddressData{ 
 		width: 80%;

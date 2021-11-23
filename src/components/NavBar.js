@@ -64,6 +64,9 @@ class NavBar extends Component{
 							<LinkContainer to="/onesheet">
                                 <Nav.Link>One Sheet</Nav.Link>
                             </LinkContainer>
+							<LinkContainer to="/roadmap">
+                                <Nav.Link>Road Map</Nav.Link>
+                            </LinkContainer>
                             <Nav.Link className="dApp" href="https://app.xsurge.net">
                             <img
                             alt=""

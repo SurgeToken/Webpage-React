@@ -647,8 +647,25 @@ body {
 }
 
 .tdFeeLabel,
-.tdFee {
+.tdFeeData {
 	width: 50%;
+}
+
+.tdFee {
+	width: 33%;
+	padding: 0 !important;
+}
+
+.tdFeeFirst {
+	padding-right: 3% !important;
+}
+
+.tdFeeLast {
+	padding-left: 3% !important;
+}
+
+.tdFeeContainer {
+	padding: 5% 10%!important;
 }
 
 .hidden{
@@ -979,14 +996,6 @@ body {
 	  margin-top: 15px;
 	} 
   
-	.coloredTD{
-	  background-color: #0B2F30 !important;
-	  border-radius: 25px;
-	  padding-left: 5% !important;
-	  padding-right: 5% !important;
-	  margin-bottom: 2%;
-	}
-  
 	.uncoloredTD{
 	  padding-left: 5% !important;
 	  padding-right: 5% !important;
@@ -1238,14 +1247,6 @@ body {
 	  .dot{
 		width: 5%;
 		margin-top: -.5%;
-	  }
-	
-	  .coloredTD{
-		background-color: #0B2F30 !important;
-		border-radius: 25px;
-		padding-left: 5% !important;
-		padding-right: 5% !important;
-		margin-bottom: 2%;
 	  }
 	
 	  .uncoloredTD{

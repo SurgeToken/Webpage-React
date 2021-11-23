@@ -26,9 +26,10 @@ class MainPage extends React.Component{
 						<div id="intro_container">
                             <p className="intro">
                                 The Surge tokens<br/>
-                                <span className="herospan"><em>*never go down*</em></span><br/>
+                                <span className="herospan"><em>*never go down</em></span><br/>
                                 given its protocol.
                             </p>
+							<p id="intro_disclaimer">*Surge Tokens never go down <br/> when compared to its value in its base asset</p>
                             <br/>
 
                             <Button className="dApp btnDApp">
@@ -48,7 +49,7 @@ class MainPage extends React.Component{
                         <Col>
                         <p className="hiw">
                                 Each transaction triggers a fee that raises the price of Surge relative to<br/>
-                                its underlying asset.<span className="herospan">That means Buys, Transfers, and Sells raise the<br/>price.  That's the Surge protocol.</span>
+                                its underlying asset. <span className="herospan">That means Buys, Transfers, and Sells raise the<br/>price.  That's the Surge protocol.</span>
                             </p>
                         </Col>
                     </Row>

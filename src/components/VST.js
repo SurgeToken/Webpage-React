@@ -85,6 +85,7 @@ const tokens = [
 		'wei_unit': 'gwei',
 		'fees': {
 			'buy': 8,
+			'stake': 6,
 			'sell': 8,
 			'transfer': 4
 		}
@@ -100,6 +101,7 @@ const tokens = [
 		'wei_unit': 'ether',
 		'fees': {
 			'buy': .75,
+			'stake': .75,
 			'sell': .25,
 			'transfer': .25
 		}
@@ -226,14 +228,14 @@ export default function VST() {
                     <table className="table table-borderless tokenStatsTable" cellSpacing="0">
                         <tbody>
                             <tr>
-                                <td colSpan="5" className="coloredTD">
+                                <td colSpan="3" className="coloredTD">
                                     <div className="tdLabel tdPrice">Price</div>
                                     <div className="tdData tdPriceData">{selectedToken.price}</div>
                                 </td>
                             </tr>
-                            <tr><td>&nbsp;</td></tr>
+                            <tr><td colSpan="3">&nbsp;</td></tr>
                             <tr>
-                                <td colSpan="5" className="coloredTD">
+                                <td colSpan="3" className="coloredTD">
                                     <div className="tdLabel">Contract Address</div>
                                     <div className="tooltip">Copied</div>
                                     <div className="tdData"><FaRegCopy id="copy-icon-address" onClick={() => addressCopy(selectedToken.address)}/>
@@ -242,33 +244,44 @@ export default function VST() {
                                 </td>
                             </tr>
                             <tr>
-                                <td className="cAddressData">
+                                <td colSpan="3" className="cAddressData">
 									{selectedToken.address}
                                 </td>
                             </tr>
-                            <tr><td>&nbsp;</td></tr>
+                            <tr><td colSpan="3">&nbsp;</td></tr>
 							<tr>
-                                <td className="">
+                                <td colSpan="3" className="">
                                     <div className="uLabel">Fees</div>
                                 </td>
                             </tr>
 							<tr>
-								<td colSpan="5" className="coloredTD">
-									<div className="tdLabel tdFeeLabel">Buy</div>
-									<div className="tdData tdFee">{selectedToken.fees['buy']}%</div>
-									<div className="tdLabel tdFeeLabel">Sell</div>
-									<div className="tdData tdFee">{selectedToken.fees['sell']}%</div>
-									<div className="tdLabel tdFeeLabel">Transfer</div>
-									<div className="tdData tdFee">{selectedToken.fees['transfer']}%</div>
+								<td className="tdFee tdFeeFirst">
+									<div className="coloredTD tdFeeContainer">
+										<div className="tdLabel tdFeeLabel">Buy {selectedToken.fees['stake'] ? '/ Stake' : ''}</div>
+									</div>
+									<div className="tdData tdFeeData">{selectedToken.fees['buy']}% {selectedToken.fees['stake'] ? ' / '+selectedToken.fees['stake']+'%' : ''}</div>
+								</td>
+								<td className="tdFee">
+									<div className="coloredTD tdFeeContainer">
+										<div className="tdLabel tdFeeLabel">Sell</div>
+									</div>
+									<div className="tdData tdFeeData">{selectedToken.fees['sell']}%</div>
+								</td>
+								<td className="tdFee tdFeeLast">
+									<div className="coloredTD tdFeeContainer">
+										<div className="tdLabel tdFeeLabel">Transfer</div>
+									</div>
+									<div className="tdData tdFeeData">{selectedToken.fees['transfer']}%</div>
 								</td>
 							</tr>
+							<tr><td colSpan="3">&nbsp;</td></tr>
                             <tr>
-                                <td className="">
+                                <td colSpan="3" className="">
                                     <div className="uLabel">Underlying Asset</div>
                                 </td>
 							</tr>
                             <tr>
-                                <td colSpan="5" className="coloredTD">
+                                <td colSpan="3" className="coloredTD">
                                     <div className="tdLabel tdUnderlyingAsset">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
                                     <div className="tdData"><FaRegCopy id="copy-icon-uaddress" onClick={() => uaddressCopy(selectedToken.uassetaddress)}/>
                                     <FaCheck id="copy-icon-okay-uaddress" className="hidden" />
@@ -276,7 +289,7 @@ export default function VST() {
                                 </td>
                             </tr>
                             <tr>
-                                <td className="cAddressData">
+                                <td colSpan="3" className="cAddressData">
 									{selectedToken.uassetaddress}
                                 </td>
                             </tr>

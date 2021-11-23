@@ -234,6 +234,10 @@ body {
 	margin-top: 31%;
 }
 
+#intro_disclaimer {
+	font-size: .7em;
+}
+
 .spacer1{
 	margin-top: 10%;
 }
@@ -647,8 +651,27 @@ body {
 }
 
 .tdFeeLabel,
+.tdFeeData {
+	width: 100%;
+	float: none;
+	text-align: center;
+}
+
 .tdFee {
-	width: 50%;
+	width: 33%;
+	padding: 0 !important;
+}
+
+.tdFeeFirst {
+	padding-right: 3% !important;
+}
+
+.tdFeeLast {
+	padding-left: 3% !important;
+}
+
+.tdFeeContainer {
+	padding: 5% 10%!important;
 }
 
 .hidden{
@@ -997,14 +1020,6 @@ body {
 	  margin-top: 15px;
 	} 
   
-	.coloredTD{
-	  background-color: #0B2F30 !important;
-	  border-radius: 25px;
-	  padding-left: 5% !important;
-	  padding-right: 5% !important;
-	  margin-bottom: 2%;
-	}
-  
 	.uncoloredTD{
 	  padding-left: 5% !important;
 	  padding-right: 5% !important;
@@ -1214,6 +1229,11 @@ body {
 		margin: 5% 5% 5% 5%;
 	  }
 
+	.tdFeeLabel,
+	.tdFeeData {
+		font-size: .75em;
+	}
+
 	.cAddressData{ 
 		width: 80%;
 	}
@@ -1256,14 +1276,6 @@ body {
 	  .dot{
 		width: 5%;
 		margin-top: -.5%;
-	  }
-	
-	  .coloredTD{
-		background-color: #0B2F30 !important;
-		border-radius: 25px;
-		padding-left: 5% !important;
-		padding-right: 5% !important;
-		margin-bottom: 2%;
 	  }
 	
 	  .uncoloredTD{

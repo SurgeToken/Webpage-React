@@ -534,91 +534,6 @@ const Education = () => {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="4">
-              <Accordion.Header>Trust Wallet Safety - Random Tokens in your Wallet? Dusting Attack Education</Accordion.Header>
-              <Accordion.Body>
-                <Row>
-                  <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
-                  <p>There have been lots of reports of people getting random tokens added to their wallets. These are what's known as dusting attacks. I'll provide a brief summary of what these are but the short and sweet is DO NOT TOUCH OR MOVE THESE TOKENS. Simply hide them from view in your wallet and forget they are there.</p>
-
-                  <p>Brief Summary:  Dusting attacks are small amounts of coin deposited to a user in an effort to find out who you are. The attacker analyzes transactions accross wallets to identify source companies and individuals. Since dusting attacks rely on a combined analysis of multiple addresses, if a dust fund is not moved, attackers aren't able to make the connections they need to "deanonymize" the wallets.</p>
-
-                  <p>There's also a kind of dusting attack on the Binance Chain, in which they sent tiny amounts of crypto to multiple addresses, leaving a link to a malicious website in the transaction Memo. Be careful! This is a scam. Read the link below for more information.  <a href="https://academy.binance.com/en/articles/what-is-a-dusting-attack">Binance Academy - Dusting Attacks</a></p>
-
-                  <p>This is how they get you:  MinereumBSC, TheVera.io, and Ever.io are common dusting attacks that We've found to be the common denominator in community reports of theft of their crypto. Those reports involve the theft of all of their holdings.</p>
-
-                  <p>We decided to investigate this deeper and ended up doing some research on MinereumBSC specifically. This led us to investigate the contracts (which were encrypted or unavailable for review on the blockchain), and the website listed for the token.</p>
-
-                  <p>NOTE: Out of suspicion, we made sure to do this under conditions that wouldn't leave me vulnerable to an attack. Immediately on opening the webpage, my Antivirus tipped me off to 8 separate fraudulent transaction attempts that led to this writeup. Do not try this at home</p>
-                  <p>
-                  I recommend to everyone:
-                  </p>
-                  <ol>
-                    <li>
-                      Don't research the token you were dusted with. Disable it, and forget about it.
-                      <ul>
-                        <li>In addition, with a bscscan account, you can hide these tokens from view, which will prevent them from being shown in your wallet on bscscan.</li>
-                      </ul>
-                    </li>
-                    <li>
-                      Don't touch the token.
-                      <ul>
-                        <li>
-                        Any attempts to run a transaction, communicates with the encrypted contract which could possibly result in randsomware or malware infection
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      Don't ever leave DApps connected on your phone. 
-                      <ul>
-                        <li>
-                        Auto-Contracts are direct interaction and pose no vulnerability since since they don't require the passing of your private keys to an outside source.
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                    Always have a good anti-virus
-                      <ul>
-                        <li>
-                        This will prevent any malicious files from accessing your data
-                        </li>
-                      </ul>
-                    </li>
-                  </ol> 
-                  <p>Lastly, ALWAYS verify contract addresses to officially released announcements before starting, in the middle of entering, and before confirming (triple verification) any transactions.</p>
-                  <p>These safe practices take a bit of extra time, but it would save a lot of people money if they were followed like their livelihood depended on it.</p>
-                  
-                  </Col>
-                </Row>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="5">
-              <Accordion.Header>Trust Wallet Safety - Hacker Prevention</Accordion.Header>
-              <Accordion.Body>
-                <Row>
-                  <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
-                  <p>It is best to make certain you have these settings active for your account</p>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edImg">
-                    <Image src="assets/img/hackerprevention1.jpeg" className="edImg3" />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
-                    <p>In the event of a sim swap hack, it should mitigate unauthorized entry. In addition, educate yourselves on dusting attacks which are a very frequent occurrence in blockchain.</p>
-                    <p>As always</p>
-                    <p><h4>NEVER PASS OUT YOUR SEED PHRASE TO ANY PERSON OR WEBSITE FOR ANY REASON</h4></p>
-                    <p>Absolutely NO ONE across any social media platforms or tech support will ask for your seed phrase, wallet number, or request a walletconnect.</p>
-                    <p>Be extremely careful what details you disclose about yourself on social media. Be especially wary of clicking links that you are not familiar with. If any link you see is a google.docs address, consider it a hack. If any crypto related techsupport sends you a link, automatically assume its a walletconnect. Don't click it. You'll see these scam accounts on Twitter, Facebook, Reddit, and third-party phishing sites everywhere. Most importantly, when using trust wallet, DON'T EVER leave DApps connected to your wallet. Always disconnect.</p>
-                    <p>If you are dusted, DO NOT TOUCH IT. To learn more about dusting attacks check the "Trust Wallet Safety - Random Tokens in your Wallet?" section</p>
-                    <p>If you even think your phone is getting hacked, immediately disconnect yourself from the internet by activating Airplane Mode, shut down the device and reboot in safemode. Go into your downloads and apps and delete anything suspicious. We strongly recommend getting a good anti-virus.</p>
-                    <p>Lastly, and by far, the best mitigation tactic you can do in my opinion, is to completely rid yourself of the Trust Wallet app. Use BSCScan tags to track your personal wallet number and view balances from the blockchain. This ensures that both your device and the app itself are completely removed from the equation until you are ready to sell. You will need your seed phrase on hand to recover your wallet when you are ready to access, so BE SURE TO BACKUP. Save your seed phrase somewhere safe. You can follow the guidlines of this support link to both access and save your backup: <a href="https://community.trustwallet.com/t/how-to-backup-a-multi-coin-wallet/42">Trust Wallet Community</a></p>
-                  </Col>
-                </Row>
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="6">
               <Accordion.Header>Selling Your Surge</Accordion.Header>
               <Accordion.Body>
                 <Row>
@@ -852,6 +767,91 @@ const Education = () => {
                   <p>Gas fees are paid to cover the cost of a transaction.</p>
                   <p>The fee is a reflection of the amount of computing power/energy that is required to process each transaction.</p>
                   
+                  </Col>
+                </Row>
+              </Accordion.Body>
+            </Accordion.Item>
+			<Accordion.Item eventKey="4">
+              <Accordion.Header>Trust Wallet Safety - Random Tokens in your Wallet? Dusting Attack Education</Accordion.Header>
+              <Accordion.Body>
+                <Row>
+                  <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                  <p>There have been lots of reports of people getting random tokens added to their wallets. These are what's known as dusting attacks. I'll provide a brief summary of what these are but the short and sweet is DO NOT TOUCH OR MOVE THESE TOKENS. Simply hide them from view in your wallet and forget they are there.</p>
+
+                  <p>Brief Summary:  Dusting attacks are small amounts of coin deposited to a user in an effort to find out who you are. The attacker analyzes transactions accross wallets to identify source companies and individuals. Since dusting attacks rely on a combined analysis of multiple addresses, if a dust fund is not moved, attackers aren't able to make the connections they need to "deanonymize" the wallets.</p>
+
+                  <p>There's also a kind of dusting attack on the Binance Chain, in which they sent tiny amounts of crypto to multiple addresses, leaving a link to a malicious website in the transaction Memo. Be careful! This is a scam. Read the link below for more information.  <a href="https://academy.binance.com/en/articles/what-is-a-dusting-attack">Binance Academy - Dusting Attacks</a></p>
+
+                  <p>This is how they get you:  MinereumBSC, TheVera.io, and Ever.io are common dusting attacks that We've found to be the common denominator in community reports of theft of their crypto. Those reports involve the theft of all of their holdings.</p>
+
+                  <p>We decided to investigate this deeper and ended up doing some research on MinereumBSC specifically. This led us to investigate the contracts (which were encrypted or unavailable for review on the blockchain), and the website listed for the token.</p>
+
+                  <p>NOTE: Out of suspicion, we made sure to do this under conditions that wouldn't leave me vulnerable to an attack. Immediately on opening the webpage, my Antivirus tipped me off to 8 separate fraudulent transaction attempts that led to this writeup. Do not try this at home</p>
+                  <p>
+                  I recommend to everyone:
+                  </p>
+                  <ol>
+                    <li>
+                      Don't research the token you were dusted with. Disable it, and forget about it.
+                      <ul>
+                        <li>In addition, with a bscscan account, you can hide these tokens from view, which will prevent them from being shown in your wallet on bscscan.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      Don't touch the token.
+                      <ul>
+                        <li>
+                        Any attempts to run a transaction, communicates with the encrypted contract which could possibly result in randsomware or malware infection
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      Don't ever leave DApps connected on your phone. 
+                      <ul>
+                        <li>
+                        Auto-Contracts are direct interaction and pose no vulnerability since since they don't require the passing of your private keys to an outside source.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                    Always have a good anti-virus
+                      <ul>
+                        <li>
+                        This will prevent any malicious files from accessing your data
+                        </li>
+                      </ul>
+                    </li>
+                  </ol> 
+                  <p>Lastly, ALWAYS verify contract addresses to officially released announcements before starting, in the middle of entering, and before confirming (triple verification) any transactions.</p>
+                  <p>These safe practices take a bit of extra time, but it would save a lot of people money if they were followed like their livelihood depended on it.</p>
+                  
+                  </Col>
+                </Row>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="5">
+              <Accordion.Header>Trust Wallet Safety - Hacker Prevention</Accordion.Header>
+              <Accordion.Body>
+                <Row>
+                  <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                  <p>It is best to make certain you have these settings active for your account</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edImg">
+                    <Image src="assets/img/hackerprevention1.jpeg" className="edImg3" />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
+                    <p>In the event of a sim swap hack, it should mitigate unauthorized entry. In addition, educate yourselves on dusting attacks which are a very frequent occurrence in blockchain.</p>
+                    <p>As always</p>
+                    <p><h4>NEVER PASS OUT YOUR SEED PHRASE TO ANY PERSON OR WEBSITE FOR ANY REASON</h4></p>
+                    <p>Absolutely NO ONE across any social media platforms or tech support will ask for your seed phrase, wallet number, or request a walletconnect.</p>
+                    <p>Be extremely careful what details you disclose about yourself on social media. Be especially wary of clicking links that you are not familiar with. If any link you see is a google.docs address, consider it a hack. If any crypto related techsupport sends you a link, automatically assume its a walletconnect. Don't click it. You'll see these scam accounts on Twitter, Facebook, Reddit, and third-party phishing sites everywhere. Most importantly, when using trust wallet, DON'T EVER leave DApps connected to your wallet. Always disconnect.</p>
+                    <p>If you are dusted, DO NOT TOUCH IT. To learn more about dusting attacks check the "Trust Wallet Safety - Random Tokens in your Wallet?" section</p>
+                    <p>If you even think your phone is getting hacked, immediately disconnect yourself from the internet by activating Airplane Mode, shut down the device and reboot in safemode. Go into your downloads and apps and delete anything suspicious. We strongly recommend getting a good anti-virus.</p>
+                    <p>Lastly, and by far, the best mitigation tactic you can do in my opinion, is to completely rid yourself of the Trust Wallet app. Use BSCScan tags to track your personal wallet number and view balances from the blockchain. This ensures that both your device and the app itself are completely removed from the equation until you are ready to sell. You will need your seed phrase on hand to recover your wallet when you are ready to access, so BE SURE TO BACKUP. Save your seed phrase somewhere safe. You can follow the guidlines of this support link to both access and save your backup: <a href="https://community.trustwallet.com/t/how-to-backup-a-multi-coin-wallet/42">Trust Wallet Community</a></p>
                   </Col>
                 </Row>
               </Accordion.Body>

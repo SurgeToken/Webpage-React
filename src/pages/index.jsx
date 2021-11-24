@@ -55,7 +55,7 @@ class MainPage extends React.Component{
                     </Row>
                     <Row className="spacer1 text-center">
                         <Col>
-                            <Image src="assets/img/atom.svg" className="atomImg" fluid />    
+                            <Image src="assets/img/atom.png" className="atomImg" fluid />    
                         </Col>
                     </Row>
                     <Row className="spacer5 text-center">

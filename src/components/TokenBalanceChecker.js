@@ -2,14 +2,21 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import { FaRegCopy, FaCheck } from "react-icons/fa";
 import Image from 'react-bootstrap/Image';
+import SUSDJSON from './json/surge_usd_abi.json';
+import SETHJSON from './json/surge_eth_abi.json';
+import SBTCJSON from './json/surge_btc_abi.json';
+import SADAJSON from './json/surge_ada_abi.json';
+import SUSLSJSON from './json/surge_useless_abi.json';
+import XUSDJSON from './json/surge_xusd_abi.json';
 import SurgeTokens from './json/surge_tokens.json';
 import Web3 from 'web3';
 import {useState, useEffect} from 'react';
-import {getSurgeTokenData} from './SurgeAssetData.js';
 
 const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 
-const tokens = getSurgeTokenData();
+const tokens = SurgeTokens
+
+console.log(SurgeTokens)
 
 export default function VST() {
     /*get token info*/
@@ -17,6 +24,7 @@ export default function VST() {
     const [selectedTokenByUser, setSelectedTokenByUser] = useState(false);
     
     const tokenChange = (e) => {
+
         setSelectedTokenByUser(true);
         let tokenSymbol = e.target.value;
         if(tokenSymbol === "0"){
@@ -198,5 +206,7 @@ export default function VST() {
                 </div>
             } 
             </div>
-    )
-}
+        )
+
+    
+    }

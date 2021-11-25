@@ -1,43 +1,34 @@
 import React from "react";
-
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
+import { HashLink } from 'react-router-hash-link';
 import VST from "../components/VST";
 import VSF from "../components/VSF";
 
 
 //Functional Component 
 class MainPage extends React.Component{
-
-    
-    render(){
+    render() {
         return (
             <div>
-                
-                
-                
                 <NavBar/>
-    
                     <Row className="spacer1">
                         <Col xs={12} sm={12} md={4} lg={4} xl={4} className="mx-auto">
 						<div id="intro_container">
                             <p className="intro">
-                                The Surge tokens<br/>
-                                <span className="herospan"><em>*never go down</em></span><br/>
+                                Surge Tokens Price<br/>
+                                <span className="herospan"><em>can never go down</em></span><br/>
                                 given its protocol.
                             </p>
-							<p id="intro_disclaimer">*Surge Tokens never go down <br/> when compared to its value in its base asset</p>
+							
                             <br/>
 
                             <Button className="dApp btnDApp">
-                            <img
-                            alt=""
-                            src="assets/img/appicon.png"
-                            className="d-inline-block align-middle appicon"
-                            /><a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to App</a>
+							<HashLink to="/education#education_how_surge_works">How it works</HashLink>
                             </Button>
 						</div>
                         </Col>
@@ -93,7 +84,7 @@ class MainPage extends React.Component{
                             <h1 className="heroH1">Six tokens for you to<br/>invest and start<br/>earning.</h1>
                         </Col>
                         <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">
-                            <Image src="assets/img/App 1.png" className="app1Img" fluid />     
+                            <Image src="assets/img/surge_tokens_horizontal.png" className="app1Img" fluid />     
                         </Col>
                     </Row>
                     
@@ -111,6 +102,12 @@ class MainPage extends React.Component{
                         <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
                             <h6 className="heroh6">Certified</h6>
                             <h1 className="heroH1">Surge Certified<br/>by Certik.</h1>
+							<Button className="certikAudtitBtn certikAudtitBtnFirst">
+								<a href="https://www.certik.com/projects/surgeeth" target="_blank">SurgeETH</a>
+                            </Button>
+							<Button className="certikAudtitBtn">
+								<a href="https://www.certik.com/projects/surgebtc" target="_blank">SurgeBTC</a>
+                            </Button>
                         </Col>
                         <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">
                             <Image src="assets/img/certik.svg" className="certikImg" fluid />     
@@ -134,8 +131,8 @@ class MainPage extends React.Component{
                         </Col>
                     </Row>
                     
-                
-                </div>
+				<Footer/>
+            </div>
         );
     };    
     }

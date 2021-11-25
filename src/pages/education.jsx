@@ -1,12 +1,12 @@
 import React from "react";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import Image from 'react-bootstrap/Image';
 
 const Education = () => {
-    
   return (
     <div>
        <NavBar/>
@@ -489,7 +489,7 @@ const Education = () => {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="3">
-              <Accordion.Header>How SurgeTokens Work, "Do they provide reflections/rewards?"</Accordion.Header>
+              <Accordion.Header id="education_how_surge_works">How SurgeTokens Work, "Do they provide reflections/rewards?"</Accordion.Header>
               <Accordion.Body>
                 <Row>
                   <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
@@ -860,7 +860,7 @@ const Education = () => {
          </Col>
        </Row>
 
-       
+       <Footer/>
     </div>
   );
 };

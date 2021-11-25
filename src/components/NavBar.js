@@ -27,7 +27,6 @@ class NavBar extends Component{
 							<LinkContainer to="/education">
                                 <Nav.Link>Surge Education</Nav.Link>
                             </LinkContainer>
-                        
                             <Nav.Link href="https://xsurgemerch.com/">Store</Nav.Link>
                             <NavDropdown title="Community" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="https://discord.gg/XSURGE">

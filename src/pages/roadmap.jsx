@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
@@ -13,6 +14,7 @@ const RoadMap = () => {
 					<Image src="assets/img/xsurge-roadmap.png" id="surge-roadmap-img" />
 				</Col>
 			</Row>
+			<Footer/>
 		</div>
 	);
 };

@@ -1,212 +1,126 @@
 import React from 'react';
+import { Component } from 'react';
 import Form from 'react-bootstrap/Form'
-import { FaRegCopy, FaCheck } from "react-icons/fa";
-import Image from 'react-bootstrap/Image';
-import SUSDJSON from './json/surge_usd_abi.json';
-import SETHJSON from './json/surge_eth_abi.json';
-import SBTCJSON from './json/surge_btc_abi.json';
-import SADAJSON from './json/surge_ada_abi.json';
-import SUSLSJSON from './json/surge_useless_abi.json';
-import XUSDJSON from './json/surge_xusd_abi.json';
 import SurgeTokens from './json/surge_tokens.json';
 import Web3 from 'web3';
-import {useState, useEffect} from 'react';
 
 const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 
 const tokens = SurgeTokens
 
-console.log(SurgeTokens)
+class TokenBalanceChecker extends Component {
+	constructor() {
+		super();
+		this.state = {
+			selectedTokenByUser: false,
+			selectedToken: ""
+		};
+	}
 
-export default function VST() {
-    /*get token info*/
-    const [selectedToken, setSelectedToken] = useState(tokens[0]);
-    const [selectedTokenByUser, setSelectedTokenByUser] = useState(false);
-    
-    const tokenChange = (e) => {
+	tokenChange = (e) => {
+		let tokenSymbol = e.target.value;
+		this.setState({selectedTokenByUser: true});
+		if (tokenSymbol === "0") {
+			this.setState({selectedTokenByUser: false});
+			return
+		} else {
+			this.setState({selectedToken: tokenSymbol});
+		}
+	}
 
-        setSelectedTokenByUser(true);
-        let tokenSymbol = e.target.value;
-        if(tokenSymbol === "0"){
-            setSelectedTokenByUser(false); return
-        } else {
-            const tokenData = tokens.filter(token => token.symbol === tokenSymbol)[0];
+	renderCheckAllBalancesView = () => {
+		if (this.state.selectedTokenByUser && this.state.selectedToken == "all") {
+			return true;
+		}
+		
+		return false;
+	}
 
-            setSelectedToken(tokenData);
-        }
-        
-    }
+	renderCheckTokenBalancesView = () => {
+		if (this.state.selectedTokenByUser && this.state.selectedToken != "all") {
+			return true;
+		}
+		
+		return false;
+	}
 
-    const getTokenPrice = async (tokenABI, tokenAddress, weiUnit) => {
-        const contract = new web3.eth.Contract(tokenABI, tokenAddress);
-        const priceRaw = await contract.methods.calculatePrice().call();
-        const price = web3.utils.fromWei(priceRaw, weiUnit);
-        return price;
-    }
+	lookupWalletBalances = (e) => {
+		let promises = [];
+		let wallet_response = {};
+		//let wallet_address = document.getElementById('token_balance_wallet_address');
+		let wallet_address = "0xAEF57C7b7De8887A97d4Fc50E5aBa573236F292d";
+		let formated_wallet_address = web3.utils.toChecksumAddress(wallet_address);
 
-    const getTokenStats = (tokenConfig) => {
-        const promiseArray = tokenConfig.map(async (token) => {
-            const tokenPrice = await getTokenPrice(token.abi, token.address, token.wei_unit);
-            const tokenStats = {
-                name: token.name,
-                symbol: token.symbol,
-                address: token.address,
-                bsc: token.bsc,
-                price: tokenPrice
-            }
-            return tokenStats;
-        })
-        Promise.all(promiseArray).then(results => {
-            // setTokenComponents(results);
-            results.forEach(result=>{
-                tokens.forEach(token=>{
-                    
-                    if(result.symbol === token.symbol) {
-                        token.price = result.price;
-                    }
-                })
-                if(result.symbol === selectedToken.symbol) {
-                    selectedToken.price = result.price;
-                    setSelectedToken(result)
-                }
-            })
-        })
-    }
+		try {
+			
+		} catch(err) {
+			console.log(err.message);
+			return;
+		}
 
-    useEffect(() => {
-        getTokenStats(tokens);
-    }, [tokens]);
+		for (const token in tokens) {
+			wallet_response[tokens[token]["name"]] = {};
+			let contract = new web3.eth.Contract(tokens[token]["abi"], tokens[token]["address"]);
 
-    const addressCopy = function(address) {
+			let token_balance = contract.methods.balanceOf(formated_wallet_address).call().then(
+				data => {
+					wallet_response[tokens[token]["name"]]['balance'] = data;
+				}
+			);
 
-        // Copy to clipboard
-        navigator.clipboard.writeText(address);
+			let base_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses={contract_address}&vs_currencies=usd";
+			if (tokens[token]['external_lookup']) {
+				let lookup_url = base_url.replace("{contract_address}", tokens[token]["uassetaddress"]);
+				
+				let request = fetch(lookup_url).then(response => response.text()).then(
+					data => {
+						
+						let data_obj = JSON.parse(data);
+						wallet_response[tokens[token]["name"]]['usd_price'] = data_obj[tokens[token]["uassetaddress"]]['usd'];
+					}
+				);
 
-        // "Copied" animation
-        let icon1 = document.querySelector("#copy-icon-address");
-        let icon2 = document.querySelector("#copy-icon-okay-address");
-        icon1.classList.add("hidden");
-        icon2.classList.remove("hidden"); 
-        
-        setTimeout(()=>{
-            icon2.classList.add("hidden");
-            icon1.classList.remove("hidden"); 
-        }, 2000);
-    }
+				promises.push(request);
+			}
+		}
 
-    const uaddressCopy = function(address) {
+		Promise.allSettled(promises)
+			.then((result) => {
+				console.log(wallet_response);
+			});
+	}
 
-        // Copy to clipboard
-        navigator.clipboard.writeText(address);
+	render() {
+		return (
+			<div className="widget spacerToken tokenList2">
+				<Form.Select className="tokenSelect" onChange={(ev) => this.tokenChange(ev)}>
+					<option value="0" defaultValue>Select a Token</option>
+					<option value="all" defaultValue>Check All Tokens</option>
+					{tokens.map((token) => {
+						return (
+							<option key={token.symbol} value={token.symbol}>{token.name}</option>
+						);
+					})}
+				</Form.Select>
 
-        // "Copied" animation
-        let icon1 = document.querySelector("#copy-icon-uaddress");
-        let icon2 = document.querySelector("#copy-icon-okay-uaddress");
-        icon1.classList.add("hidden");
-        icon2.classList.remove("hidden"); 
-        
-        setTimeout(()=>{
-            icon2.classList.add("hidden");
-            icon1.classList.remove("hidden"); 
-        }, 2000);
-    }
-    
-    
+				{!this.renderCheckAllBalancesView() ? "" :
+					<div id="capture_wallet_address_container">
+						<input 
+							id="token_balance_wallet_address"
+							type="text"/>
 
-    return (
-            <div className="widget spacerToken tokenList2">
-                <Form.Select className="tokenSelect" onChange={(ev) => tokenChange(ev)}>
-                    <option value="0" defaultValue>Select a Token</option>
-                    {tokens.map((token) => {
-                        return (
-                            <option key={token.symbol} value={token.symbol}>{token.name}</option>
-                        );
+						<div onClick={(ev) => this.lookupWalletBalances(ev)}>Lookup wallet balance</div>
+					</div>
+				}
 
-                    })}
-                </Form.Select>
-            
-              {!selectedTokenByUser?"":
-            
-                <div className="tokenData">
-                    <div className="cValueSpacer">
-                        <Image src="assets/img/dot.png" className="dot" fluid /> <span className="cValueTxt">Current <span className="herospan"> value:</span></span>
-                    </div>
-                
-                    <table className="table table-borderless tokenStatsTable" cellSpacing="0">
-                        <tbody>
-                            <tr>
-                                <td colSpan="3" className="coloredTD">
-                                    <div className="tdLabel tdPrice">Price</div>
-                                    <div className="tdData tdPriceData">{selectedToken.price}</div>
-                                </td>
-                            </tr>
-                            <tr><td colSpan="3">&nbsp;</td></tr>
-                            <tr>
-                                <td colSpan="3" className="coloredTD">
-                                    <div className="tdLabel">Contract Address</div>
-                                    <div className="tooltip">Copied</div>
-                                    <div className="tdData"><FaRegCopy id="copy-icon-address" onClick={() => addressCopy(selectedToken.address)}/>
-                                    <FaCheck id="copy-icon-okay-address" className="hidden" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colSpan="3" className="cAddressData">
-									{selectedToken.address}
-                                </td>
-                            </tr>
-                            <tr><td colSpan="3">&nbsp;</td></tr>
-							<tr>
-                                <td colSpan="3" className="">
-                                    <div className="uLabel">Fees</div>
-                                </td>
-                            </tr>
-							<tr>
-								<td className="tdFee tdFeeFirst">
-									<div className="coloredTD tdFeeContainer">
-										<div className="tdLabel tdFeeLabel">Buy {selectedToken.fees['stake'] ? '/ Stake' : ''}</div>
-									</div>
-									<div className="tdData tdFeeData">{selectedToken.fees['buy']}% {selectedToken.fees['stake'] ? ' / '+selectedToken.fees['stake']+'%' : ''}</div>
-								</td>
-								<td className="tdFee">
-									<div className="coloredTD tdFeeContainer">
-										<div className="tdLabel tdFeeLabel">Sell</div>
-									</div>
-									<div className="tdData tdFeeData">{selectedToken.fees['sell']}%</div>
-								</td>
-								<td className="tdFee tdFeeLast">
-									<div className="coloredTD tdFeeContainer">
-										<div className="tdLabel tdFeeLabel">Transfer</div>
-									</div>
-									<div className="tdData tdFeeData">{selectedToken.fees['transfer']}%</div>
-								</td>
-							</tr>
-							<tr><td colSpan="3">&nbsp;</td></tr>
-                            <tr>
-                                <td colSpan="3" className="">
-                                    <div className="uLabel">Underlying Asset</div>
-                                </td>
-							</tr>
-                            <tr>
-                                <td colSpan="3" className="coloredTD">
-                                    <div className="tdLabel tdUnderlyingAsset">{selectedToken.uassetname} ({selectedToken.uassetsymbol})</div>
-                                    <div className="tdData"><FaRegCopy id="copy-icon-uaddress" onClick={() => uaddressCopy(selectedToken.uassetaddress)}/>
-                                    <FaCheck id="copy-icon-okay-uaddress" className="hidden" />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colSpan="3" className="cAddressData">
-									{selectedToken.uassetaddress}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-           
-                </div>
-            } 
-            </div>
-        )
+				{!this.renderCheckTokenBalancesView() ? "" :
+					<div>
+						I want to check a single token
+					</div>
+				}
+			</div>
+		)
+	}
+}
 
-    
-    }
+export default TokenBalanceChecker;

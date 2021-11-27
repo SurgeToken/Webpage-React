@@ -20,13 +20,12 @@ class MainPage extends React.Component{
                         <Col xs={12} sm={12} md={4} lg={4} xl={4} className="mx-auto">
 						<div id="intro_container">
                             <p className="intro">
-                                The Surge tokens<br/>
-                                <span className="herospan"><em>*never go down</em></span><br/>
-                                given its protocol.
+                                Due to it's protocol,<br/>
+								the price of a Surge token<br/>
+                                <span className="herospan"><em>may never go down</em></span><br/>
+                                relative to it's backing asset.
                             </p>
-							<p id="intro_disclaimer">*Surge Tokens never go down <br/> when compared to its value in its base asset</p>
                             <br/>
-
                             <Button className="dApp btnDApp">
                             <img
                             alt=""

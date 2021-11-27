@@ -1,0 +1,32 @@
+import React from "react";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+const Disclosures = () => {
+	return (
+		<div>
+			<NavBar/>
+			<Row>
+				<Col xs={12} sm={12} md={12} lg={12} xl={12} id="disclosure_container">
+					<div class="disclosure_wrapper first">
+						<h1 class="disclosure_header">Disclaimer</h1>
+						<div id="disclaimer_text">
+							NOT FINANCIAL ADVICE - Offered content is solely for the purpose of education and information, with no implied guarantees of any kind, including warranties of accuracy, completeness, or monetary gains. The Information provided via this document, on XSurge's website, or any related services, is not intended to be, and does not constitute financial advice, investment advice, trading advice or any other advice. The information in this document and on our website is generic in nature and is not specific to you, the User, or anyone else. Unless having conducted proper due diligence including, but not limited to, consultation with a licensed broker or financial advisory, you should not make any financial decision(s) or investment(s) of any kind based on any of the information provided. You understand that using any of the information available on xSurge's website or through another service is at your own risk.
+						</div>
+					</div>
+					<div class="disclosure_wrapper last">
+						<h1 class="disclosure_header">Risks</h1>
+						<div id="risk_text">
+							Investing and Trading may not be for everyone. There are potential rewards, as well as potential risks involved. Anyone wishing to invest should seek their own independent financial or professional advisory.
+						</div>
+					</div>
+				</Col>
+			</Row>
+			<Footer/>
+		</div>
+	);
+};
+
+export default Disclosures

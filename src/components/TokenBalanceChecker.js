@@ -13,7 +13,8 @@ class TokenBalanceChecker extends Component {
 		super();
 		this.state = {
 			selectedTokenByUser: false,
-			selectedToken: ""
+			selectedToken: "",
+			test_message: []
 		};
 	}
 
@@ -44,7 +45,9 @@ class TokenBalanceChecker extends Component {
 		return false;
 	}
 
-	lookupWalletBalances = (e) => {
+	lookupWalletBalances = (ev) => {
+		this.setState({test_message: []});
+		console.log(this.state.test_message);
 		let promises = [];
 		let wallet_response = {};
 		//let wallet_address = document.getElementById('token_balance_wallet_address');
@@ -62,32 +65,34 @@ class TokenBalanceChecker extends Component {
 			wallet_response[tokens[token]["name"]] = {};
 			let contract = new web3.eth.Contract(tokens[token]["abi"], tokens[token]["address"]);
 
-			let token_balance = contract.methods.balanceOf(formated_wallet_address).call().then(
+			let balance_of = new Promise (function (resolve, reject) {
+				contract.methods.balanceOf(formated_wallet_address).call({}, function(error, result) {
+					if (error) {
+						reject(error);
+					} else {
+						resolve(result);
+					}
+				});
+			});
+			promises.push(balance_of);
+			balance_of.then(
 				data => {
 					wallet_response[tokens[token]["name"]]['balance'] = data;
 				}
 			);
-
-			let base_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses={contract_address}&vs_currencies=usd";
-			if (tokens[token]['external_lookup']) {
-				let lookup_url = base_url.replace("{contract_address}", tokens[token]["uassetaddress"]);
-				
-				let request = fetch(lookup_url).then(response => response.text()).then(
-					data => {
-						
-						let data_obj = JSON.parse(data);
-						wallet_response[tokens[token]["name"]]['usd_price'] = data_obj[tokens[token]["uassetaddress"]]['usd'];
-					}
-				);
-
-				promises.push(request);
-			}
 		}
 
-		Promise.allSettled(promises)
-			.then((result) => {
-				console.log(wallet_response);
-			});
+		Promise.allSettled(promises).then(
+			result => {
+				let output = [];
+				for (const k in wallet_response) {
+					output.push({'name' : k, 'balance' : wallet_response[k]['balance']});
+				}
+
+				this.setState({test_message: output});
+				console.log(this.state.test_message);
+			}
+		);
 	}
 
 	render() {
@@ -110,6 +115,13 @@ class TokenBalanceChecker extends Component {
 							type="text"/>
 
 						<div onClick={(ev) => this.lookupWalletBalances(ev)}>Lookup wallet balance</div>
+						<div>
+							{this.state.test_message.map((token) => {
+								return (
+									<div>{token.name} has a balance of {token.balance}</div>
+								);
+							})}
+						</div>
 					</div>
 				}
 

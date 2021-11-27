@@ -22,16 +22,17 @@ class MainPage extends React.Component{
                             <p className="intro">
                                 Due to it's protocol,<br/>
 								the price of a Surge token<br/>
-                                <span className="herospan"><em>may never go down</em></span><br/>
-                                relative to it's backing asset.
+                                <span className="herospan"><em>*never goes down</em></span><br/>
+                                when compared to<br/> 
+								it's backing asset.
                             </p>
                             <br/>
                             <Button className="dApp btnDApp">
-                            <img
-                            alt=""
-                            src="assets/img/appicon.png"
-                            className="d-inline-block align-middle appicon"
-                            /><a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to App</a>
+								<img
+									alt=""
+									src="assets/img/appicon.png"
+									className="d-inline-block align-middle appicon"/>
+								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to App</a>
                             </Button>
 						</div>
                         </Col>

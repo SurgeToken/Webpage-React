@@ -112,6 +112,9 @@ body {
 	text-align: justify;
 	margin-top: 15px;
 	font-size: .6rem;
+}
+
+.disclosure_link {
 	text-decoration: underline;
 }
 

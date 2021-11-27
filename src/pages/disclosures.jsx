@@ -11,6 +11,12 @@ const Disclosures = () => {
 			<Row>
 				<Col xs={12} sm={12} md={12} lg={12} xl={12} id="disclosure_container">
 					<div class="disclosure_wrapper first">
+						<h1 id="surge_price_disclosure" class="disclosure_header">Surge Token Price</h1>
+						<div id="surge_price_text">
+							Surge Token Price blah blah blah
+						</div>
+					</div>
+					<div class="disclosure_wrapper">
 						<h1 class="disclosure_header">Disclaimer</h1>
 						<div id="disclaimer_text">
 							NOT FINANCIAL ADVICE - Offered content is solely for the purpose of education and information, with no implied guarantees of any kind, including warranties of accuracy, completeness, or monetary gains. The Information provided via this document, on XSurge's website, or any related services, is not intended to be, and does not constitute financial advice, investment advice, trading advice or any other advice. The information in this document and on our website is generic in nature and is not specific to you, the User, or anyone else. Unless having conducted proper due diligence including, but not limited to, consultation with a licensed broker or financial advisory, you should not make any financial decision(s) or investment(s) of any kind based on any of the information provided. You understand that using any of the information available on xSurge's website or through another service is at your own risk.

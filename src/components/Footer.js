@@ -35,8 +35,12 @@ class Footer extends Component{
 						</div>
 						<div class="clear"></div>
 						<div id="disclosure_text">
-							<LinkContainer to="/disclosures">
+							<LinkContainer to="/disclosures" className="disclosure_link">
 								<span id="disclosure_text_span">Disclosures</span>
+							</LinkContainer>
+							<span> | </span>
+							<LinkContainer to="/disclosures" className="disclosure_link">
+								<span id="disclosure_text_span">*Surge Price</span>
 							</LinkContainer>
 						</div>
 					</div>

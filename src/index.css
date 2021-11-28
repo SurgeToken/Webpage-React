@@ -437,6 +437,80 @@ body {
 .tokenStats {
 	margin-top: 5%;
 }
+
+#token_balance_checker_error_container {
+	border-radius: 10px;
+	max-height: 0px;
+	overflow: hidden;
+}
+
+#token_balance_checker_error_container.show {
+	max-height: 500px;
+}
+
+#token_balance_checker_error_message {
+	color: #000000;
+	margin: 0px;
+	padding: 10px;
+	font-weight: bold;
+	border: 1px solid #ffa2aa;
+    background: #fae8e8;
+}
+
+#token_balance_container.show {
+	padding: 5%;
+}
+
+#balance_check_button_spinner.hide,
+#check_balance_button_text.hide {
+	display: none;
+}
+
+.capture_token_balance_input {
+	width: 100%;
+    background: #0B3131 !important;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 5px 10px;
+}
+
+#capture_token_balance_button {
+	text-align: center;
+	display: inline-block;
+	text-decoration: none;
+    color: #29CBC1;
+    font-weight: 800;
+    background: #0B3131;
+	width: 105px;
+    margin-top: 10px;
+    padding: 5px 30px;
+    border-radius: 30px;
+    box-shadow: rgb(0 195 255 / 16%) 0px 0px 20px 0px;
+	cursor: pointer;
+}
+
+#token_balance_display_container {
+	margin-top: 25px;
+}
+
+.token_balance_token {
+	text-align: center;
+	font-size: 1.2em;
+	margin-bottom: 5px;
+}
+
+.token_balance_header {
+	text-align: center;
+	color: #ffffff;
+	background-color: #0B2F30;
+    border-radius: 25px;
+	padding: 5px;
+    margin-bottom: 2%;
+}
+.token_balance_amount {
+	text-align: center;
+}
 /*
 ===============================
 	End Main Page

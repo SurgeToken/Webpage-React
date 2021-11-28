@@ -8,6 +8,8 @@
 		"uassetsymbol": "BUSD",
 		"uassetaddress": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
 		"wei_unit": "ether",
+		"decimals": 0,
+		"decimal_display": 0,
 		"fees": {
 			"buy": 6,
 			"sell": 6,
@@ -24,6 +26,8 @@
 		"uassetsymbol": "BETH",
 		"uassetaddress": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
 		"wei_unit": "ether",
+		"decimals": 0,
+		"decimal_display": 0,
 		"fees": {
 			"buy": 6,
 			"sell": 6,
@@ -38,8 +42,10 @@
 		"symbol": "sBTC",
 		"uassetname": "Binance-Pegged BTC",
 		"uassetsymbol": "BBTC",
-		"uassetaddress": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+		"uassetaddress": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
 		"wei_unit": "ether",
+		"decimals": 0,
+		"decimal_display": 0,
 		"fees": {
 			"buy": 6,
 			"sell": 6,
@@ -56,6 +62,8 @@
 		"uassetsymbol": "BADA",
 		"uassetaddress": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
 		"wei_unit": "ether",
+		"decimals": 0,
+		"decimal_display": 0,
 		"fees": {
 			"buy": 4,
 			"sell": 4,
@@ -72,6 +80,8 @@
 		"uassetsymbol": "USLS",
 		"uassetaddress": "0x2cd2664ce5639e46c6a3125257361e01d0213657",
 		"wei_unit": "gwei",
+		"decimals": 0,
+		"decimal_display": 0,
 		"fees": {
 			"buy": 8,
 			"stake": 6,
@@ -89,6 +99,8 @@
 		"uassetsymbol": "BUSD",
 		"uassetaddress": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
 		"wei_unit": "ether",
+		"decimals": 18,
+		"decimal_display": 5,
 		"fees": {
 			"buy": 0.75,
 			"stake": 0.75,

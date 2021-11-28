@@ -128,8 +128,12 @@ body {
 	margin-bottom: 10px;
 }
 
-.disclosure_wrapper.first {
+.disclosure_wrapper {
 	margin-bottom: 15px;
+}
+
+.disclosure_wrapper.last {
+	margin-bottom: 0px;
 }
 /* 
 =====================

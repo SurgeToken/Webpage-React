@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 import { Component } from 'react';
 import Cookies from 'js-cookie'
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
-import Button from 'react-bootstrap/Button';
 import * as SurgeAssets from './SurgeAssetData.js';
 import Web3 from 'web3';
 
@@ -92,22 +90,24 @@ class FarmBalanceChecker extends Component {
 		let farms_to_check = [];
 		let formated_wallet_address = "";
 		let wallet_address = document.getElementById('capture_farm_wallet_address');
-		
-		
+
 		// Check to see if the supplied address is valid/invalid
 		try {
 			formated_wallet_address = web3.utils.toChecksumAddress(wallet_address.value);
+			console.log(formated_wallet_address);
+			console.log(typeof formated_wallet_address);
+			if (formated_wallet_address.length == 0) {
+				throw "Supplied wallet address is invalid";
+			}
 		} catch(err) {
 			this.setState({
-				token_balance_error_message: "Supplied wallet address is invalid",
+				farm_balance_error_message: "Supplied wallet address is invalid",
 				error_message_class: "show",
-				check_balance_button_spinner_class: "hide",
-				check_balance_button_text_class: ""
+				check_farm_balance_button_spinner_class: "hide",
+				check_farm_balance_button_text_class: ""
 			});
 			return;
 		}
-
-		formated_wallet_address = "0xaef57c7b7de8887a97d4fc50e5aba573236f292d";
 
 		if (this.state.selectedFarm == "all") {
 			farms_to_check = farms;

@@ -463,17 +463,20 @@ body {
 	margin-top: 5%;
 }
 
-#token_balance_checker_error_container {
+#token_balance_checker_error_container,
+#farm_balance_checker_error_container {
 	border-radius: 10px;
 	max-height: 0px;
 	overflow: hidden;
 }
 
-#token_balance_checker_error_container.show {
+#token_balance_checker_error_container.show,
+#farm_balance_checker_error_container.show {
 	max-height: 500px;
 }
 
-#token_balance_checker_error_message {
+#token_balance_checker_error_message,
+#farm_balance_checker_error_message {
 	color: #000000;
 	margin: 0px;
 	padding: 10px;
@@ -482,17 +485,20 @@ body {
     background: #fae8e8;
 }
 
-#token_balance_container.show {
+#token_balance_container.show,
+#farm_balance_container.show {
 	padding: 5%;
 	padding-bottom: 0;
 }
 
 #balance_check_button_spinner.hide,
-#check_balance_button_text.hide {
+#check_balance_button_text.hide,
+#check_farm_balance_button_text.hide {
 	display: none;
 }
 
-.capture_token_balance_input {
+.capture_token_balance_input,
+.capture_farm_balance_input {
 	width: 100%;
     background: #0B3131 !important;
     border: none;
@@ -501,7 +507,8 @@ body {
     padding: 5px 10px;
 }
 
-#capture_token_balance_button {
+#capture_token_balance_button,
+#capture_farm_balance_button {
 	text-align: center;
 	display: inline-block;
 	text-decoration: none;
@@ -516,42 +523,50 @@ body {
 	cursor: pointer;
 }
 
-#token_balance_display_container {
+#token_balance_display_container,
+#farm_balance_display_container {
 	margin-top: 25px;
 }
 
-.token_balance_wrapper {
+.token_balance_wrapper,
+.farm_balance_wrapper {
 	margin-bottom: 25px;
 }
 
-.token_balance_wrapper_fieldset {
+.token_balance_wrapper_fieldset,
+.farm_balance_wrapper_fieldset {
 	border: 2px solid #0B2F30;
 	border-radius: 10px;
 	padding: .35em .75em .625em .75em;
 }
 
-.token_balance_wrapper_fieldset legend{
+.token_balance_wrapper_fieldset legend,
+.farm_balance_wrapper_fieldset legend {
 	width: auto;
 	float: none;
 	font-size: 1.2em;
 	padding: 0px 10px;
 }
 
-.token_balance_amount_wrapper {
+.token_balance_amount_wrapper,
+.farm_balance_amount_wrapper {
 	margin-bottom: 10px;
 }
 
-.token_balance_value_ua_wrapper {
+.token_balance_value_ua_wrapper,
+.farm_balance_wrapper_left {
 	float: left;
 	width: 49.5%;
 }
 
-.token_balance_value_usd_wrapper {
+.token_balance_value_usd_wrapper,
+.farm_balance_wrapper_right {
 	float: right;
 	width: 49.5%;
 }
 
-#token_balance_disclaimer {
+#token_balance_disclaimer,
+#farm_balance_disclaimer {
 	font-size: .5rem;
 	margin-bottom: 0px;
 }
@@ -564,7 +579,8 @@ body {
 
 .token_balance_header,
 .token_value_ua_header,
-.token_value_usd_header {
+.token_value_usd_header,
+.fieldset_header {
 	text-align: center;
 	color: #ffffff;
 	background-color: #0B2F30;
@@ -577,6 +593,10 @@ body {
 .token_amount_ua,
 .token_value_usd_amount {
 	text-align: center;
+}
+
+.farm_balance_spacer {
+	margin-bottom: 10px;
 }
 /*
 ===============================

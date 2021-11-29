@@ -9,6 +9,7 @@ import { HashLink } from 'react-router-hash-link';
 import VST from "../components/VST";
 import VSF from "../components/VSF";
 import TokenBalanceChecker from "../components/TokenBalanceChecker";
+import FarmBalanceChecker from "../components/FarmBalanceChecker";
 
 //Functional Component 
 class MainPage extends React.Component{
@@ -148,7 +149,7 @@ class MainPage extends React.Component{
                             <TokenBalanceChecker />
                         </Col>
                         <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsRightPanel ">
-                            <VSF />
+                            <FarmBalanceChecker />
                         </Col>
                     </Row>
                     

@@ -5,12 +5,12 @@ import Cookies from 'js-cookie'
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
-import SurgeTokens from './json/surge_tokens.json';
+import {getSurgeTokensData} from './SurgeAssetData.js';
 import Web3 from 'web3';
 
 const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 
-const tokens = SurgeTokens
+const tokens = getSurgeTokensData();
 
 class TokenBalanceChecker extends Component {
 	constructor(props) {
@@ -115,7 +115,7 @@ class TokenBalanceChecker extends Component {
 				formated_wallet_address = web3.utils.toChecksumAddress(wallet_address.value);
 			} catch(err) {
 				this.setState({
-					token_balance_error_message: "Supplied address is invalid",
+					token_balance_error_message: "Supplied wallet address is invalid",
 					error_message_class: "show",
 					check_balance_button_spinner_class: "hide",
 					check_balance_button_text_class: ""
@@ -162,14 +162,21 @@ class TokenBalanceChecker extends Component {
 					}
 				);
 			} else {
-				let token_balance = document.getElementById('token_balance');
-				if (token_balance.value <= 0) {
-					this.setState({token_balance_error_message: "Token Balance Must Be Greater Than 0"});
+				let token_balance_element = document.getElementById('token_balance');
+				let token_balance = parseInt(token_balance_element.value);
+				
+				if (token_balance <= 0) {
+					this.setState({
+						error_message_class: "show",
+						token_balance_error_message: "Token Balance Must Be Greater Than 0",
+						check_balance_button_spinner_class: "hide",
+						check_balance_button_text_class: "show"
+					});
 					return;
 				}
 
 				Cookies.set(this.state.selectedToken+'_token_amount', token_balance.value, {expires: 30, path: '/' });
-				wallet_response[tokens_to_check[token]["name"]]['balance'] = token_balance.value;
+				wallet_response[tokens_to_check[token]["name"]]['balance'] = token_balance;
 			}
 
 			let get_token_price = new Promise (function (resolve, reject) {
@@ -268,6 +275,7 @@ class TokenBalanceChecker extends Component {
 								type={this.state.capture_token_balance_container_input_type}
 								placeholder={this.state.capture_token_balance_input_placeholder}
 								onChange={this.handleUserInput}
+								min="1"
 							/>
 							
 							<div id="capture_token_balance_button" onClick={(ev) => this.lookupBalances(ev)}>

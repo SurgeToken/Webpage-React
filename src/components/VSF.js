@@ -3,9 +3,9 @@ import Form from 'react-bootstrap/Form'
 import Image from 'react-bootstrap/Image';
 import { FaRegCopy, FaCheck } from "react-icons/fa";
 import {useState} from 'react';
-import {getSurgeFarmData} from './SurgeAssetData.js';
+import {getSurgeFarmsData} from './SurgeAssetData.js';
 
-const farms = getSurgeFarmData();
+const farms = getSurgeFarmsData();
 
 export default function VSF() {
 

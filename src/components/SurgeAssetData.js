@@ -10,8 +10,10 @@ import SurgeFarmsData from './json/surge_farms.json';
 
 const SurgeTokens = SurgeTokensData;
 const SurgeFarms = SurgeFarmsData;
+const SurgeTokensCache = {};
+const SurgeFarmsCache = {};
 
-export function getSurgeTokenData() {
+export function getSurgeTokensData() {
 	for (const token in SurgeTokens) {
 		let abi = '';
 		switch (SurgeTokens[token]['abi_name']) {
@@ -39,12 +41,25 @@ export function getSurgeTokenData() {
 		}
 
 		SurgeTokens[token]['abi'] = abi;
+		SurgeTokensCache[SurgeTokens[token]['name']] = SurgeTokens[token];
 	}
 
 	return SurgeTokens;
 }
 
-export function getSurgeFarmData() {
+export function getSurgeTokenData(token) {
+	if (Object.keys(SurgeTokensCache).length == 0) {
+		getSurgeTokensData();
+	}
+
+	if (token in SurgeTokensCache) {
+		return SurgeTokensCache[token];
+	}
+
+	return {};
+}
+
+export function getSurgeFarmsData() {
 	for (const farm in SurgeFarms) {
 		let abi = '';
 		switch (SurgeFarms[farm]['abi_name']) {
@@ -57,7 +72,20 @@ export function getSurgeFarmData() {
 		}
 		
 		SurgeFarms[farm]['abi'] = abi;
+		SurgeFarmsCache[SurgeFarms[farm]['name']] = SurgeFarms[farm];
 	}
 
 	return SurgeFarms;
+}
+
+export function getSurgeFarmData(farm) {
+	if (Object.keys(SurgeFarmsCache).length == 0) {
+		getSurgeFarmsData();
+	}
+
+	if (farm in SurgeFarmsCache) {
+		return SurgeFarmsCache[farm];
+	}
+
+	return {};
 }

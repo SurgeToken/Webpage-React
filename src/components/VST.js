@@ -5,11 +5,11 @@ import Image from 'react-bootstrap/Image';
 import SurgeTokens from './json/surge_tokens.json';
 import Web3 from 'web3';
 import {useState, useEffect} from 'react';
-import {getSurgeTokenData} from './SurgeAssetData.js';
+import {getSurgeTokensData} from './SurgeAssetData.js';
 
 const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 
-const tokens = getSurgeTokenData();
+const tokens = getSurgeTokensData();
 
 export default function VST() {
     /*get token info*/

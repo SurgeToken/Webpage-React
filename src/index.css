@@ -380,11 +380,22 @@ body {
 }
 
 .dropdown-menu {
-    background-color: #030a0d !important;
+    background-color: #030a0d;
 }
 
 .dropdown-item {
     color: #fff;
+}
+
+.dropdown-menu .nav-link,
+.dropdown-menu .dropdown-item {
+	font-size: .9em;
+	width: 100%;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #fff;
+    background-color: transparent;
 }
 
 .nav-image {
@@ -394,7 +405,7 @@ body {
 }
 
 .dropdown-divider {
-    color: white !important;
+    color: white;
 }
 
 #cta_fees_container {

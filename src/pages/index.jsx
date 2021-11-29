@@ -138,7 +138,7 @@ class MainPage extends React.Component{
 
 					<Row className="spacervs">
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} className="text-center">
-                            <h4 className="heroH1 text-center" id="surge-assets">Balance Checker</h4>
+                            <h4 className="heroH1 text-center" id="surge-balance-checker">Balance Checker</h4>
                             <Image src="assets/img/shape2.png" className="shape2" fluid />
                             
                         </Col>

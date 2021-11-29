@@ -165,7 +165,7 @@ class TokenBalanceChecker extends Component {
 				let token_balance_element = document.getElementById('token_balance');
 				let token_balance = parseInt(token_balance_element.value);
 				
-				if (token_balance <= 0) {
+				if (token_balance <= 0 || isNaN(token_balance)) {
 					this.setState({
 						error_message_class: "show",
 						token_balance_error_message: "Token Balance Must Be Greater Than 0",

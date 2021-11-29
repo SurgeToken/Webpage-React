@@ -8,7 +8,8 @@ import Button from 'react-bootstrap/Button';
 import { HashLink } from 'react-router-hash-link';
 import VST from "../components/VST";
 import VSF from "../components/VSF";
-
+import TokenBalanceChecker from "../components/TokenBalanceChecker";
+import FarmBalanceChecker from "../components/FarmBalanceChecker";
 
 //Functional Component 
 class MainPage extends React.Component{
@@ -134,12 +135,29 @@ class MainPage extends React.Component{
                             <VSF />
                         </Col>
                     </Row>
+
+					<Row className="spacervs">
+                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className="text-center">
+                            <h4 className="heroH1 text-center" id="surge-assets">Balance Checker</h4>
+                            <Image src="assets/img/shape2.png" className="shape2" fluid />
+                            
+                        </Col>
+                    </Row>
+
+                    <Row className="spacerToken">
+                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsLeftPanel ">
+                            <TokenBalanceChecker />
+                        </Col>
+                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsRightPanel ">
+                            <FarmBalanceChecker />
+                        </Col>
+                    </Row>
                     
 				<Footer/>
             </div>
         );
     };    
-    }
+}
     
 
 export default MainPage;

@@ -2,6 +2,7 @@ import MainPage from "./pages";
 import Education from "./pages/education.jsx";
 import OneSheet from "./pages/onesheet.jsx";
 import RoadMap from "./pages/roadmap.jsx";
+import Disclosures from "./pages/disclosures.jsx";
 
 import React, { Component } from "react";
 
@@ -16,6 +17,7 @@ class App extends Component {
           	<Route exact path="/education" component={Education} />
 		    <Route exact path="/onesheet" component={OneSheet} />
 			<Route exact path="/roadmap" component={RoadMap} />
+			<Route exact path="/disclosures" component={Disclosures} />
         </Switch>
       </HashRouter>
 	}

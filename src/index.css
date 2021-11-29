@@ -78,6 +78,63 @@ body {
 	clear: both;
 }
 
+#footer {
+	border-top: 1px solid;
+	border-color: rgba(47, 117, 114, 0.562);
+	margin-top: 20px;
+	padding: 15px 5px;
+}
+
+#footer_social_links_container {
+	float: right;
+}
+
+#copyright_links {
+	float: left;
+	margin-top: 5px;
+}
+
+.footer-image {
+	width: 25%;
+	margin-right: 15px;
+	max-width: 31.5px;
+}
+
+#footer_social_last {
+	margin-right: 0px;
+}
+
+#disclosure_container {
+	margin-top: 3%;
+}
+
+#disclosure_text {
+	text-align: justify;
+	margin-top: 15px;
+	font-size: .6rem;
+}
+
+.disclosure_link {
+	text-decoration: underline;
+}
+
+#disclosure_text_span {
+	cursor: pointer;
+}
+
+.disclosure_header {
+	text-decoration: underline;
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+}
+
+.disclosure_wrapper {
+	margin-bottom: 15px;
+}
+
+.disclosure_wrapper.last {
+	margin-bottom: 0px;
+}
 /* 
 =====================
 	Navigation Bar
@@ -119,7 +176,8 @@ body {
 	dApp
 =====================
 */
-.dApp {
+.dApp,
+.certikAudtitBtn {
 	text-decoration: none;
 	color: #29CBC1 !important;
 	font-weight: 800;
@@ -229,7 +287,7 @@ body {
 }
 
 .intro{
-	font-size: 3.2rem;
+	font-size: 2rem;
 	font-weight: 800;
 	margin-top: 31%;
 }
@@ -239,7 +297,7 @@ body {
 }
 
 .spacer1{
-	margin-top: 10%;
+	margin-top: 2%;
 }
 
 .spacer2{
@@ -327,8 +385,17 @@ body {
 	padding-right: 3%;
 }
 
-.btnDApp{
+.btnDApp,
+.certikAudtitBtn {
 	border: transparent;
+}
+
+.certikAudtitBtn a {
+	color:#29CBC1;
+	text-decoration: none;
+}
+.certikAudtitBtn {
+	margin-right: 10px;
 }
 .btnDApp2{
 	border: transparent;
@@ -741,29 +808,11 @@ body {
 	}
 }
 
-@media screen and (max-width: 1425px) {
-	.intro {
-		font-size: 2.8rem;
-	}
-}
-
 @media screen and (max-width: 1399px) {
 	.dApp {
 		margin-right: 0px;
 		margin-top: 10px;
 		text-align: center;
-	}
-}
-
-@media screen and (max-width: 1300px) {
-	.intro {
-		font-size: 2.5rem;
-	}
-}
-
-@media screen and (max-width: 1140px) {
-	.intro {
-		font-size: 2rem;
 	}
 }
 
@@ -787,6 +836,10 @@ body {
 
 	.assetsRightPanel {
 		padding-left: 5%;
+	}
+
+	.certikAudtitBtn {
+		font-size: .8rem;
 	}
 }
 
@@ -907,6 +960,10 @@ body {
 	  border-radius: 30px;
 	  box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
 	  font-size: .6rem !important;
+	}
+
+	.certikAudtitBtn {
+		font-size: .6rem;
 	}
 
 	.heroH1 {
@@ -1082,8 +1139,19 @@ body {
 	.edH4{
 	  margin-top: 3%;
 	}
-  /**End Education Page CSS**/
-  }
+	/**End Education Page CSS**/
+}
+
+@media screen and (max-width: 600px) {
+	#footer_social_links_container {
+		float: none;
+	}
+
+	#copyright_links {
+		float: none;
+		margin-top: 15px;
+	}
+}
 
 @media screen and (max-width: 580px) {
 	/*Begin Main Page CSS*/
@@ -1164,12 +1232,15 @@ body {
 		font-size: .6rem !important;
 	  }
 
+	.certikAudtitBtn {
+		padding: 5px 10px !important;
+	}
+
+
 		.heroH1 {
 			font-size: 1.2rem;
 		}
 
-	
-	
 	  .token{
 		border-radius: 25px;
 		margin-top: 25px;

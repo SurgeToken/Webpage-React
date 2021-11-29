@@ -459,6 +459,7 @@ body {
 
 #token_balance_container.show {
 	padding: 5%;
+	padding-bottom: 0;
 }
 
 #balance_check_button_spinner.hide,
@@ -484,7 +485,7 @@ body {
     background: #0B3131;
 	width: 105px;
     margin-top: 10px;
-    padding: 5px 30px;
+    padding: 5px 20px;
     border-radius: 30px;
     box-shadow: rgb(0 195 255 / 16%) 0px 0px 20px 0px;
 	cursor: pointer;
@@ -494,21 +495,62 @@ body {
 	margin-top: 25px;
 }
 
+.token_balance_wrapper {
+	margin-bottom: 25px;
+}
+
+.token_balance_wrapper_fieldset {
+	border: 2px solid #0B2F30;
+	border-radius: 10px;
+	padding: .35em .75em .625em .75em;
+}
+
+.token_balance_wrapper_fieldset legend{
+	width: auto;
+	float: none;
+	font-size: 1.2em;
+	padding: 0px 10px;
+}
+
+.token_balance_amount_wrapper {
+	margin-bottom: 10px;
+}
+
+.token_balance_value_ua_wrapper {
+	float: left;
+	width: 49.5%;
+}
+
+.token_balance_value_usd_wrapper {
+	float: right;
+	width: 49.5%;
+}
+
+#token_balance_disclaimer {
+	font-size: .5rem;
+	margin-bottom: 0px;
+}
+
 .token_balance_token {
 	text-align: center;
 	font-size: 1.2em;
 	margin-bottom: 5px;
 }
 
-.token_balance_header {
+.token_balance_header,
+.token_value_ua_header,
+.token_value_usd_header {
 	text-align: center;
 	color: #ffffff;
 	background-color: #0B2F30;
     border-radius: 25px;
 	padding: 5px;
-    margin-bottom: 2%;
+    margin-bottom: 5px;
 }
-.token_balance_amount {
+
+.token_balance_amount,
+.token_amount_ua,
+.token_value_usd_amount {
 	text-align: center;
 }
 /*
@@ -1439,6 +1481,17 @@ body {
 	  .tableSpacer{
 		margin-top: 5%;
 	  }
+
+	  .token_balance_value_ua_wrapper {
+			float: none;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+		
+		.token_balance_value_usd_wrapper {
+			float: none;
+			width: 100%;
+		}
 	  /*End Main Page*/
 	
 	  /**Begin Education Page CSS**/

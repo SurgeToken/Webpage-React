@@ -13,7 +13,7 @@ const Disclosures = () => {
 					<div class="disclosure_wrapper first">
 						<h1 id="surge_price_disclosure" class="disclosure_header">Surge Token Price</h1>
 						<div id="surge_price_text">
-							The Surge token protocal prevents a token's price from ever going down when compared to it's backing asset.  This means that the amount of the token's backing asset that you have will never go down.  While the price of a token and the amount of the backing asset that you have can never go down, the value when compared to USD can fluctuate during market volatilty.  Both of these factors should be taken into consideration before investing.  Please see our risks disclore below before investing.
+							The Surge Protocol prevents a Surge Token's price from ever going down when compared to it's backing asset. Surge Tokens may be redeemed for their Backing Assets, and the redeemable value of 1 Surge Token will always rise. The fiat value of a Surge Token relies entirely on the fiat value of its backing asset.  Both of these factors should be taken into consideration before investing.  Please see our risks disclore below before investing.
 						</div>
 					</div>
 					<div class="disclosure_wrapper">

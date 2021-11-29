@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import { Component } from 'react';
+import Cookies from 'js-cookie'
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
@@ -12,11 +13,9 @@ const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 const tokens = SurgeTokens
 
 class TokenBalanceChecker extends Component {
-	constructor() {
-		super();
-		// Loop through cookies and read them into state
-		document.cookie = "username=John Doe";
-		console.log(document.cookie);
+	constructor(props) {
+		super(props);
+
 		this.state = {
 			error_message_class: "",
 			token_balance_error_message: "",
@@ -30,8 +29,7 @@ class TokenBalanceChecker extends Component {
 			capture_token_balance_container_input_id: "",
 			capture_token_balance_container_input_type: "",
 			capture_token_balance_input_placeholder: "",
-			capture_token_balance_input_value: "",
-			capture_token_balance_input_default_value: ""
+			capture_token_balance_input_value: ""
 		};
 	}
 
@@ -40,7 +38,8 @@ class TokenBalanceChecker extends Component {
 			token_balance_response: false,
 			error_message_class: "",
 			token_balance_container_class: "show",
-			capture_token_balance_input_value: ""
+			capture_token_balance_input_value: "",
+			selectedTokenByUser: true
 		});
 
 		let tokenSymbol = e.target.value;
@@ -48,21 +47,33 @@ class TokenBalanceChecker extends Component {
 		let balance_container_input_id = "";
 		let balance_container_input_type = "";
 		let input_placeholder = "";
-		this.setState({selectedTokenByUser: true});
+		let token_balance_input_value = "";
+
 		if (tokenSymbol === "0") {
-			this.setState({selectedTokenByUser: false});
+			this.setState({
+				selectedTokenByUser: false,
+				token_balance_container_class: ""
+			});
 			return
 		} else {
 			if (tokenSymbol === "all") {
 				button_text = "Check";
 				balance_container_input_id = "token_balance_wallet_address";
 				balance_container_input_type = "text";
-				input_placeholder = "Enter BEP-20 Public Wallet Address"
+				input_placeholder = "Enter BEP-20 Public Wallet Address";
+				let public_wallet_address = Cookies.get('public_wallet_address');
+				if (public_wallet_address != undefined) {
+					token_balance_input_value = public_wallet_address;
+				}
 			} else {
 				button_text = "Calculate";
 				balance_container_input_id = "token_balance";
 				balance_container_input_type = "number";
 				input_placeholder = "Enter "+tokenSymbol+" Amount";
+				let selected_token_amount = Cookies.get(tokenSymbol+'_token_amount');
+				if (selected_token_amount != undefined) {
+					token_balance_input_value = selected_token_amount;
+				}
 			}
 
 			this.setState({
@@ -70,7 +81,8 @@ class TokenBalanceChecker extends Component {
 				capture_token_balance_container_input_id: balance_container_input_id,
 				capture_token_balance_container_input_type: balance_container_input_type,
 				selectedToken: tokenSymbol,
-				capture_token_balance_input_placeholder: input_placeholder
+				capture_token_balance_input_placeholder: input_placeholder,
+				capture_token_balance_input_value: token_balance_input_value
 			});
 		}
 	}
@@ -111,6 +123,9 @@ class TokenBalanceChecker extends Component {
 				return;
 			}
 			tokens_to_check = tokens;
+
+			// Set Public Wallet Address Cookie
+			Cookies.set('public_wallet_address', formated_wallet_address, {expires: 30, path: '/' });
 		} else {
 			for (const token in tokens) {
 				if (this.state.selectedToken == tokens[token]['symbol']) {
@@ -152,6 +167,8 @@ class TokenBalanceChecker extends Component {
 					this.setState({token_balance_error_message: "Token Balance Must Be Greater Than 0"});
 					return;
 				}
+
+				Cookies.set(this.state.selectedToken+'_token_amount', token_balance.value, {expires: 30, path: '/' });
 				wallet_response[tokens_to_check[token]["name"]]['balance'] = token_balance.value;
 			}
 
@@ -215,12 +232,15 @@ class TokenBalanceChecker extends Component {
 					check_balance_button_spinner_class: "hide",
 					check_balance_button_text_class: ""
 				});
-
-				//Current Balance:
-				//Current Value (USD):
 			}
 		);
 	}
+
+	handleUserInput = (e) => {
+		this.setState({
+			capture_token_balance_input_value: e.target.value
+		});
+	};
 
 	render() {
 		return (
@@ -245,9 +265,9 @@ class TokenBalanceChecker extends Component {
 								class="capture_token_balance_input" 
 								id={this.state.capture_token_balance_container_input_id}
 								value={this.state.capture_token_balance_input_value}
-								default_value={this.state.capture_token_balance_input_default_value}
 								type={this.state.capture_token_balance_container_input_type}
 								placeholder={this.state.capture_token_balance_input_placeholder}
+								onChange={this.handleUserInput}
 							/>
 							
 							<div id="capture_token_balance_button" onClick={(ev) => this.lookupBalances(ev)}>

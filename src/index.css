@@ -104,12 +104,37 @@ body {
 	margin-right: 0px;
 }
 
-#disclaimer_text {
+#disclosure_container {
+	margin-top: 3%;
+}
+
+#disclosure_text {
 	text-align: justify;
 	margin-top: 15px;
 	font-size: .6rem;
 }
 
+.disclosure_link {
+	text-decoration: underline;
+}
+
+#disclosure_text_span {
+	cursor: pointer;
+}
+
+.disclosure_header {
+	text-decoration: underline;
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+}
+
+.disclosure_wrapper {
+	margin-bottom: 15px;
+}
+
+.disclosure_wrapper.last {
+	margin-bottom: 0px;
+}
 /* 
 =====================
 	Navigation Bar
@@ -262,7 +287,7 @@ body {
 }
 
 .intro{
-	font-size: 3rem;
+	font-size: 2rem;
 	font-weight: 800;
 	margin-top: 31%;
 }
@@ -272,7 +297,7 @@ body {
 }
 
 .spacer1{
-	margin-top: 10%;
+	margin-top: 2%;
 }
 
 .spacer2{
@@ -899,29 +924,11 @@ body {
 	}
 }
 
-@media screen and (max-width: 1425px) {
-	.intro {
-		font-size: 2.8rem;
-	}
-}
-
 @media screen and (max-width: 1399px) {
 	.dApp {
 		margin-right: 0px;
 		margin-top: 10px;
 		text-align: center;
-	}
-}
-
-@media screen and (max-width: 1300px) {
-	.intro {
-		font-size: 2.5rem;
-	}
-}
-
-@media screen and (max-width: 1140px) {
-	.intro {
-		font-size: 2rem;
 	}
 }
 

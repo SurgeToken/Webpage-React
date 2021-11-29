@@ -20,15 +20,19 @@ class MainPage extends React.Component{
                         <Col xs={12} sm={12} md={4} lg={4} xl={4} className="mx-auto">
 						<div id="intro_container">
                             <p className="intro">
-                                Surge Tokens Price<br/>
-                                <span className="herospan"><em>can never go down</em></span><br/>
-                                given its protocol.
+                                Due to it's protocol,<br/>
+								the price of a Surge token<br/>
+                                <span className="herospan"><em>*never goes down</em></span><br/>
+                                when compared to<br/> 
+								it's backing asset.
                             </p>
-							
                             <br/>
-
                             <Button className="dApp btnDApp">
-							<HashLink to="/education#education_how_surge_works">How it works</HashLink>
+								<img
+									alt=""
+									src="assets/img/appicon.png"
+									className="d-inline-block align-middle appicon"/>
+								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to App</a>
                             </Button>
 						</div>
                         </Col>

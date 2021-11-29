@@ -34,11 +34,14 @@ class Footer extends Component{
 							© 2021 xSurge. All rights reserved.
 						</div>
 						<div class="clear"></div>
-						<div id="disclaimer_text">
-							Disclaimer – NOT FINANCIAL ADVICE - Offered content is solely for the purpose of education and information, with no implied guarantees of any kind, including warranties of accuracy, completeness, or monetary gains. The Information provided via this document, on XSurge's website, or any related services, is not intended to be, and does not constitute financial advice, investment advice, trading advice or any other advice. The information in this document and on our website is generic in nature and is not specific to you, the User, or anyone else. Unless having conducted proper due diligence including, but not limited to, consultation with a licensed broker or financial advisory, you should not make any financial decision(s) or investment(s) of any kind based on any of the information provided. You understand that using any of the information available on xSurge's website or through another service is at your own risk.
-							<br />
-							<br />
-							Risks – Investing and Trading may not be for everyone. There are potential rewards, as well as potential risks involved. Anyone wishing to invest should seek their own independent financial or professional advisory.
+						<div id="disclosure_text">
+							<LinkContainer to="/disclosures" className="disclosure_link">
+								<span id="disclosure_text_span">Disclosures</span>
+							</LinkContainer>
+							<span> | </span>
+							<LinkContainer to="/disclosures" className="disclosure_link">
+								<span id="disclosure_text_span">*Surge Price</span>
+							</LinkContainer>
 						</div>
 					</div>
 				</Col>

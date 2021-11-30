@@ -165,6 +165,11 @@ class TokenBalanceChecker extends Component {
 				let token_balance_element = document.getElementById('token_balance');
 				let token_balance = parseInt(token_balance_element.value);
 				
+				if (this.state.selectedToken == 'xUSD') {
+					token_balance = web3.utils.toWei(String(token_balance), tokens_to_check[token]["wei_unit"]);
+					token_balance = parseInt(token_balance);
+				}
+
 				if (token_balance <= 0 || isNaN(token_balance)) {
 					this.setState({
 						error_message_class: "show",
@@ -175,7 +180,7 @@ class TokenBalanceChecker extends Component {
 					return;
 				}
 
-				Cookies.set(this.state.selectedToken+'_token_amount', token_balance.value, {expires: 30, path: '/' });
+				Cookies.set(this.state.selectedToken+'_token_amount', token_balance_element.value, {expires: 30, path: '/' });
 				wallet_response[tokens_to_check[token]["name"]]['balance'] = token_balance;
 			}
 
@@ -219,6 +224,7 @@ class TokenBalanceChecker extends Component {
 				let output = [];
 				for (const k in wallet_response) {
 					if (wallet_response[k]['balance'] > 0) {
+						console.log(wallet_response);
 						let balance = (wallet_response[k]['balance'] / 10**wallet_response[k]['decimals']);
 						let current_ua_amount = (balance * parseFloat(wallet_response[k]['token_price']));
 						let current_value = (balance * parseFloat(wallet_response[k]['token_price']) * parseFloat(wallet_response[k]['usd_price']));
@@ -231,6 +237,8 @@ class TokenBalanceChecker extends Component {
 							'current_value' : current_value.toLocaleString(undefined, {style: "currency", currency: "USD"}),
 							'token_price': wallet_response[k]['token_price']
 						});
+
+						console.log(output);
 					}
 				}
 

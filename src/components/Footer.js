@@ -7,10 +7,12 @@ import Image from 'react-bootstrap/Image';
 class Footer extends Component{
 	render(){
 		return (
-			<Row>
-				 <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-					<div id="footer">
-						<div id="footer_social_links_container">
+				<footer id="footer">
+					<Row>
+						<Col xs={12} sm={12} md={6} className="text-center text-md-start order-last order-md-first mt-5px" id="copyright_links">
+							© 2021 xSurge. All rights reserved.
+						</Col>
+						<Col xs={12} sm={12} md={6} className="text-center text-md-end" id="footer_social_links_container">
 							<a href="https://discord.gg/XSURGE" target="_blank">
 								<Image src="assets/img/discord.png" className="footer-image" id="footer_social_first" />
 							</a>
@@ -29,23 +31,25 @@ class Footer extends Component{
 							<a href="https://www.facebook.com/groups/XSURGEDEFI" target="_blank">
 								<Image src="assets/img/facebook.png" className="footer-image" id="footer_social_last" />
 							</a>
-						</div>
-						<div id="copyright_links">
-							© 2021 xSurge. All rights reserved.
-						</div>
-						<div class="clear"></div>
-						<div id="disclosure_text">
-							<LinkContainer to="/disclosures" className="disclosure_link">
-								<span id="disclosure_text_span">Disclosures</span>
-							</LinkContainer>
-							<span> | </span>
-							<LinkContainer to="/disclosures" className="disclosure_link">
-								<span id="disclosure_text_span">*Surge Price</span>
-							</LinkContainer>
-						</div>
-					</div>
-				</Col>
-			</Row>
+						</Col>
+						</Row>
+						
+						{/* <div class="clear"></div> */}
+
+						<Row>
+						<Col xs={12} sm={12} md={12} lg={12} xl={12}>
+							<div class="text-center text-md-start mt-5px" id="disclosure_text">
+								<LinkContainer to="/disclosures" className="disclosure_link">
+									<span id="disclosure_text_span">Disclosures</span>
+								</LinkContainer>
+								<span> | </span>
+								<LinkContainer to="/disclosures" className="disclosure_link">
+									<span id="disclosure_text_span">*Surge Price</span>
+								</LinkContainer>
+							</div>
+						</Col>
+						</Row>
+				</footer>
 		)
 	}
 }

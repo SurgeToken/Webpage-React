@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Component } from 'react';
 import {LinkContainer} from 'react-router-bootstrap';
-import { HashLink } from 'react-router-hash-link';
+import { HashLink, NavHashLink } from 'react-router-hash-link';
 import Image from 'react-bootstrap/Image';
 
 class NavBar extends Component{
@@ -24,10 +24,22 @@ class NavBar extends Component{
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="justify-content-end" style={{ width: "100%" }}>
                             <HashLink className="nav-link" to="/#surge-assets">Surge Assets</HashLink>
+							<NavDropdown title="Tools" id="basic-nav-dropdown">
+                                <NavHashLink className="nav-link" to="/#surge-balance-checker">Balance Checker</NavHashLink>
+                            </NavDropdown>
 							<LinkContainer to="/education">
                                 <Nav.Link>Surge Education</Nav.Link>
                             </LinkContainer>
                             <Nav.Link href="https://xsurgemerch.com/">Store</Nav.Link>
+							
+							{/* <NavDropdown title="About" id="basic-nav-dropdown">
+                                <NavDropdown.Item target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</NavDropdown.Item>
+								<NavDropdown.Divider />
+								<NavDropdown.Item href="#/onesheet">One Sheet</NavDropdown.Item>
+								<NavDropdown.Divider />
+								<NavDropdown.Item href="#/roadmap">Road Map</NavDropdown.Item>
+                            </NavDropdown> */}
+
 							<Nav.Link target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</Nav.Link>
 							<LinkContainer to="/onesheet">
                                 <Nav.Link>One Sheet</Nav.Link>
@@ -35,6 +47,7 @@ class NavBar extends Component{
 							<LinkContainer to="/roadmap">
                                 <Nav.Link>Road Map</Nav.Link>
                             </LinkContainer>
+
                             <Nav.Link className="dApp" href="https://app.xsurge.net">
                             <img
                             alt=""

@@ -3,18 +3,11 @@ import Form from 'react-bootstrap/Form'
 import Image from 'react-bootstrap/Image';
 import { FaRegCopy, FaCheck } from "react-icons/fa";
 import {useState} from 'react';
+import {getSurgeFarmsData} from './SurgeAssetData.js';
 
-const farms = [
-	{
-			'address': '0x579aaF9882A1941885fADa7A6243cEACf3037659',
-			'name': 'BNB-xUSD FARM',
-			'symbol': 'BNBxUSD'
-		}
-	]
+const farms = getSurgeFarmsData();
 
-
-
-	export default function VSF() {
+export default function VSF() {
 
 		const [selectedFarm, setSelectedFarm] = useState(farms[0]);
 		const [selectedFarmByUSer, setSelectedFarmByUser] = useState(false);

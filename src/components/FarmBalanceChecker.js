@@ -89,13 +89,11 @@ class FarmBalanceChecker extends Component {
 		let wallet_response = {};
 		let farms_to_check = [];
 		let formated_wallet_address = "";
-		let wallet_address = document.getElementById('capture_farm_wallet_address');
+		let wallet_address = this.state.capture_farm_balance_input_value;
 
 		// Check to see if the supplied address is valid/invalid
 		try {
-			formated_wallet_address = web3.utils.toChecksumAddress(wallet_address.value);
-			console.log(formated_wallet_address);
-			console.log(typeof formated_wallet_address);
+			formated_wallet_address = web3.utils.toChecksumAddress(wallet_address);
 			if (formated_wallet_address.length == 0) {
 				throw "Supplied wallet address is invalid";
 			}

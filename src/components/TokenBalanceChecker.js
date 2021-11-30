@@ -69,7 +69,7 @@ class TokenBalanceChecker extends Component {
 				button_text = "Calculate";
 				balance_container_input_id = "token_balance";
 				balance_container_input_type = "number";
-				input_placeholder = "Enter "+tokenSymbol+" Amount";
+				input_placeholder = `Enter ${tokenSymbol} Amount`;
 				let selected_token_amount = Cookies.get(tokenSymbol+'_token_amount');
 				if (selected_token_amount != undefined) {
 					token_balance_input_value = selected_token_amount;
@@ -109,10 +109,10 @@ class TokenBalanceChecker extends Component {
 		let formated_wallet_address = "";
 
 		if (this.state.selectedToken == "all") {
-			let wallet_address = document.getElementById('token_balance_wallet_address');
+			let wallet_address = this.state.capture_token_balance_input_value;
 			// Check to see if the supplied address is valid/invalid
 			try {
-				formated_wallet_address = web3.utils.toChecksumAddress(wallet_address.value);
+				formated_wallet_address = web3.utils.toChecksumAddress(wallet_address);
 			} catch(err) {
 				this.setState({
 					token_balance_error_message: "Supplied wallet address is invalid",
@@ -162,8 +162,8 @@ class TokenBalanceChecker extends Component {
 					}
 				);
 			} else {
-				let token_balance_element = document.getElementById('token_balance');
-				let token_balance = parseInt(token_balance_element.value);
+				let token_balance_element = this.state.capture_token_balance_input_value;
+				let token_balance = parseInt(token_balance_element);
 				
 				if (this.state.selectedToken == 'xUSD') {
 					token_balance = web3.utils.toWei(String(token_balance), tokens_to_check[token]["wei_unit"]);
@@ -180,7 +180,7 @@ class TokenBalanceChecker extends Component {
 					return;
 				}
 
-				Cookies.set(this.state.selectedToken+'_token_amount', token_balance_element.value, {expires: 30, path: '/' });
+				Cookies.set(this.state.selectedToken+'_token_amount', token_balance_element, {expires: 30, path: '/' });
 				wallet_response[tokens_to_check[token]["name"]]['balance'] = token_balance;
 			}
 

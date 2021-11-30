@@ -94,8 +94,6 @@ class FarmBalanceChecker extends Component {
 		// Check to see if the supplied address is valid/invalid
 		try {
 			formated_wallet_address = web3.utils.toChecksumAddress(wallet_address);
-			console.log(formated_wallet_address);
-			console.log(typeof formated_wallet_address);
 			if (formated_wallet_address.length == 0) {
 				throw "Supplied wallet address is invalid";
 			}

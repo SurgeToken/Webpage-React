@@ -23,8 +23,6 @@ const abiObj = {
 	XUSDJSON: XUSDJSON,
 }
 
-console.log(abiObj);
-
 export function getSurgeTokensData() {
 	for (const token in SurgeTokens) {
 		SurgeTokens[token]['abi'] = abiObj[SurgeTokens[token]['abi_name']];

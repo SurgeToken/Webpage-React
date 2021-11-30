@@ -224,7 +224,6 @@ class TokenBalanceChecker extends Component {
 				let output = [];
 				for (const k in wallet_response) {
 					if (wallet_response[k]['balance'] > 0) {
-						console.log(wallet_response);
 						let balance = (wallet_response[k]['balance'] / 10**wallet_response[k]['decimals']);
 						let current_ua_amount = (balance * parseFloat(wallet_response[k]['token_price']));
 						let current_value = (balance * parseFloat(wallet_response[k]['token_price']) * parseFloat(wallet_response[k]['usd_price']));
@@ -237,8 +236,6 @@ class TokenBalanceChecker extends Component {
 							'current_value' : current_value.toLocaleString(undefined, {style: "currency", currency: "USD"}),
 							'token_price': wallet_response[k]['token_price']
 						});
-
-						console.log(output);
 					}
 				}
 

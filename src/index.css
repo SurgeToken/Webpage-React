@@ -217,10 +217,6 @@ body {
 	color: #29CBC1
 }
 
-.herospan{
-	color: #24b4ab;
-}
-
 /* 
 =====================
 	END dApp
@@ -286,10 +282,29 @@ body {
 	text-align: center;
 }
 
-.intro{
+.intro_hero_wrapper{
+	margin-top: 31%;
+}
+
+.intro_hero_header {
 	font-size: 2rem;
 	font-weight: 800;
-	margin-top: 31%;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.intro_hero_header.special {
+	font-size: 2rem;
+	color: #24b4ab;
+}
+
+.intro_hero_header.special.top {
+	font-size: 3rem;
+}
+
+.hero_copyright {
+	font-size: .8rem;
+    vertical-align: top;
 }
 
 #intro_disclaimer {

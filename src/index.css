@@ -215,6 +215,10 @@ body {
     box-shadow: rgba(0, 195, 255, 0.16) 0px 0px 20px 0px;
 }
 
+.learn_more {
+	margin-left: 10px;
+}
+
 .dApp2 {
     text-decoration: none;
     color: #29CBC1 !important;
@@ -315,7 +319,7 @@ body {
 }
 
 .intro_hero_wrapper{
-	margin-top: 31%;
+	margin-top: 30%;
 }
 
 .intro_hero_header {
@@ -326,12 +330,11 @@ body {
 }
 
 .intro_hero_header.special {
-	font-size: 2rem;
 	color: #24b4ab;
 }
 
 .intro_hero_header.special.top {
-	font-size: 3rem;
+	font-size: 4rem;
 }
 
 .hero_copyright {
@@ -1034,6 +1037,18 @@ body {
     }
 }
 
+@media screen and (max-width: 1260px) {
+	.intro_hero_header {
+		font-size: 1.5rem;
+	}
+	
+	.intro_hero_header.special.top {
+		font-size: 2.6rem;
+	}
+}
+
+
+
 @media screen and (max-width: 1080px) {
     .nav-link {
         font-size: 1em;
@@ -1041,6 +1056,14 @@ body {
     .intro {
         font-size: 1.7rem;
     }
+
+	.intro_hero_header {
+		font-size: 1.5rem;
+	}
+	
+	.intro_hero_header.special.top {
+		font-size: 2.6rem;
+	}
 }
 
 @media screen and (max-width: 991px) {
@@ -1056,6 +1079,16 @@ body {
     .certikAudtitBtn {
         font-size: .8rem;
     }
+	.intro_hero_header {
+		font-size: 1.2rem;
+	}
+	
+	.intro_hero_header.special.top {
+		font-size: 2.2rem;
+	}
+	.btnDApp {
+		font-size: .8rem;
+	}
 }
 
 @media screen and (max-width: 837px) {
@@ -1107,24 +1140,42 @@ body {
         font-size: .8rem;
         width: 15%;
     }
+	.btnDApp {
+		font-size: .7rem;
+	}
     /*End Main Page CSS*/
     /*Begin Education Page CSS*/
     .edTitle {
         margin-top: 5%;
     }
     /*End Education Page CSS*/
+	.intro_hero_header {
+		font-size: 1.1rem;
+	}
+	
+	.intro_hero_header.special.top {
+		font-size: 2.2rem;
+	}
 }
 
 @media screen and (max-width: 767px) {
+	
     /*Begin Main Page CSS*/
     .tokenCalc {
         padding-right: 5%
     }
-    .intro {
+    .intro_hero_wrapper {
         padding: 0;
         text-align: center;
         margin-top: 0;
     }
+	.intro_hero_header {
+		font-size: 1.6rem;
+	}
+	
+	.intro_hero_header.special.top {
+		font-size: 3rem;
+	}
     .vstatsButtons {
         margin-left: 5%;
     }
@@ -1142,6 +1193,9 @@ body {
     .feeBtns {
         margin-top: 3%;
     }
+	.btnDApp {
+		font-size: 1rem;
+	}
     .dApp2 {
         font-size: .6rem !important;
     }
@@ -1530,6 +1584,21 @@ body {
         margin-top: 3%;
     }
     /**End Education Page CSS**/
+}
+@media screen and (max-width: 500px) {
+	.intro_hero_wrapper {
+		margin-top: 5%;
+	}
+	.intro_hero_header {
+		font-size: 1.2rem;
+	}
+
+	.intro_hero_header.special.top {
+		font-size: 2.3rem;
+	}
+	.btnDApp {
+		font-size: .7rem;
+	}
 }
 
 @media screen and (max-width: 400px) {

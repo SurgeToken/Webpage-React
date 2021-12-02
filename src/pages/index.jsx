@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import { HashLink } from 'react-router-hash-link';
+import {LinkContainer} from 'react-router-bootstrap';
+import Nav from 'react-bootstrap/Nav'
 import VST from "../components/VST";
 import VSF from "../components/VSF";
 import TokenBalanceChecker from "../components/TokenBalanceChecker";
@@ -35,6 +37,9 @@ class MainPage extends React.Component{
 									src="assets/img/appicon.png"
 									className="d-inline-block align-middle appicon"/>
 								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to App</a>
+                            </Button>
+							<Button className="dApp btnDApp learn_more">
+									<a href="#/education">Learn More</a>
                             </Button>
 						</div>
                         </Col>

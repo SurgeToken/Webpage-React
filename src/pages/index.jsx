@@ -27,7 +27,7 @@ class MainPage extends React.Component{
 								<span class="intro_hero_header">&bull; Internal LP Market Maker</span>
 								<span class="intro_hero_header">&bull; Over 100% Backed MC</span>
 								<span class="intro_hero_header">&bull; No Developer Tokens</span>
-								<span className="special top intro_hero_header">xSurge</span>
+								<img alt="" src="assets/img/surge_slim.png" className="intro_hero_img"/>
 								<span className="special bottom intro_hero_header">"never goes down<span class="hero_copyright">©</span>"</span>
                             </div>
                             <br/>

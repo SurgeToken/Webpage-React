@@ -337,6 +337,10 @@ body {
 	font-size: 4rem;
 }
 
+.intro_hero_img {
+	max-width: 100%;
+}
+
 .hero_copyright {
 	font-size: .8rem;
     vertical-align: top;
@@ -1173,8 +1177,8 @@ body {
 		font-size: 1.6rem;
 	}
 	
-	.intro_hero_header.special.top {
-		font-size: 3rem;
+	.intro_hero_img {
+		max-width: 60%;
 	}
     .vstatsButtons {
         margin-left: 5%;
@@ -1355,8 +1359,18 @@ body {
     /**End Education Page CSS**/
 }
 
+@media screen and (max-width: 620px) {
+	.intro_hero_img {
+		max-width: 75%;
+	}
+}
+
 @media screen and (max-width: 580px) {
     /*Begin Main Page CSS*/
+
+	.intro_hero_img {
+		max-width: 85%;
+	}
     .shape {
         position: absolute;
         right: 0;

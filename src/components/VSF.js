@@ -66,7 +66,7 @@ export default function VSF() {
 								<div className="tdLabel">Contract Address</div>
 								<div className="tdData"><FaRegCopy id="copy-icon-faddress" onClick={() => addressCopy(selectedFarm.address)}/>
                                     <FaCheck id="copy-icon-okay-faddress" className="hidden" />
-									</div>
+								</div>
 							</td>
 						</tr>
 						<tr>

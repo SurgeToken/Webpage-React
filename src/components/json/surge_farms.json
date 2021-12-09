@@ -4,27 +4,44 @@
 		"abi_name": "BNBxUSDFARM",
 		"name": "BNB-xUSD FARM",
 		"symbol": "BNBxUSD",
-		"wei_unit": "ether"
+		"wei_unit": "ether",
+		"paired_asset_wei_unit": "ether",
+		"is_paired_asset_surge_token": false,
+		"paired_asset": "BNB",
+		"paired_asset_token_address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+		"split_rewards": false
 	},
 	{
 		"address": "0xB51EA53058D4f548CbabFa7C639725EEf494e13d",
 		"abi_name": "SBTCxUSDFARM",
 		"name": "SBTC-xUSD FARM",
 		"symbol": "SBTCxUSD",
-		"wei_unit": "ether"
+		"wei_unit": "ether",
+		"is_paired_asset_surge_token": true,
+		"surge_token": "SurgeBTC",
+		"paired_asset": "SBTC",
+		"split_rewards": true
 	},
 	{
 		"address": "0xb7207B3e14Eb50aA02A5AD76941e61a4EeF47b4b",
 		"abi_name": "SADAxUSDFARM",
 		"name": "SADA-xUSD FARM",
 		"symbol": "SADAxUSD",
-		"wei_unit": "ether"
+		"wei_unit": "ether",
+		"is_paired_asset_surge_token": true,
+		"surge_token": "SurgeADA",
+		"paired_asset": "SADA",
+		"split_rewards": true
 	},
 	{
 		"address": "0x0cD3A3C1e1F246f13e45b4b0eD07C8De355a54F4",
 		"abi_name": "SUSELESSxUSDFARM",
 		"name": "SUSELESS-xUSD FARM",
 		"symbol": "SUSELESSxUSD",
-		"wei_unit": "ether"
+		"wei_unit": "ether",
+		"is_paired_asset_surge_token": true,
+		"surge_token": "SurgeUSELESS",
+		"paired_asset": "SUSELESS",
+		"split_rewards": true
 	}
 ]

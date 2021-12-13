@@ -544,7 +544,8 @@ body {
 }
 
 .capture_token_balance_input,
-.capture_farm_balance_input {
+.capture_farm_balance_input,
+.capture_surge_fund_address_input {
 	width: 100%;
     background: #0B3131 !important;
     border: none;
@@ -643,6 +644,16 @@ body {
 
 .farm_balance_spacer {
 	margin-bottom: 10px;
+}
+
+.surgeFundTitle {
+	max-width: 50%;
+}
+
+.surge_fund_learn_more_button{
+	display: block !important;
+    margin: 0 auto !important;
+    margin-top: 20px !important;
 }
 
 /*

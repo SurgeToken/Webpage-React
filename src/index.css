@@ -1044,15 +1044,22 @@ body {
     .heroH1 {
         font-size: 2.1rem;
     }
+	
     .assetsLeftPanel {
         padding-right: 5%;
     }
+
     .assetsRightPanel {
         padding-left: 5%;
     }
+
     .certikAudtitBtn {
         font-size: .8rem;
     }
+
+	.surge_fund_text {
+		margin-top: 20px;
+	}
 }
 
 @media screen and (max-width: 837px) {

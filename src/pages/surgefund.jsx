@@ -179,12 +179,12 @@ const SurgeFund = () => {
 										</div>
 									);
 								})}
-								<p id="token_balance_disclaimer">*Data provided by BSC and CoinGecko API's</p>
+								<p id="token_balance_disclaimer">*Data provided by BSC</p>
 							</div>
 						}
 					</div>
 				</Col>
-				<Col xs={12} sm={12} md={12} lg={6} xl={6} className="edText">
+				<Col xs={12} sm={12} md={12} lg={6} xl={6} className="edText surge_fund_text">
 					<p>The SurgeFund is XSurge's attempt to pay back the money that was lost in the SurgeBNB hack occurring on August 16th, 2021. Shortly after notifying the community to pull out of the contract due to a security vulnerability, SurgeBNB was exploited for $5M in BNB. The leadership team and Mark conducted a thorough investigation to determine the culprit and follow the money trail. Authorities were notified by a legal representative of the XSurge team and outside agencies were were hired to help. Unfortunately, the money could not be tracked and recovered. Mark and the team put together a Charitable Donation Fund for everyone who lost the money known as the SurgeFund shortly after.</p>
 					<p>To learn more about the SurgeBNB hack, The SurgeFund and how to claim, please visit our Surge Education Page</p>
 					<Button className="dApp btnDApp learn_more surge_fund_learn_more_button">

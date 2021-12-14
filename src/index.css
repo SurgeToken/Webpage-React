@@ -1097,6 +1097,11 @@ body {
     .certikAudtitBtn {
         font-size: .8rem;
     }
+
+	.surge_fund_text {
+		margin-top: 20px;
+	}
+
 	.intro_hero_header {
 		font-size: 1.2rem;
 	}

@@ -5,6 +5,9 @@ import SADAJSON from './json/token_abis/surge_ada_abi.json';
 import SUSLSJSON from './json/token_abis/surge_useless_abi.json';
 import XUSDJSON from './json/token_abis/surge_xusd_abi.json';
 import BNBXUSDFARM from './json/farm_abis/bnb_xusd_farm_abi.json';
+import SBTCXUSDFARM from './json/farm_abis/sbtc_xusd_farm_abi.json';
+import SADAXUSDFARM from './json/farm_abis/sada_xusd_farm_abi.json';
+import SUSELESSXUSDFARM from './json/farm_abis/suseless_xusd_farm_abi.json';
 import SurgeTokensData from './json/surge_tokens.json';
 import SurgeFarmsData from './json/surge_farms.json';
 
@@ -20,6 +23,9 @@ const abiObj = {
 	SADAJSON: SADAJSON,
 	SUSLSJSON: SUSLSJSON,
 	BNBxUSDFARM: BNBXUSDFARM,
+	SBTCxUSDFARM: SBTCXUSDFARM,
+	SADAxUSDFARM: SADAXUSDFARM,
+	SUSELESSxUSDFARM: SUSELESSXUSDFARM,
 	XUSDJSON: XUSDJSON,
 }
 

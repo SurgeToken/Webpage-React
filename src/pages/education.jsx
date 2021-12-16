@@ -204,54 +204,34 @@ const Education = () => {
                   <p>Here is the Transaction hash of one of the exploits, this command was ran over ten times in under 60 seconds: <a href="https://bscscan.com/tx/0x7e2a6ec08464e8e0118368cb933dc64ed9ce36445ecf9c49cacb970ea78531d2">Transaction Hash</a></p>
 
                   <h4 className="edH4">Methods of connecting below:</h4>
-                  <p>The SurgeFund is a daily victim claim from a contract pool of BNB. People can claim once every 24 hours. The minimum that can be claimed is .0005 BNB. The maximum claim is the total that you are owed. This works for both TrustWallet and Metamask users.</p>
-                  <p>Here is how this works. The amount you can claim in any 24 hour period depends on how much BNB is in the pool, and the total BNB you are owed altogether.</p>
-                  <p>For Example: If I have 10 BNB left to claim (my total I am owed), and there is 100 BNB left to distribute to everyone (the total debt). That means I get 10/100 or 1/10th of however much BNB is in the contract at the time I claim. So if there is only 20 BNB in the contract at the time I claim, my claim for that day, will be 0.5 BNB (10 / 20 = 0.5)</p>
-                  <p>Although you will not be able to withdraw as much if the amount of BNB in the contract is low, other people claiming shrinks the total amount in the pool. This means that as others claim, you have a larger share of the pool as it fills up in the future.</p>
-                  <p>So in conclusion, if you don't claim for 7 days, you will not have 7 days worth of claims stacked, but you'll be able to claim a larger share over time (a larger percentage of what's there) as other people claim from the contract.</p>
-                  <p>Under this system, if the total amount of BNB lost in the hack was in the SurgeFund pool or ever is for that matter, everyone would be able to claim their full amount of BNB. This is the most important thing to understand. The total amount lost was over 12k BNB. That will take time to build up. So its important to realize ahead of time, that when you make your first claim, it will likely not be the full amount, you may need to wait until the funds build.</p>
+                  <p>No more rushing to claim a portion of the pot. The SurgeFund is no longer an accumulating amount of BNB split in percentages based on individual loss/total loss. Instead, Mark has designed this contract as its own token with a total supply being the total remaining debt. When the amount is paid in full, the total supply will be 0.</p>
+                  <p>As contributions are made through transactions and donations, the contract will automatically distribute claims to the victims in the form of SurgeFund Tokens. The victims can then claim these tokens in the form of BNB by simply routing the tokens to their own BEP20 receive address. As you receive tokens, your amount owed goes down, and so too does the total debt.</p>
+                  <p>These claims stack. Since you are receiving constant tokens through contributions, there are no percentages of a sum total in a pool. You may wait as long as you like to claim and the rewards will only keep piling up over time.</p>
+				<p>The claims are split in proportion to what you are owed. Every contribution to the fund is split between holders. This means that if you lost the most, you have the most claim, if you lost the least, you have the least claim. If you are owed 10% of the total debt, you receive 10% of every contribution.</p>
+				<p>As the whale debts are paid down, the split of each contribution evens out. This will increase the claims of those with lower claims over time.</p>
+				<p>The minimum claim has increased. The minimum claim has gone up to prevent claims costing higher gas. The increase is now .002. Originally, it was .00005. This should stop holders from paying higher gas cost than the claims they receive.</p>
+				<p>There is no time restraint. The last fund was every 24 hours, and a victim may claim from the pool. Upon claiming, they must wait until the claims reset. Now, if you have rewards, you may always feel free to claim them whenever you like.</p>
+				<p>You may have noticed some airdrops of a new surge token to your wallet. Worry not! These were automated SurgeFund V2 contributions sent to your wallet. Here are the changes to the SurgeFund mapping:</p>
+				<ul>
+					<li>Network: Smart Chain</li>
+					<li>Contract Address: 0x8078380508c16C9F122D62771714701612Eb3fa8</li>
+					<li>Name: SurgeFund Claim Token</li>
+					<li>Symbol: SFCT</li>
+					<li>Decimals: 18</li>
+				</ul>
                   <h4 className="edH4">How to Claim:</h4>
                   <p>Through the dApp: <em>See SurgeFund Tutorial: How to Claim & Check Your Claim</em></p>
-                  <p>Through the Contract: visit <a href="https://xsurge.net/surgefund/">SurgeFund Page</a></p>
+                  <p>Through the Contract: visit <a href="https://xsurge.net/#/surgefund/">SurgeFund Page</a></p>
                   <h4 className="edH4">To see your current claim:</h4>
                   <p>Use the SurgeFund Tracker Bot on our Discord Server at <a href="https://discord.gg/ZPkuvkqCmS">XSurge Official Discord</a></p>
                   <p>You can also use this site or our dApp: </p>
                   <ul>
-                      <li><a href="https://subscribe.manraj.ca">https://subscribe.manraj.ca</a></li>
                       <li><a href="https://app.xsurge.net/">https://app.xsurge.net/</a></li>
-                    </ul>
+                </ul>
                   <h4 className="edH4">To answer some frequent questions/concerns we hear:</h4>
-                  <p>As of now, there is only little BNB (22 BNB as of Oct 24, 2021) in the contract with some tokens pending the sell to BNB using write function 8 of the contract. Mark sells tokens sent to this contract for BNB manually so it may take sometime for token donations to show as BNB in the pool. You can view the fund holdings here: <a href="https://bscscan.com/tokenholdings?a=0x95c8ee08b40107f5bd70c28c4fd96341c8ead9c7">BSCScan</a></p>
-                  <p>The current amount in the pool, if low, leaves little to go around and the people owed the most have the most claim. Because of this, I would hold until the pool grows over time if your current claim is small.</p>
-                  <p>As explained above, as you hold and other people claim, the amount of debt decrease as a whole. Those people that continue to claim are slowly paid back and the amount they are owed goes down. So as this happens you are owed a higher percentage of what is in the pool. This increases your amount of entitlement to the claim pool.</p>
-                  <h4 className="edH4">So, here's an example scenario:</h4>
-                  <p>
-                    <em>
-                      You are owed $10 and Jimmy is owed $10. The total amount owed is $20 The current amount in the pool is $2.
-                    </em>
-                  </p>
-                  <p>
-                    <em>
-                    You are both, at that time, entitled to $1 from the claim pool. Jimmy takes his one dollar, and you hold.
-                    </em>
-                  </p>
-                  <p>
-                    <em>
-                    The total amount owed is now $19. You are owned $10, Jimmy $9.
-                    </em>
-                  </p>
-                  <p>
-                    <em>
-                    A donation is made in the pool in the amount of $10 bringing the total claim to $11.
-                    </em>
-                  </p>
-                  <p>
-                    <em>
-                    You are entitled to $5.78 of this $11 Jimmy is entitled to $5.21 of this $11
-                    </em>
-                  </p>
+                  <p>As of now, there is only little BNB (56 BNB as of Dec 12, 2021) in the contract with some tokens pending the sell to BNB using write function 9 of the contract. Mark sells tokens sent to this contract for BNB manually so it may take sometime for token donations to show as BNB in the pool. You can view the fund holdings here: <a href="https://bscscan.com/tokenholdings?a=0x8078380508c16C9F122D62771714701612Eb3fa8">BSCScan</a></p>
                   <h4 className="edH4">In Conclusion:</h4>
-                  <p>We currently have a few contracts (SBTC, SADA, and SUSLS) that are contributing to the fund with every transaction but Donations are also made on occasion through internal hosted events and community/organization generosity. The most important thing to remember is the contributions made from contract transactions to the SurgeFund are entirely dependent on the volume of the tokens. This means it may take a lot of work, progress, and time before this fund builds substantially. More contributing contracts are to come, including the XTrader bridge ecosystem.</p>
+                  <p>We currently have a few contracts (SBTC, SADA, SUSLS, xUSD and LP Farms) that are contributing to the fund with every transaction but Donations are also made on occasion through internal hosted events and community/organization generosity. The most important thing to remember is the contributions made from contract transactions to the SurgeFund are entirely dependent on the volume of the tokens. This means it may take a lot of work, progress, and time before this fund builds substantially. More contributing contracts are to come, including the XTrader bridge ecosystem.</p>
                   </Col>
                 </Row>
               </Accordion.Body>
@@ -267,13 +247,17 @@ const Education = () => {
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} className="edText">
                 <p>
-                The SurgeFund is a daily victim claim from a contract pool of BNB. People can claim once every 24 hours. The minimum that can be claimed is .0005 BNB. The maximum claim is the total that you are owed. This works for both TrustWallet and Metamask users.
+                The SurgeFund contract pool of BNB used to pay back the vicims of the Surge BNB hack. The minimum that can be claimed is .002 BNB. The maximum claim is the total that you are owed. This works for both TrustWallet and Metamask users.
                 </p>
-                <p>Here is how this works. The amount you can claim in any 24 hour period depends on how much BNB is in the pool, and the total BNB you are owed altogether.</p>
-                <p><em>For Example: If I have 10 BNB left to claim (my total I am owed), and there is 100 BNB left to distribute to everyone (the total debt). That means I get 10/100 or 1/10th of however much BNB is in the contract at the time I claim. So if there is only 20 BNB in the contract at the time I claim, my claim for that day, will be 0.5 BNB (10 / 20 = 0.5)</em></p>
-                <p>Although you will not be able to withdraw as much if the amount of BNB in the contract is low, other people claiming shrinks the total amount in the pool. This means that as others claim, you have a larger share of the pool as it fills up in the future.</p>
-                <p>So in conclusion, if you don't claim for 7 days, you will not have 7 days worth of claims stacked, but you'll be able to claim a larger share over time (a larger percentage of what's there) as other people claim from the contract.</p>
-                <p>Under this system, if the total amount of BNB lost in the hack was in the SurgeFund pool or ever is for that matter, everyone would be able to claim their full amount of BNB. This is the most important thing to understand. The total amount lost was over 12k BNB. That will take time to build up. So its important to realize ahead of time, that when you make your first claim, it will likely not be the full amount, you may need to wait until the funds build.</p>
+                <p>Here is how this works. As contributions are made through transactions and donations, the contract will automatically distribute claims to the victims in the form of SurgeFund Tokens. The victims can then claim these tokens in the form of BNB by simply routing the tokens to their own BEP20 receive address. As you receive tokens, your amount owed goes down, and so too does the total debt.</p>
+
+				<p>These claims stack. Since you are receiving constant tokens through contributions, there are no percentages of a sum total in a pool. You may wait as long as you like to claim and the rewards will only keep piling up over time.</p>
+
+				<p>The claims are split in proportion to what you are owed. Every contribution to the fund is split between holders. This means that is you lost the most, you have the most claim, if you lost the least, you have the least claim. If you are owed 10% of the total debt, you receive 10% of every contribution.</p>
+
+				<p>The minimum claim has increased. The minimum claim has gone up to prevent claims costing higher gas. The increase is now .002. Originally, it was .00005. This should stop holders from paying higher gas cost than the claims they receive.</p>
+
+				<p>There is no time restraint. The last fund was every 24 hours, and a victim may claim from the pool. Upon claiming, they must wait until the claims reset. Now, if you have rewards, you may always feel free to claim them whenever you like.</p>
                 </Col>
               </Row>
               <Row>

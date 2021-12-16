@@ -27,6 +27,9 @@ class NavBar extends Component{
 							<NavDropdown title="Tools" id="basic-nav-dropdown">
                                 <NavHashLink className="nav-link" to="/#surge-balance-checker">Balance Checker</NavHashLink>
                             </NavDropdown>
+							<LinkContainer to="/surgefund">
+                                <Nav.Link>Surge Fund</Nav.Link>
+                            </LinkContainer>
 							<LinkContainer to="/education">
                                 <Nav.Link>Surge Education</Nav.Link>
                             </LinkContainer>

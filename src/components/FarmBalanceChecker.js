@@ -109,9 +109,6 @@ class FarmBalanceChecker extends Component {
 
 		if (this.state.selectedFarm == "all") {
 			farms_to_check = farms;
-
-			// Set Public Wallet Address Cookie
-			Cookies.set('public_wallet_address', formated_wallet_address, {expires: 30, path: '/' });
 		} else {
 			for (const farm in farms) {
 				if (this.state.selectedFarm == farms[farm]['symbol']) {
@@ -120,9 +117,15 @@ class FarmBalanceChecker extends Component {
 			}
 		}
 
+		// Set Public Wallet Address Cookie
+		Cookies.set('public_wallet_address', formated_wallet_address, {expires: 30, path: '/' });
+
 		for (const farm in farms_to_check) {
 			wallet_response[farms_to_check[farm]["name"]] = {
-				'symbol': farms_to_check[farm]['symbol']
+				'symbol': farms_to_check[farm]['symbol'],
+				'paired_asset': farms_to_check[farm]['paired_asset'],
+				'split_rewards': farms_to_check[farm]['split_rewards'],
+				'is_paired_asset_surge_token': farms_to_check[farm]['is_paired_asset_surge_token']
 			};
 			
 			let contract = new web3.eth.Contract(farms_to_check[farm]["abi"], farms_to_check[farm]["address"]);
@@ -158,7 +161,11 @@ class FarmBalanceChecker extends Component {
 			redeemable_value.then(
 				data => {
 					wallet_response[farms_to_check[farm]["name"]]['xusd_value'] = web3.utils.fromWei(data[0], farms_to_check[farm]["wei_unit"]);
-					wallet_response[farms_to_check[farm]["name"]]['bnb_value'] = web3.utils.fromWei(data[1], farms_to_check[farm]["wei_unit"]);
+					if (farms_to_check[farm]["is_paired_asset_surge_token"]) {
+						wallet_response[farms_to_check[farm]["name"]]['paired_asset_value'] = data[1];
+					} else {
+						wallet_response[farms_to_check[farm]["name"]]['paired_asset_value'] = web3.utils.fromWei(data[1], farms_to_check[farm]["paired_asset_wei_unit"]);
+					}
 				}
 			);
 
@@ -193,7 +200,16 @@ class FarmBalanceChecker extends Component {
 			promises.push(pending_rewards);
 			pending_rewards.then(
 				data => {
-					wallet_response[farms_to_check[farm]["name"]]['pending_rewards'] = web3.utils.fromWei(data, farms_to_check[farm]["wei_unit"]);
+					if (!farms_to_check[farm]["split_rewards"]) {
+						wallet_response[farms_to_check[farm]["name"]]['pending_rewards_xusd'] = web3.utils.fromWei(data, farms_to_check[farm]["wei_unit"]);
+					} else {
+						wallet_response[farms_to_check[farm]["name"]]['pending_rewards_xusd'] = web3.utils.fromWei(data[0], farms_to_check[farm]["wei_unit"]);
+						if (farms_to_check[farm]["is_paired_asset_surge_token"]) {
+							wallet_response[farms_to_check[farm]["name"]]['pending_rewards_paired_asset'] = data[1];
+						} else {
+							wallet_response[farms_to_check[farm]["name"]]['pending_rewards_paired_asset'] = web3.utils.fromWei(data[1], farms_to_check[farm]["paired_asset_wei_unit"]);
+						}
+					}
 				}
 			);
 
@@ -210,7 +226,17 @@ class FarmBalanceChecker extends Component {
 			promises.push(total_rewards_claimed);
 			total_rewards_claimed.then(
 				data => {
-					wallet_response[farms_to_check[farm]["name"]]['total_rewards_claimed'] = web3.utils.fromWei(data, farms_to_check[farm]["wei_unit"]);
+					console.log()
+					if (!farms_to_check[farm]["split_rewards"]) {
+						wallet_response[farms_to_check[farm]["name"]]['total_rewards_claimed_xusd'] = web3.utils.fromWei(data, farms_to_check[farm]["wei_unit"]);
+					} else {
+						wallet_response[farms_to_check[farm]["name"]]['total_rewards_claimed_xusd'] = web3.utils.fromWei(data[0], farms_to_check[farm]["wei_unit"]);
+						if (farms_to_check[farm]["is_paired_asset_surge_token"]) {
+							wallet_response[farms_to_check[farm]["name"]]['total_rewards_claimed_paired_asset'] = data[1];
+						} else {
+							wallet_response[farms_to_check[farm]["name"]]['total_rewards_claimed_paired_asset'] = web3.utils.fromWei(data[1], farms_to_check[farm]["paired_asset_wei_unit"]);
+						}
+					}
 				}
 			);
 
@@ -233,17 +259,48 @@ class FarmBalanceChecker extends Component {
 				}
 			);
 
-			// get BNB price
-			let bsc_bnb_address = "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c";
-			let base_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses="+bsc_bnb_address+"&vs_currencies=usd";
-			let request = fetch(base_url).then(response => response.text()).then(
-				data => {
-					let data_obj = JSON.parse(data);
-					wallet_response[farms_to_check[farm]["name"]]['bnb_price'] = data_obj[bsc_bnb_address]['usd'];
-				}
-			);
+			// get paired asset prices
+			let base_url = "https://api.coingecko.com/api/v3/simple/token_price/binance-smart-chain?contract_addresses={paired_asset_bsc_address}&vs_currencies=usd";
+			if (!farms_to_check[farm]["is_paired_asset_surge_token"]) {
+				base_url = base_url.replace('{paired_asset_bsc_address}', farms_to_check[farm]['paired_asset_token_address']);
+				let request = fetch(base_url).then(response => response.text()).then(
+					data => {
+						let data_obj = JSON.parse(data);
+						wallet_response[farms_to_check[farm]["name"]]['paired_asset_price'] = data_obj[farms_to_check[farm]["paired_asset_token_address"]]['usd'];
+					}
+				);
+				promises.push(request);
+			} else {
+				let paired_surge_token_data = SurgeAssets.getSurgeTokenData(farms_to_check[farm]['surge_token']);
 
-			promises.push(request);
+				base_url = base_url.replace('{paired_asset_bsc_address}', paired_surge_token_data['uassetaddress']);
+				let request = fetch(base_url).then(response => response.text()).then(
+					data => {
+						let data_obj = JSON.parse(data);
+						wallet_response[farms_to_check[farm]["name"]]['paired_asset_price'] = data_obj[paired_surge_token_data['uassetaddress']]['usd'];
+					}
+				);
+
+				promises.push(request);
+
+				let surge_contract = new web3.eth.Contract(paired_surge_token_data["abi"], paired_surge_token_data["address"]);
+
+				let surge_token_price_call = new Promise (function (resolve, reject) {
+					surge_contract.methods.calculatePrice().call({}, function(error, result) {
+						if (error) {
+							reject(error);
+						} else {
+							resolve(result);
+						}
+					});
+				});
+				promises.push(surge_token_price_call);
+				surge_token_price_call.then(
+					data => {
+						wallet_response[farms_to_check[farm]["name"]]['surge_token_price'] = web3.utils.fromWei(data, paired_surge_token_data['wei_unit'])
+					}
+				);
+			}
 		}
 
 		Promise.allSettled(promises).then(
@@ -255,25 +312,61 @@ class FarmBalanceChecker extends Component {
 						let farm_lp_balance_xusd = parseFloat(wallet_response[k]['xusd_value']);
 						let farm_lp_xusd_value = farm_lp_balance_xusd * parseFloat(wallet_response[k]['xusd_contract_price']);
 						
-						let farm_lp_balance_bnb = parseFloat(wallet_response[k]['bnb_value']);
-						let farm_lp_bnb_value = farm_lp_balance_bnb * parseFloat(wallet_response[k]['bnb_price']);
+						let farm_lp_balance_paired_asset = parseFloat(wallet_response[k]['paired_asset_value']);
+						let farm_lp_paired_asset_value = 0;
+						if (!wallet_response[k]["is_paired_asset_surge_token"]) {
+							farm_lp_paired_asset_value = farm_lp_balance_paired_asset * parseFloat(wallet_response[k]['paired_asset_price']);
+						} else {
+							farm_lp_paired_asset_value = farm_lp_balance_paired_asset * parseFloat(wallet_response[k]['surge_token_price']) * parseFloat(wallet_response[k]['paired_asset_price']);
+						}
 
-						let total_lp_farm_value = farm_lp_xusd_value + farm_lp_bnb_value;
+						let total_lp_farm_value = farm_lp_xusd_value + farm_lp_paired_asset_value;
 
-						let pending_rewards = parseFloat(wallet_response[k]['pending_rewards']);
-						let pending_rewards_usd = pending_rewards * parseFloat(wallet_response[k]['xusd_contract_price']);
+						let pending_rewards_xusd = parseFloat(wallet_response[k]['pending_rewards_xusd']);
+						let pending_rewards_xusd_usd = pending_rewards_xusd * parseFloat(wallet_response[k]['xusd_contract_price']);
+
+						let pending_rewards_paired_asset = 0;
+						let pending_rewards_paired_asset_usd = 0;
+						if (wallet_response[k]["is_paired_asset_surge_token"]) {
+							pending_rewards_paired_asset = parseFloat(wallet_response[k]['pending_rewards_paired_asset']);
+							pending_rewards_paired_asset_usd = pending_rewards_paired_asset * parseFloat(wallet_response[k]['surge_token_price']) * parseFloat(wallet_response[k]['paired_asset_price']);
+						}
+
+
+						let rewards_view = "";
+						if (wallet_response[k]['split_rewards']) {
+							rewards_view = this.buildSplitRewardsView(
+								pending_rewards_xusd,
+								pending_rewards_xusd_usd,
+								pending_rewards_paired_asset,
+								pending_rewards_paired_asset_usd,
+								wallet_response[k]['paired_asset'],
+								wallet_response[k]['total_rewards_claimed_xusd'],
+								wallet_response[k]['total_rewards_claimed_paired_asset']
+							)
+						} else {
+							rewards_view = this.buildRewardsView(
+								pending_rewards_xusd,
+								pending_rewards_xusd_usd,
+								wallet_response[k]['total_rewards_claimed_xusd']
+							)
+						}
 
 						output.push({
 							'name' : k,
 							'symbol' : wallet_response[k]['symbol'],
+							'paired_asset': wallet_response[k]['paired_asset'],
+							'split_rewards': wallet_response[k]['split_rewards'],
 							'farm_tokens' : parseFloat(wallet_response[k]['farm_tokens']).toFixed(5),
-							'farm_lp_balance_xusd': farm_lp_balance_xusd.toFixed(5),
-							'farm_lp_balance_bnb': farm_lp_balance_bnb.toFixed(5),
+							'farm_lp_balance_xusd': farm_lp_balance_xusd.toLocaleString(undefined, {maximumFractionDigits: 5}),
+							'farm_lp_balance_paired_asset': farm_lp_balance_paired_asset.toLocaleString(undefined, {maximumFractionDigits: 5}),
 							'farm_lp_value_usd': total_lp_farm_value.toLocaleString(undefined, {style: "currency", currency: "USD"}),
 							'time_until_unlock': Math.round(wallet_response[k]['time_until_unlock']),
-							'pending_rewards_xusd': pending_rewards.toFixed(5),
-							'pending_rewards_usd': pending_rewards_usd.toLocaleString(undefined, {style: "currency", currency: "USD"}),
-							'total_rewards_claimed': parseFloat(wallet_response[k]['total_rewards_claimed']).toFixed(5)
+							'rewards_view': rewards_view,
+							'pending_rewards_xusd': pending_rewards_xusd.toFixed(5),
+							'pending_rewards_paired_asset': pending_rewards_paired_asset,
+							'pending_rewards_usd': pending_rewards_xusd_usd.toLocaleString(undefined, {style: "currency", currency: "USD"}),
+							'total_rewards_claimed': parseFloat(wallet_response[k]['total_rewards_claimed_xusd']).toFixed(5)
 						});
 					}
 				}
@@ -287,6 +380,100 @@ class FarmBalanceChecker extends Component {
 				console.log(output);
 			}
 		);
+	}
+
+	buildSplitRewardsView = (
+		pending_rewards_xusd, 
+		pending_rewards_xusd_usd, 
+		pending_rewards_paired_asset, 
+		pending_rewards_paired_asset_usd, 
+		paired_asset,
+		total_rewards_claimed_xusd,
+		total_rewards_claimed_paired_asset) => {
+
+		return (
+			<div>
+				<div class="farm_balance_wrapper_left">
+					<div class="fieldset_header">
+						Pending Rewards (xUSD)
+					</div>
+					<div class="text-center">
+						{pending_rewards_xusd.toLocaleString(undefined, {maximumFractionDigits: 5})}
+					</div>
+				</div>
+				<div class="farm_balance_wrapper_right">
+					<div class="fieldset_header">
+						Pending Rewards ({paired_asset})
+					</div>
+					<div class="text-center">
+						{pending_rewards_paired_asset.toLocaleString(undefined, {maximumFractionDigits: 5})}
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="farm_balance_spacer"></div>
+
+				<div class="farm_balance_amount_wrapper">
+					<div class="fieldset_header">
+						Pending Rewards (USD)
+					</div>
+					<div class="text-center">
+						{(pending_rewards_xusd_usd + pending_rewards_paired_asset_usd).toLocaleString(undefined, {style: "currency", currency: "USD"})}
+					</div>
+				</div>
+				<div class="farm_balance_spacer"></div>
+
+				<div class="farm_balance_wrapper_left">
+					<div class="fieldset_header">
+						Total Claimed (xUSD)
+					</div>
+					<div class="text-center">
+						{parseFloat(total_rewards_claimed_xusd).toLocaleString(undefined, {maximumFractionDigits: 5})}
+					</div>
+				</div>
+				<div class="farm_balance_wrapper_right">
+					<div class="fieldset_header">
+						Total Claimed ({paired_asset})
+					</div>
+					<div class="text-center">
+						{parseFloat(total_rewards_claimed_paired_asset).toLocaleString(undefined, {maximumFractionDigits: 5})}
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		)
+	}
+
+	buildRewardsView = (pending_rewards_xusd, pending_rewards_xusd_usd, total_rewards_claimed_xusd) => {
+		return (
+			<div>
+				<div class="farm_balance_wrapper_left">
+					<div class="fieldset_header">
+						Pending Rewards (xUSD)
+					</div>
+					<div class="text-center">
+						{pending_rewards_xusd.toLocaleString(undefined, {maximumFractionDigits: 5})}
+					</div>
+				</div>
+				<div class="farm_balance_wrapper_right">
+					<div class="fieldset_header">
+						Pending Rewards (USD)
+					</div>
+					<div class="text-center">
+						{pending_rewards_xusd_usd.toLocaleString(undefined, {maximumFractionDigits: 5})}
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="farm_balance_spacer"></div>
+				<div class="farm_balance_amount_wrapper">
+					<div class="fieldset_header">
+						Total Claimed (xUSD)
+					</div>
+					<div class="text-center">
+						{parseFloat(total_rewards_claimed_xusd).toLocaleString(undefined, {maximumFractionDigits: 5})}
+					</div>
+				</div>
+			</div>
+		)
 	}
 
 	handleUserInput = (e) => {
@@ -358,10 +545,10 @@ class FarmBalanceChecker extends Component {
 											</div>
 											<div class="farm_balance_wrapper_right">
 												<div class="fieldset_header">
-													LP Balance (BNB)
+													LP Balance ({farm.paired_asset})
 												</div>
 												<div class="text-center">
-													{farm.farm_lp_balance_bnb}
+													{farm.farm_lp_balance_paired_asset}
 												</div>
 											</div>
 											<div class="clear"></div>
@@ -382,32 +569,7 @@ class FarmBalanceChecker extends Component {
 													{farm.time_until_unlock} days
 												</div>
 											</div>
-											<div class="farm_balance_wrapper_left">
-												<div class="fieldset_header">
-													Pending Rewards (xUSD)
-												</div>
-												<div class="text-center">
-													{farm.pending_rewards_xusd}
-												</div>
-											</div>
-											<div class="farm_balance_wrapper_right">
-												<div class="fieldset_header">
-													Pending Rewards (USD)
-												</div>
-												<div class="text-center">
-													{farm.pending_rewards_usd}
-												</div>
-											</div>
-											<div class="clear"></div>
-											<div class="farm_balance_spacer"></div>
-											<div class="farm_balance_amount_wrapper">
-												<div class="fieldset_header">
-													Total Rewards Claimed (xUSD)
-												</div>
-												<div class="text-center">
-													{farm.total_rewards_claimed}
-												</div>
-											</div>
+											{farm.rewards_view}
 										</fieldset>
 									</div>
 								);

@@ -64,9 +64,10 @@ class MainPage extends React.Component{
                         <Col>
 							<div id="cta_fees_container">
 								<div className="fees">
-									Surge is the first of it's type that only<br/>
-									<span className="herospan">allows growth</span>, even in a bearish market.<br/>
-									With low fees such as <span className="herospan">6% to buy, 6% to sell &<br/> 2% for wallet-to-wallet transfers</span>
+									Surge is the first of it's kind that only<br/>
+									<span className="herospan">allows for growth</span>. The tokens use<br/>
+									very low fees to raise the price floor with every transaction, whether<br/>
+                                    it be buys, sells, or wallet-to-wallet transfers.
 								</div>
 								<div className="feeBtns">
 									<Button className="dApp3 btnDApp2">
@@ -112,7 +113,7 @@ class MainPage extends React.Component{
                     <Row className="spacer4 text-center">
                         <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
                             <h6 className="heroh6">Certified</h6>
-                            <h1 className="heroH1">Surge Certified<br/>by Certik.</h1>
+                            <h1 className="heroH1">Certified<br/>by Certik.</h1>
 							<Button className="certikAudtitBtn certikAudtitBtnFirst">
 								<a href="https://www.certik.com/projects/surgeeth" target="_blank">SurgeETH</a>
                             </Button>

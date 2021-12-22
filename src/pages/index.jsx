@@ -65,8 +65,8 @@ class MainPage extends React.Component{
 							<div id="cta_fees_container">
 								<div className="fees">
 									Surge is the first of it's kind that only<br/>
-									<span className="herospan">allows for growth</span>. The tokens use<br/>
-									very low fees to raise the price floor with every transaction, whether<br/>
+									<span className="herospan">allows for growth</span>. The tokens use very low fees<br/>
+									to raise the price floor with every transaction, whether<br/>
                                     it be buys, sells, or wallet-to-wallet transfers.
 								</div>
 								<div className="feeBtns">

@@ -119,6 +119,12 @@ class MainPage extends React.Component{
 							<Button className="certikAudtitBtn">
 								<a href="https://www.certik.com/projects/surgebtc" target="_blank">SurgeBTC</a>
                             </Button>
+                            <Button className="certikAudtitBtn">
+								<a href="https://www.certik.com/projects/xusd" target="_blank">xUSD - Onboarding</a>
+                            </Button>
+                            <Button className="certikAudtitBtn">
+								<a href="https://www.certik.com/projects/surgeuseless" target="_blank">SurgeUseless - Onboarding</a>
+                            </Button>
                         </Col>
                         <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">
                             <Image src="assets/img/certik.svg" className="certikImg" fluid />     

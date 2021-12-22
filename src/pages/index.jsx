@@ -51,7 +51,7 @@ class MainPage extends React.Component{
                         <Col>
                         <p className="hiw">
                                 Each transaction triggers a fee that raises the price of Surge relative to<br/>
-                                its underlying asset. <span className="herospan">That means Buys, Transfers, and Sells raise the<br/>price.  That's the Surge protocol.</span>
+                                its underlying asset. That means Buys, Transfers, and Sells raise the<br/>price.  <span className="herospan">That's the Surge protocol.</span>
                             </p>
                         </Col>
                     </Row>

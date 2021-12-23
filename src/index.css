@@ -566,7 +566,8 @@ body {
 
 .capture_token_balance_input,
 .capture_farm_balance_input,
-.capture_surge_fund_address_input {
+.capture_surge_fund_address_input,
+.capture_surge_wallet_address_input {
 	width: 100%;
     background: #0B3131 !important;
     border: none;
@@ -576,7 +577,9 @@ body {
 }
 
 #capture_token_balance_button,
-#capture_farm_balance_button {
+#capture_farm_balance_button,
+#wallet_load_button,
+#wallet_refresh_button {
 	text-align: center;
 	display: inline-block;
 	text-decoration: none;
@@ -1028,6 +1031,130 @@ body {
 /*
 ===============================
 	End Road Map
+===============================
+*/
+
+/*
+===============================
+	Wallet Page
+===============================
+*/
+#surge_wallet_top_container {
+	margin-bottom: 20px;
+}
+#wallet_items_container {
+	margin-bottom: 25px;
+}
+
+#wallet_settings_container {
+    background: #0B3131;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.wallet_item {
+	width: 100px;
+	cursor: pointer;
+	display: inline-block;
+	padding-bottom: 5px;
+	font-size: 1rem;
+}
+
+.wallet_item.active {
+	border-bottom: 2px solid #24b3aa;
+}
+
+.wallet_item.first {
+	margin-right: 10px;
+}
+
+.wallet_item.last {
+	margin-left: 10px;
+}
+
+#surge_wallet_address_input_wrapper {
+	position: relative;
+	width: 100%;
+	max-width: 450px;
+	display: block;
+	margin: 0 auto;
+	font-size: 1rem;
+}
+
+#surge_wallet_address_input_wrapper input{
+	padding-right: 40px;
+}
+
+#surge_wallet_address_input_wrapper i {
+	color: #29CBC1;
+	cursor: pointer;
+	position: absolute;
+    right: 0;
+    width: 34px;
+    height: 34px;
+    padding-top: 9px;
+}
+
+#surge_wallet_address_input:focus {
+	outline: none;
+}
+
+#surge_wallet_address_input.settings_active {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+#wallet_data_carousel {
+	display: none;
+}
+
+#wallet_data_carousel.show {
+	display: block;
+}
+
+#token_stats_wrapper {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+#surge_wallet_total_amount_container {
+	margin-bottom: 20px;
+}
+
+#total_holdings_value_header {
+	width: 175px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 5px;
+}
+
+.token_stats_container {
+	background: #0B3131;
+    border-radius: 30px;
+	padding: 10px 0px;
+	margin-bottom: 25px;
+}
+
+.token_title {
+	color: #29CBC1;
+	border-bottom: 1px solid #29CBC1;
+	max-width: 95%;
+    margin: 0 auto;
+    padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.token_display_amount {
+	margin: 10px;
+}
+
+.token_display_amount.bottom {
+	margin-bottom: 0;
+}
+
+/*
+===============================
+	End Wallet Page
 ===============================
 */
 

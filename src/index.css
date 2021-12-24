@@ -333,6 +333,10 @@ body {
 	color: #24b4ab;
 }
 
+.herospan {
+	color: #24b4ab;
+}
+
 .intro_hero_header.special.top {
 	font-size: 4rem;
 }
@@ -1632,6 +1636,10 @@ body {
 	.btnDApp {
 		font-size: .7rem;
 	}
+	.fees {
+		font-size: .8rem;
+		font-weight: 800;
+	}
 }
 
 @media screen and (max-width: 400px) {
@@ -1704,7 +1712,7 @@ body {
         height: 155%
     }
     .fees {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         font-weight: 800;
     }
     .feeBtns {

@@ -51,7 +51,7 @@ class MainPage extends React.Component{
                         <Col>
                         <p className="hiw">
                                 Each transaction triggers a fee that raises the price of Surge relative to<br/>
-                                its underlying asset. <span className="herospan">That means Buys, Transfers, and Sells raise the<br/>price.  That's the Surge protocol.</span>
+                                its underlying asset. That means Buys, Transfers, and Sells raise the<br/>price.  <span className="herospan">That's the Surge protocol.</span>
                             </p>
                         </Col>
                     </Row>
@@ -64,9 +64,10 @@ class MainPage extends React.Component{
                         <Col>
 							<div id="cta_fees_container">
 								<div className="fees">
-									Surge is the first of it's type that only<br/>
-									<span className="herospan">allows growth</span>, even in a bearish market.<br/>
-									With low fees such as <span className="herospan">6% to buy, 6% to sell &<br/> 2% for wallet-to-wallet transfers</span>
+									Surge is the first of it's kind that only<br/>
+									<span className="herospan">allows for growth</span>. The tokens use very low fees<br/>
+									to raise the price floor with every transaction, whether<br/>
+                                    it be buys, sells, or wallet-to-wallet transfers.
 								</div>
 								<div className="feeBtns">
 									<Button className="dApp3 btnDApp2">
@@ -112,12 +113,18 @@ class MainPage extends React.Component{
                     <Row className="spacer4 text-center">
                         <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
                             <h6 className="heroh6">Certified</h6>
-                            <h1 className="heroH1">Surge Certified<br/>by Certik.</h1>
+                            <h1 className="heroH1">Certified<br/>by Certik.</h1>
 							<Button className="certikAudtitBtn certikAudtitBtnFirst">
 								<a href="https://www.certik.com/projects/surgeeth" target="_blank">SurgeETH</a>
                             </Button>
 							<Button className="certikAudtitBtn">
 								<a href="https://www.certik.com/projects/surgebtc" target="_blank">SurgeBTC</a>
+                            </Button>
+                            <Button className="certikAudtitBtn">
+								<a href="https://www.certik.com/projects/xusd" target="_blank">xUSD - Onboarding</a>
+                            </Button>
+                            <Button className="certikAudtitBtn">
+								<a href="https://www.certik.com/projects/surgeuseless" target="_blank">SurgeUseless - Onboarding</a>
                             </Button>
                         </Col>
                         <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">

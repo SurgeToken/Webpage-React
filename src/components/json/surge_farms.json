@@ -22,6 +22,7 @@
 		"is_paired_asset_surge_token": true,
 		"surge_token": "SurgeBTC",
 		"paired_asset": "SBTC",
+		"paired_asset_underlying_asset": "BTC",
 		"split_rewards": true
 	},
 	{
@@ -34,6 +35,7 @@
 		"is_paired_asset_surge_token": true,
 		"surge_token": "SurgeADA",
 		"paired_asset": "SADA",
+		"paired_asset_underlying_asset": "ADA",
 		"split_rewards": true
 	},
 	{
@@ -46,6 +48,7 @@
 		"is_paired_asset_surge_token": true,
 		"surge_token": "SurgeUSELESS",
 		"paired_asset": "SUSELESS",
+		"paired_asset_underlying_asset": "USLS",
 		"split_rewards": true
 	}
 ]

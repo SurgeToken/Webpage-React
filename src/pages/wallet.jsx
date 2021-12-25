@@ -139,13 +139,16 @@ const Wallet = () => {
 	}
 
 	const grabWalletData = (wallet_address) => {
-		let promises = [];
-		let token_data = {};
-		let farm_data = {};
+		const promises = [];
+		const token_data = {};
+		const farm_data = {};
+		const surge_fund_data = {};
 		let bnb_price = 0;
+		const assets_to_get_prices = {};
+		const asset_prices_raw = {};
 
-		let bnb_pcs_addresses = [wbnb_address, busd_address];
-		let get_bnb_raw_price = new Promise (function (resolve, reject) {
+		const bnb_pcs_addresses = [wbnb_address, busd_address];
+		const get_bnb_raw_price = new Promise (function (resolve, reject) {
 			pcs_router.methods.getAmountsOut('1000000000000000000', bnb_pcs_addresses).call({}, function(error, result) {
 				if (error) {
 					reject(error);
@@ -157,7 +160,8 @@ const Wallet = () => {
 		promises.push(get_bnb_raw_price);
 		get_bnb_raw_price.then(
 			data => {
-				bnb_price = web3.utils.fromWei(data[1], 'ether')
+				bnb_price = web3.utils.fromWei(data[1], 'ether');
+				asset_prices_raw['BNB'] = web3.utils.fromWei(data[1], 'ether');
 			}
 		);
 
@@ -169,6 +173,8 @@ const Wallet = () => {
 				'decimals': tokens[token]['decimals'],
 				'decimal_display': tokens[token]['decimal_display']
 			};
+
+			assets_to_get_prices[tokens[token]['uasset']] = {"address": tokens[token]['uassetaddress'], "wei_unit": tokens[token]['wei_unit']};
 
 			let contract = new web3.eth.Contract(tokens[token]["abi"], tokens[token]["address"]);
 
@@ -206,31 +212,6 @@ const Wallet = () => {
 					token_data[tokens[token]["name"]]['token_price'] = web3.utils.fromWei(data, tokens[token]["wei_unit"]);
 				}
 			);
-
-			// get price of underlying asset here
-			if (tokens[token]["uasset"] === 'BUSD') {
-				token_data[tokens[token]["name"]]['ua_asset_price_raw'] = 1
-			} else {
-				let pcs_addresses = [web3.utils.toChecksumAddress(tokens[token]['uassetaddress']), busd_address];
-				if (tokens[token]["uasset"] === 'USLS') {
-					pcs_addresses = [wbnb_address, web3.utils.toChecksumAddress(tokens[token]['uassetaddress'])]
-				}
-				let get_ua_raw_price = new Promise (function (resolve, reject) {
-					pcs_router.methods.getAmountsOut('1000000000000000000', pcs_addresses).call({}, function(error, result) {
-						if (error) {
-							reject(error);
-						} else {
-							resolve(result);
-						}
-					});
-				});
-				promises.push(get_ua_raw_price);
-				get_ua_raw_price.then(
-					data => {
-						token_data[tokens[token]["name"]]['ua_asset_price_raw'] = web3.utils.fromWei(data[1], tokens[token]['wei_unit'])
-					}
-				);
-			}
 		}
 
 		for (const farm in farms) {
@@ -251,7 +232,7 @@ const Wallet = () => {
 			promises.push(balance_of);
 			balance_of.then(
 				data => {
-					farm_data[farms[farm]["name"]]['farm_tokens'] = web3.utils.fromWei(data, farms[farm]["wei_unit"]);
+					farm_data[farms[farm]["name"]]['farm_tokens'] = parseFloat(web3.utils.fromWei(data, farms[farm]["wei_unit"]));
 				}
 			);
 
@@ -276,25 +257,123 @@ const Wallet = () => {
 					}
 				}
 			);
+
+			// Get farm time until unlock
+			let time_until_unlock = new Promise (function (resolve, reject) {
+				contract.methods.getTimeUntilUnlock(wallet_address).call({}, function(error, result) {
+					if (error) {
+						reject(error);
+					} else {
+						resolve(result);
+					}
+				});
+			});
+			promises.push(time_until_unlock);
+			time_until_unlock.then(
+				data => {
+					let formated_time_until_unlock = (data*3)/60/60/24
+					farm_data[farms[farm]["name"]]['time_until_unlock'] = formated_time_until_unlock;
+				}
+			);
+
+			// Get farm pending rewards
+			let pending_rewards = new Promise (function (resolve, reject) {
+				contract.methods.pendingRewards(wallet_address).call({}, function(error, result) {
+					if (error) {
+						reject(error);
+					} else {
+						resolve(result);
+					}
+				});
+			});
+			promises.push(pending_rewards);
+			pending_rewards.then(
+				data => {
+					if (!farms[farm]["split_rewards"]) {
+						farm_data[farms[farm]["name"]]['pending_rewards_xusd'] = web3.utils.fromWei(data, farms[farm]["wei_unit"]);
+					} else {
+						farm_data[farms[farm]["name"]]['pending_rewards_xusd'] = web3.utils.fromWei(data[0], farms[farm]["wei_unit"]);
+						if (farms[farm]["is_paired_asset_surge_token"]) {
+							farm_data[farms[farm]["name"]]['pending_rewards_paired_asset'] = data[1];
+						} else {
+							farm_data[farms[farm]["name"]]['pending_rewards_paired_asset'] = web3.utils.fromWei(data[1], farms[farm]["paired_asset_wei_unit"]);
+						}
+					}
+				}
+			);
+
+			// Get farm total rewards claimed
+			let total_rewards_claimed = new Promise (function (resolve, reject) {
+				contract.methods.totalRewardsClaimedForUser(wallet_address).call({}, function(error, result) {
+					if (error) {
+						reject(error);
+					} else {
+						resolve(result);
+					}
+				});
+			});
+			promises.push(total_rewards_claimed);
+			total_rewards_claimed.then(
+				data => {
+					if (!farms[farm]["split_rewards"]) {
+						farm_data[farms[farm]["name"]]['total_rewards_claimed_xusd'] = web3.utils.fromWei(data, farms[farm]["wei_unit"]);
+					} else {
+						farm_data[farms[farm]["name"]]['total_rewards_claimed_xusd'] = web3.utils.fromWei(data[0], farms[farm]["wei_unit"]);
+						if (farms[farm]["is_paired_asset_surge_token"]) {
+							farm_data[farms[farm]["name"]]['total_rewards_claimed_paired_asset'] = data[1];
+						} else {
+							farm_data[farms[farm]["name"]]['total_rewards_claimed_paired_asset'] = web3.utils.fromWei(data[1], farms[farm]["paired_asset_wei_unit"]);
+						}
+					}
+				}
+			);
+		}
+
+		for (const asset in assets_to_get_prices) {
+			// get price of underlying asset here
+			if (asset === 'BUSD') {
+				asset_prices_raw[asset] = 1
+			} else {
+				let pcs_addresses = [web3.utils.toChecksumAddress(assets_to_get_prices[asset]['address']), busd_address];
+				if (asset === 'USLS') {
+					pcs_addresses = [wbnb_address, web3.utils.toChecksumAddress(assets_to_get_prices[asset]['address'])]
+				}
+				let get_ua_raw_price = new Promise (function (resolve, reject) {
+					pcs_router.methods.getAmountsOut('1000000000000000000', pcs_addresses).call({}, function(error, result) {
+						if (error) {
+							reject(error);
+						} else {
+							resolve(result);
+						}
+					});
+				});
+				promises.push(get_ua_raw_price);
+				get_ua_raw_price.then(
+					data => {
+						asset_prices_raw[asset] = web3.utils.fromWei(data[1], assets_to_get_prices[asset]['wei_unit'])
+					}
+				);
+			}
 		}
 
 		Promise.allSettled(promises).then(
 			result => {
-				console.log(farm_data);
-
+				let surge_token_prices = {};
 				let total_wallet_value = 0;
 				let token_output = {};
+				let farm_output = {};
+
+				asset_prices_raw['USLS'] = bnb_price/asset_prices_raw['USLS'];
+
 				for (let token in token_data) {
-					if (token_data[token]['balance'] > 0 && token_data[token]['name'] !== "SurgeUSD") {
+					surge_token_prices[token] = token_data[token]['token_price'];
+
+					if (token_data[token]['balance'] > 0) {
 						let balance = (token_data[token]['balance'] / 10**token_data[token]['decimals']);
 						token_data[token]['balance'] = balance;
 						token_data[token]['ua_amount'] = parseFloat(token_data[token]['balance']) * parseFloat(token_data[token]['token_price']);
 						
-
-						let ua_asset_price = token_data[token]['ua_asset_price_raw'];
-						if (token_data[token]['underlying_asset'] === "USLS") {
-							ua_asset_price = bnb_price/token_data[token]['ua_asset_price_raw'];
-						}
+						let ua_asset_price = asset_prices_raw[token_data[token]['underlying_asset']];
 
 						token_data[token]['ua_asset_price'] = ua_asset_price;
 
@@ -306,17 +385,47 @@ const Wallet = () => {
 					}
 				}
 
+				for (let farm in farm_data) {
+					if (farm_data[farm]['farm_tokens'] > 0) {
+						// Set Farm LP Value
+						let xusd_lp_value = farm_data[farm]['xusd_value'] * surge_token_prices['xUSD'];
+						let paired_asset_lp_value = farm_data[farm]['paired_asset_value'];
+
+						if (farm_data[farm]['is_paired_asset_surge_token']) {
+							paired_asset_lp_value = paired_asset_lp_value * parseFloat(surge_token_prices[farm_data[farm]['surge_token']]) * parseFloat(asset_prices_raw[farm_data[farm]['paired_asset_underlying_asset']]);
+						} else {
+							paired_asset_lp_value = paired_asset_lp_value * parseFloat(asset_prices_raw[farm_data[farm]['paired_asset']]);
+						}
+						farm_data[farm]['lp_value'] = xusd_lp_value + paired_asset_lp_value;
+
+						// Set pending rewards Value
+						let xusd_pending_value = farm_data[farm]['pending_rewards_xusd'] * surge_token_prices['xUSD'];
+						let paired_asset_pending_value = 0;
+						if (farm_data[farm]['split_rewards']) {
+							if (farm_data[farm]['is_paired_asset_surge_token']) {
+								paired_asset_pending_value = farm_data[farm]['pending_rewards_paired_asset'] * parseFloat(surge_token_prices[farm_data[farm]['surge_token']]) * parseFloat(asset_prices_raw[farm_data[farm]['paired_asset_underlying_asset']]);
+							}
+						}
+						farm_data[farm]['pending_rewards_value'] = xusd_pending_value + paired_asset_pending_value;
+
+						farm_output[farm] = farm_data[farm];
+
+						total_wallet_value += farm_data[farm]['lp_value'];
+					}
+				}
+
+				console.log(farm_output);
+
 				setWalletUSDAmount(total_wallet_value);
-				setWalletData({"tokens": token_output, "farms": {}, "surge_fund": {}});
+				setWalletData({"tokens": token_output, "farms": farm_output, "surge_fund": {}});
 			}
 		);
 	}
 
 	const buildTokensData = (tokens_data) => {
 		const token_keys = Object.keys(tokens_data);
-
 		return (
-			<Row id="token_stats_wrapper">
+			<Row className="justify-content-md-center" id="token_stats_wrapper">
 				{token_keys.map((k) => {
 					return (
 						<Col xs={12} sm={6} md={4}>
@@ -334,33 +443,73 @@ const Wallet = () => {
 	}
 
 	const buildFarmsData = (farms_data) => {
+		console.log(farms_data);
 		const farms_keys = Object.keys(farms_data);
-
+		console.log(farms_keys);
 		return (
-			<Row id="token_stats_wrapper">
-				<Col xs={12} sm={6} md={4}>
-					<div class="text-center token_stats_container">
-						<h6 class="token_title">SUSD</h6>
-						<p class="token_display_amount top" >Amount</p>
-						<p class="token_display_amount" >USD Amount</p>
-					</div>
-				</Col>
-				<Col xs={12} sm={6} md={4}>
-					<div class="text-center token_stats_container">
-						<h6 class="token_title">SETH</h6>
-						<p class="token_display_amount top" >Amount</p>
-						<p class="token_display_amount" >USD Amount</p>
-					</div>
-				</Col>
-				<Col xs={12} sm={6} md={4}>
-					<div class="text-center token_stats_container">
-						<h6 class="token_title">SBTC</h6>
-						<p class="token_display_amount top" >Amount</p>
-						<p class="token_display_amount" >USD Amount</p>
-					</div>
-				</Col>
+			<Row className="justify-content-md-center" id="token_stats_wrapper">
+				{farms_keys.map((k) => {
+					return (
+						<Col xs={12} sm={6} md={4}>
+							<div class="text-center token_stats_container">
+								<h6 class="token_title">{farms_data[k]['display_name']}</h6>
+								<p class="token_display_amount top" >{farms_data[k]['farm_tokens'].toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+								<p class="token_display_amount" >{parseFloat(farms_data[k]['xusd_value']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+								<p class="token_display_amount" >{parseFloat(farms_data[k]['paired_asset_value']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+								<p class="token_display_amount" >{farms_data[k]['lp_value'].toLocaleString(undefined, {style: "currency", currency: "USD"})}</p>
+								{buildPendingRewards(farms_data, k)}
+								<p class="token_display_amount" >{farms_data[k]['pending_rewards_value'].toLocaleString(undefined, {style: "currency", currency: "USD"})}</p>
+								{buildTotalClaimed(farms_data, k)}
+								{buildTimeToUnlock(farms_data, k)}
+							</div>
+						</Col>
+					);
+				})}
 			</Row>
 		);
+	}
+
+	const buildPendingRewards = (farms_data, farm) => {
+		if (farms_data[farm]['split_rewards']) {
+			return (
+				<>
+				<p class="token_display_amount" >{parseFloat(farms_data[farm]['pending_rewards_xusd']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+				<p class="token_display_amount" >{parseFloat(farms_data[farm]['pending_rewards_paired_asset']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+				</>
+			);
+		} else {
+			return (
+				<p class="token_display_amount" >{parseFloat(farms_data[farm]['pending_rewards_xusd']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+			);
+		}
+	}
+
+	const buildTotalClaimed = (farms_data, farm) => {
+		if (farms_data[farm]['split_rewards']) {
+			return (
+				<>
+				<p class="token_display_amount" >{parseFloat(farms_data[farm]['total_rewards_claimed_xusd']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+				<p class="token_display_amount" >{parseFloat(farms_data[farm]['total_rewards_claimed_paired_asset']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+				</>
+			);
+		} else {
+			return (
+				<p class="token_display_amount" >{parseFloat(farms_data[farm]['total_rewards_claimed_xusd']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
+			);
+		}
+	}
+
+	const buildTimeToUnlock = (farms_data, farm) => {
+		let time_until_unlock = Math.round(farms_data[farm]['time_until_unlock']);
+		let days_display = "days";
+		if (time_until_unlock == 1) {
+			days_display = 'day';
+		}
+
+		return (
+			<p class="token_display_amount" >{time_until_unlock} {days_display}</p>	
+		);
+		
 	}
 
 	const buildSurgeFundData = (surge_fund_data) => {
@@ -457,6 +606,11 @@ const Wallet = () => {
 			setCarouselDisplay(true);
 		}
 	}, [walletData]);
+
+	// Update manifest link so that state_url will point to surge holdings page
+	useEffect(() => {
+		document.querySelector('#manifest').href = '/manifest_holdings.json';
+	},[]);
 
 	return (
 		<div>

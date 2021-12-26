@@ -1,0 +1,80 @@
+/* TODO: Fix glitch where page scrolls to the bottom pass content. Use following commented out as reference: */
+
+
+/* .fullscreen-bg {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+    opacity: 0.6;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+
+/* .fullscreen-bg {
+    height: 75vh !important;
+} */
+
+body {
+    font-family: 'Open Sans' !important;
+}
+
+.hero-text {
+    font-size: 2rem;
+    position: absolute;
+    top: calc(37.5vh);
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero-text .piece {
+    margin: 0 auto;
+    width: 85%;
+    border-radius: 25px;
+    background-color: rgba(100, 100, 100, .3);
+}
+
+.container-wrapper {
+    z-index: 9999;
+    position: absolute;
+    top: 70vh;
+    left: 0;
+    width: 100vw;
+}
+
+.container-wrapper .container {
+    margin: 0 auto;
+}
+
+.btn-back {
+    margin-top: 10px;
+    width: 100%;
+    color: #29CBC1 !important;
+    font-weight: 800;
+    background: #0B3131 !important;
+    padding: 10px 20px !important;
+    border-radius: 30px;
+    box-shadow: rgb(0 195 255 / 16%) 0px 0px 20px 0px;
+}
+
+.btn-back:hover {
+    background: #29CBC1 !important;
+    color: #0B3131 !important;
+}
+
+.btn-back {
+    transition: background-color 500ms;
+    transition: color 500ms;
+}

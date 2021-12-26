@@ -78,3 +78,9 @@ body {
     transition: background-color 500ms;
     transition: color 500ms;
 }
+
+.updates-container {
+    overflow-x: scroll;
+    height: 161px !important;
+    white-space: nowrap;
+}

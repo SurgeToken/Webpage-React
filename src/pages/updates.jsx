@@ -20,7 +20,12 @@ const Updates = () => {
         
         <div className="container-wrapper">
           <div className="container">
-            <UpdateCard></UpdateCard>
+            <div className="updates-container">
+              <UpdateCard></UpdateCard>
+              <UpdateCard></UpdateCard>
+              <UpdateCard></UpdateCard>
+              <UpdateCard></UpdateCard>
+            </div>
             
 
             <button className="btn-back">

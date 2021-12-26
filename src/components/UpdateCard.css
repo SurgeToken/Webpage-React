@@ -1,8 +1,9 @@
 .card {
     border-radius: 25px;
-    margin-top: 20px;
+    margin: 5px;
     background-color: rgba(13, 37, 19, 1);
     width: 18rem;
+    display: inline-block;
 }
 
 .card button {

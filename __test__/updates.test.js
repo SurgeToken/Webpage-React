@@ -36,6 +36,48 @@ function getMDFileUpdates(path, mode) {
   }
 }
 
+
+function getMDFileUpdatesByVersionParsed(path, mode) {
+
+  let alphaSorted = fs.readdirSync(path).filter(function (filename) {
+    let isFile = file => fs.statSync(path+'/'+file).isFile(),
+      isHidden = file => (/(^|\/)\.[^\/\.]/g).test(file),
+      isMDFile = file => (/\.md$/g).test(file);
+    return !isHidden(filename) && isFile(filename) && isMDFile(filename);
+  });
+  alphaSorted = alphaSorted.map(filename=>{
+    return {
+      filename,
+      ctimeMs: fs.statSync(path+'/'+filename).ctimeMs
+    }
+  });
+  console.log({alphaSorted});
+  
+  if(mode===FILE_MODES.CTIME)
+    return alphaSorted.sort(function(fileInfo, fileInfo2) {
+      if(fileInfo.ctimeMs < fileInfo2.ctimeMs) {
+        return -1
+      } else if(fileInfo.ctimeMs > fileInfo2.ctimeMs) {
+        return 1
+      } else {
+        return 0;
+      }
+    });
+  else if(mode===FILE_MODES.VERSION)
+    return alphaSorted.sort(function(fileInfo, fileInfo2) {
+      if(fileInfo.ctimeMs < fileInfo2.ctimeMs) {
+        return -1
+      } else if(fileInfo.ctimeMs > fileInfo2.ctimeMs) {
+        return 1
+      } else {
+        return 0;
+      }
+    });
+  else {
+    return alphaSorted;
+  }
+}
+
 describe('Test preliminary setup', () => {
 
     test('Test', () => {
@@ -56,10 +98,10 @@ describe('Read updates mock folder', () => {
     });
 
     test('MD files matched', () => {
-        expect(updates[0]).toBe("a.md");
-        expect(updates[1]).toBe("b.md");
-        expect(updates[2]).toBe("c.md");
-        expect(updates[3]).toBe("d-but-should-be-third.md");
+      expect(updates[0]).toBe("a.md");
+      expect(updates[1]).toBe("b.md");
+      expect(updates[2]).toBe("c.md");
+      expect(updates[3]).toBe("d-but-should-be-third.md");
     });
 
 });
@@ -72,18 +114,37 @@ describe('Read updates mock folder by created times', () => {
   // console.log(updates);
 
   test('MD files counted', () => {
-      expect(updates.length).toBe(4);
+    expect(updates.length).toBe(4);
   });
 
   test('MD files matched', () => {
-      expect(updates[0]).toBe("a.md");
-      expect(updates[1]).toBe("b.md");
-      expect(updates[2]).toBe("d-but-should-be-third.md");
-      expect(updates[3]).toBe("c.md");
+    expect(updates[0]).toBe("a.md");
+    expect(updates[1]).toBe("b.md");
+    expect(updates[2]).toBe("d-but-should-be-third.md");
+    expect(updates[3]).toBe("c.md");
   });
 
 });
 
+describe('Read updates mock folder by version parsed', () => {
+
+  let updatesPath = path.resolve(__dirname, "updates"); 
+  // console.log({updatesPath})
+  let updates = getMDFileUpdatesByVersionParsed(updatesPath, FILE_MODES.VERSION);
+  // console.log(updates);
+
+  test('MD files counted', () => {
+      expect(updates.length).toBe(4);
+  });
+
+  test('MD files matched', () => {
+    expect(updates[0].filename).toBe("a.md");
+    expect(updates[1].filename).toBe("b.md");
+    expect(updates[2].filename).toBe("d-but-should-be-third.md");
+    expect(updates[3].filename).toBe("c.md");
+  });
+
+});
 // Todo: Chronologically by created date
 
 // Todo: Parse <!-- --> comments, then parse version and other keywords

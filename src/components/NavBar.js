@@ -50,6 +50,9 @@ class NavBar extends Component{
 							<LinkContainer to="/roadmap">
                                 <Nav.Link>Road Map</Nav.Link>
                             </LinkContainer>
+							<LinkContainer to="/updates">
+                                <Nav.Link>Updates</Nav.Link>
+                            </LinkContainer>
 
                             <Nav.Link className="dApp" href="https://app.xsurge.net">
                             <img

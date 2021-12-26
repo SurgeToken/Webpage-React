@@ -3,6 +3,7 @@ import React from "react";
 //import WidgetData from "../components/WidgetData";
 import { Link } from "react-router-dom";
 import UpdateCard from "../components/UpdateCard";
+import readUpdates from "../ReadUpdates"
 import "./updates.css"
 
 const Updates = () => {
@@ -21,10 +22,10 @@ const Updates = () => {
         <div className="container-wrapper">
           <div className="container">
             <div className="updates-container">
-              <UpdateCard></UpdateCard>
-              <UpdateCard></UpdateCard>
-              <UpdateCard></UpdateCard>
-              <UpdateCard></UpdateCard>
+              {readUpdates.getUpdates().map(update=>{
+                let {title,desc,version} = update;
+                return (<UpdateCard title={title} desc={desc} version={version}></UpdateCard>);
+              })}
             </div>
             
 

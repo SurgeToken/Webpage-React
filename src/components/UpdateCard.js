@@ -8,10 +8,9 @@ class UpdateCard extends Component {
 		return (
 			<Card>
 				<Card.Body>
-				<Card.Title>Title</Card.Title>
+				<Card.Title>{this.props.title}</Card.Title>
 				<Card.Text className="truncate">
-					Some quick example text to build on the card title and make up the bulk of
-					the card's content.
+					{this.props.desc}
 				</Card.Text>
 				<Button variant="primary">Read</Button>
 				</Card.Body>

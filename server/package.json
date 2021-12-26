@@ -1,0 +1,21 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "proxy": "http://localhost:3000",
+    "scripts": {
+        "start": "node server.js",
+        "watch": "nodemon server.js",
+        "seed": "node test-seeders/seeds.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "net": "^1.0.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.3"
+    }
+}

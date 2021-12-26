@@ -1,0 +1,99 @@
+const fs = require("fs");
+const {readdirSync} = fs;
+const glob = require('glob');
+const path = require('path')
+
+let FILE_MODES = {
+    ALPHA: 0,
+    CTIME: 1,
+    VERSION: 2
+  },
+    PARSE_FOR = {
+    VERSION: 0
+}
+
+const readUpdates = {
+    getUpdates: ()=>{
+
+        let parser = (filepath, parse_for) => {
+            switch(parse_for) {
+              case PARSE_FOR.VERSION:
+                var text = fs.readFileSync(filepath, "utf8", (error)=>{throw error;});
+                let lines = text.split("\n");
+                var version = 1;
+                for(var i=0; i<lines.length; i++) {
+                  var line = lines[i]; 
+                  let regExp = /<!--+\s*Version:\s*([0-9\.]+)/i;
+                  let matchedGroup1 = line.match(regExp);
+                  if(matchedGroup1) {
+                    version = matchedGroup1[1];
+                    break;
+                  }
+                }
+                return version;
+                break;
+              default:
+                throw "Error: Unable to parse version";
+            } // cases
+            
+          } // def parser
+
+        let getMDFileUpdates = (path, mode) => {
+    
+            // Get only relevant files
+            let alphaSorted = fs.readdirSync(path).filter(function (filename) {
+                let isFile = file => fs.statSync(path+'/'+file).isFile(),
+                    isHidden = file => (/(^|\/)\.[^\/\.]/g).test(file),
+                    isMDFile = file => (/\.md$/g).test(file);
+                return !isHidden(filename) && isFile(filename) && isMDFile(filename);
+            });
+
+            // Wrap file datum
+            alphaSorted = alphaSorted.map(filename=>{
+                let filepath = path+'/'+filename;
+                return {
+                    filename,
+                    path,
+                    ctimeMs: fs.statSync(path+'/'+filename).ctimeMs,
+                    version: parser(filepath, PARSE_FOR.VERSION)
+                }
+            });
+            // console.log({alphaSorted});
+            
+            if(mode===FILE_MODES.CTIME) {
+                // Nothing. Most servers will sort alphabetically by default
+            } else if(mode===FILE_MODES.CTIME) // Created time
+                return alphaSorted.sort(function(fileInfo, fileInfo2) {
+                    if(fileInfo.ctimeMs < fileInfo2.ctimeMs) {
+                        return -1
+                    } else if(fileInfo.ctimeMs > fileInfo2.ctimeMs) {
+                        return 1
+                    } else {
+                        return 0;
+                    }
+            });
+            else if(mode===FILE_MODES.VERSION) // Versions parsed
+                return alphaSorted.sort(function(fileInfo, fileInfo2) {
+                    if(fileInfo.ctimeMs < fileInfo2.ctimeMs) {
+                        return -1
+                    } else if(fileInfo.ctimeMs > fileInfo2.ctimeMs) {
+                        return 1
+                    } else {
+                        return 0;
+                    }
+                });
+            else {
+                return alphaSorted;
+            }
+        } // def getMDFileUpdates
+
+        let updatesPath = path.resolve(__dirname, "../updates"); 
+        let updates = getMDFileUpdates(updatesPath, FILE_MODES.VERSION);;
+        return updates;
+    } // def getUpdates
+
+}; // def readUpdates
+  
+module.exports = {
+    readUpdates
+}

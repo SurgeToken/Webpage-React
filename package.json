@@ -2,11 +2,14 @@
     "name": "xsurge-react",
     "version": "0.1.0",
     "private": true,
+    "main": "server/server.js",
+    "homepage": "/public",
     "dependencies": {
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
         "bootstrap": "^5.1.3",
+        "concurrently": "^6.5.1",
         "js-cookie": "^3.0.1",
         "react": "^17.0.2",
         "react-bootstrap": "^2.0.2",
@@ -20,7 +23,9 @@
         "web3": "^1.6.1"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start0": "cd server && npm start",
+        "start": "concurrently \"npx react-scripts start\" \"cd server && npm run start\"",
+        "start-client": "react-scripts start",
         "build": "react-scripts build",
         "test": "jest",
         "eject": "react-scripts eject"

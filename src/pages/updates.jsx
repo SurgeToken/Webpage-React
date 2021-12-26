@@ -3,9 +3,25 @@ import React from "react";
 //import WidgetData from "../components/WidgetData";
 import { Link } from "react-router-dom";
 import UpdateCard from "../components/UpdateCard";
-import readUpdates from "../ReadUpdates"
 import "./updates.css"
 
+// Mock
+const readUpdates = {
+  getUpdates: ()=>{
+    return [
+      {
+        title: "Title1",
+        desc: "Desc1",
+        version: "1.0"
+      },
+      {
+        title: "Title2",
+        desc: "Desc2",
+        version: "1.1"
+      },
+    ]
+  }
+}
 const Updates = () => {
     
   return (

@@ -75,8 +75,7 @@ body {
 }
 
 .btn-back {
-    transition: background-color 500ms;
-    transition: color 500ms;
+    transition: color 500ms ease, background-color 500ms ease;
 }
 
 .updates-container {

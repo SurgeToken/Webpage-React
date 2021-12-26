@@ -21,8 +21,7 @@
 }
 
 .card button {
-    transition: background-color 500ms;
-    transition: color 500ms;
+    transition: color 500ms ease, background-color 500ms ease;
 }
 
 .card .truncate {

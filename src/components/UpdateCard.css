@@ -30,3 +30,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.version-tag {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: gray;
+    font-size: .5rem;
+}
+
+.version-tag::before {
+    content: "Version ";
+}

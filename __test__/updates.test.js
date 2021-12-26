@@ -4,9 +4,12 @@ const path = require('path')
 const { readdirSync } = require('fs')
 
 let FILE_MODES = {
-  CTIME: 1,
-  VERSION: 2
-} 
+  CTIME: 0,
+  VERSION: 1
+},
+  PARSE_FOR = {
+    VERSION: 0
+  }
 
 function getMDFileUpdates(path, mode) {
 
@@ -38,6 +41,28 @@ function getMDFileUpdates(path, mode) {
 
 
 function getMDFileUpdatesByVersionParsed(path, mode) {
+  let parser = (filepath, parse_for)=>{
+    switch(parse_for) {
+      case PARSE_FOR.VERSION:
+        text = fs.readFileSync(filepath, "utf8", (error)=>{throw error;});
+        let lines = text.split("\n");
+        var version = 1;
+        for(var i=0; i<lines.length; i++) {
+          var line = lines[i]; 
+          let regExp = /<!--+\s*Version:\s*([0-9\.]+)/i;
+          let matchedGroup1 = line.match(regExp);
+          if(matchedGroup1) {
+            version = matchedGroup1[1];
+            break;
+          }
+        }
+        return version;
+        break;
+      default:
+        throw "Error: Unable to parse version";
+    } // cases
+    
+  } // def parser
 
   let alphaSorted = fs.readdirSync(path).filter(function (filename) {
     let isFile = file => fs.statSync(path+'/'+file).isFile(),
@@ -46,12 +71,15 @@ function getMDFileUpdatesByVersionParsed(path, mode) {
     return !isHidden(filename) && isFile(filename) && isMDFile(filename);
   });
   alphaSorted = alphaSorted.map(filename=>{
+    let filepath = path+'/'+filename;
     return {
       filename,
-      ctimeMs: fs.statSync(path+'/'+filename).ctimeMs
+      path,
+      ctimeMs: fs.statSync(path+'/'+filename).ctimeMs,
+      version: parser(filepath, PARSE_FOR.VERSION)
     }
   });
-  console.log({alphaSorted});
+  // console.log({alphaSorted});
   
   if(mode===FILE_MODES.CTIME)
     return alphaSorted.sort(function(fileInfo, fileInfo2) {
@@ -137,6 +165,13 @@ describe('Read updates mock folder by version parsed', () => {
       expect(updates.length).toBe(4);
   });
 
+  test('MD file versions matched', () => {
+    expect(updates[0].version).toBe("1.1");
+    expect(updates[1].version).toBe("1.2");
+    expect(updates[2].version).toBe("1.3");
+    expect(updates[3].version).toBe("1.4");
+  });
+
   test('MD files matched', () => {
     expect(updates[0].filename).toBe("a.md");
     expect(updates[1].filename).toBe("b.md");
@@ -145,6 +180,3 @@ describe('Read updates mock folder by version parsed', () => {
   });
 
 });
-// Todo: Chronologically by created date
-
-// Todo: Parse <!-- --> comments, then parse version and other keywords

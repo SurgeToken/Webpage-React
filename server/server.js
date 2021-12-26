@@ -9,8 +9,16 @@ const net = require('net');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Add headers before the routes are defined
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    
+    // Pass to next layer of middleware
+    next();
+});
+
 // Expose CSS and js files
-app.use(express.static(path.join(__dirname, "../build")));
+// app.use(express.static(path.join(__dirname, "../build")));
 
 app.get("/json/updates", async(req, res) => {
     let updates = readUpdates.getUpdates()
@@ -18,9 +26,9 @@ app.get("/json/updates", async(req, res) => {
 });
 
 // React Frontend
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../build/'));
+// });
 
 // Setup 404 page
 // app.use((req, res, next) => {
@@ -49,10 +57,10 @@ function getAvailablePort (startingAt) {
     })
 }
 async function startServer() {
-    let port = process.env.XSURGE || await getAvailablePort(3000);
+    let port = 3001 || process.env.XSURGE || await getAvailablePort(3000);
 
     app.listen(port, () => {
-        console.log(`Server listening at ${port}`);
+        console.log(`JSON server listening at ${port}`);
     });
 }
 startServer();

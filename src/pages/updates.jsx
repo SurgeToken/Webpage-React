@@ -1,28 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 //import Card from "../components/Card"
 //import WidgetData from "../components/WidgetData";
 import { Link } from "react-router-dom";
 import UpdateCard from "../components/UpdateCard";
-import "./updates.css"
+import "./updates.css";
 
 // Mock
-const readUpdates = {
-  getUpdates: ()=>{
-    return [
-      {
-        title: "Title1",
-        desc: "Desc1",
-        version: "1.0"
-      },
-      {
-        title: "Title2",
-        desc: "Desc2",
-        version: "1.1"
-      },
-    ]
-  }
-}
+// const readUpdates = {
+
+//   getUpdates: ()=>{
+//     return [
+//       {
+//         title: "Title1",
+//         desc: "Desc1",
+//         version: "1.0"
+//       },
+//       {
+//         title: "Title2",
+//         desc: "Desc2",
+//         version: "1.1"
+//       },
+//     ]
+//   }
+// }
+
 const Updates = () => {
+  const [loadedUpdates, setUpdates] = useState([]);
+  useEffect(() => {
+    (async function() {
+        const updates = await fetch('http://localhost:3001/json/updates', {
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(data => { return data })
+        .catch(err => {
+          throw new Error(err)
+        });
+
+        setUpdates(updates);
+    })(); // IIFE
+}, []); // useEffect
     
   return (
     <div>
@@ -38,7 +55,7 @@ const Updates = () => {
         <div className="container-wrapper">
           <div className="container">
             <div className="updates-container">
-              {readUpdates.getUpdates().map(update=>{
+              {loadedUpdates.map(update=>{
                 let {title,desc,version} = update;
                 return (<UpdateCard title={title} desc={desc} version={version}></UpdateCard>);
               })}

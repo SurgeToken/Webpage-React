@@ -8,8 +8,10 @@ let FILE_MODES = {
     CTIME: 1,
     VERSION: 2
   },
-    PARSE_FOR = {
-    VERSION: 0
+PARSE_FOR = {        
+    VERSION: 0,
+    TITLE: 1,
+    ALL: 2
 }
 
 const readUpdates = {
@@ -87,7 +89,7 @@ const readUpdates = {
             }
         } // def getMDFileUpdates
 
-        let updatesPath = path.resolve(__dirname, "../updates"); 
+        let updatesPath = path.resolve(__dirname, "../../public/updates"); 
         let updates = getMDFileUpdates(updatesPath, FILE_MODES.VERSION);;
         return updates;
     } // def getUpdates

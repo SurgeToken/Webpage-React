@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import {Row,Col,Image,Link,Button,Card} from 'react-bootstrap';
+import { Link } from "react-router-dom";
+import {Row, Col, Image, Button, Card} from 'react-bootstrap';
 import '../index.css';
 import './UpdateCard.css'
 
@@ -13,7 +14,7 @@ class UpdateCard extends Component {
 					<Card.Text className="truncate">
 						{this.props.desc}
 					</Card.Text>
-					<Button variant="primary">Read</Button>
+					<a href={this.props.filepath} target="_blank"><Button variant="primary">Read</Button></a>
 				</Card.Body>
 		  </Card>		
 		)

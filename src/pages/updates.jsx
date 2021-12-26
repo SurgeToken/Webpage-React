@@ -57,7 +57,8 @@ const Updates = () => {
             <div className="updates-container">
               {loadedUpdates.map(update=>{
                 let {title,desc,version} = update;
-                return (<UpdateCard title={title} desc={desc} version={version}></UpdateCard>);
+                let filepath="/updates/" + update.filename;
+                return (<UpdateCard title={title} desc={desc} version={version} filepath={filepath}></UpdateCard>);
               })}
             </div>
             

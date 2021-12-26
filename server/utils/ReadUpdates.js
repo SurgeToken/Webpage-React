@@ -19,23 +19,38 @@ const readUpdates = {
 
         let parser = (filepath, parse_for) => {
             switch(parse_for) {
-              case PARSE_FOR.VERSION:
-                var text = fs.readFileSync(filepath, "utf8", (error)=>{throw error;});
-                let lines = text.split("\n");
-                var version = 1;
-                for(var i=0; i<lines.length; i++) {
-                  var line = lines[i]; 
-                  let regExp = /<!--+\s*Version:\s*([0-9\.]+)/i;
-                  let matchedGroup1 = line.match(regExp);
-                  if(matchedGroup1) {
-                    version = matchedGroup1[1];
+                case PARSE_FOR.VERSION:
+                    var text = fs.readFileSync(filepath, "utf8", (error)=>{throw error;});
+                    var lines = text.split("\n");
+                    var version = 1;
+                    for(var i=0; i<lines.length; i++) {
+                    var line = lines[i]; 
+                    var regExp = /<!--+\s*Version:\s*([0-9\.]+)/i;
+                    var matchedGroup1 = line.match(regExp);
+                    if(matchedGroup1) {
+                        version = matchedGroup1[1];
+                        break;
+                    }
+                    }
+                    return version;
                     break;
-                  }
-                }
-                return version;
-                break;
-              default:
-                throw "Error: Unable to parse version";
+                case PARSE_FOR.TITLE:
+                    var text = fs.readFileSync(filepath, "utf8", (error)=>{throw error;});
+                    var lines = text.split("\n");
+                    if(lines.length)
+                        return lines[0].replaceAll("#", "").trim();
+                    else
+                        return "<Untitled>";
+                    break;
+                case PARSE_FOR.DESC:
+                    var text = fs.readFileSync(filepath, "utf8", (error)=>{throw error;});
+                    text = text.replaceAll(/<!--(.*?)-->/igm, "");
+                    var lines = text.split("\n");
+                    lines.splice(0,1);
+                    text = lines.join("\n");
+                    return text;
+                default:
+                    throw "Error: Unable to parse version";
             } // cases
             
           } // def parser
@@ -56,6 +71,8 @@ const readUpdates = {
                 return {
                     filename,
                     path,
+                    title: parser(filepath, PARSE_FOR.TITLE),
+                    desc: parser(filepath, PARSE_FOR.DESC),
                     ctimeMs: fs.statSync(path+'/'+filename).ctimeMs,
                     version: parser(filepath, PARSE_FOR.VERSION)
                 }

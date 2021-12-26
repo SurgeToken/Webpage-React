@@ -21,7 +21,7 @@
         "web3": "^1.6.1"
     },
     "scripts": {
-        "start": "concurrently \"react-scripts start\" \"cd server && npm run start\"",
+        "start": "concurrently \"cd server && npm run start\" \"react-scripts start\"",
         "start0": "react-scripts start",
         "build": "react-scripts build",
         "test": "jest",

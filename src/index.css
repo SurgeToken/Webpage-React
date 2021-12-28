@@ -576,6 +576,10 @@ body {
     padding: 5px 10px;
 }
 
+.capture_surge_wallet_address_input {
+	border-radius: 0px;
+}
+
 #capture_token_balance_button,
 #capture_farm_balance_button,
 #wallet_load_button,
@@ -584,7 +588,6 @@ body {
 	display: inline-block;
 	text-decoration: none;
     color: #29CBC1;
-    font-weight: 800;
     background: #0B3131;
 	width: 105px;
     margin-top: 10px;
@@ -674,6 +677,14 @@ body {
 	max-width: 50%;
 }
 
+#surge_holdings_image_row {
+	justify-content: center;
+}
+
+.surgeHoldingsTitle {
+	max-width: 100%;
+}
+
 .surge_fund_learn_more_button{
 	display: block !important;
     margin: 0 auto !important;
@@ -738,6 +749,14 @@ body {
     text-align: center;
     margin-top: 3%;
     margin-bottom: 3%;
+}
+
+.holdings_logo {
+	text-align: center;
+	margin-top: 40px;
+    margin-bottom: 40px;
+	max-width: 685px;
+	padding: 0px 20px
 }
 
 .edStep {
@@ -1050,6 +1069,13 @@ body {
     background: #0B3131;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
+	width: 95%;
+	margin: 0 auto;
+	border-top: 1px solid rgba(0,0,0,.2);
+}
+
+#clear_cookies_link {
+	margin: 0;
 }
 
 .wallet_item {
@@ -1079,6 +1105,9 @@ body {
 	display: block;
 	margin: 0 auto;
 	font-size: 1rem;
+	border-radius: 5px;
+	overflow: hidden;
+	background: #0B3131;
 }
 
 #surge_wallet_address_input_wrapper input{
@@ -1117,35 +1146,71 @@ body {
 	margin: 0 auto;
 }
 
-#surge_wallet_total_amount_container {
+#surge_wallet_total_amount_container,
+#surge_wallet_surge_fund_amount_container {
 	margin-bottom: 20px;
 }
 
-#total_holdings_value_header {
+#total_holdings_value_header,
+#surge_fund_value_header {
 	width: 175px;
     margin: 0 auto;
     border-bottom: 1px solid #ffffff;
     padding-bottom: 5px;
 }
 
+.token_stats_container_col {
+	margin-bottom: 25px;
+
+}
+
 .token_stats_container {
 	background: #0B3131;
-    border-radius: 30px;
-	padding: 10px 0px;
-	margin-bottom: 25px;
+	border-radius: 10px;
+	padding-bottom: 10px;
+	height: 100%;
+}
+
+.token_title_col {
+	background-image: linear-gradient(to left, rgba(41, 203, 193, 0), rgba(41, 203, 193, .3));
+	height: 50px;
+	border-top-left-radius: 10px;
 }
 
 .token_title {
 	color: #29CBC1;
-	border-bottom: 1px solid #29CBC1;
-	max-width: 95%;
-    margin: 0 auto;
-    padding-bottom: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
+	font-weight: 700;
+    padding-left: 5px;
+	margin-top: 16px;
+	border-top-left-radius: 10px;
+	text-shadow: 1px 1px #000;
+}
+
+.token_image {
+	width: 40px;
+	margin-top: 7px;
+}
+
+.farm_image {
+	width: 80px;
+	margin-top: 7px;
+}
+
+.token_display_header {
+	margin: 0px auto 3px auto;
+	display: inline-block;
+	padding: 0px 5px;
+	border-bottom: 1px solid #ffffff;
+	font-weight: 800;
+}
+
+.token_display_header.top {
+	margin-top: 10px;
 }
 
 .token_display_amount {
-	margin: 10px;
+	margin-bottom: 10px;
 }
 
 .token_display_amount.bottom {

@@ -1069,13 +1069,101 @@ body {
     background: #0B3131;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
-	width: 95%;
 	margin: 0 auto;
-	border-top: 1px solid rgba(0,0,0,.2);
+	border-top: 1px solid rgba(0,0,0,.4);
+}
+
+.settings_buttons {
+	display: inline-block;
+    background-color: rgba(41, 203, 193, .3);
+    border-radius: 5px;
+    cursor: pointer;
+	color: #29CBC1;
+}
+
+.settings_buttons_container {
+	margin-bottom: 10px;
+}
+
+#anchors_container {
+	margin: 10px 0px;
+}
+
+#anchors_button {
+    padding: 5px 10px;
+}
+
+#set_anchors_dialog .modal-content {
+	background: #0B3131;
+}
+
+#set_anchors_dialog .btn-close {
+	color: #ffffff;
+}
+
+.wallet_settings_switches_form {
+	text-align: left;
+	width: 260px;
+	margin: 0 auto;
+}
+
+.wallet_settings_switches_form.top {
+	margin-bottom: 5px;
+}
+
+.wallet_settings_switches_label {
+	margin-top: 2px;
+}
+
+.wallet_settings_switch_info_icon {
+	cursor: pointer;
+	color: #24b3aa;
+}
+
+.wallet_settings_switches {
+	float: right;
+}
+
+.wallet_settings_switches input {
+	height: 1.4em;
+	cursor: pointer;
+}
+
+.wallet_settings_switches label {
+	margin-left: 10px;
+	margin-top: 2px;
+}
+
+.wallet_settings_switches .form-check-input:checked {
+	background-color: #24b3aa;
+    border-color: #24b3aa;
+}
+
+.wallet_settings_switches .form-check-input:focus {
+	box-shadow: none;
+}
+
+#wallet_settings_switches_container {
+	margin-bottom: 30px;
+}
+
+#show_increases_checkbox {
+	width: 18px;
+	height: 18px;
+}
+
+#clear_cookies {
+	padding: 2px 15px;
+}
+
+#clear_cookies_container {
+	text-align: center;
 }
 
 #clear_cookies_link {
-	margin: 0;
+	margin: 0 auto;
+	cursor: pointer;
+	display: inline-block;
 }
 
 .wallet_item {
@@ -1114,7 +1202,7 @@ body {
 	padding-right: 40px;
 }
 
-#surge_wallet_address_input_wrapper i {
+#surge_wallet_address_input_wrapper #wallet_settings_icon {
 	color: #29CBC1;
 	cursor: pointer;
 	position: absolute;
@@ -1151,12 +1239,18 @@ body {
 	margin-bottom: 20px;
 }
 
-#total_holdings_value_header,
-#surge_fund_value_header {
-	width: 175px;
+#total_holdings_value_header {
+	display: inline-block;
     margin: 0 auto;
     border-bottom: 1px solid #ffffff;
     padding-bottom: 5px;
+	font-size: 1.3rem;
+}
+
+#holdings_tooltip_icon {
+	font-size: 1.1rem;
+	margin-left: 3px;
+	cursor: pointer;
 }
 
 .token_stats_container_col {
@@ -1167,7 +1261,6 @@ body {
 .token_stats_container {
 	background: #0B3131;
 	border-radius: 10px;
-	padding-bottom: 10px;
 	height: 100%;
 }
 

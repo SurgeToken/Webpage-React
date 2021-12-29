@@ -12,6 +12,10 @@ import Accordion from 'react-bootstrap/Accordion';
 import Collapse from 'react-bootstrap/Collapse';
 import Carousel from 'react-bootstrap/Carousel';
 import Alert from 'react-bootstrap/Alert';
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
+import Modal from 'react-bootstrap/Modal';
+import CloseButton from 'react-bootstrap/CloseButton';
 import Web3 from 'web3';
 import {useState, useEffect} from 'react';
 import Cookies from 'js-cookie'
@@ -35,6 +39,7 @@ const Wallet = () => {
 	const [capturedWalletAddressValue, setCapturedWalletAddressValue] = useState(Cookies.get('public_surge_wallet_address'));
 	const [walletSettingsContainerState, setWalletSettingsContainerState] = useState(false);
 	const [walletError, setWalletError] = useState(false);
+	const [walletErrorVariant, setWalletErrorVariant] = useState("");
 	const [walletErrorText, setWalletErrorText] = useState("");
 	const [carouselIndex, setCarouselIndex] = useState(0);
 	const [carouselDisplay, setCarouselDisplay] = useState(false);
@@ -52,6 +57,19 @@ const Wallet = () => {
 	const [farmDisplayData, setFarmDisplayData] = useState("");
 	const [surgeFundDisplayData, setSurgeFundDisplayData] = useState("");
 	const [walletUSDAmount, setWalletUSDAmount] = useState(0);
+	const [showAnchorIncreasesSwitch, setShowAnchorIncreasesSwitch] = useState(false);
+	const [showPricesSwitch, setShowPricesSwitch] = useState(false);
+	const [showPricesSwitchDisabled, setShowPricesSwitchDisabled] = useState(true);
+	
+	const [showAnchorIncreasesToolTip, setShowAnchorIncreasesToolTip] = useState(false);
+	const show_anchor_increases_target = useRef(null);
+	
+	const [showHoldingsToolTip, setShowHoldingsToolTip] = useState(false);
+	const holdings_tooltip_target = useRef(null);
+	
+	const [showAnchorsModal, setShowAnchorsModal] = useState(false);
+	const handleAnchorsModalClose = () => setShowAnchorsModal(false);
+	const handleAnchorsModalShow = () => setShowAnchorsModal(true);
 
 	const handlers = useSwipeable({
 		onSwipedLeft: () => console.log('swiped left'),
@@ -84,12 +102,15 @@ const Wallet = () => {
 		setWalletLoadSpinnerDisplay(true);
 		setWalletLoadTextDisplay(false);
 
+		let show_prices_switch_cookie = Cookies.get('surge_holdings_show_prices');
+		if (show_prices_switch_cookie === 'true') {
+			setShowPricesSwitch(true);
+		} else {
+			setShowPricesSwitch(false);
+		}
+
 		// Start making wallet loading calls here and setting walletData
 		grabWalletData(capturedWalletAddressValue);
-	}
-
-	const testConsoleLog = () => {
-		console.log('testing to see if this comes up after grabWalletData()');
 	}
 
 	const loadWalletData = () => {
@@ -102,6 +123,7 @@ const Wallet = () => {
 		//run wallet validation 
 		if (capturedWalletAddressValue == undefined || capturedWalletAddressValue.length == 0) {
 			setWalletError(true);
+			setWalletErrorVariant("danger");
 			setWalletErrorText("Supplied wallet address is invalid");
 			showLoadWalletButton(true, true, false);
 			showRefreshWalletButton(false, false, false);
@@ -117,6 +139,7 @@ const Wallet = () => {
 		} catch(err) {
 			setWalletError(true);
 			setWalletErrorText("Supplied wallet address is invalid");
+			setWalletErrorVariant("danger");
 			showLoadWalletButton(true, true, false);
 			showRefreshWalletButton(false, false, false);
 			return;
@@ -455,7 +478,9 @@ const Wallet = () => {
 								<p class="token_display_header" >Amount ({tokens_data[k[0]]['uasset']})</p>
 								<p class="token_display_amount" >{tokens_data[k[0]]['ua_amount'].toLocaleString(undefined, {maximumFractionDigits: 5})} {tokens_data[k[0]]['underlying_asset']}</p>
 								<p class="token_display_header" >Amount (USD)</p>
-								<p class="token_display_amount bottom" >{tokens_data[k[0]]['token_usd_value'].toLocaleString(undefined, {style: "currency", currency: "USD"})}</p>
+								<p class="token_display_amount" >{tokens_data[k[0]]['token_usd_value'].toLocaleString(undefined, {style: "currency", currency: "USD"})}</p>
+								<p class="token_display_header" style={{ display: (showPricesSwitch ? 'inline-block' : 'none') }} >Token Price</p>
+								<p class="token_display_amount" style={{ display: (showPricesSwitch ? 'block' : 'none') }} >{tokens_data[k[0]]['token_price']}</p>
 							</div>
 						</Col>
 					);
@@ -571,15 +596,30 @@ const Wallet = () => {
 		setWalletRefreshTextDisplay(false);
 	};
 
+	const updateShowIncreasesSwitch = () => {
+		setShowAnchorIncreasesSwitch(!showAnchorIncreasesSwitch);
+		// Update Cookies
+		// Show anchor increases
+	};
+
+	const updateShowPricesSwitch = () => {
+		setShowPricesSwitch(!showPricesSwitch);
+	};
+
 	const handleCarouselSelect = (selectedIndex, e) => {
 		setCarouselIndex(selectedIndex);
 		setActiveWalletItem(selectedIndex);
 	};
 
 	const clearCookieData = () => {
+		setWalletError(true);
+		setWalletErrorText("Cookies Successfully Cleared");
+		setWalletErrorVariant("success");
 		Cookies.remove('public_surge_wallet_address');
+		Cookies.remove('surge_holdings_show_prices');
 		setWalletData({});
 		setCapturedWalletAddressValue("");
+		setShowPricesSwitch(false);
 		showLoadWalletButton(true, true, false);
 		showRefreshWalletButton(false, false, false);
 		setCarouselDisplay(false);
@@ -595,12 +635,22 @@ const Wallet = () => {
 			showLoadWalletButton(false, false, false);
 			showRefreshWalletButton(true, true, false);
 
+			setShowPricesSwitchDisabled(false);
+
 			setTokenDisplayData(buildTokensData(walletData['tokens']));
 			setFarmDisplayData(buildFarmsData(walletData['farms']));
 			setCarouselDisplay(true);
-
+		} else {
+			setShowPricesSwitchDisabled(true);
 		}
 	}, [walletData]);
+
+	useEffect(() => {
+		if ('tokens' in walletData) {
+			setTokenDisplayData(buildTokensData(walletData['tokens']));
+		}
+		Cookies.set('surge_holdings_show_prices', showPricesSwitch, {expires: 30, path: '/' });
+	}, [showPricesSwitch]);
 
 	// Update manifest link so that state_url will point to surge holdings page
 	useEffect(() => {
@@ -624,7 +674,7 @@ const Wallet = () => {
 					<div class="text-center" id="capture_surge_wallet_address_container">
 						<Collapse in={walletError}>
 							<div>
-								<Alert style={{padding: '10px', margin: '0 auto 10px auto', maxWidth: '450px'}} variant="danger">
+								<Alert style={{padding: '10px', margin: '0 auto 10px auto', maxWidth: '450px'}} variant={walletErrorVariant}>
 									{walletErrorText}
 								</Alert>
 							</div>
@@ -638,11 +688,72 @@ const Wallet = () => {
 								placeholder="Enter BEP-20 Public Wallet Address"
 								onChange={handleWalletAddressInput}
 							/>
-							<i xs={1} class="fas fa-cog"  onClick={expandSettings}></i>
+							<i xs={1} id="wallet_settings_icon" class="fas fa-cog"  onClick={expandSettings}></i>
 
 							<Collapse in={walletSettingsContainerState}>
 								<div id="wallet_settings_container">
-									<p id="clear_cookies_link" onClick={clearCookieData}>Clear Cookies</p>
+									<div id="anchors_container">
+										<div class="settings_buttons" id="anchors_button" onClick={handleAnchorsModalShow}>
+											Set Token Anchors
+										</div>
+									</div>
+									<Modal id="set_anchors_dialog" show={showAnchorsModal} onHide={handleAnchorsModalClose}>
+										<Modal.Header>
+											<Modal.Title>Set Anchors</Modal.Title>
+											<CloseButton variant="white" onClick={handleAnchorsModalClose} />
+										</Modal.Header>
+										<Modal.Body>
+											This is where people will set their anchors so they can see increases
+										</Modal.Body>
+									</Modal>
+									<div id="wallet_settings_switches_container">
+										<Form className="wallet_settings_switches_form top">
+											<label className="wallet_settings_switches_label">Show Anchor Increases <i class="wallet_settings_switch_info_icon fas fa-info-circle" ref={show_anchor_increases_target} onClick={() => setShowAnchorIncreasesToolTip(!showAnchorIncreasesToolTip)}></i></label>
+											<Overlay target={show_anchor_increases_target.current} show={showAnchorIncreasesToolTip} placement="left">
+												{({ placement, arrowProps, show: _show, popper, ...props }) => (
+													<div
+														{...props}
+														style={{
+														backgroundColor: 'rgb(41, 203, 193)',
+														padding: '2px 10px',
+														color: 'black',
+														borderRadius: 3,
+														width: '190px',
+														marginRight: '5px',
+														...props.style,
+														}}
+													>
+														This is the Info Icon For Anchor Increases
+													</div>
+												)}
+											</Overlay>
+											<Form.Check 
+												className="wallet_settings_switches"
+												type="switch"
+												id="show_increases"
+												checked={showAnchorIncreasesSwitch}
+												onChange={updateShowIncreasesSwitch}
+											/>
+											<div class="clear"></div>
+										</Form>
+										<Form className="wallet_settings_switches_form">
+											<label className="wallet_settings_switches_label">Show Prices</label>
+											<Form.Check 
+												className="wallet_settings_switches"
+												type="switch"
+												id="show_prices"
+												checked={showPricesSwitch}
+												onChange={updateShowPricesSwitch}
+												disabled={showPricesSwitchDisabled}
+											/>
+											<div class="clear"></div>
+										</Form>
+									</div>
+									<div class="settings_buttons_container">
+										<div class="settings_buttons" id="clear_cookies" onClick={clearCookieData}>
+											Clear Cookies
+										</div>
+									</div>
 								</div>
 							</Collapse>
 						</div>
@@ -670,7 +781,25 @@ const Wallet = () => {
 			<Row style={{display: (carouselDisplay ? 'block' : 'none'), opacity:(walletRefreshSpinnerDisplay ? '.3' : ''), paddingTop: '15px'}}>
 				<Col xs={12} style={{display: (activeWalletItem === 2 ? 'none' : 'block')}}>
 					<div id="surge_wallet_total_amount_container" class="text-center">
-						<h6 id="total_holdings_value_header">Total Holdings Value</h6>
+						<h6 id="total_holdings_value_header">Total Holdings Value <i id="holdings_tooltip_icon" ref={holdings_tooltip_target} onClick={() => setShowHoldingsToolTip(!showHoldingsToolTip)} class="wallet_settings_swithc_info_icon fas fa-info-circle"></i></h6>
+						<Overlay target={holdings_tooltip_target.current} show={showHoldingsToolTip} placement="left">
+							{({ placement, arrowProps, show: _show, popper, ...props }) => (
+								<div
+									{...props}
+									style={{
+									backgroundColor: 'rgb(41, 203, 193)',
+									padding: '2px 10px',
+									color: 'black',
+									borderRadius: 3,
+									width: '190px',
+									marginRight: '5px',
+									...props.style,
+									}}
+								>
+									This is your total value in USD for all Surge Tokens and Farms that you hold
+								</div>
+							)}
+						</Overlay>
 						<h1>{walletUSDAmount.toLocaleString(undefined, {style: "currency", currency: "USD"})}</h1>
 					</div>
 				</Col>

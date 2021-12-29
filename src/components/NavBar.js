@@ -24,6 +24,7 @@ class NavBar extends Component{
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="justify-content-end" style={{ width: "100%" }}>
                             <HashLink className="nav-link" to="/#surge-assets">Surge Assets</HashLink>
+							<HashLink className="nav-link" to="/#how-to-buy">How To Buy</HashLink>
 							<NavDropdown title="Tools" id="basic-nav-dropdown">
                                 <NavHashLink className="nav-link" to="/#surge-balance-checker">Balance Checker</NavHashLink>
                             </NavDropdown>
@@ -35,28 +36,28 @@ class NavBar extends Component{
                             </LinkContainer>
                             <Nav.Link href="https://xsurgemerch.com/">Store</Nav.Link>
 							
-							{/* <NavDropdown title="About" id="basic-nav-dropdown">
+							<NavDropdown title="About" id="basic-nav-dropdown">
                                 <NavDropdown.Item target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</NavDropdown.Item>
 								<NavDropdown.Divider />
 								<NavDropdown.Item href="#/onesheet">One Sheet</NavDropdown.Item>
 								<NavDropdown.Divider />
 								<NavDropdown.Item href="#/roadmap">Road Map</NavDropdown.Item>
-                            </NavDropdown> */}
+                            </NavDropdown>
 
-							<Nav.Link target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</Nav.Link>
+							{/* <Nav.Link target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</Nav.Link>
 							<LinkContainer to="/onesheet">
                                 <Nav.Link>One Sheet</Nav.Link>
                             </LinkContainer>
 							<LinkContainer to="/roadmap">
                                 <Nav.Link>Road Map</Nav.Link>
-                            </LinkContainer>
+                            </LinkContainer> */}
 
                             <Nav.Link className="dApp" href="https://app.xsurge.net">
                             <img
                             alt=""
                             src="assets/img/appicon.png"
                             className="d-inline-block align-middle appicon"
-                            />Go to App</Nav.Link>
+                            />Go to dApp</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     

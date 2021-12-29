@@ -36,10 +36,14 @@ class MainPage extends React.Component{
 									alt=""
 									src="assets/img/appicon.png"
 									className="d-inline-block align-middle appicon"/>
-								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to App</a>
+								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to dApp</a>
                             </Button>
 							<Button className="dApp btnDApp learn_more">
 									<a href="#/education">Learn More</a>
+                            </Button>
+							<br/>
+							<Button className="dApp btnDApp how_to_buy_hero">
+								<HashLink className="nav-link" to="/#how-to-buy">How To Buy</HashLink>
                             </Button>
 						</div>
                         </Col>
@@ -75,7 +79,7 @@ class MainPage extends React.Component{
 									alt=""
 									src="assets/img/appicon.png"
 									className="d-inline-block align-middle appicon"
-									/><a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to App</a>
+									/><a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to dApp</a>
 									</Button>
 									<Button className="dApp2">
 									<img
@@ -132,7 +136,30 @@ class MainPage extends React.Component{
                         </Col>
                     </Row>
 
-                    <Row className="spacervs">
+					<Row className="spacervs">
+                        <Col xs={12} className="text-center">
+                            <h4 className="heroH1 text-center" id="how-to-buy">How To Buy</h4>
+							<p class="how_to_buy">
+								<span className="herospan">XUSD and ALL Surge Tokens/Farms 
+								<br />can be purchased through our dApp</span>
+							</p>
+							<button type="button" class="how_to_buy_dApp dApp btnDApp btn btn-primary">
+								<img alt="" src="assets/img/appicon.png" class="d-inline-block align-middle appicon" />
+								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to dApp</a>
+							</button>
+							<p class="how_to_buy">
+								<span className="herospan">or by following these steps:</span>
+							</p>
+							<ol id="how_to_buy_list_container">
+								<li>Select a Surge Token/Farm <br /> from the dropdowns below</li>
+								<li>Copy the contract address</li>
+								<li>Send SmartChain BNB to <br /> the contract address</li>
+								<li>Add contract to your wallet</li>
+							</ol>
+                        </Col>
+                    </Row>
+
+                    <Row id="surge_assets_row" className="spacervs">
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} className="text-center">
                             <h4 className="heroH1 text-center" id="surge-assets">Surge Assets</h4>
                             <Image src="assets/img/shape2.png" className="shape2" fluid />

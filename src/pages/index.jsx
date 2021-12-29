@@ -151,7 +151,7 @@ class MainPage extends React.Component{
 								<span className="herospan">or by following these steps:</span>
 							</p>
 							<ol id="how_to_buy_list_container">
-								<li>Select a Surge Token/Farm <br /> from the drop downs below</li>
+								<li>Select a Surge Token/Farm <br /> from the dropdowns below</li>
 								<li>Copy the contract address</li>
 								<li>Send SmartChain BNB to <br /> the contract address</li>
 								<li>Add contract to your wallet</li>

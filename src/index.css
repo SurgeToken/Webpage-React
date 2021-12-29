@@ -245,6 +245,7 @@ body {
     color: #29CBC1
 }
 
+
 /* 
 =====================
 	END dApp
@@ -454,6 +455,17 @@ body {
 .btnDApp,
 .certikAudtitBtn {
     border: transparent;
+}
+
+.how_to_buy_hero {
+	margin-top: 15px;
+	width: 200px;
+}
+
+.how_to_buy_hero a {
+	color: #29CBC1 !important;
+	margin: 0px;
+	padding: 0px;
 }
 
 .certikAudtitBtn a {

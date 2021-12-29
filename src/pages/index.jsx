@@ -41,6 +41,10 @@ class MainPage extends React.Component{
 							<Button className="dApp btnDApp learn_more">
 									<a href="#/education">Learn More</a>
                             </Button>
+							<br/>
+							<Button className="dApp btnDApp how_to_buy_hero">
+								<HashLink className="nav-link" to="/#how-to-buy">How To Buy</HashLink>
+                            </Button>
 						</div>
                         </Col>
                         <Col xs={12} sm={12} md={8} lg={8} xl={8} >

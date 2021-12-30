@@ -11,7 +11,9 @@
 		"paired_asset": "BNB",
 		"paired_asset_token_address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
 		"split_rewards": false,
-		"farm_logo": "bnb_farm_icon.png"
+		"farm_logo": "bnb_farm_icon.png",
+		"lp_address": "0x839b8fFd6329Bdc7DC5bBaFFFbdF18cEd75A4C96",
+		"lp_abi_name": "BNBxUSDLP"
 	},
 	{
 		"address": "0xB51EA53058D4f548CbabFa7C639725EEf494e13d",
@@ -25,7 +27,9 @@
 		"paired_asset": "SBTC",
 		"paired_asset_underlying_asset": "BTC",
 		"split_rewards": true,
-		"farm_logo": "surge_btc_farm_icon.png"
+		"farm_logo": "surge_btc_farm_icon.png",
+		"lp_address": "0xF3B1FA8c271eE1017D58C84860a968Fc89c3F828",
+		"lp_abi_name": "SBTCxUSDLP"
 	},
 	{
 		"address": "0xb7207B3e14Eb50aA02A5AD76941e61a4EeF47b4b",
@@ -39,7 +43,9 @@
 		"paired_asset": "SADA",
 		"paired_asset_underlying_asset": "ADA",
 		"split_rewards": true,
-		"farm_logo": "surge_ada_farm_icon.png"
+		"farm_logo": "surge_ada_farm_icon.png",
+		"lp_address": "0x9270a88948e3777cc2f1d68b3a5f00599b91fb09",
+		"lp_abi_name": "SADAxUSDLP"
 	},
 	{
 		"address": "0x0cD3A3C1e1F246f13e45b4b0eD07C8De355a54F4",
@@ -53,6 +59,8 @@
 		"paired_asset": "SUSLS",
 		"paired_asset_underlying_asset": "USLS",
 		"split_rewards": true,
-		"farm_logo": "surge_usls_farm_icon.png"
+		"farm_logo": "surge_usls_farm_icon.png",
+		"lp_address": "0xd68cf27584f73c42d60a16910cae8a0ede6b4b99",
+		"lp_abi_name": "SUSELESSxUSDLP"
 	}
 ]

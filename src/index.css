@@ -1141,6 +1141,33 @@ body {
 	color: #ffffff;
 }
 
+.token_anchor_col {
+	margin-bottom: 10px;
+}
+
+.token_anchor_col p {
+	margin: 0;
+	font-weight: 700;
+}
+
+.token_anchor_col input {
+	width: 75%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+	margin-top: 3px;
+	font-size: 1rem;
+}
+
+.token_anchor_col input:focus {
+	outline: none;
+}
+
+#set_anchors_dialog .settings_buttons {
+	width: 100%;
+	padding: 10px 10px;
+}
+
 .wallet_settings_switches_form {
 	text-align: left;
 	width: 260px;
@@ -1187,9 +1214,17 @@ body {
 	margin-bottom: 30px;
 }
 
-#show_increases_checkbox {
-	width: 18px;
-	height: 18px;
+#select_currency_dropdown_container {
+	margin-bottom: 20px;
+}
+
+#select_currency_dropdown {
+	margin-left: 5px;
+    background-color: rgba(41, 203, 193, .3);
+    color: #fff;
+    border-color: rgba(41, 203, 193, .3);
+    border-radius: 5px;
+    padding: 0px 15px;
 }
 
 #clear_cookies {
@@ -1344,10 +1379,6 @@ body {
 
 .token_display_amount {
 	margin-bottom: 10px;
-}
-
-.token_display_amount.bottom {
-	margin-bottom: 0;
 }
 
 /*

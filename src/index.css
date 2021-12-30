@@ -1108,6 +1108,17 @@ body {
     border-radius: 5px;
     cursor: pointer;
 	color: #29CBC1;
+	border-color: rgba(41, 203, 193, 0);
+}
+
+.settings_buttons:disabled,
+.settings_buttons:hover,
+.settings_buttons:focus,
+.settings_buttons:focus:active {
+	background-color: rgba(41, 203, 193, .3);
+	color: #29CBC1;
+	border-color: rgba(41, 203, 193, .0);
+	box-shadow: none;
 }
 
 .settings_buttons_container {

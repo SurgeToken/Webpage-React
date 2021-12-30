@@ -34,6 +34,14 @@ const busd_address = web3.utils.toChecksumAddress("0xe9e7CEA3DedcA5984780Bafc599
 
 const pcs_router = new web3.eth.Contract(PCSABI, pcs_router_address);
 
+const supported_currencies = [
+	"USD",
+	"EUR",
+	"GBP",
+	"INR",
+	"AUD"
+]
+
 const Wallet = () => {
 	const [walletInitialized, setWalletInitialized] = useState(false);
 	const [capturedWalletAddressValue, setCapturedWalletAddressValue] = useState(Cookies.get('public_surge_wallet_address'));
@@ -60,7 +68,11 @@ const Wallet = () => {
 	const [showAnchorIncreasesSwitch, setShowAnchorIncreasesSwitch] = useState(false);
 	const [showPricesSwitch, setShowPricesSwitch] = useState(false);
 	const [showPricesSwitchDisabled, setShowPricesSwitchDisabled] = useState(true);
-	
+	const [showAnchorsSwitchDisabled, setShowAnchorsSwitchDisabled] = useState(true);
+	const [showAnchorsButtonhDisabled, setShowAnchorsButtonhDisabled] = useState(true);
+
+	const [selectedCurrency, setSelectedCurrency] = useState("USD");
+
 	const [showAnchorIncreasesToolTip, setShowAnchorIncreasesToolTip] = useState(false);
 	const show_anchor_increases_target = useRef(null);
 	
@@ -68,6 +80,7 @@ const Wallet = () => {
 	const holdings_tooltip_target = useRef(null);
 	
 	const [showAnchorsModal, setShowAnchorsModal] = useState(false);
+	const [anchorModal, setAnchorModal] = useState("");
 	const handleAnchorsModalClose = () => setShowAnchorsModal(false);
 	const handleAnchorsModalShow = () => setShowAnchorsModal(true);
 
@@ -171,6 +184,7 @@ const Wallet = () => {
 		let bnb_price = 0;
 		const assets_to_get_prices = {};
 		const asset_prices_raw = {};
+		let currency_conversion = 1;
 
 		const bnb_pcs_addresses = [wbnb_address, busd_address];
 		const get_bnb_raw_price = new Promise (function (resolve, reject) {
@@ -375,6 +389,20 @@ const Wallet = () => {
 			}
 		}
 
+		if (selectedCurrency !== "USD") {
+			// Get currencies
+			let base_url = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.json";
+			let request = fetch(base_url).then(response => response.text()).then(
+				data => {
+					let data_obj = JSON.parse(data);
+					if ('usd' in data_obj && selectedCurrency in data_obj['usd']) {
+						currency_conversion = data_obj['usd'][selectedCurrency];
+					}
+				}
+			);
+			promises.push(request);
+		}
+
 		Promise.allSettled(promises).then(
 			result => {
 				let surge_token_prices = {};
@@ -398,7 +426,7 @@ const Wallet = () => {
 
 						token_data[token]['ua_asset_price'] = ua_asset_price;
 
-						token_data[token]['token_usd_value'] = token_data[token]['ua_asset_price'] * token_data[token]['ua_amount'];
+						token_data[token]['token_usd_value'] = (token_data[token]['ua_asset_price'] * token_data[token]['ua_amount']) * currency_conversion;
 
 						token_output[token] = token_data[token];
 
@@ -425,7 +453,7 @@ const Wallet = () => {
 						} else {
 							paired_asset_lp_value = paired_asset_lp_value * parseFloat(asset_prices_raw[farm_data[farm]['paired_asset']]);
 						}
-						farm_data[farm]['lp_value'] = xusd_lp_value + paired_asset_lp_value;
+						farm_data[farm]['lp_value'] = (xusd_lp_value + paired_asset_lp_value) * currency_conversion;
 
 						// Set pending rewards Value
 						let xusd_pending_value = farm_data[farm]['pending_rewards_xusd'] * surge_token_prices['xUSD'];
@@ -435,7 +463,7 @@ const Wallet = () => {
 								paired_asset_pending_value = farm_data[farm]['pending_rewards_paired_asset'] * parseFloat(surge_token_prices[farm_data[farm]['surge_token']]) * parseFloat(asset_prices_raw[farm_data[farm]['paired_asset_underlying_asset']]);
 							}
 						}
-						farm_data[farm]['pending_rewards_value'] = xusd_pending_value + paired_asset_pending_value;
+						farm_data[farm]['pending_rewards_value'] = (xusd_pending_value + paired_asset_pending_value) * currency_conversion;
 
 						farm_output[farm] = farm_data[farm];
 
@@ -477,8 +505,8 @@ const Wallet = () => {
 								<p class="token_display_amount" >{tokens_data[k[0]]['balance'].toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
 								<p class="token_display_header" >Amount ({tokens_data[k[0]]['uasset']})</p>
 								<p class="token_display_amount" >{tokens_data[k[0]]['ua_amount'].toLocaleString(undefined, {maximumFractionDigits: 5})} {tokens_data[k[0]]['underlying_asset']}</p>
-								<p class="token_display_header" >Amount (USD)</p>
-								<p class="token_display_amount" >{tokens_data[k[0]]['token_usd_value'].toLocaleString(undefined, {style: "currency", currency: "USD"})}</p>
+								<p class="token_display_header" >Amount ({selectedCurrency.toUpperCase()})</p>
+								<p class="token_display_amount" >{tokens_data[k[0]]['token_usd_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
 								<p class="token_display_header" style={{ display: (showPricesSwitch ? 'inline-block' : 'none') }} >Token Price</p>
 								<p class="token_display_amount" style={{ display: (showPricesSwitch ? 'block' : 'none') }} >{tokens_data[k[0]]['token_price']}</p>
 							</div>
@@ -509,11 +537,11 @@ const Wallet = () => {
 								<p class="token_display_amount" >{farms_data[k[0]]['farm_tokens'].toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
 								<p class="token_display_header" >LP Balance (xUSD / {farms_data[k[0]]['paired_asset']})</p>
 								<p class="token_display_amount" >{parseFloat(farms_data[k[0]]['xusd_value']).toLocaleString(undefined, {maximumFractionDigits: 5})} / {parseFloat(farms_data[k[0]]['paired_asset_value']).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
-								<p class="token_display_header" >Farm Value</p>
+								<p class="token_display_header" >Farm Value ({selectedCurrency.toUpperCase()})</p>
 								<p class="token_display_amount" >{farms_data[k[0]]['lp_value'].toLocaleString(undefined, {style: "currency", currency: "USD"})}</p>
 								{buildPendingRewards(farms_data, k[0])}
-								<p class="token_display_header" >Pending Rewards (USD)</p>
-								<p class="token_display_amount" >{farms_data[k[0]]['pending_rewards_value'].toLocaleString(undefined, {style: "currency", currency: "USD"})}</p>
+								<p class="token_display_header" >Pending Rewards ({selectedCurrency.toUpperCase()})</p>
+								<p class="token_display_amount" >{farms_data[k[0]]['pending_rewards_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
 								{buildTotalClaimed(farms_data, k[0])}
 								{buildTimeToUnlock(farms_data, k[0])}
 							</div>
@@ -576,6 +604,12 @@ const Wallet = () => {
 		
 	}
 
+	const buildWalletHoldingsValueDisplay = () => {
+		return (
+			<h1>{walletUSDAmount.toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</h1>
+		);
+	}
+
 	const expandSettings = () => {
 		setWalletSettingsContainerState(!walletSettingsContainerState);
 	}
@@ -598,8 +632,6 @@ const Wallet = () => {
 
 	const updateShowIncreasesSwitch = () => {
 		setShowAnchorIncreasesSwitch(!showAnchorIncreasesSwitch);
-		// Update Cookies
-		// Show anchor increases
 	};
 
 	const updateShowPricesSwitch = () => {
@@ -625,6 +657,10 @@ const Wallet = () => {
 		setCarouselDisplay(false);
 	};
 
+	const updateSelectedCurrency = (e) => {
+		setSelectedCurrency(e.target.value);
+	}
+
 	// At launch of page load up wallet info
 	useEffect(() => {
 		if (!walletInitialized) {
@@ -635,15 +671,24 @@ const Wallet = () => {
 			showLoadWalletButton(false, false, false);
 			showRefreshWalletButton(true, true, false);
 
+			setShowAnchorsButtonhDisabled(false);
 			setShowPricesSwitchDisabled(false);
+			setShowAnchorsSwitchDisabled(false);
 
 			setTokenDisplayData(buildTokensData(walletData['tokens']));
 			setFarmDisplayData(buildFarmsData(walletData['farms']));
 			setCarouselDisplay(true);
 		} else {
+			setShowAnchorsButtonhDisabled(true);
+			setShowAnchorsSwitchDisabled(true);
 			setShowPricesSwitchDisabled(true);
 		}
 	}, [walletData]);
+
+	useEffect(() => {
+		//Cookies.set('surge_holdings_selected_currency', selectedCurrency, {expires: 30, path: '/' });
+		refreshWalletData();
+	}, [selectedCurrency]);
 
 	useEffect(() => {
 		if ('tokens' in walletData) {
@@ -693,9 +738,9 @@ const Wallet = () => {
 							<Collapse in={walletSettingsContainerState}>
 								<div id="wallet_settings_container">
 									<div id="anchors_container">
-										<div class="settings_buttons" id="anchors_button" onClick={handleAnchorsModalShow}>
+										<Button variant="primary" disabled={showAnchorsButtonhDisabled} className="settings_buttons" id="anchors_button" onClick={handleAnchorsModalShow}>
 											Set Token Anchors
-										</div>
+										</Button>
 									</div>
 									<Modal id="set_anchors_dialog" show={showAnchorsModal} onHide={handleAnchorsModalClose}>
 										<Modal.Header>
@@ -703,7 +748,7 @@ const Wallet = () => {
 											<CloseButton variant="white" onClick={handleAnchorsModalClose} />
 										</Modal.Header>
 										<Modal.Body>
-											This is where people will set their anchors so they can see increases
+											{anchorModal}
 										</Modal.Body>
 									</Modal>
 									<div id="wallet_settings_switches_container">
@@ -733,6 +778,7 @@ const Wallet = () => {
 												id="show_increases"
 												checked={showAnchorIncreasesSwitch}
 												onChange={updateShowIncreasesSwitch}
+												disabled={showAnchorsSwitchDisabled}
 											/>
 											<div class="clear"></div>
 										</Form>
@@ -748,6 +794,16 @@ const Wallet = () => {
 											/>
 											<div class="clear"></div>
 										</Form>
+									</div>
+									<div id="select_currency_dropdown_container">
+									<span>Select Currency</span>
+										<select onChange={updateSelectedCurrency}>
+											{supported_currencies.map((currency) => {
+												return (
+													<option key={currency} value={currency.toLowerCase()}>{currency}</option>
+												);
+											})}
+										</select>
 									</div>
 									<div class="settings_buttons_container">
 										<div class="settings_buttons" id="clear_cookies" onClick={clearCookieData}>
@@ -800,7 +856,7 @@ const Wallet = () => {
 								</div>
 							)}
 						</Overlay>
-						<h1>{walletUSDAmount.toLocaleString(undefined, {style: "currency", currency: "USD"})}</h1>
+						{buildWalletHoldingsValueDisplay()}
 					</div>
 				</Col>
 

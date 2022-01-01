@@ -22,8 +22,7 @@
     },
     "scripts": {
         "start": "concurrently \"cd server && npm run start\" \"react-scripts start\"",
-        "start0": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "concurrently \"cd server; npm install\" \"react-scripts build\"",
         "test": "jest",
         "eject": "react-scripts eject"
     },

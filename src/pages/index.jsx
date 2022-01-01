@@ -13,15 +13,29 @@ import VSF from "../components/VSF";
 import TokenBalanceChecker from "../components/TokenBalanceChecker";
 import FarmBalanceChecker from "../components/FarmBalanceChecker";
 
+/* Functional for scrolling */
+function checkWantToScrollToHowToBuy() {
+    return window.location.hash.indexOf("how-to-buy")!==-1; // True means want to scroll
+}
 function scrollToHowToBuy() {
     document.getElementById('how-to-buy').scrollIntoView({block: 'start', behavior: 'smooth'});
 }
+/* React app likes to change link to /#/ then useLayoutEffect and useEffect no longer runs
+   if you visit http://localhost:3000/#/#how-to-buy if already on the page
+    Solution: Check popstate
+*/
+    window.addEventListener('popstate', ()=>{
+    if(checkWantToScrollToHowToBuy())
+        scrollToHowToBuy();
+})
 
 //Functional Component 
 class MainPage extends React.Component{
     useLayoutEffect() {
-        /* Check if #how-to-buy is in URL; If yes, scroll to section with id "how-to-buy" */
-        if(window.location.hash.indexOf("how-to-buy")!==-1)
+        console.log("HELLO");
+        /* Check if #how-to-buy is in URL; If yes, scroll to section with id "how-to-buy"
+        if you visit http://localhost:3000/#how-to-buy from a fresh tab */
+        if(checkWantToScrollToHowToBuy())
             scrollToHowToBuy();
     }
     render() {

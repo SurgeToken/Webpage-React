@@ -66,7 +66,7 @@ for (let key in tokens) {
 	TOKENANCHORSVALUES[tokens[key]['name']] = value;
 }
 
-const Wallet = () => {
+const MyHoldings = () => {
 	const [walletInitialized, setWalletInitialized] = useState(false);
 	const [capturedWalletAddressValue, setCapturedWalletAddressValue] = useState(Cookies.get('public_surge_wallet_address'));
 	const [walletSettingsContainerState, setWalletSettingsContainerState] = useState(false);
@@ -1058,7 +1058,7 @@ const Wallet = () => {
 			<Row id="surge_holdings_image_row">
 				<Col xs={12} sm={12} md={12} lg={12} xl={12} className="holdings_logo">
 					<Image src="assets/img/surge_holdings.png" className="surgeHoldingsTitle" />
-					<p style={{marginBottom: '0px', marginTop: '15px'}}>The “My Surge Holdings” page displays information about all Surge Tokens/Farms you have purchased.  Just enter your BEP-20 public wallet address below and press load to get started.  Please continue to use our <a style={{textDecoration: 'none', fontWeight: '700'}}href="https://app.xsurge.net" target="_blank"><span class="herospan">dApp</span></a> for changes to your holdings as this page does not connect to your wallet and can’t make transactions for you.</p>
+					<p style={{marginBottom: '0px', marginTop: '15px'}}>The “My Surge Holdings” page displays information about all Surge Tokens/Farms you have purchased.  Just enter your BEP-20 public wallet address below and press load to get started.  Please continue to use our <a style={{textDecoration: 'none', fontWeight: '700'}}href="https://app.xsurge.net" target="_blank"><span class="herospan">dApp</span></a> for changes to your holdings as this page does not connect to your wallet and can't make transactions for you.</p>
 				</Col>
 			</Row>
 			<Row id="surge_wallet_top_container">
@@ -1289,4 +1289,4 @@ const Wallet = () => {
 	);
 };
 
-export default Wallet
+export default MyHoldings

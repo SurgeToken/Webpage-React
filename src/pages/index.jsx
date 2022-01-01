@@ -13,12 +13,16 @@ import VSF from "../components/VSF";
 import TokenBalanceChecker from "../components/TokenBalanceChecker";
 import FarmBalanceChecker from "../components/FarmBalanceChecker";
 
+function scrollToHowToBuy() {
+    document.getElementById('how-to-buy').scrollIntoView({block: 'start', behavior: 'smooth'});
+}
+
 //Functional Component 
 class MainPage extends React.Component{
     useLayoutEffect() {
         /* Check if #how-to-buy is in URL; If yes, scroll to section with id "how-to-buy" */
-        if(window.location.hash.indexOf("how-to-buy")!==-1) 
-            document.getElementById('how-to-buy').scrollIntoView({block: 'start', behavior: 'smooth'});
+        if(window.location.hash.indexOf("how-to-buy")!==-1)
+            scrollToHowToBuy();
     }
     render() {
         return (
@@ -48,7 +52,7 @@ class MainPage extends React.Component{
                             </Button>
 							<br/>
 							<Button className="dApp btnDApp how_to_buy_hero">
-								<HashLink className="nav-link" to="/#how-to-buy">How To Buy</HashLink>
+								<a href="#" onClick={ev=>{ev.preventDefault(); scrollToHowToBuy()}} className="nav-link">How To Buy</a>
                             </Button>
 						</div>
                         </Col>

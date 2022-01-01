@@ -15,7 +15,7 @@ import FarmBalanceChecker from "../components/FarmBalanceChecker";
 
 //Functional Component 
 class MainPage extends React.Component{
-    useEffect() {
+    useLayoutEffect() {
         /* Check if #how-to-buy is in URL; If yes, scroll to section with id "how-to-buy" */
         if(window.location.hash.indexOf("how-to-buy")!==-1) 
             document.getElementById('how-to-buy').scrollIntoView({block: 'start', behavior: 'smooth'});

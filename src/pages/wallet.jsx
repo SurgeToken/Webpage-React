@@ -36,10 +36,12 @@ const pcs_router = new web3.eth.Contract(PCSABI, pcs_router_address);
 
 const supported_currencies = [
 	"USD",
+	"CAD",
 	"EUR",
 	"GBP",
 	"INR",
-	"AUD"
+	"AUD",
+	"JPY"
 ];
 
 let surge_holdings_selected_currency_cookie = Cookies.get('surge_holdings_selected_currency');
@@ -85,6 +87,8 @@ const Wallet = () => {
 	const [activeWalletItem, setActiveWalletItem] = useState(0);
 	const [tokenDisplayData, setTokenDisplayData] = useState("");
 	const [farmDisplayData, setFarmDisplayData] = useState("");
+	const [availableTokensDisplayData, setAvailableTokensDisplayData] = useState("");
+	const [availableFarmsDisplayData, setAvailableFarmsDisplayData] = useState("");
 	const [surgeFundDisplayData, setSurgeFundDisplayData] = useState("");
 	const [walletUSDAmount, setWalletUSDAmount] = useState(0);
 	const [showAnchorIncreasesSwitch, setShowAnchorIncreasesSwitch] = useState(false);
@@ -92,6 +96,8 @@ const Wallet = () => {
 	const [showPricesSwitchDisabled, setShowPricesSwitchDisabled] = useState(true);
 	const [showAnchorsSwitchDisabled, setShowAnchorsSwitchDisabled] = useState(true);
 	const [showAnchorsButtonhDisabled, setShowAnchorsButtonhDisabled] = useState(true);
+	const [showSellTaxSwitch, setShowSellTaxSwitch] = useState(false);
+	const [showSellTaxDisabled, setShowSellTaxSwitchDisabled] = useState(true);
 	
 	const [tokenAnchorsValues, setTokenAnchorsValues] = useReducer(
 		(state, newState) => ({...state, ...newState}), TOKENANCHORSVALUES
@@ -109,6 +115,8 @@ const Wallet = () => {
 	const [showHoldingsToolTip, setShowHoldingsToolTip] = useState(false);
 	const holdings_tooltip_target = useRef(null);
 	
+	const [showHowToBuyModal, setShowHowToBuyModal] = useState(false);
+
 	const [showAnchorsModal, setShowAnchorsModal] = useState(false);
 	const [anchorModal, setAnchorModal] = useState("");
 	const [anchorFieldsInitialized, setAnchorFieldsInitialized] = useState(false);
@@ -151,6 +159,13 @@ const Wallet = () => {
 			setShowPricesSwitch(false);
 		}
 
+		let show_taxes_switch_cookie = Cookies.get('surge_holdings_show_taxes');
+		if (show_taxes_switch_cookie === 'true') {
+			setShowSellTaxSwitch(true);
+		} else {
+			setShowSellTaxSwitch(false);
+		}
+
 		let show_anchor_increases_switch_cookie = Cookies.get('surge_holdings_show_anchor_increases');
 		if (show_anchor_increases_switch_cookie === 'true') {
 			setShowAnchorIncreasesSwitch(true);
@@ -168,6 +183,8 @@ const Wallet = () => {
 		setWalletRefreshSpinnerDisplay(false);
 		setWalletRefreshButtonDisplay(false);
 		setWalletRefreshTextDisplay(false);
+
+		setWalletData({});
 
 		//run wallet validation 
 		if (capturedWalletAddressValue == undefined || capturedWalletAddressValue.length == 0) {
@@ -260,9 +277,7 @@ const Wallet = () => {
 			promises.push(balance_of);
 			balance_of.then(
 				data => {
-					if (data > 0) {
-						token_data[tokens[token]["name"]]['balance'] = data;
-					}
+					token_data[tokens[token]["name"]]['balance'] = data;
 				}
 			);
 
@@ -506,7 +521,7 @@ const Wallet = () => {
 
 						token_output[token] = token_data[token];
 
-						total_wallet_value += token_output[token]['ua_asset_price'] * token_data[token]['ua_amount'];
+						total_wallet_value += token_data[token]['token_usd_value'];
 
 						token_display_sort.push([token, token_data[token]['token_usd_value']]);
 					}
@@ -560,8 +575,6 @@ const Wallet = () => {
 				});
 
 				setFarmDisplaySort(farm_display_sort);
-
-				setWalletUSDAmount(total_wallet_value);
 				setWalletData({"tokens": token_output, "farms": farm_output, "surge_fund": {}});
 			}
 		);
@@ -572,8 +585,14 @@ const Wallet = () => {
 			<Row className="justify-content-md-center" id="token_stats_wrapper">
 				{tokenDisplaySort.map((k) => {
 					let token_logo = "assets/img/token_logos/"+tokens_data[k[0]]['token_logo'];
+					let token_usd_value = tokens_data[k[0]]['token_usd_value'];
+					
+					if (showSellTaxSwitch) {
+						token_usd_value = token_usd_value * ((100 - tokens_data[k[0]]['fees']['sell']) / 100);
+					}
+					
 					return (
-						<Col className="token_stats_container_col" xs={12} sm={12} md={6} lg={4}>
+						<Col key={tokens_data[k[0]]['name']} className="token_stats_container_col" xs={12} sm={12} md={6} lg={4}>
 							<div class="text-center token_stats_container">
 								<Row className="token_header_container" >
 									<Col className="token_title_col" style={{textAlign: 'left'}} xs={9}>
@@ -588,7 +607,7 @@ const Wallet = () => {
 								<p class="token_display_header" >Amount ({tokens_data[k[0]]['uasset']})</p>
 								<p class="token_display_amount" >{tokens_data[k[0]]['ua_amount'].toLocaleString(undefined, {maximumFractionDigits: 5})} {tokens_data[k[0]]['underlying_asset']}</p>
 								<p class="token_display_header" >Amount ({selectedCurrency.toUpperCase()})</p>
-								<p class="token_display_amount" >{tokens_data[k[0]]['token_usd_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
+								<p class="token_display_amount" >{token_usd_value.toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
 								{buildTokenAnchorsDisplay(tokens_data, k[0])}
 								<p class="token_display_header" style={{ display: (showPricesSwitch ? 'inline-block' : 'none') }} >Token Price</p>
 								<p class="token_display_amount" style={{ display: (showPricesSwitch ? 'block' : 'none') }} >{tokens_data[k[0]]['token_price']}</p>
@@ -604,11 +623,11 @@ const Wallet = () => {
 		if (token in tokenAnchorsValues && showAnchorIncreasesSwitch && tokenAnchorsValues[token] > 0) {
 			return (
 				<>
-					<p class="token_display_header">Token Anchor</p>
+					<p class="token_display_header">Starting Value ({tokens_data[token]['uasset']})</p>
 					<p class="token_display_amount">{parseFloat(tokenAnchorsValues[token]).toLocaleString(undefined, {maximumFractionDigits: 5})}</p>
-					<p class="token_display_header">Token Anchor Increase (%)</p>
+					<p class="token_display_header">Starting Value Increase (%)</p>
 					<p class="token_display_amount">{tokens_data[token]['anchor_increase'].toLocaleString(undefined, {maximumFractionDigits: 2})}%</p>
-					<p class="token_display_header">Token Anchor Increase ({selectedCurrency.toUpperCase()})</p>
+					<p class="token_display_header">Starting Value Increase ({selectedCurrency.toUpperCase()})</p>
 					<p class="token_display_amount">{tokens_data[token]['anchor_increase_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
 				</>
 			);
@@ -621,38 +640,118 @@ const Wallet = () => {
 	}
 
 	const buildFarmsData = (farms_data) => {
-		return (
-			<Row className="justify-content-md-center" id="token_stats_wrapper">
-				{farmDisplaySort.map((k) => {
-					let farm_logo = "assets/img/farm_logos/"+farms_data[k[0]]['farm_logo'];
-					return (
-						<Col className="token_stats_container_col" xs={12} sm={12} md={6} lg={4}>
-							<div class="text-center token_stats_container">
-								<Row className="token_header_container" >
-									<Col className="token_title_col" style={{textAlign: 'left'}} xs={7}>
-										<h6 class="token_title">{farms_data[k[0]]['display_name']}</h6>
+		if (Object.keys(farms_data).length > 0) {
+			return (
+				<Row className="justify-content-md-center" id="token_stats_wrapper">
+					{farmDisplaySort.map((k) => {
+						let farm_logo = "assets/img/farm_logos/"+farms_data[k[0]]['farm_logo'];
+						return (
+							<Col key={farms_data[k[0]]['display_name']} className="token_stats_container_col" xs={12} sm={12} md={6} lg={4}>
+								<div class="text-center token_stats_container">
+									<Row className="token_header_container" >
+										<Col className="token_title_col" style={{textAlign: 'left'}} xs={7}>
+											<h6 class="token_title">{farms_data[k[0]]['display_name']}</h6>
+										</Col>
+										<Col style={{textAlign: 'right'}} xs={5}>
+											<Image src={farm_logo} className="farm_image" />
+										</Col>
+									</Row>
+									<p class="token_display_header top" >Farm Balance / Farm % Owned</p>
+									<p class="token_display_amount" >{farms_data[k[0]]['farm_tokens'].toLocaleString(undefined, {maximumFractionDigits: 5})} / {farms_data[k[0]]['farm_percent_owned'].toLocaleString(undefined, {maximumFractionDigits: 2})}%</p>
+									<p class="token_display_header" >LP Balance (xUSD / {farms_data[k[0]]['paired_asset']})</p>
+									{buildLPBalance(farms_data, k[0])}
+									<p class="token_display_header" >Farm Value ({selectedCurrency.toUpperCase()})</p>
+									<p class="token_display_amount" >{farms_data[k[0]]['lp_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
+									{buildPendingRewards(farms_data, k[0])}
+									<p class="token_display_header" >Pending Rewards ({selectedCurrency.toUpperCase()})</p>
+									<p class="token_display_amount" >{farms_data[k[0]]['pending_rewards_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
+									{buildTotalClaimed(farms_data, k[0])}
+									{buildTimeToUnlock(farms_data, k[0])}
+								</div>
+							</Col>
+						);
+					})}
+				</Row>
+			);
+		}
+	}
+
+	const buildAvailableTokens = (tokens_data) => {
+		let available_tokens = [];
+		let tokens_data_keys = Object.keys(tokens_data);
+		for (let key in tokens) {
+			if (!tokens_data_keys.includes(tokens[key]['name'])) {
+				available_tokens.push(tokens[key]);
+			}
+		}
+		
+		if (available_tokens.length > 0) {
+			return (
+				<Row className="justify-content-md-center" id="token_stats_wrapper">
+					<Col style={{textAlign: 'center'}} xs={12}>
+						<h6 class="available_assets_title">Available Tokens <i onClick={() => handleHowToBuyModalShow()} class="available_assets_info_icon fas fa-info-circle"></i></h6>
+						<Row className="justify-content-md-center" id="token_stats_wrapper">
+							{available_tokens.map((token) => {
+								let token_logo = "assets/img/token_logos/"+token['token_logo'];
+								return (
+									<Col key={token['display_name']} className="token_stats_container_col" xs={12} sm={12} md={6} lg={4}>
+										<div class="text-center token_stats_container">
+											<Row className="token_header_container" >
+												<Col className="token_title_col available_asset_title_col" style={{textAlign: 'left'}} xs={7}>
+													<h6 class="token_title">{token['name']}</h6>
+												</Col>
+												<Col style={{textAlign: 'right'}} xs={5}>
+													<Image src={token_logo} className="available_asset_token_image token_image" />
+												</Col>
+											</Row>
+										</div>
 									</Col>
-									<Col style={{textAlign: 'right'}} xs={5}>
-										<Image src={farm_logo} className="farm_image" />
+								);
+							})}
+						</Row>
+					</Col>
+				</Row>
+			);
+		}
+	}
+
+	const buildAvailableFarms = (farms_data) => {
+		let available_farms = [];
+		let farms_data_keys = Object.keys(farms_data);
+		for (let key in farms) {
+			if (!farms_data_keys.includes(farms[key]['name'])) {
+				available_farms.push(farms[key]);
+			}
+		}
+		
+		if (available_farms.length > 0) {
+			return (
+				<Row className="justify-content-md-center" id="token_stats_wrapper">
+					<Col style={{textAlign: 'center'}} xs={12}>
+						<h6 class="available_assets_title">Available Farms <i onClick={() => handleHowToBuyModalShow()} class="available_assets_info_icon fas fa-info-circle"></i></h6>
+						<Row className="justify-content-md-center" id="token_stats_wrapper">
+							{available_farms.map((farm) => {
+								let farm_logo = "assets/img/farm_logos/"+farm['farm_logo'];
+								return (
+									<Col key={farm['display_name']} className="token_stats_container_col" xs={12} sm={12} md={6} lg={4}>
+										<div class="text-center token_stats_container">
+											<Row className="token_header_container" >
+												<Col className="token_title_col available_asset_title_col" style={{textAlign: 'left'}} xs={7}>
+													<h6 class="token_title">{farm['display_name']}</h6>
+												</Col>
+												<Col style={{textAlign: 'right'}} xs={5}>
+													<Image src={farm_logo} className="available_asset_farm_image farm_image" />
+												</Col>
+											</Row>
+										</div>
 									</Col>
-								</Row>
-								<p class="token_display_header top" >Farm Balance / Farm % Owned</p>
-								<p class="token_display_amount" >{farms_data[k[0]]['farm_tokens'].toLocaleString(undefined, {maximumFractionDigits: 5})} / {farms_data[k[0]]['farm_percent_owned'].toLocaleString(undefined, {maximumFractionDigits: 2})}%</p>
-								<p class="token_display_header" >LP Balance (xUSD / {farms_data[k[0]]['paired_asset']})</p>
-								{buildLPBalance(farms_data, k[0])}
-								<p class="token_display_header" >Farm Value ({selectedCurrency.toUpperCase()})</p>
-								<p class="token_display_amount" >{farms_data[k[0]]['lp_value'].toLocaleString(undefined, {style: "currency", currency: "USD"})}</p>
-								{buildPendingRewards(farms_data, k[0])}
-								<p class="token_display_header" >Pending Rewards ({selectedCurrency.toUpperCase()})</p>
-								<p class="token_display_amount" >{farms_data[k[0]]['pending_rewards_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
-								{buildTotalClaimed(farms_data, k[0])}
-								{buildTimeToUnlock(farms_data, k[0])}
-							</div>
-						</Col>
-					);
-				})}
-			</Row>
-		);
+								);
+							})}
+						</Row>
+					</Col>
+				</Row>
+			);
+		}
 	}
 
 	const buildLPBalance = (farms_data, farm) => {
@@ -720,9 +819,27 @@ const Wallet = () => {
 		
 	}
 
-	const buildWalletHoldingsValueDisplay = () => {
+	const buildWalletHoldingsValueDisplay = (wallet_data) => {
+		let wallet_value = 0;
+		if ('tokens' in wallet_data) {
+			for (let token in wallet_data['tokens']) {
+				let token_usd_value = wallet_data['tokens'][token]['token_usd_value'];
+				if (showSellTaxSwitch) {
+					token_usd_value = token_usd_value * ((100 - wallet_data['tokens'][token]['fees']['sell']) / 100);
+				}
+
+				wallet_value += token_usd_value;
+			}
+		}
+
+		if ('farms' in wallet_data) {
+			for (let farm in wallet_data['farms']) {
+				wallet_value += wallet_data['farms'][farm]['lp_value'];
+			}
+		}
+
 		return (
-			<h1>{walletUSDAmount.toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</h1>
+			<h1>{wallet_value.toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</h1>
 		);
 	}
 
@@ -752,6 +869,10 @@ const Wallet = () => {
 
 	const updateShowPricesSwitch = () => {
 		setShowPricesSwitch(!showPricesSwitch);
+	};
+
+	const updateSellTaxSwitch = () => {
+		setShowSellTaxSwitch(!showSellTaxSwitch);
 	};
 
 	const handleCarouselSelect = (selectedIndex, e) => {
@@ -795,12 +916,15 @@ const Wallet = () => {
 					selected = 'selected';
 				}
 				return (
-					<option selected={selected} key={currency} value={currency.toLowerCase()}>{currency}</option>
+					<option className="currency_option" selected={selected} key={currency} value={currency.toLowerCase()}>{currency}</option>
 				);
 			})}
 			</>
 		);
 	}
+
+	const handleHowToBuyModalShow = () => setShowHowToBuyModal(true);
+	const handleHowToBuyModalClose = () => setShowHowToBuyModal(false);
 
 	const handleAnchorsModalClose = () => setShowAnchorsModal(false);
 
@@ -856,6 +980,18 @@ const Wallet = () => {
 		setSelectedCurrency(e.target.value);
 	}
 
+	const toggleHoldingsToolTip = () => {
+		if (!showHoldingsToolTip) {
+			setShowHoldingsToolTip(true);
+		}
+	}
+
+	const toggleShowAnchorIncreasesToolTip = () => {
+		if (!showAnchorIncreasesToolTip) {
+			setShowAnchorIncreasesToolTip(true);
+		}
+	}
+
 	// At launch of page load up wallet info
 	useEffect(() => {
 		if (!walletInitialized) {
@@ -865,18 +1001,25 @@ const Wallet = () => {
 		if (Object.keys(walletData).length !== 0) {
 			showLoadWalletButton(false, false, false);
 			showRefreshWalletButton(true, true, false);
-
-			setShowAnchorsButtonhDisabled(false);
-			setShowPricesSwitchDisabled(false);
-			setShowAnchorsSwitchDisabled(false);
+			
+			if (Object.keys(walletData['tokens']).length !== 0) {
+				setShowAnchorsButtonhDisabled(false);
+				setShowPricesSwitchDisabled(false);
+				setShowSellTaxSwitchDisabled(false);
+				setShowAnchorsSwitchDisabled(false);
+			}
 
 			setTokenDisplayData(buildTokensData(walletData['tokens']));
 			setFarmDisplayData(buildFarmsData(walletData['farms']));
+			setWalletUSDAmount(buildWalletHoldingsValueDisplay(walletData));
+			setAvailableTokensDisplayData(buildAvailableTokens(walletData['tokens']));
+			setAvailableFarmsDisplayData(buildAvailableFarms(walletData['farms']));
 			setCarouselDisplay(true);
 		} else {
 			setShowAnchorsButtonhDisabled(true);
 			setShowAnchorsSwitchDisabled(true);
 			setShowPricesSwitchDisabled(true);
+			setShowSellTaxSwitchDisabled(true);
 		}
 	}, [walletData]);
 
@@ -900,6 +1043,14 @@ const Wallet = () => {
 		}
 		Cookies.set('surge_holdings_show_anchor_increases', showAnchorIncreasesSwitch, {expires: 30, path: '/' });
 	}, [showAnchorIncreasesSwitch]);
+
+	useEffect(() => {
+		if ('tokens' in walletData) {
+			setTokenDisplayData(buildTokensData(walletData['tokens']));
+			setWalletUSDAmount(buildWalletHoldingsValueDisplay(walletData));
+		}
+		Cookies.set('surge_holdings_show_taxes', showSellTaxSwitch, {expires: 30, path: '/' });
+	}, [showSellTaxSwitch]);
 	
 	return (
 		<div>
@@ -907,6 +1058,7 @@ const Wallet = () => {
 			<Row id="surge_holdings_image_row">
 				<Col xs={12} sm={12} md={12} lg={12} xl={12} className="holdings_logo">
 					<Image src="assets/img/surge_holdings.png" className="surgeHoldingsTitle" />
+					<p style={{marginBottom: '0px', marginTop: '15px'}}>The “My Surge Holdings” page displays information about all Surge Tokens/Farms you have purchased.  Just enter your BEP-20 public wallet address below and press load to get started.  Please continue to use our <a style={{textDecoration: 'none', fontWeight: '700'}}href="https://app.xsurge.net" target="_blank"><span class="herospan">dApp</span></a> for changes to your holdings as this page does not connect to your wallet and can’t make transactions for you.</p>
 				</Col>
 			</Row>
 			<Row id="surge_wallet_top_container">
@@ -938,46 +1090,47 @@ const Wallet = () => {
 								<div id="wallet_settings_container">
 									<div id="anchors_container">
 										<Button variant="primary" disabled={showAnchorsButtonhDisabled} className="settings_buttons" id="anchors_button" onClick={handleAnchorsModalShow}>
-											Set Token Anchors
+											Set Start Values
 										</Button>
 									</div>
 									<Modal id="set_anchors_dialog" show={showAnchorsModal} onHide={() => revertTokenAnchors()}>
 										<Modal.Header>
-											<Modal.Title>Set Token Anchors</Modal.Title>
+											<Modal.Title>Set Start Values</Modal.Title>
 											<CloseButton variant="white" onClick={() => revertTokenAnchors()} />
 										</Modal.Header>
 										<Modal.Body>
+											<p style={{textAlign: 'justify'}}>Use the input fields below to set starting values for your Surge Token underlying assets.  Setting these values, will allow you to track increases from a specific starting point.  If the “show value increases” option is enabled,  the starting value, percentage increase and dollar value increase will display on each token card that has a starting value.</p> 
+											<p style={{textAlign: 'justify'}}>E.g. If you purchased 100 xUSD and the value in BUSD was 101 at that time, you would put 101 in the xUSD input field below.  This would then show you your increases for xUSD from that starting point.</p>
 											{Object.keys(walletData).length !== 0 ? 
 												<Row className="justify-content-md-center" id="token_stats_wrapper">
 													{tokenDisplaySort.map((k) => {
 														return (
-															<Col className="token_anchor_col" xs={12}>
-																<p>{walletData['tokens'][k[0]]['name']}</p>
+															<Col key={walletData['tokens'][k[0]]['name']} className="token_anchor_col" xs={12}>
+																<p>Set Starting {walletData['tokens'][k[0]]['uasset']} for {walletData['tokens'][k[0]]['name']}</p>
 																<input value={tempTokenAnchorsValues[walletData['tokens'][k[0]]['name']]} name={walletData['tokens'][k[0]]['name']} key={walletData['tokens'][k[0]]['name']} type="number" onChange={handleAnchorChange}/>
 															</Col>
 														);
 													})}
-													<Col xs={6} style={{marginBottom: '10px', marginTop: '10px'}}>
-														<Button className="settings_buttons" onClick={saveTokenAnchors}>Save</Button>
+													<Col className="token_anchor_button_col top" xs={6}>
+														<Button className="settings_buttons" onClick={fillCurrentAnchors}>Fill With Current Values</Button>
 													</Col>
-													<Col xs={6} style={{marginBottom: '10px', marginTop: '10px'}}>
+													<Col className="token_anchor_button_col top end" xs={6} style={{marginBottom: '10px', marginTop: '10px'}}>
+														<Button className="settings_buttons" onClick={clearCurrentAnchors}>Clear All Values</Button>
+													</Col>
+													<Col className="token_anchor_button_col bottom" xs={6}>
+														<Button className="settings_buttons" onClick={saveTokenAnchors}>Save Values</Button>
+													</Col>
+													<Col className="token_anchor_button_col bottom end" xs={6}>
 														<Button className="settings_buttons" onClick={revertTokenAnchors}>Cancel</Button>
-													</Col>
-													<br />
-													<Col xs={6}>
-														<Button className="settings_buttons" onClick={fillCurrentAnchors}>Fill Current</Button>
-													</Col>
-													<Col xs={6}>
-														<Button className="settings_buttons" onClick={clearCurrentAnchors}>Clear</Button>
 													</Col>
 												</Row>
 											: ''}
 										</Modal.Body>
 									</Modal>
 									<div id="wallet_settings_switches_container">
-										<Form className="wallet_settings_switches_form top">
-											<label className="wallet_settings_switches_label">Show Anchor Increases <i class="wallet_settings_switch_info_icon fas fa-info-circle" ref={show_anchor_increases_target} onClick={() => setShowAnchorIncreasesToolTip(!showAnchorIncreasesToolTip)}></i></label>
-											<Overlay target={show_anchor_increases_target.current} show={showAnchorIncreasesToolTip} placement="left">
+										<Form className="wallet_settings_switches_form">
+											<label className="wallet_settings_switches_label">Show Value Increases <i class="wallet_settings_switch_info_icon fas fa-info-circle" ref={show_anchor_increases_target} onClick={() => toggleShowAnchorIncreasesToolTip()}></i></label>
+											<Overlay target={show_anchor_increases_target.current} show={showAnchorIncreasesToolTip} placement="left" rootClose={true} onHide={() => setShowAnchorIncreasesToolTip(!showAnchorIncreasesToolTip)}>
 												{({ placement, arrowProps, show: _show, popper, ...props }) => (
 													<div
 														{...props}
@@ -991,7 +1144,7 @@ const Wallet = () => {
 														...props.style,
 														}}
 													>
-														This is the Info Icon For Anchor Increases
+														Enabaling this will display any value increases if you have set starting values for your underlying assets.  Click the "Set Start Values" button above to set these values.
 													</div>
 												)}
 											</Overlay>
@@ -1017,11 +1170,27 @@ const Wallet = () => {
 											/>
 											<div class="clear"></div>
 										</Form>
+										<Form className="wallet_settings_switches_form last">
+											<label className="wallet_settings_switches_label">Show Values after Sell Tax</label>
+											<Form.Check 
+												className="wallet_settings_switches"
+												type="switch"
+												id="show_prices"
+												checked={showSellTaxSwitch}
+												onChange={updateSellTaxSwitch}
+												disabled={showSellTaxDisabled}
+											/>
+											<div class="clear"></div>
+										</Form>
 									</div>
 									<div id="select_currency_dropdown_container">
 										<span>Select Currency:</span>
-										<select id="select_currency_dropdown" onChange={updateSelectedCurrency}>
-											{buildCurrencySelectOptions(supported_currencies)}
+										<select id="select_currency_dropdown" value={selectedCurrency} onChange={updateSelectedCurrency}>
+											{supported_currencies.map((currency) => {
+												return (
+													<option className="currency_option" key={currency} value={currency.toLowerCase()}>{currency}</option>
+												);
+											})}
 										</select>
 									</div>
 									<div class="settings_buttons_container">
@@ -1056,8 +1225,8 @@ const Wallet = () => {
 			<Row style={{display: (carouselDisplay ? 'block' : 'none'), opacity:(walletRefreshSpinnerDisplay ? '.3' : ''), paddingTop: '15px'}}>
 				<Col xs={12} style={{display: (activeWalletItem === 2 ? 'none' : 'block')}}>
 					<div id="surge_wallet_total_amount_container" class="text-center">
-						<h6 id="total_holdings_value_header">Total Holdings Value <i id="holdings_tooltip_icon" ref={holdings_tooltip_target} onClick={() => setShowHoldingsToolTip(!showHoldingsToolTip)} class="wallet_settings_swithc_info_icon fas fa-info-circle"></i></h6>
-						<Overlay target={holdings_tooltip_target.current} show={showHoldingsToolTip} placement="left">
+						<h6 id="total_holdings_value_header">Total Holdings Value <i id="holdings_tooltip_icon" ref={holdings_tooltip_target} onClick={() => toggleHoldingsToolTip()} class="wallet_settings_swithc_info_icon fas fa-info-circle"></i></h6>
+						<Overlay target={holdings_tooltip_target.current} show={showHoldingsToolTip} placement="left" rootClose={true} onHide={() => setShowHoldingsToolTip(!showHoldingsToolTip)}>
 							{({ placement, arrowProps, show: _show, popper, ...props }) => (
 								<div
 									{...props}
@@ -1075,7 +1244,7 @@ const Wallet = () => {
 								</div>
 							)}
 						</Overlay>
-						{buildWalletHoldingsValueDisplay()}
+						{walletUSDAmount}
 					</div>
 				</Col>
 
@@ -1083,13 +1252,38 @@ const Wallet = () => {
 					<Carousel onSelect={handleCarouselSelect} style={{display: (carouselDisplay ? 'block' : 'none')}} activeIndex={carouselIndex} touch={true} id="wallet_data_carousel" indicators={false} controls={false} interval={null}>
 						<Carousel.Item>
 							{tokenDisplayData}
+							{availableTokensDisplayData}
 						</Carousel.Item>
 						<Carousel.Item>
 							{farmDisplayData}
+							{availableFarmsDisplayData}
 						</Carousel.Item>
 					</Carousel>
 				</div>
 			</Row>
+			<Modal id="how_to_buy_dialog" show={showHowToBuyModal} onHide={() => handleHowToBuyModalClose()}>
+				<Modal.Header>
+					<Modal.Title>How To Buy</Modal.Title>
+					<CloseButton variant="white" onClick={() => handleHowToBuyModalClose()} />
+				</Modal.Header>
+				<Modal.Body>
+					<p style={{fontSize: '1.2rem'}}>XUSD and ALL Surge Tokens/Farms can be purchased through our dApp</p>
+					<Button className="dApp btnDApp">
+						<img
+							alt=""
+							src="assets/img/appicon.png"
+							className="d-inline-block align-middle appicon"/>
+						<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to dApp</a>
+					</Button>
+					<p style={{marginTop: '15px', fontSize: '1.2rem'}}>or by following these steps:</p>
+					<ol style={{fontSize: '1.2rem', paddingLeft: '21px', marginTop: '5px'}} id="how_to_buy_list_container">
+						<li>Select a Surge Token/Farm <br />  from the Surge asset dropdowns <br />  on the main page</li>
+						<li>Copy the contract address</li>
+						<li>Send SmartChain BNB to <br /> the contract address</li>
+						<li>Add contract to your wallet</li>
+					</ol>
+				</Modal.Body>
+			</Modal>
 			<Footer/>
 		</div>
 	);

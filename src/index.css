@@ -1133,6 +1133,7 @@ body {
     padding: 5px 10px;
 }
 
+#how_to_buy_dialog .modal-content,
 #set_anchors_dialog .modal-content {
 	background: #0B3131;
 }
@@ -1143,6 +1144,7 @@ body {
 
 .token_anchor_col {
 	margin-bottom: 10px;
+	padding-left: 0px;
 }
 
 .token_anchor_col p {
@@ -1163,6 +1165,19 @@ body {
 	outline: none;
 }
 
+.token_anchor_button_col {
+	padding-left: 0px;
+}
+
+.token_anchor_button_col.top {
+	margin: 10px 0px;
+}
+
+.token_anchor_button_col.top.end,
+.token_anchor_button_col.bottom.end {
+	padding-right: 0px;
+}
+
 #set_anchors_dialog .settings_buttons {
 	width: 100%;
 	padding: 10px 10px;
@@ -1172,10 +1187,11 @@ body {
 	text-align: left;
 	width: 260px;
 	margin: 0 auto;
+	margin-bottom: 5px;
 }
 
-.wallet_settings_switches_form.top {
-	margin-bottom: 5px;
+.wallet_settings_switches_form.last {
+	margin-bottom: 0px;
 }
 
 .wallet_settings_switches_label {
@@ -1225,6 +1241,10 @@ body {
     border-color: rgba(41, 203, 193, .3);
     border-radius: 5px;
     padding: 0px 15px;
+}
+
+#select_currency_dropdown .currency_option {
+	color: #000000;
 }
 
 #clear_cookies {
@@ -1304,6 +1324,24 @@ body {
 	display: block;
 }
 
+.no_assets_title {
+	font-size: 2rem;
+	margin: 20px 0px 0px 0px;
+}
+
+.available_assets_title {
+	font-size: 2rem;
+    display: inline-block;
+    padding: 0px 20px 2px 20px;
+    border-bottom: 1px solid #ffffff;
+    margin: 20px 0px 20px 0px;
+}
+
+.available_asset_title_col {
+	border-bottom-left-radius: 10px;
+	cursor: pointer;
+}
+
 #token_stats_wrapper {
 	max-width: 1100px;
 	margin: 0 auto;
@@ -1322,6 +1360,7 @@ body {
 	font-size: 1.3rem;
 }
 
+.available_assets_info_icon,
 #holdings_tooltip_icon {
 	font-size: 1.1rem;
 	margin-left: 3px;
@@ -1363,6 +1402,11 @@ body {
 .farm_image {
 	width: 80px;
 	margin-top: 7px;
+}
+
+.available_asset_farm_image,
+.available_asset_token_image {
+	margin-top: 5px;
 }
 
 .token_display_header {
@@ -2010,6 +2054,9 @@ body {
 	.how_to_buy,
 	#how_to_buy_list_container {
 		font-size: 1.3rem;
+	}
+	#set_anchors_dialog .settings_buttons {
+		font-size: .6rem;
 	}
 }
 

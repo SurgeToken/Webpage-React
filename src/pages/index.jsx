@@ -13,21 +13,47 @@ import VSF from "../components/VSF";
 import TokenBalanceChecker from "../components/TokenBalanceChecker";
 import FarmBalanceChecker from "../components/FarmBalanceChecker";
 
-/* Functional for scrolling */
+/* Functionals for scrolling */
 function checkWantToScrollToHowToBuy() {
     return window.location.hash.indexOf("how-to-buy")!==-1; // True means want to scroll
 }
 function scrollToHowToBuy() {
     document.getElementById('how-to-buy').scrollIntoView({block: 'start', behavior: 'smooth'});
 }
+
 /* React app likes to change link to /#/ then useLayoutEffect and useEffect no longer runs
    if you visit http://localhost:3000/#/#how-to-buy if already on the page
+   or if you visit http://localhost:3000/#/how-to-buy if already on the page
     Solution: Check popstate
 */
-    window.addEventListener('popstate', ()=>{
+window.addEventListener('popstate', ()=>{
+    console.log("popstate")
     if(checkWantToScrollToHowToBuy())
         scrollToHowToBuy();
-})
+});
+/* React app will not check hash properly for scrolling
+   if you visit directly http://localhost:3000/#/#how-to-buy on a fresh tab
+   or if you visit directly http://localhost:3000/#/how-to-buy on a fresh tab
+    Solution: Check onload, and wait for render to complete outside of React
+*/
+window.addEventListener('load', ()=>{
+    console.log("load")
+    if(checkWantToScrollToHowToBuy()) {
+        var pollCheckLimit = 9;
+        var pollCurrent = 0;
+
+        var poller = setInterval(()=>{
+            var hasLoadedHowToBuy = document.getElementById("how-to-buy");
+            if(hasLoadedHowToBuy) {
+                scrollToHowToBuy();
+            }
+
+            if(pollCurrent>pollCheckLimit)
+                clearInterval(poller);
+                pollCurrent++;
+        }, 300)
+    }
+});
 
 //Functional Component 
 class MainPage extends React.Component{

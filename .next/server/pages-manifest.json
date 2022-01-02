@@ -1,6 +1,13 @@
 {
   "/_app": "pages/_app.js",
+  "/disclosures": "pages/disclosures.html",
+  "/education": "pages/education.html",
+  "/": "pages/index.html",
+  "/onesheet": "pages/onesheet.html",
+  "/roadmap": "pages/roadmap.html",
+  "/surgefund": "pages/surgefund.html",
+  "/updates": "pages/updates.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/404": "pages/404.html"
 }

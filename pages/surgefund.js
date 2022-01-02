@@ -127,7 +127,7 @@ const SurgeFund = () => {
 						</div>
 						<div id="capture_surge_fund_address_container">
 							<input
-								class="capture_surge_fund_address_input"
+								className="capture_surge_fund_address_input"
 								id="surge_fund_address_input"
 								value={captureSurgeFundWalletAddressvalue}
 								type="text"
@@ -148,30 +148,30 @@ const SurgeFund = () => {
 							<div id="token_balance_display_container">
 								{surgeFundResponse.map((data) => {
 									return (
-										<div class="token_balance_wrapper">
-											<fieldset class="token_balance_wrapper_fieldset">
+										<div className="token_balance_wrapper">
+											<fieldset className="token_balance_wrapper_fieldset">
 												<legend align="center">SurgeFund Details</legend>
-												<div class="token_balance_amount_wrapper">
-													<div class="token_balance_header">
+												<div className="token_balance_amount_wrapper">
+													<div className="token_balance_header">
 														Your current SurgeFund BNB balance
 													</div>
-													<div class="token_balance_amount">
+													<div className="token_balance_amount">
 														{data.balance}
 													</div>
 												</div>
-												<div class="token_balance_amount_wrapper">
-													<div class="token_balance_header">
+												<div className="token_balance_amount_wrapper">
+													<div className="token_balance_header">
 														BNB you have left to claim
 													</div>
-													<div class="token_balance_amount">
+													<div className="token_balance_amount">
 														{data.bnb_to_claim}
 													</div>
 												</div>
-												<div class="token_balance_amount_wrapper">
-													<div class="token_balance_header">
+												<div className="token_balance_amount_wrapper">
+													<div className="token_balance_header">
 														Can Make A Claim?
 													</div>
-													<div class="token_balance_amount">
+													<div className="token_balance_amount">
 														{data.can_make_claim}
 													</div>
 												</div>

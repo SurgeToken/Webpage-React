@@ -393,52 +393,52 @@ class FarmBalanceChecker extends Component {
 
 		return (
 			<div>
-				<div class="farm_balance_wrapper_left">
-					<div class="fieldset_header">
+				<div className="farm_balance_wrapper_left">
+					<div className="fieldset_header">
 						Pending Rewards (xUSD)
 					</div>
-					<div class="text-center">
+					<div className="text-center">
 						{pending_rewards_xusd.toLocaleString(undefined, {maximumFractionDigits: 5})}
 					</div>
 				</div>
-				<div class="farm_balance_wrapper_right">
-					<div class="fieldset_header">
+				<div className="farm_balance_wrapper_right">
+					<div className="fieldset_header">
 						Pending Rewards ({paired_asset})
 					</div>
-					<div class="text-center">
+					<div className="text-center">
 						{pending_rewards_paired_asset.toLocaleString(undefined, {maximumFractionDigits: 5})}
 					</div>
 				</div>
-				<div class="clear"></div>
-				<div class="farm_balance_spacer"></div>
+				<div className="clear"></div>
+				<div className="farm_balance_spacer"></div>
 
-				<div class="farm_balance_amount_wrapper">
-					<div class="fieldset_header">
+				<div className="farm_balance_amount_wrapper">
+					<div className="fieldset_header">
 						Pending Rewards (USD)
 					</div>
-					<div class="text-center">
+					<div className="text-center">
 						{(pending_rewards_xusd_usd + pending_rewards_paired_asset_usd).toLocaleString(undefined, {style: "currency", currency: "USD"})}
 					</div>
 				</div>
-				<div class="farm_balance_spacer"></div>
+				<div className="farm_balance_spacer"></div>
 
-				<div class="farm_balance_wrapper_left">
-					<div class="fieldset_header">
+				<div className="farm_balance_wrapper_left">
+					<div className="fieldset_header">
 						Total Claimed (xUSD)
 					</div>
-					<div class="text-center">
+					<div className="text-center">
 						{parseFloat(total_rewards_claimed_xusd).toLocaleString(undefined, {maximumFractionDigits: 5})}
 					</div>
 				</div>
-				<div class="farm_balance_wrapper_right">
-					<div class="fieldset_header">
+				<div className="farm_balance_wrapper_right">
+					<div className="fieldset_header">
 						Total Claimed ({paired_asset})
 					</div>
-					<div class="text-center">
+					<div className="text-center">
 						{parseFloat(total_rewards_claimed_paired_asset).toLocaleString(undefined, {maximumFractionDigits: 5})}
 					</div>
 				</div>
-				<div class="clear"></div>
+				<div className="clear"></div>
 			</div>
 		)
 	}
@@ -446,29 +446,29 @@ class FarmBalanceChecker extends Component {
 	buildRewardsView = (pending_rewards_xusd, pending_rewards_xusd_usd, total_rewards_claimed_xusd) => {
 		return (
 			<div>
-				<div class="farm_balance_wrapper_left">
-					<div class="fieldset_header">
+				<div className="farm_balance_wrapper_left">
+					<div className="fieldset_header">
 						Pending Rewards (xUSD)
 					</div>
-					<div class="text-center">
+					<div className="text-center">
 						{pending_rewards_xusd.toLocaleString(undefined, {maximumFractionDigits: 5})}
 					</div>
 				</div>
-				<div class="farm_balance_wrapper_right">
-					<div class="fieldset_header">
+				<div className="farm_balance_wrapper_right">
+					<div className="fieldset_header">
 						Pending Rewards (USD)
 					</div>
-					<div class="text-center">
+					<div className="text-center">
 						{pending_rewards_xusd_usd.toLocaleString(undefined, {maximumFractionDigits: 5})}
 					</div>
 				</div>
-				<div class="clear"></div>
-				<div class="farm_balance_spacer"></div>
-				<div class="farm_balance_amount_wrapper">
-					<div class="fieldset_header">
+				<div className="clear"></div>
+				<div className="farm_balance_spacer"></div>
+				<div className="farm_balance_amount_wrapper">
+					<div className="fieldset_header">
 						Total Claimed (xUSD)
 					</div>
-					<div class="text-center">
+					<div className="text-center">
 						{parseFloat(total_rewards_claimed_xusd).toLocaleString(undefined, {maximumFractionDigits: 5})}
 					</div>
 				</div>
@@ -501,7 +501,7 @@ class FarmBalanceChecker extends Component {
 					{!this.renderCheckFarmBalancesView() ? "" :
 						<div id="capture_farm_balance_container">
 							<input
-								class="capture_farm_balance_input" 
+								className="capture_farm_balance_input" 
 								id="capture_farm_wallet_address"
 								value={this.state.capture_farm_balance_input_value}
 								type="text"
@@ -524,48 +524,48 @@ class FarmBalanceChecker extends Component {
 						<div id="farm_balance_display_container">
 							{this.state.farm_balance_response.map((farm) => {
 								return (
-									<div class="farm_balance_wrapper">
-										<fieldset class="farm_balance_wrapper_fieldset">
+									<div className="farm_balance_wrapper">
+										<fieldset className="farm_balance_wrapper_fieldset">
 											<legend align="center">{farm.symbol}</legend>
-											<div class="farm_balance_amount_wrapper">
-												<div class="fieldset_header">
+											<div className="farm_balance_amount_wrapper">
+												<div className="fieldset_header">
 													Current Balance (Farm Tokens)
 												</div>
-												<div class="text-center">
+												<div className="text-center">
 													{farm.farm_tokens}
 												</div>
 											</div>
-											<div class="farm_balance_wrapper_left">
-												<div class="fieldset_header">
+											<div className="farm_balance_wrapper_left">
+												<div className="fieldset_header">
 													LP Balance (xUSD)
 												</div>
-												<div class="text-center">
+												<div className="text-center">
 													{farm.farm_lp_balance_xusd}
 												</div>
 											</div>
-											<div class="farm_balance_wrapper_right">
-												<div class="fieldset_header">
+											<div className="farm_balance_wrapper_right">
+												<div className="fieldset_header">
 													LP Balance ({farm.paired_asset})
 												</div>
-												<div class="text-center">
+												<div className="text-center">
 													{farm.farm_lp_balance_paired_asset}
 												</div>
 											</div>
-											<div class="clear"></div>
-											<div class="farm_balance_spacer"></div>
-											<div class="farm_balance_amount_wrapper">
-												<div class="fieldset_header">
+											<div className="clear"></div>
+											<div className="farm_balance_spacer"></div>
+											<div className="farm_balance_amount_wrapper">
+												<div className="fieldset_header">
 													LP Value (USD)
 												</div>
-												<div class="text-center">
+												<div className="text-center">
 													{farm.farm_lp_value_usd}
 												</div>
 											</div>
-											<div class="farm_balance_amount_wrapper">
-												<div class="fieldset_header">
+											<div className="farm_balance_amount_wrapper">
+												<div className="fieldset_header">
 													Time Until Unlock
 												</div>
-												<div class="text-center">
+												<div className="text-center">
 													{farm.time_until_unlock} days
 												</div>
 											</div>

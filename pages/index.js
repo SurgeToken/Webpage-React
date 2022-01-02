@@ -10,6 +10,7 @@ import VST from "../components/VST";
 import VSF from "../components/VSF";
 import TokenBalanceChecker from "../components/TokenBalanceChecker";
 import FarmBalanceChecker from "../components/FarmBalanceChecker";
+import "../css/index.module.css";
 
 /* Functionals for scrolling */
 function checkWantToScrollToHowToBuy() {
@@ -79,12 +80,12 @@ class MainPage extends React.Component{
                         <Col xs={12} sm={12} md={4} lg={4} xl={4} className="mx-auto">
 						<div id="intro_container">
                             <div className="intro_hero_wrapper">
-								<span class="intro_hero_header">&bull; Compounded Earnings</span>
-								<span class="intro_hero_header">&bull; Internal LP Market Maker</span>
-								<span class="intro_hero_header">&bull; Over 100% Backed MC</span>
-								<span class="intro_hero_header">&bull; No Developer Tokens</span>
+								<span className="intro_hero_header">&bull; Compounded Earnings</span>
+								<span className="intro_hero_header">&bull; Internal LP Market Maker</span>
+								<span className="intro_hero_header">&bull; Over 100% Backed MC</span>
+								<span className="intro_hero_header">&bull; No Developer Tokens</span>
 								<img alt="" src="assets/img/surge_slim.png" className="intro_hero_img"/>
-								<span className="special bottom intro_hero_header">"never goes down<span class="hero_copyright">©</span>"</span>
+								<span className="special bottom intro_hero_header">"never goes down<span className="hero_copyright">©</span>"</span>
                             </div>
                             <br/>
                             <Button className="dApp btnDApp">
@@ -195,15 +196,15 @@ class MainPage extends React.Component{
 					<Row className="spacervs">
                         <Col xs={12} className="text-center">
                             <h4 className="heroH1 text-center" id="how-to-buy">How To Buy</h4>
-							<p class="how_to_buy">
+							<p className="how_to_buy">
 								<span className="herospan">XUSD and all Surge Tokens/Farms 
 								<br />can be purchased through our dApp</span>
 							</p>
-							<button type="button" class="how_to_buy_dApp dApp btnDApp btn btn-primary">
-								<img alt="" src="assets/img/appicon.png" class="d-inline-block align-middle appicon" />
+							<button type="button" className="how_to_buy_dApp dApp btnDApp btn btn-primary">
+								<img alt="" src="assets/img/appicon.png" className="d-inline-block align-middle appicon" />
 								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to dApp</a>
 							</button>
-							<p class="how_to_buy">
+							<p className="how_to_buy">
 								<span className="herospan">or by following these steps:</span>
 							</p>
 							<ol id="how_to_buy_list_container">

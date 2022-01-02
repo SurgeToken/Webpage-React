@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //import Card from "../components/Card"
 //import WidgetData from "../components/WidgetData";
-import { Link } from "next/link";
+import Link from "next/link";
 import UpdateCard from "../components/UpdateCard";
 import "../css/updates.module.css";
 
@@ -64,7 +64,7 @@ const Updates = () => {
             
 
             <button className="btn-back">
-                <Link to="/">Back</Link>
+                <Link href="/">Back</Link>
             </button>
 
           </div>

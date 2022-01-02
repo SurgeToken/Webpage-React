@@ -274,7 +274,7 @@ class TokenBalanceChecker extends Component {
 					{!this.renderCheckTokenBalancesView() ? "" :
 						<div id="capture_token_balance_container">
 							<input
-								class="capture_token_balance_input" 
+								className="capture_token_balance_input" 
 								id={this.state.capture_token_balance_container_input_id}
 								value={this.state.capture_token_balance_input_value}
 								type={this.state.capture_token_balance_container_input_type}
@@ -298,34 +298,34 @@ class TokenBalanceChecker extends Component {
 						<div id="token_balance_display_container">
 							{this.state.token_balance_response.map((token) => {
 								return (
-									<div class="token_balance_wrapper">
-										<fieldset class="token_balance_wrapper_fieldset">
+									<div className="token_balance_wrapper">
+										<fieldset className="token_balance_wrapper_fieldset">
 											<legend align="center">{token.name}</legend>
-											<div class="token_balance_amount_wrapper">
-												<div class="token_balance_header">
+											<div className="token_balance_amount_wrapper">
+												<div className="token_balance_header">
 													Current Balance
 												</div>
-												<div class="token_balance_amount">
+												<div className="token_balance_amount">
 													{token.balance}
 												</div>
 											</div>
-											<div class="token_balance_value_ua_wrapper">
-												<div class="token_value_ua_header">
+											<div className="token_balance_value_ua_wrapper">
+												<div className="token_value_ua_header">
 													Current Amount ({token.underlying_asset})
 												</div>
-												<div class="token_amount_ua">
+												<div className="token_amount_ua">
 													{token.underlying_asset_amount}
 												</div>
 											</div>
-											<div class="token_balance_value_usd_wrapper">
-												<div class="token_value_usd_header">
+											<div className="token_balance_value_usd_wrapper">
+												<div className="token_value_usd_header">
 													Current Value (USD)
 												</div>
-												<div class="token_value_usd_amount">
+												<div className="token_value_usd_amount">
 													{token.current_value}
 												</div>
 											</div>
-											<div class="clear"></div>
+											<div className="clear"></div>
 										</fieldset>
 									</div>
 								);

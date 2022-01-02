@@ -10,7 +10,7 @@ import VST from "../components/VST";
 import VSF from "../components/VSF";
 import TokenBalanceChecker from "../components/TokenBalanceChecker";
 import FarmBalanceChecker from "../components/FarmBalanceChecker";
-import "../css/index.module.css";
+import styles from '../css/index.module.css';
 
 /* Functionals for scrolling */
 function checkWantToScrollToHowToBuy() {
@@ -76,73 +76,73 @@ class MainPage extends React.Component{
         return (
             <div>
                 <NavBar/>
-                    <Row className="spacer1">
-                        <Col xs={12} sm={12} md={4} lg={4} xl={4} className="mx-auto">
+                    <Row className={styles.spacer1}>
+                        <Col xs={12} sm={12} md={4} lg={4} xl={4} className={styles.mxAuto}>
 						<div id="intro_container">
-                            <div className="intro_hero_wrapper">
-								<span className="intro_hero_header">&bull; Compounded Earnings</span>
-								<span className="intro_hero_header">&bull; Internal LP Market Maker</span>
-								<span className="intro_hero_header">&bull; Over 100% Backed MC</span>
-								<span className="intro_hero_header">&bull; No Developer Tokens</span>
-								<img alt="" src="assets/img/surge_slim.png" className="intro_hero_img"/>
-								<span className="special bottom intro_hero_header">"never goes down<span className="hero_copyright">©</span>"</span>
+                            <div className={styles.intro_hero_wrapper}>
+								<span className={styles.intro_hero_header}>&bull; Compounded Earnings</span>
+								<span className={styles.intro_hero_header}>&bull; Internal LP Market Maker</span>
+								<span className={styles.intro_hero_header}>&bull; Over 100% Backed MC</span>
+								<span className={styles.intro_hero_header}>&bull; No Developer Tokens</span>
+								<img alt="" src="assets/img/surge_slim.png" className={styles.intro_hero_img}/>
+								<span className={`${styles.special} ${styles.bottom} ${styles.intro_hero_header}`}>never goes down<span className={styles.hero_copyright}>©</span></span>
                             </div>
                             <br/>
-                            <Button className="dApp btnDApp">
+                            <Button className={`${styles.dApp} ${styles.btnDApp}`}>
 								<img
 									alt=""
 									src="assets/img/appicon.png"
-									className="d-inline-block align-middle appicon"/>
+									className={`${styles.dInlineBlock} ${styles.alignMiddle} ${styles.appicon}`}/>
 								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to dApp</a>
                             </Button>
-							<Button className="dApp btnDApp learn_more">
+							<Button className={`${styles.dApp} ${styles.btnDApp} ${styles.learn_more}`}>
 									<a href="#/education">Learn More</a>
                             </Button>
 							<br/>
-							<Button className="dApp btnDApp how_to_buy_hero">
-								<a href="#" onClick={ev=>{ev.preventDefault(); scrollToHowToBuy()}} className="nav-link">How To Buy</a>
+							<Button className={`${styles.dApp} ${styles.btnDApp} ${styles.how_to_buy_hero}`}>
+								<a href="#" onClick={ev=>{ev.preventDefault(); scrollToHowToBuy()}} className={styles.navLink}>How To Buy</a>
                             </Button>
 						</div>
                         </Col>
                         <Col xs={12} sm={12} md={8} lg={8} xl={8} >
-                            <Image src="assets/img/shapehero.png" className="heroImage" fluid />    
+                            <Image src="assets/img/shapehero.png" className={styles.heroImage} fluid />    
                         </Col>
                     </Row>
-                    <Row className="spacer1 text-center">
+                    <Row className={`${styles.spacer1} ${styles.textCenter}`}>
                         <Col>
-                        <p className="hiw">
+                        <p className={styles.hiw}>
                                 Each transaction triggers a fee that raises the price of Surge relative to<br/>
-                                its underlying asset. That means Buys, Transfers, and Sells raise the<br/>price.  <span className="herospan">That's the Surge protocol.</span>
+                                its underlying asset. That means Buys, Transfers, and Sells raise the<br/>price.  <span className={styles.herospan}>That's the Surge protocol.</span>
                             </p>
                         </Col>
                     </Row>
-                    <Row className="spacer1 text-center">
+                    <Row className={`${styles.spacer1} ${styles.textCenter}`}>
                         <Col>
-                            <Image src="assets/img/atom.png" className="atomImg" fluid />    
+                            <Image src="assets/img/atom.png" className={styles.atomImg} fluid />    
                         </Col>
                     </Row>
-                    <Row className="spacer5 text-center">
+                    <Row className={`${styles.spacer5} ${styles.textCenter}`}>
                         <Col>
 							<div id="cta_fees_container">
-								<div className="fees">
+								<div className={styles.fees}>
 									Surge is the first of it's kind that only<br/>
-									<span className="herospan">allows for growth</span>. The tokens use very low fees<br/>
+									<span className={styles.herospan}>allows for growth</span>. The tokens use very low fees<br/>
 									to raise the price floor with every transaction, whether<br/>
                                     it be buys, sells, or wallet-to-wallet transfers.
 								</div>
-								<div className="feeBtns">
-									<Button className="dApp3 btnDApp2">
+								<div className={styles.feeBtns}>
+									<Button className={`${styles.dApp3} ${styles.btnDApp2}`}>
 									<img
 									alt=""
 									src="assets/img/appicon.png"
-									className="d-inline-block align-middle appicon"
+									className={`${styles.dInlineBlock} ${styles.alignMiddle} ${styles.appicon}`}
 									/><a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to dApp</a>
 									</Button>
-									<Button className="dApp2">
+									<Button className={styles.dApp2}>
 									<img
 									alt=""
 									src="assets/img/paper.png"
-									className="d-inline-block align-middle papericon"
+									className={`${styles.dInlineBlock} ${styles.alignMiddle} ${styles.papericon}`}
 									/>
 									<a target="_blank" rel="noreferrer" href="assets/xsurge-whitepaper.pdf">Whitepaper</a>
 									</Button>
@@ -151,61 +151,61 @@ class MainPage extends React.Component{
                         </Col>
                     </Row>
                     
-                    <Row className="spacer2 text-center">
-                        <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
-                            <h6 className="heroh6">Core Features</h6>
-                            <h1 className="heroH1">Six tokens for you to<br/>invest and start<br/>earning.</h1>
+                    <Row className={`${styles.spacer2} ${styles.textCenter}`}>
+                        <Col xs={12} sm={12} md={5} lg={5} xl={5} className={styles.app1}>
+                            <h6 className={styles.heroh6}>Core Features</h6>
+                            <h1 className={styles.heroH1}>Six tokens for you to<br/>invest and start<br/>earning.</h1>
                         </Col>
-                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">
-                            <Image src="assets/img/surge_tokens_horizontal.png" className="app1Img" fluid />     
+                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className={`${styles.app1_image} ${styles.app1_image_right}`}>
+                            <Image src="assets/img/surge_tokens_horizontal.png" className={styles.app1Img} fluid />     
                         </Col>
                     </Row>
                     
-                    <Row className="spacer3 text-center">
-                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image">
-                            <Image src="assets/img/App 2.png" className="app2Img" fluid />     
+                    <Row className={`${styles.spacer3} ${styles.textCenter}`}>
+                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className={styles.app1_image}>
+                            <Image src="assets/img/App 2.png" className={styles.app2Img} fluid />     
                         </Col>
-						<Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1 app1_right">
-							<h6 className="heroh6 heroh6_right">Core Features</h6>
-							<h1 className="heroH1 heroH1_right">Internal Liquidity Pool & Market Maker.</h1>
+						<Col xs={12} sm={12} md={5} lg={5} xl={5} className={`${styles.app1} ${styles.app1_right}`}>
+							<h6 className={`${styles.heroh6} ${styles.heroh6_right}`}>Core Features</h6>
+							<h1 className={`${styles.heroH1} ${styles.heroH1_right}`}>Internal Liquidity Pool & Market Maker.</h1>
 						</Col>
                     </Row>
     
-                    <Row className="spacer4 text-center">
-                        <Col xs={12} sm={12} md={5} lg={5} xl={5} className="app1">
-                            <h6 className="heroh6">Certified</h6>
-                            <h1 className="heroH1">Certified<br/>by Certik.</h1>
-							<Button className="certikAudtitBtn certikAudtitBtnFirst">
+                    <Row className={`${styles.spacer4} ${styles.textCenter}`}>
+                        <Col xs={12} sm={12} md={5} lg={5} xl={5} className={styles.app1}>
+                            <h6 className={styles.heroh6}>Certified</h6>
+                            <h1 className={styles.heroH1}>Certified<br/>by Certik.</h1>
+							<Button className={`${styles.certikAudtitBtn} ${styles.certikAudtitBtnFirst}`}>
 								<a href="https://www.certik.com/projects/surgeeth" target="_blank">SurgeETH</a>
                             </Button>
-							<Button className="certikAudtitBtn">
+							<Button className={styles.certikAudtitBtn}>
 								<a href="https://www.certik.com/projects/surgebtc" target="_blank">SurgeBTC</a>
                             </Button>
-                            <Button className="certikAudtitBtn">
+                            <Button className={styles.certikAudtitBtn}>
 								<a href="https://www.certik.com/projects/xusd" target="_blank">xUSD - Onboarding</a>
                             </Button>
-                            <Button className="certikAudtitBtn">
+                            <Button className={styles.certikAudtitBtn}>
 								<a href="https://www.certik.com/projects/surgeuseless" target="_blank">SurgeUseless - Onboarding</a>
                             </Button>
                         </Col>
-                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">
-                            <Image src="assets/img/certik.svg" className="certikImg" fluid />     
+                        <Col xs={12} sm={12} md={7} lg={7} xl={7} className={`${styles.app1_image} ${styles.app1_image_right}`}>
+                            <Image src="assets/img/certik.svg" className={styles.certikImg} fluid />     
                         </Col>
                     </Row>
 
-					<Row className="spacervs">
-                        <Col xs={12} className="text-center">
-                            <h4 className="heroH1 text-center" id="how-to-buy">How To Buy</h4>
-							<p className="how_to_buy">
-								<span className="herospan">XUSD and all Surge Tokens/Farms 
+					<Row className={styles.spacervs}>
+                        <Col xs={12} className={styles.textCenter}>
+                            <h4 className={`${styles.heroH1} ${styles.textCenter}`} id="how-to-buy">How To Buy</h4>
+							<p className={styles.how_to_buy}>
+								<span className={styles.herospan}>XUSD and all Surge Tokens/Farms 
 								<br />can be purchased through our dApp</span>
 							</p>
-							<button type="button" className="how_to_buy_dApp dApp btnDApp btn btn-primary">
-								<img alt="" src="assets/img/appicon.png" className="d-inline-block align-middle appicon" />
+							<button type="button">
+								<img alt="" src="assets/img/appicon.png" className={`${styles.dInlineBlock} ${styles.alignMiddle} ${styles.appicon}`} />
 								<a target="_blank" rel="noreferrer" href="https://app.xsurge.net/">Go to dApp</a>
 							</button>
-							<p className="how_to_buy">
-								<span className="herospan">or by following these steps:</span>
+							<p className={styles.how_to_buy}>
+								<span className={styles.herospan}>or by following these steps:</span>
 							</p>
 							<ol id="how_to_buy_list_container">
 								<li>Select a Surge Token/Farm <br /> from the dropdowns below</li>
@@ -216,36 +216,36 @@ class MainPage extends React.Component{
                         </Col>
                     </Row>
 
-                    <Row id="surge_assets_row" className="spacervs">
-                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className="text-center">
-                            <h4 className="heroH1 text-center" id="surge-assets">Surge Assets</h4>
-                            <Image src="assets/img/shape2.png" className="shape2" fluid />
+                    <Row id="surge_assets_row" className={styles.spacervs}>
+                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className={styles.textCenter}>
+                            <h4 className={`${styles.heroH1} ${styles.textCenter}`} id="surge-assets">Surge Assets</h4>
+                            <Image src="assets/img/shape2.png" className={styles.shape2} fluid />
                             
                         </Col>
                     </Row>
 
-                    <Row className="spacerToken">
-                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsLeftPanel ">
+                    <Row className={styles.spacerToken}>
+                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className={styles.assetsLeftPanel }>
                             <VST />
                         </Col>
-                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsRightPanel ">
+                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className={styles.assetsRightPanel }>
                             <VSF />
                         </Col>
                     </Row>
 
-					<Row className="spacervs">
-                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className="text-center">
-                            <h4 className="heroH1 text-center" id="surge-balance-checker">Balance Checker</h4>
-                            <Image src="assets/img/shape2.png" className="shape2" fluid />
+					<Row className={styles.spacervs}>
+                        <Col xs={12} sm={12} md={12} lg={12} xl={12} className={styles.textCenter}>
+                            <h4 className={`${styles.heroH1} ${styles.textCenter}`} id="surge-balance-checker">Balance Checker</h4>
+                            <Image src="assets/img/shape2.png" className={styles.shape2} fluid />
                             
                         </Col>
                     </Row>
 
-                    <Row className="spacerToken">
-                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsLeftPanel ">
+                    <Row className={styles.spacerToken}>
+                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className={styles.assetsLeftPanel }>
                             <TokenBalanceChecker />
                         </Col>
-                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className="assetsRightPanel ">
+                        <Col xs={12} sm={12} md={12} lg={6} xl={6} className={styles.assetsRightPanel }>
                             <FarmBalanceChecker />
                         </Col>
                     </Row>

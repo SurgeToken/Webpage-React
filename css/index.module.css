@@ -9,11 +9,11 @@
 ==============================
 */
 
-@media screen and (min-width: 768px) {
-    .text-md-right {
+@media screen and (min_width: 768px) {
+    .text_md_right {
         text-align: right !important;
     }
-    .text-md-left {
+    .text_md_left {
         text-align: left !important;
     }
 }
@@ -25,7 +25,7 @@
 ==============================
 */
 
-.mt-5px {
+.mt_5px {
     margin-top: 5px;
 }
 
@@ -96,7 +96,7 @@
     padding: 15px 5px;
 }
 
-.footer-image {
+.footer_image {
     width: 25%;
     margin-right: 15px;
     max-width: 31.5px;
@@ -149,13 +149,13 @@
     width: 250px;
 }
 
-.nav-link {
+.nav_link {
     color: white !important;
     margin-right: 30px;
     font-size: 1.1em;
 }
 
-.bg-dark {
+.bg_dark {
     background-color: transparent !important;
     margin-left: 2%;
     margin-right: 2%;
@@ -385,33 +385,33 @@
     width: 60%;
 }
 
-.dropdown-menu {
+.dropdown_menu {
     background-color: #030a0d;
 }
 
-.dropdown-item {
+.dropdown_item {
     color: #fff;
 }
 
 .dropdown-menu .nav-link,
-.dropdown-menu .dropdown-item {
+.dropdown_menu .dropdown_item {
     font-size: .9em;
     width: 100%;
 }
 
 .dropdown-item:focus,
-.dropdown-item:hover {
+.dropdown_item:hover {
     color: #fff;
     background-color: transparent;
 }
 
-.nav-image {
+.nav_image {
     width: 25%;
     margin-right: 15px;
     max-width: 31.5px;
 }
 
-.dropdown-divider {
+.dropdown_divider {
     color: white;
 }
 
@@ -469,7 +469,7 @@
     font-size: 2rem;
 }
 
-#how-to-buy {
+#how_to_buy {
     font-size: 5rem;
 }
 
@@ -708,17 +708,17 @@
     margin-right: 5%;
 }
 
-.accordion-flush .accordion-item .accordion-button {
+.accordion-flush .accordion_item .accordion_button {
     background-color: #030a0d;
     color: #fff;
 }
 
-.accordion-item {
+.accordion_item {
     border-bottom: 1px solid rgba(255, 255, 225);
     background-color: transparent;
 }
 
-.accordion-button::after {
+.accordion_button::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
 }
 
@@ -1005,12 +1005,12 @@
 ===============================
 */
 
-#surge-one-sheet-container {
+#surge-one_sheet_container {
     text-align: center;
     margin-top: 20px;
 }
 
-#surge-one-sheet-img {
+#surge-one_sheet_img {
     max-width: 100%;
 }
 
@@ -1028,12 +1028,12 @@
 ===============================
 */
 
-#surge-roadmap-container {
+#surge_roadmap_container {
     text-align: center;
     margin-top: 20px;
 }
 
-#surge-roadmap-img {
+#surge_roadmap_img {
     max-width: 100%;
 }
 
@@ -1051,13 +1051,13 @@
 ===============================
 */
 
-@media screen and (max-width: 1600px) {
+@media screen and (max_width: 1600px) {
     .hiw {
         font-size: 1.8rem;
     }
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max_width: 1399px) {
     .dApp {
         margin-right: 0px;
         margin-top: 10px;
@@ -1065,7 +1065,7 @@
     }
 }
 
-@media screen and (max-width: 1260px) {
+@media screen and (max_width: 1260px) {
     .intro_hero_header {
         font-size: 1.5rem;
     }
@@ -1074,8 +1074,8 @@
     }
 }
 
-@media screen and (max-width: 1080px) {
-    .nav-link {
+@media screen and (max_width: 1080px) {
+    .nav_link {
         font-size: 1em;
     }
     .intro {
@@ -1089,7 +1089,7 @@
     }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max_width: 991px) {
     .heroH1 {
         font-size: 2.1rem;
     }
@@ -1119,7 +1119,7 @@
     }
 }
 
-@media screen and (max-width: 837px) {
+@media screen and (max_width: 837px) {
     /*Begin Main Page CSS */
     .vstatsButtons {
         margin-left: 10%;
@@ -1185,7 +1185,7 @@
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max_width: 767px) {
     /*Begin Main Page CSS*/
     .tokenCalc {
         padding-right: 5%
@@ -1382,11 +1382,11 @@
     }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max_width: 620px) {
     .intro_hero_img {
         max-width: 75%;
     }
-    #how-to-buy {
+    #how_to_buy {
         font-size: 3rem;
     }
     .how_to_buy,
@@ -1395,7 +1395,7 @@
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max_width: 580px) {
     /*Begin Main Page CSS*/
     .intro_hero_img {
         max-width: 85%;
@@ -1624,7 +1624,7 @@
     /**End Education Page CSS**/
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max_width: 500px) {
     .intro_hero_wrapper {
         margin-top: 5%;
     }
@@ -1640,7 +1640,7 @@
     .fees {
         font-size: .8rem;
     }
-    #how-to-buy {
+    #how_to_buy {
         font-size: 2.5rem;
     }
     .how_to_buy,
@@ -1649,7 +1649,7 @@
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max_width: 400px) {
     /*Begin Main Page CSS*/
     .shape {
         position: absolute;
@@ -1779,7 +1779,7 @@
         margin-top: 3%;
     }
     /**End Education Page CSS**/
-    #how-to-buy {
+    #how_to_buy {
         font-size: 2rem;
     }
     .how_to_buy,
@@ -1788,7 +1788,7 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max_width: 320px) {
     .shape {
         position: absolute;
         right: 0;
@@ -1933,18 +1933,18 @@
     margin-left: -20px;
 }
 
-.coming-soon-container {
+.coming_soon_container {
     display: flex;
 }
 
-.coming-soon-cont {
+.coming_soon_cont {
     width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 100%;
 }
 
-.coming-soon-cont .coming-soon-content>h4 {
+.coming-soon-cont .coming_soon_content>h4 {
     font-size: 40px;
     margin-top: 30px;
     color: #2fb3ab;
@@ -1952,7 +1952,7 @@
     text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.101961);
 }
 
-.coming-soon-cont .coming-soon-content>h5 {
+.coming-soon-cont .coming_soon_content>h5 {
     font-size: 20px;
     margin-top: 30px;
     color: #2fb3ab;
@@ -1960,19 +1960,19 @@
     text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.101961);
 }
 
-.coming-soon-cont .coming-soon-content>p:not(.terms-conditions) {
+.coming-soon-cont .coming-soon_content>p:not(.terms_conditions) {
     font-size: 16px;
     color: #888ea8;
     margin-bottom: 50px;
 }
 
-.coming-soon-cont #timer {
+.coming_soon_cont #timer {
     display: flex;
 }
 
 .coming-soon-cont #timer .days,
 .coming-soon-cont #timer .hours,
-.coming-soon-cont #timer .min {
+.coming_soon_cont #timer .min {
     padding: 28px 0;
     background: #009688;
     color: #fff;
@@ -1985,7 +1985,7 @@
     margin-right: 15px;
 }
 
-.coming-soon-cont #timer .sec {
+.coming_soon_cont #timer .sec {
     padding: 28px 0;
     background: #009688;
     color: #fff;
@@ -1999,39 +1999,39 @@
 }
 
 .coming-soon-cont #timer .days .count,
-.coming-soon-cont #timer .days .text {
+.coming_soon_cont #timer .days .text {
     display: block;
 }
 
 .coming-soon-cont #timer .hours .count,
-.coming-soon-cont #timer .hours .text {
+.coming_soon_cont #timer .hours .text {
     display: block;
 }
 
 .coming-soon-cont #timer .min .count,
-.coming-soon-cont #timer .min .text {
+.coming_soon_cont #timer .min .text {
     display: block;
 }
 
 .coming-soon-cont #timer .sec .count,
-.coming-soon-cont #timer .sec .text {
+.coming_soon_cont #timer .sec .text {
     display: block;
 }
 
-.coming-soon-cont .coming-soon-content>h3 {
+.coming-soon-cont .coming_soon_content>h3 {
     font-size: 21px;
     margin-top: 75px;
     margin-bottom: 40px;
     color: #2fb3ab;
 }
 
-.coming-soon-cont .coming-soon-wrap form .field-wrapper {
+.coming-soon-cont .coming-soon_wrap form .field_wrapper {
     position: relative;
     display: flex;
     width: 100%;
 }
 
-.coming-soon-cont .coming-soon-wrap form .field-wrapper svg {
+.coming-soon-cont .coming-soon_wrap form .field_wrapper svg {
     position: absolute;
     top: 11px;
     color: #009688;
@@ -2039,18 +2039,18 @@
     left: 8px;
 }
 
-.coming-soon-cont .coming-soon-wrap form .field-wrapper input {
+.coming-soon-cont .coming-soon_wrap form .field_wrapper input {
     padding: 10px 97px 10px 45px;
 }
 
 .coming-soon-cont .coming-soon-wrap form .field-wrapper input::-webkit-input-placeholder,
 .coming-soon-cont .coming-soon-wrap form .field-wrapper input::-ms-input-placeholder,
-.coming-soon-cont .coming-soon-wrap form .field-wrapper input::-moz-placeholder {
+.coming-soon-cont .coming-soon-wrap form .field-wrapper input::_moz_placeholder {
     color: #d3d3d3;
     font-size: 14px;
 }
 
-.coming-soon-cont .coming-soon-wrap form .field-wrapper button.btn {
+.coming-soon-cont .coming-soon_wrap form .field_wrapper button.btn {
     align-self: center;
     position: absolute;
     right: 0;
@@ -2060,43 +2060,43 @@
     border-color: #009688;
 }
 
-.coming-soon-cont .coming-soon-wrap form .field-wrapper button.btn:hover {
+.coming-soon-cont .coming-soon_wrap form .field_wrapper button.btn:hover {
     transform: none;
 }
 
-.coming-soon-cont .social {
+.coming_soon_cont .social {
     color: #009688;
     margin: 45px 0 0 0;
 }
 
-.coming-soon-cont .social li {
+.coming_soon_cont .social li {
     margin: 0;
 }
 
-.coming-soon-cont .social li:not(:last-child) {
+.coming-soon_cont .social li:not(:last_child) {
     margin-right: 10px;
     padding-right: 10px;
     border-right: 2px solid #3b3f5c;
 }
 
-.coming-soon-cont .social svg {
+.coming_soon_cont .social svg {
     color: #009688;
     width: 35px;
     height: 35px;
 }
 
-.coming-soon-cont .terms-conditions {
+.coming-soon_cont .terms_conditions {
     max-width: 480px;
     margin: 0 auto;
     color: #bfc9d4;
     margin-top: 70px;
 }
 
-.coming-soon-cont .terms-conditions a {
+.coming-soon_cont .terms_conditions a {
     color: #009688;
 }
 
-.coming-soon-image {
+.coming_soon_image {
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -2111,17 +2111,17 @@
     width: 50%;
 }
 
-.coming-soon-image .img-overlay-content {
+.coming-soon-image .img_overlay_content {
     height: 100%;
     background: rgba(0, 0, 0, 0.55);
 }
 
-.coming-soon-image .img-overlay-content p {
+.coming-soon-image .img_overlay_content p {
     color: #fff;
     position: absolute;
 }
 
-.coming-soon-image .l-image {
+.coming-soon_image .l_image {
     position: absolute;
     top: 0;
     left: 0;
@@ -2144,37 +2144,37 @@
     }
 }
 
-.coming-soon-image .l-image .img-content {
+.coming-soon-image .l_image .img_content {
     display: flex;
     justify-content: center;
     height: 100%;
 }
 
-.coming-soon-image .l-image img {
+.coming-soon_image .l_image img {
     width: 577px;
     align-self: center;
 }
 
-.coming-soon-image2 .l-image .img-content {
+.coming-soon-image2 .l_image .img_content {
     display: none;
 }
 
-@media only screen and (max-width: 991px) {
-    .coming-soon-cont {
+@media only screen and (max_width: 991px) {
+    .coming_soon_cont {
         width: 100%;
     }
-    .coming-soon-cont .coming-soon-wrap {
+    .coming-soon-cont .coming_soon_wrap {
         min-width: auto;
     }
-    .coming-soon-image {
+    .coming_soon_image {
         display: none;
         justify-content: center;
         height: 100%;
     }
 }
 
-@media only screen and (max-width: 575px) {
-    .coming-soon-cont #timer {
+@media only screen and (max_width: 575px) {
+    .coming_soon_cont #timer {
         display: flex;
         display: -ms-flexbox;
         display: flex;
@@ -2184,13 +2184,13 @@
         margin-left: -15px;
         justify-content: center;
     }
-    .coming-soon-cont #timer .hours:not(:last-child) {
+    .coming-soon_cont #timer .hours:not(:last_child) {
         margin-right: 0;
     }
     .coming-soon-cont #timer .days,
     .coming-soon-cont #timer .hours,
     .coming-soon-cont #timer .min,
-    .coming-soon-cont #timer .sec {
+    .coming_soon_cont #timer .sec {
         -ms-flex: 0 0 40%;
         flex: 0 0 40%;
         max-width: 40%;
@@ -2202,11 +2202,11 @@
 }
 
 @media all and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
-    .coming-soon-cont .coming-soon-wrap {
+(-ms_high_contrast: active) {
+    .coming-soon-cont .coming_soon_wrap {
         width: 100%;
     }
-    .coming-soon-cont .coming-soon-container {
+    .coming-soon-cont .coming_soon_container {
         height: 100%;
     }
 }

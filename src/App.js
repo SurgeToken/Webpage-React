@@ -15,13 +15,14 @@ class App extends Component {
   render(){
     return <HashRouter>
         <Switch>
-          	<Route path="/" component={MainPage} />
           	<Route exact path="/education" component={Education} />
 			<Route exact path="/surgefund" component={SurgeFund} />
 		    <Route exact path="/onesheet" component={OneSheet} />
 			<Route exact path="/roadmap" component={RoadMap} />
 			<Route exact path="/updates" component={Updates} />
 			<Route exact path="/disclosures" component={Disclosures} />
+          	<Route path="/#/#how-to-buy" component={MainPage} />
+          	<Route path="/" component={MainPage} />
         </Switch>
       </HashRouter>
 	}

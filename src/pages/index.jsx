@@ -15,7 +15,10 @@ import FarmBalanceChecker from "../components/FarmBalanceChecker";
 
 /* Functionals for scrolling */
 function checkWantToScrollToHowToBuy() {
-    return window.location.hash.indexOf("how-to-buy")!==-1; // True means want to scroll
+    if(typeof window!=="undefined") // nextjs compliant
+        return window.location.hash.indexOf("how-to-buy")!==-1; // True means want to scroll
+    else
+        return false;
 }
 function scrollToHowToBuy() {
     let elHowToBuy = document.getElementById('how-to-buy');
@@ -28,34 +31,38 @@ function scrollToHowToBuy() {
    or if you visit http://localhost:3000/#/how-to-buy if already on the page
     Solution: Check popstate
 */
-window.addEventListener('popstate', ()=>{
-    console.log("popstate")
-    if(checkWantToScrollToHowToBuy())
-        scrollToHowToBuy();
-});
+if(typeof window!=="undefined") { // nextjs compliant
+    window.addEventListener('popstate', ()=>{
+        console.log("popstate")
+        if(checkWantToScrollToHowToBuy())
+            scrollToHowToBuy();
+    });
+}
 /* React app will not check hash properly for scrolling
    if you visit directly http://localhost:3000/#/#how-to-buy on a fresh tab
    or if you visit directly http://localhost:3000/#/how-to-buy on a fresh tab
     Solution: Check onload, and wait for render to complete outside of React
 */
-window.addEventListener('load', ()=>{
-    console.log("load")
-    if(checkWantToScrollToHowToBuy()) {
-        var pollCheckLimit = 9;
-        var pollCurrent = 0;
+if(typeof window!=="undefined") { // nextjs compliant
+    window.addEventListener('load', ()=>{
+        console.log("load")
+        if(checkWantToScrollToHowToBuy()) {
+            var pollCheckLimit = 9;
+            var pollCurrent = 0;
 
-        var poller = setInterval(()=>{
-            var hasLoadedHowToBuy = document.getElementById("how-to-buy");
-            if(hasLoadedHowToBuy) {
-                scrollToHowToBuy();
-            }
+            var poller = setInterval(()=>{
+                var hasLoadedHowToBuy = document.getElementById("how-to-buy");
+                if(hasLoadedHowToBuy) {
+                    scrollToHowToBuy();
+                }
 
-            if(pollCurrent>pollCheckLimit)
-                clearInterval(poller);
-                pollCurrent++;
-        }, 300)
-    }
-});
+                if(pollCurrent>pollCheckLimit)
+                    clearInterval(poller);
+                    pollCurrent++;
+            }, 300)
+        }
+    });
+}
 
 //Functional Component 
 class MainPage extends React.Component{

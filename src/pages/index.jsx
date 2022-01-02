@@ -191,7 +191,7 @@ class MainPage extends React.Component{
                         <Col xs={12} className="text-center">
                             <h4 className="heroH1 text-center" id="how-to-buy">How To Buy</h4>
 							<p class="how_to_buy">
-								<span className="herospan">XUSD and ALL Surge Tokens/Farms 
+								<span className="herospan">XUSD and all Surge Tokens/Farms 
 								<br />can be purchased through our dApp</span>
 							</p>
 							<button type="button" class="how_to_buy_dApp dApp btnDApp btn btn-primary">

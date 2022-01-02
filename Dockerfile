@@ -3,7 +3,10 @@ WORKDIR /app
 COPY package.json ./
 RUN apk add --no-cache git
 RUN yarn install --production
+# Added below
+RUN npm install --prefix ./server
 COPY . .
+# RUN node --max_old_space_size=512 node_modules/.bin/react-scripts build
 RUN node --max_old_space_size=512 node_modules/.bin/react-scripts build
 
 FROM php:7.2-apache

@@ -1,4 +1,5 @@
 import '../css/index.css'
+import "../css/vendors/bootstrap.min.css" // NextJS cannot handle bootstrap react's own css
 
 // import App from 'next/app'
 function MyApp({ Component, pageProps }) {

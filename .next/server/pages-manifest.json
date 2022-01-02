@@ -1,12 +1,6 @@
 {
-  "/disclosures": "pages/disclosures.js",
-  "/education": "pages/education.js",
-  "/": "pages/index.js",
-  "/onesheet": "pages/onesheet.js",
-  "/roadmap": "pages/roadmap.js",
-  "/surgefund": "pages/surgefund.js",
-  "/updates": "pages/updates.js",
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js"
 }

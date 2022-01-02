@@ -173,6 +173,14 @@ body {
     font-size: 1.1em;
 }
 
+.nav-link:focus {
+	outline: none;
+}
+
+.dropdown-menu .nav-link  {
+	padding: .25rem 1rem !important;
+}
+
 .bg-dark {
     background-color: transparent !important;
     margin-left: 2%;

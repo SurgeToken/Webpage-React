@@ -121,6 +121,8 @@ const MyHoldings = () => {
 	const [anchorModal, setAnchorModal] = useState("");
 	const [anchorFieldsInitialized, setAnchorFieldsInitialized] = useState(false);
 
+	const [showGettingStartedSection, setShowGettingStartedSection] = useState(false);
+
 	const handlers = useSwipeable({
 		onSwipedLeft: () => console.log('swiped left'),
 		onSwipedRight: () => console.log('swiped right'),
@@ -145,12 +147,14 @@ const MyHoldings = () => {
 
 		// if no wallet is set dont do anything because we need their wallet to load up their info
 		if (capturedWalletAddressValue == undefined) {
+			setShowGettingStartedSection(true);
 			return;
 		}
 
 		// If we have their wallet data stored, we should start loading up wallet data
 		setWalletLoadSpinnerDisplay(true);
 		setWalletLoadTextDisplay(false);
+		setShowGettingStartedSection(false);
 
 		let show_prices_switch_cookie = Cookies.get('surge_holdings_show_prices');
 		if (show_prices_switch_cookie === 'true') {
@@ -212,6 +216,8 @@ const MyHoldings = () => {
 		}
 
 		setWalletError(false);
+
+		setShowGettingStartedSection(false);
 
 		// Set Public Wallet Address Cookie
 		Cookies.set('public_surge_wallet_address', formated_wallet_address, {expires: 30, path: '/' });
@@ -1058,7 +1064,11 @@ const MyHoldings = () => {
 			<Row id="surge_holdings_image_row">
 				<Col xs={12} sm={12} md={12} lg={12} xl={12} className="holdings_logo">
 					<Image src="assets/img/surge_holdings.png" className="surgeHoldingsTitle" />
-					<p style={{marginBottom: '0px', marginTop: '15px'}}>The “My Surge Holdings” page displays information about all Surge Tokens/Farms you have purchased.  Just enter your BEP-20 public wallet address below and press load to get started.  Please continue to use our <a style={{textDecoration: 'none', fontWeight: '700'}}href="https://app.xsurge.net" target="_blank"><span class="herospan">dApp</span></a> for changes to your holdings as this page does not connect to your wallet and can't make transactions for you.</p>
+					<Collapse in={showGettingStartedSection}>
+						<p style={{marginBottom: '0px'}}>The “My Surge Holdings” page displays information about all Surge Tokens/Farms you currently hold.  Just enter your BEP-20 public wallet address below and press load to get started.  Please continue to use our <a style={{textDecoration: 'none', fontWeight: '700'}}href="https://app.xsurge.net" target="_blank"><span class="herospan">dApp</span></a> for changes to your holdings, as this page does not connect to your wallet and can't make transactions for you.</p>
+					</Collapse>
+					<i class="fas fa-chevron-circle-down getting_started_show_icon" style={{display: (!showGettingStartedSection ? 'inline-block' : 'none')}} onClick={ () => setShowGettingStartedSection(!showGettingStartedSection)}></i>
+					<i class="fas fa-chevron-circle-up getting_started_show_icon" style={{display: (showGettingStartedSection ? 'inline-block' : 'none')}} onClick={ () => setShowGettingStartedSection(!showGettingStartedSection)}></i>
 				</Col>
 			</Row>
 			<Row id="surge_wallet_top_container">
@@ -1099,7 +1109,7 @@ const MyHoldings = () => {
 											<CloseButton variant="white" onClick={() => revertTokenAnchors()} />
 										</Modal.Header>
 										<Modal.Body>
-											<p style={{textAlign: 'justify'}}>Use the input fields below to set starting values for your Surge Token underlying assets.  Setting these values, will allow you to track increases from a specific starting point.  If the “show value increases” option is enabled,  the starting value, percentage increase and dollar value increase will display on each token card that has a starting value.</p> 
+											<p style={{textAlign: 'justify'}}>Use the input fields below to set starting values for the underlying assets of your Surge Tokens.  Setting these values will allow you to track increases from a specific starting point.  If the “show value increases” option is enabled,  the starting value, percentage increase and dollar value increase will display on each token card that has a starting value.</p> 
 											<p style={{textAlign: 'justify'}}>E.g. If you purchased 100 xUSD and the value in BUSD was 101 at that time, you would put 101 in the xUSD input field below.  This would then show you your increases for xUSD from that starting point.</p>
 											{Object.keys(walletData).length !== 0 ? 
 												<Row className="justify-content-md-center" id="token_stats_wrapper">
@@ -1112,13 +1122,13 @@ const MyHoldings = () => {
 														);
 													})}
 													<Col className="token_anchor_button_col top" xs={6}>
-														<Button className="settings_buttons" onClick={fillCurrentAnchors}>Fill With Current Values</Button>
+														<Button className="settings_buttons" onClick={fillCurrentAnchors}>Fill With <br /> Current Values</Button>
 													</Col>
 													<Col className="token_anchor_button_col top end" xs={6} style={{marginBottom: '10px', marginTop: '10px'}}>
-														<Button className="settings_buttons" onClick={clearCurrentAnchors}>Clear All Values</Button>
+														<Button className="settings_buttons" onClick={clearCurrentAnchors}>Clear <br /> All Values</Button>
 													</Col>
 													<Col className="token_anchor_button_col bottom" xs={6}>
-														<Button className="settings_buttons" onClick={saveTokenAnchors}>Save Values</Button>
+														<Button className="settings_buttons" onClick={saveTokenAnchors}>Save</Button>
 													</Col>
 													<Col className="token_anchor_button_col bottom end" xs={6}>
 														<Button className="settings_buttons" onClick={revertTokenAnchors}>Cancel</Button>
@@ -1144,7 +1154,7 @@ const MyHoldings = () => {
 														...props.style,
 														}}
 													>
-														Enabaling this will display any value increases if you have set starting values for your underlying assets.  Click the "Set Start Values" button above to set these values.
+														Enabling this option will display any value increases if you have set starting values for your underlying assets.  Click the "Set Start Values" button above to set these values.
 													</div>
 												)}
 											</Overlay>
@@ -1240,7 +1250,7 @@ const MyHoldings = () => {
 									...props.style,
 									}}
 								>
-									This is your total value in {selectedCurrency.toUpperCase()} for all Surge Tokens and Farms that you hold
+									This is your total current value in {selectedCurrency.toUpperCase()} for all Surge Tokens and Farms that you hold
 								</div>
 							)}
 						</Overlay>

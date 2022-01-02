@@ -44,14 +44,6 @@ class NavBar extends Component{
 								<NavDropdown.Item href="#/roadmap">Road Map</NavDropdown.Item>
                             </NavDropdown>
 
-							{/* <Nav.Link target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</Nav.Link>
-							<LinkContainer to="/onesheet">
-                                <Nav.Link>One Sheet</Nav.Link>
-                            </LinkContainer>
-							<LinkContainer to="/roadmap">
-                                <Nav.Link>Road Map</Nav.Link>
-                            </LinkContainer> */}
-
                             <Nav.Link className="dApp" href="https://app.xsurge.net">
                             <img
                             alt=""

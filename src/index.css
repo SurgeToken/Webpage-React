@@ -705,6 +705,7 @@ body {
 
 .surgeHoldingsTitle {
 	max-width: 100%;
+	margin-bottom: 15px;
 }
 
 .surge_fund_learn_more_button{
@@ -783,9 +784,16 @@ body {
 .holdings_logo {
 	text-align: center;
 	margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 	max-width: 685px;
 	padding: 0px 20px
+}
+
+.getting_started_show_icon {
+	cursor: pointer;
+	font-size: 1.1rem;
+	color: #29CBC1;
+	margin-top: 10px;
 }
 
 .edStep {
@@ -1339,7 +1347,7 @@ body {
 
 .available_asset_title_col {
 	border-bottom-left-radius: 10px;
-	cursor: pointer;
+	cursor: default;
 }
 
 #token_stats_wrapper {
@@ -2055,9 +2063,6 @@ body {
 	#how_to_buy_list_container {
 		font-size: 1.3rem;
 	}
-	#set_anchors_dialog .settings_buttons {
-		font-size: .6rem;
-	}
 }
 
 @media screen and (max-width: 400px) {
@@ -2197,6 +2202,10 @@ body {
 	.how_to_buy,
 	#how_to_buy_list_container {
 		font-size: 1rem;
+	}
+
+	#set_anchors_dialog .settings_buttons {
+		font-size: .8rem;
 	}
 }
 

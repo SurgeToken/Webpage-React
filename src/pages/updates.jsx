@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 //import WidgetData from "../components/WidgetData";
 import { Link } from "react-router-dom";
 import UpdateCard from "../components/UpdateCard";
-import "./updates.css";
+import "../css/updates.module.css";
 
 // Mock
 // const readUpdates = {

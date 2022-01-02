@@ -1,0 +1,44 @@
+.card {
+    border-radius: 25px;
+    margin: 5px;
+    background-color: rgba(13, 37, 19, 1);
+    width: 18rem;
+    display: inline-block;
+}
+
+.card button {
+    color: #29CBC1 !important;
+    font-weight: 800;
+    background: #0B3131 !important;
+    padding: 10px 20px !important;
+    border-radius: 30px;
+    box-shadow: rgb(0 195 255 / 16%) 0px 0px 20px 0px;
+}
+
+.card button:hover {
+    background: #29CBC1 !important;
+    color: #0B3131 !important;
+}
+
+.card button {
+    transition: color 500ms ease, background-color 500ms ease;
+}
+
+.card .truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.version-tag {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: gray;
+    font-size: .5rem;
+}
+
+.version-tag::before {
+    content: "Version ";
+}

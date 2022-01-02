@@ -9,6 +9,7 @@
         "bootstrap": "^5.1.3",
         "concurrently": "^6.5.1",
         "js-cookie": "^3.0.1",
+        "next": "^12.0.7",
         "react": "^17.0.2",
         "react-bootstrap": "^2.0.2",
         "react-dom": "^17.0.2",
@@ -21,8 +22,10 @@
         "web3": "^1.6.1"
     },
     "scripts": {
-        "start": "concurrently \"cd server && npm run start\" \"react-scripts start\"",
-        "build": "concurrently \"cd server; npm install\" \"react-scripts build\"",
+        "dev": "concurrently \"cd server; npm run start\" \"next dev\"",
+        "build": "concurrently \"cd server; npm install\" \"next build\"",
+        "start": "concurrently \"cd server && npm run start\" \"next start\"",
+        "lint": "next lint",
         "test": "jest",
         "eject": "react-scripts eject"
     },

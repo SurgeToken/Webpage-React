@@ -1,8 +1,7 @@
 import { Component } from 'react';
 import { Link } from "react-router-dom";
 import {Row, Col, Image, Button, Card} from 'react-bootstrap';
-import '../index.css';
-import './UpdateCard.css'
+import '../css/updateCard.module.css'
 
 class UpdateCard extends Component {
 	render(){

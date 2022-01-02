@@ -21,7 +21,6 @@ class App extends Component {
 			<Route exact path="/roadmap" component={RoadMap} />
 			<Route exact path="/updates" component={Updates} />
 			<Route exact path="/disclosures" component={Disclosures} />
-          	<Route path="/#/#how-to-buy" component={MainPage} />
           	<Route path="/" component={MainPage} />
         </Switch>
       </HashRouter>

@@ -18,7 +18,9 @@ function checkWantToScrollToHowToBuy() {
     return window.location.hash.indexOf("how-to-buy")!==-1; // True means want to scroll
 }
 function scrollToHowToBuy() {
-    document.getElementById('how-to-buy').scrollIntoView({block: 'start', behavior: 'smooth'});
+    let elHowToBuy = document.getElementById('how-to-buy');
+    if(elHowToBuy)
+        elHowToBuy.scrollIntoView({block: 'start', behavior: 'smooth'});
 }
 
 /* React app likes to change link to /#/ then useLayoutEffect and useEffect no longer runs

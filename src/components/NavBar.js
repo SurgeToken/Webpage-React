@@ -27,6 +27,8 @@ class NavBar extends Component{
 							<HashLink className="nav-link" to="/#how-to-buy">How To Buy</HashLink>
 							<NavDropdown title="Tools" id="basic-nav-dropdown">
                                 <NavHashLink className="nav-link" to="/#surge-balance-checker">Balance Checker</NavHashLink>
+								<NavDropdown.Divider />
+								<NavDropdown.Item href="#/my-holdings">My Holdings</NavDropdown.Item>
                             </NavDropdown>
 							<LinkContainer to="/surgefund">
                                 <Nav.Link>Surge Fund</Nav.Link>
@@ -43,14 +45,6 @@ class NavBar extends Component{
 								<NavDropdown.Divider />
 								<NavDropdown.Item href="#/roadmap">Road Map</NavDropdown.Item>
                             </NavDropdown>
-
-							{/* <Nav.Link target="_blank" href="assets/xsurge-whitepaper.pdf">Whitepaper</Nav.Link>
-							<LinkContainer to="/onesheet">
-                                <Nav.Link>One Sheet</Nav.Link>
-                            </LinkContainer>
-							<LinkContainer to="/roadmap">
-                                <Nav.Link>Road Map</Nav.Link>
-                            </LinkContainer> */}
 
                             <Nav.Link className="dApp" href="https://app.xsurge.net">
                             <img

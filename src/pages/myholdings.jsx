@@ -521,7 +521,7 @@ const MyHoldings = () => {
 						token_data[token]['token_usd_value'] = (token_data[token]['ua_asset_price'] * token_data[token]['ua_amount']) * currency_conversion;
 
 						if (token in tokenAnchorsValues) {
-							token_data[token]['anchor_increase']  = (token_data[token]['ua_amount'] - tokenAnchorsValues[token]) / token_data[token]['ua_amount'];
+							token_data[token]['anchor_increase']  = ((token_data[token]['ua_amount'] - tokenAnchorsValues[token]) / tokenAnchorsValues[token]) * 100;
 							token_data[token]['anchor_increase_value'] = ((token_data[token]['ua_amount'] - tokenAnchorsValues[token]) * token_data[token]['ua_asset_price']) * currency_conversion;
 						}
 

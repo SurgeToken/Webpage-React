@@ -38,7 +38,7 @@ class Footer extends Component{
 
 						<Row>
 						<Col xs={12} sm={12} md={12} lg={12} xl={12}>
-							<div class="text-center text-md-start mt-5px" id="disclosure_text">
+							<div className="text-center text-md-start mt-5px" id="disclosure_text">
 								<LinkContainer to="/disclosures" className="disclosure_link">
 									<span id="disclosure_text_span">Disclosures</span>
 								</LinkContainer>

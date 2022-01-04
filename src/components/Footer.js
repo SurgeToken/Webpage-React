@@ -13,22 +13,22 @@ class Footer extends Component{
 							© 2021 xSurge. All rights reserved.
 						</Col>
 						<Col xs={12} sm={12} md={6} className="text-center text-md-end" id="footer_social_links_container">
-							<a href="https://discord.gg/XSURGE" target="_blank">
+							<a href="https://discord.gg/XSURGE" target="_blank" rel="noreferrer">
 								<Image src="assets/img/discord.png" className="footer-image" id="footer_social_first" />
 							</a>
-							<a href="https://instagram.com/XSURGEDEFI" target="_blank">
+							<a href="https://instagram.com/XSURGEDEFI" target="_blank" rel="noreferrer">
 								<Image src="assets/img/instagram.png" className="footer-image" />
 							</a>
-							<a href="https://twitter.com/XSURGEDEFI" target="_blank">
+							<a href="https://twitter.com/XSURGEDEFI" target="_blank" rel="noreferrer"> 
 								<Image src="assets/img/twitter.png" className="footer-image" />
 							</a>
-							<a href="https://www.reddit.com/r/XSURGE" target="_blank">
+							<a href="https://www.reddit.com/r/XSURGE" target="_blank" rel="noreferrer">
 								<Image src="assets/img/reddit.png" className="footer-image" />
 							</a>
-							<a href="https://t.me/XSURGEDEFI" target="_blank">
+							<a href="https://t.me/XSURGEDEFI" target="_blank" rel="noreferrer">
 								<Image src="assets/img/telegram.png" className="footer-image" />
 							</a>
-							<a href="https://www.facebook.com/groups/XSURGEDEFI" target="_blank">
+							<a href="https://www.facebook.com/groups/XSURGEDEFI" target="_blank" rel="noreferrer">
 								<Image src="assets/img/facebook.png" className="footer-image" id="footer_social_last" />
 							</a>
 						</Col>

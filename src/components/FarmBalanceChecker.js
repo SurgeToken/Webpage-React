@@ -40,10 +40,7 @@ class FarmBalanceChecker extends Component {
 
 		let farmSymbol = e.target.value;
 		let button_text = "";
-		let balance_container_input_id = "";
-		let balance_container_input_type = "";
 		let input_placeholder = "";
-		let token_balance_input_value = "";
 
 		if (farmSymbol === "0") {
 			this.setState({
@@ -56,7 +53,7 @@ class FarmBalanceChecker extends Component {
 			input_placeholder = "Enter BEP-20 Public Wallet Address";
 			let public_wallet_address = Cookies.get('public_wallet_address');
 			let farm_balance_input_value = ""
-			if (public_wallet_address != undefined) {
+			if (public_wallet_address !== undefined) {
 				farm_balance_input_value = public_wallet_address;
 			}
 
@@ -94,8 +91,8 @@ class FarmBalanceChecker extends Component {
 		// Check to see if the supplied address is valid/invalid
 		try {
 			formated_wallet_address = web3.utils.toChecksumAddress(wallet_address);
-			if (formated_wallet_address.length == 0) {
-				throw "Supplied wallet address is invalid";
+			if (formated_wallet_address.length === 0) {
+				throw new Error("Supplied wallet address is invalid");
 			}
 		} catch(err) {
 			this.setState({
@@ -107,11 +104,11 @@ class FarmBalanceChecker extends Component {
 			return;
 		}
 
-		if (this.state.selectedFarm == "all") {
+		if (this.state.selectedFarm === "all") {
 			farms_to_check = farms;
 		} else {
 			for (const farm in farms) {
-				if (this.state.selectedFarm == farms[farm]['symbol']) {
+				if (this.state.selectedFarm === farms[farm]['symbol']) {
 					farms_to_check.push(farms[farm]);
 				}
 			}

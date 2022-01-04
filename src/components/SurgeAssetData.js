@@ -48,7 +48,7 @@ export function getSurgeTokensData() {
 }
 
 export function getSurgeTokenData(token) {
-	if (Object.keys(SurgeTokensCache).length == 0) {
+	if (Object.keys(SurgeTokensCache).length === 0) {
 		getSurgeTokensData();
 	}
 
@@ -70,7 +70,7 @@ export function getSurgeFarmsData() {
 }
 
 export function getSurgeFarmData(farm) {
-	if (Object.keys(SurgeFarmsCache).length == 0) {
+	if (Object.keys(SurgeFarmsCache).length === 0) {
 		getSurgeFarmsData();
 	}
 

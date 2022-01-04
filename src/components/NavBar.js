@@ -4,7 +4,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Component } from 'react';
 import {LinkContainer} from 'react-router-bootstrap';
 import { HashLink, NavHashLink } from 'react-router-hash-link';
-import Image from 'react-bootstrap/Image';
 
 class NavBar extends Component{
     render(){

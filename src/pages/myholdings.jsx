@@ -5,15 +5,12 @@ import Footer from "../components/Footer";
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Stack from 'react-bootstrap/Stack';
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
-import Accordion from 'react-bootstrap/Accordion';
 import Collapse from 'react-bootstrap/Collapse';
 import Carousel from 'react-bootstrap/Carousel';
 import Alert from 'react-bootstrap/Alert';
 import Overlay from 'react-bootstrap/Overlay';
-import Tooltip from 'react-bootstrap/Tooltip';
 import Modal from 'react-bootstrap/Modal';
 import CloseButton from 'react-bootstrap/CloseButton';
 import Web3 from 'web3';
@@ -89,7 +86,6 @@ const MyHoldings = () => {
 	const [farmDisplayData, setFarmDisplayData] = useState("");
 	const [availableTokensDisplayData, setAvailableTokensDisplayData] = useState("");
 	const [availableFarmsDisplayData, setAvailableFarmsDisplayData] = useState("");
-	const [surgeFundDisplayData, setSurgeFundDisplayData] = useState("");
 	const [walletUSDAmount, setWalletUSDAmount] = useState(0);
 	const [showAnchorIncreasesSwitch, setShowAnchorIncreasesSwitch] = useState(false);
 	const [showPricesSwitch, setShowPricesSwitch] = useState(false);
@@ -118,8 +114,6 @@ const MyHoldings = () => {
 	const [showHowToBuyModal, setShowHowToBuyModal] = useState(false);
 
 	const [showAnchorsModal, setShowAnchorsModal] = useState(false);
-	const [anchorModal, setAnchorModal] = useState("");
-	const [anchorFieldsInitialized, setAnchorFieldsInitialized] = useState(false);
 
 	const [showGettingStartedSection, setShowGettingStartedSection] = useState(false);
 
@@ -146,7 +140,7 @@ const MyHoldings = () => {
 		setWalletInitialized(true);
 
 		// if no wallet is set dont do anything because we need their wallet to load up their info
-		if (capturedWalletAddressValue == undefined) {
+		if (capturedWalletAddressValue === undefined) {
 			setShowGettingStartedSection(true);
 			return;
 		}
@@ -191,7 +185,7 @@ const MyHoldings = () => {
 		setWalletData({});
 
 		//run wallet validation 
-		if (capturedWalletAddressValue == undefined || capturedWalletAddressValue.length == 0) {
+		if (capturedWalletAddressValue === undefined || capturedWalletAddressValue.length === 0) {
 			setWalletError(true);
 			setWalletErrorVariant("danger");
 			setWalletErrorText("Supplied wallet address is invalid");
@@ -239,7 +233,6 @@ const MyHoldings = () => {
 		const promises = [];
 		const token_data = {};
 		const farm_data = {};
-		const surge_fund_data = {};
 		let bnb_price = 0;
 		const assets_to_get_prices = {};
 		const asset_prices_raw = {};
@@ -498,7 +491,6 @@ const MyHoldings = () => {
 		Promise.allSettled(promises).then (
 			result => {
 				let surge_token_prices = {};
-				let total_wallet_value = 0;
 				let token_output = {};
 				let farm_output = {};
 				let token_display_sort = [];
@@ -526,8 +518,6 @@ const MyHoldings = () => {
 						}
 
 						token_output[token] = token_data[token];
-
-						total_wallet_value += token_data[token]['token_usd_value'];
 
 						token_display_sort.push([token, token_data[token]['token_usd_value']]);
 					}
@@ -570,8 +560,6 @@ const MyHoldings = () => {
 
 						farm_output[farm] = farm_data[farm];
 
-						total_wallet_value += farm_data[farm]['lp_value'];
-
 						farm_display_sort.push([farm, farm_data[farm]['lp_value']]);
 					}
 				}
@@ -581,7 +569,7 @@ const MyHoldings = () => {
 				});
 
 				setFarmDisplaySort(farm_display_sort);
-				setWalletData({"tokens": token_output, "farms": farm_output, "surge_fund": {}});
+				setWalletData({"tokens": token_output, "farms": farm_output});
 			}
 		);
 	}
@@ -812,7 +800,7 @@ const MyHoldings = () => {
 	const buildTimeToUnlock = (farms_data, farm) => {
 		let time_until_unlock = Math.round(farms_data[farm]['time_until_unlock']);
 		let days_display = "days";
-		if (time_until_unlock == 1) {
+		if (time_until_unlock === 1) {
 			days_display = 'day';
 		}
 
@@ -911,23 +899,6 @@ const MyHoldings = () => {
 		setCarouselDisplay(false);
 		setWalletSettingsContainerState(false);
 	};
-
-	const buildCurrencySelectOptions = (supported_currencies) => {
-		let selected = '';
-		return (
-			<>
-			{supported_currencies.map((currency) => {
-				selected = '';
-				if (selectedCurrency === currency.toLowerCase()) {
-					selected = 'selected';
-				}
-				return (
-					<option className="currency_option" selected={selected} key={currency} value={currency.toLowerCase()}>{currency}</option>
-				);
-			})}
-			</>
-		);
-	}
 
 	const handleHowToBuyModalShow = () => setShowHowToBuyModal(true);
 	const handleHowToBuyModalClose = () => setShowHowToBuyModal(false);
@@ -1065,7 +1036,7 @@ const MyHoldings = () => {
 				<Col xs={12} sm={12} md={12} lg={12} xl={12} className="holdings_logo">
 					<Image src="assets/img/surge_holdings.png" className="surgeHoldingsTitle" />
 					<Collapse in={showGettingStartedSection}>
-						<p style={{marginBottom: '0px'}}>The “My Surge Holdings” page displays information about all Surge Tokens/Farms you currently hold.  Just enter your BEP-20 public wallet address below and press load to get started.  Please continue to use our <a style={{textDecoration: 'none', fontWeight: '700'}}href="https://app.xsurge.net" target="_blank"><span class="herospan">dApp</span></a> for changes to your holdings, as this page does not connect to your wallet and can't make transactions for you.</p>
+						<p style={{marginBottom: '0px'}}>The “My Surge Holdings” page displays information about all Surge Tokens/Farms you currently hold.  Just enter your BEP-20 public wallet address below and press load to get started.  Please continue to use our <a style={{textDecoration: 'none', fontWeight: '700'}}href="https://app.xsurge.net" target="_blank" rel="noreferrer"><span class="herospan">dApp</span></a> for changes to your holdings, as this page does not connect to your wallet and can't make transactions for you.</p>
 					</Collapse>
 					<i class="fas fa-chevron-circle-down getting_started_show_icon" style={{display: (!showGettingStartedSection ? 'inline-block' : 'none')}} onClick={ () => setShowGettingStartedSection(!showGettingStartedSection)}></i>
 					<i class="fas fa-chevron-circle-up getting_started_show_icon" style={{display: (showGettingStartedSection ? 'inline-block' : 'none')}} onClick={ () => setShowGettingStartedSection(!showGettingStartedSection)}></i>
@@ -1087,7 +1058,7 @@ const MyHoldings = () => {
 						</Collapse>
 						<div id='surge_wallet_address_input_wrapper'>
 							<input
-								className={`capture_surge_wallet_address_input ${walletSettingsContainerState == true ? 'settings_active': ''}`}
+								className={`capture_surge_wallet_address_input ${walletSettingsContainerState === true ? 'settings_active': ''}`}
 								id="surge_wallet_address_input"
 								value={capturedWalletAddressValue}
 								type="text"

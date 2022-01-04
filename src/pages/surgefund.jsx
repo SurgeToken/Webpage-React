@@ -5,9 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import TokenBalanceChecker from "../components/TokenBalanceChecker";
 import Web3 from 'web3';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import Cookies from 'js-cookie'
 import Spinner from 'react-bootstrap/Spinner';
 import SURGEFUNDABI from '../components/json/token_abis/surge_fund_abi.json';

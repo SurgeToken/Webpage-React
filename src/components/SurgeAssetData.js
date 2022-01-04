@@ -8,6 +8,10 @@ import BNBXUSDFARM from './json/farm_abis/bnb_xusd_farm_abi.json';
 import SBTCXUSDFARM from './json/farm_abis/sbtc_xusd_farm_abi.json';
 import SADAXUSDFARM from './json/farm_abis/sada_xusd_farm_abi.json';
 import SUSELESSXUSDFARM from './json/farm_abis/suseless_xusd_farm_abi.json';
+import BNBXUSDLP from './json/lp_abis/bnb_xusd_lp_abi.json';
+import SBTCXUSDLP from './json/lp_abis/sbtc_xusd_lp_abi.json';
+import SADAXUSDLP from './json/lp_abis/sada_xusd_lp_abi.json';
+import SUSELESSXUSDLP from './json/lp_abis/suseless_xusd_lp_abi.json';
 import SurgeTokensData from './json/surge_tokens.json';
 import SurgeFarmsData from './json/surge_farms.json';
 
@@ -22,11 +26,16 @@ const abiObj = {
 	SBTCJSON: SBTCJSON,
 	SADAJSON: SADAJSON,
 	SUSLSJSON: SUSLSJSON,
+	XUSDJSON: XUSDJSON,
 	BNBxUSDFARM: BNBXUSDFARM,
 	SBTCxUSDFARM: SBTCXUSDFARM,
 	SADAxUSDFARM: SADAXUSDFARM,
 	SUSELESSxUSDFARM: SUSELESSXUSDFARM,
-	XUSDJSON: XUSDJSON,
+	BNBxUSDLP: BNBXUSDLP,
+	SBTCxUSDLP: SBTCXUSDLP,
+	SADAxUSDLP: SADAXUSDLP,
+	SUSELESSxUSDLP: SUSELESSXUSDLP,
+	
 }
 
 export function getSurgeTokensData() {
@@ -39,7 +48,7 @@ export function getSurgeTokensData() {
 }
 
 export function getSurgeTokenData(token) {
-	if (Object.keys(SurgeTokensCache).length == 0) {
+	if (Object.keys(SurgeTokensCache).length === 0) {
 		getSurgeTokensData();
 	}
 
@@ -53,6 +62,7 @@ export function getSurgeTokenData(token) {
 export function getSurgeFarmsData() {
 	for (const farm in SurgeFarms) {		
 		SurgeFarms[farm]['abi'] = abiObj[SurgeFarms[farm]['abi_name']];
+		SurgeFarms[farm]['lp_abi'] = abiObj[SurgeFarms[farm]['lp_abi_name']];
 		SurgeFarmsCache[SurgeFarms[farm]['name']] = SurgeFarms[farm];
 	}
 
@@ -60,7 +70,7 @@ export function getSurgeFarmsData() {
 }
 
 export function getSurgeFarmData(farm) {
-	if (Object.keys(SurgeFarmsCache).length == 0) {
+	if (Object.keys(SurgeFarmsCache).length === 0) {
 		getSurgeFarmsData();
 	}
 

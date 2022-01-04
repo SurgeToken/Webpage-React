@@ -6,8 +6,6 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import { HashLink } from 'react-router-hash-link';
-import {LinkContainer} from 'react-router-bootstrap';
-import Nav from 'react-bootstrap/Nav'
 import VST from "../components/VST";
 import VSF from "../components/VSF";
 import TokenBalanceChecker from "../components/TokenBalanceChecker";
@@ -119,16 +117,16 @@ class MainPage extends React.Component{
                             <h6 className="heroh6">Certified</h6>
                             <h1 className="heroH1">Certified<br/>by Certik.</h1>
 							<Button className="certikAudtitBtn certikAudtitBtnFirst">
-								<a href="https://www.certik.com/projects/surgeeth" target="_blank">SurgeETH</a>
+								<a href="https://www.certik.com/projects/surgeeth" target="_blank" rel="noreferrer">SurgeETH</a>
                             </Button>
 							<Button className="certikAudtitBtn">
-								<a href="https://www.certik.com/projects/surgebtc" target="_blank">SurgeBTC</a>
+								<a href="https://www.certik.com/projects/surgebtc" target="_blank" rel="noreferrer">SurgeBTC</a>
                             </Button>
                             <Button className="certikAudtitBtn">
-								<a href="https://www.certik.com/projects/xusd" target="_blank">xUSD - Onboarding</a>
+								<a href="https://www.certik.com/projects/xusd" target="_blank" rel="noreferrer">xUSD - Onboarding</a>
                             </Button>
                             <Button className="certikAudtitBtn">
-								<a href="https://www.certik.com/projects/surgeuseless" target="_blank">SurgeUseless - Onboarding</a>
+								<a href="https://www.certik.com/projects/surgeuseless" target="_blank" rel="noreferrer">SurgeUseless - Onboarding</a>
                             </Button>
                         </Col>
                         <Col xs={12} sm={12} md={7} lg={7} xl={7} className="app1_image app1_image_right">

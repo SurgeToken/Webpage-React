@@ -3,45 +3,64 @@
 		"address": "0x6789432a7494DCC5061129e369fb3FF801121123",
 		"abi_name": "BNBxUSDFARM",
 		"name": "BNB-xUSD FARM",
+		"display_name": "BNB - xUSD",
 		"symbol": "BNBxUSD",
 		"wei_unit": "ether",
 		"paired_asset_wei_unit": "ether",
 		"is_paired_asset_surge_token": false,
 		"paired_asset": "BNB",
 		"paired_asset_token_address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-		"split_rewards": false
+		"split_rewards": false,
+		"farm_logo": "bnb_farm_icon.png",
+		"lp_address": "0x839b8fFd6329Bdc7DC5bBaFFFbdF18cEd75A4C96",
+		"lp_abi_name": "BNBxUSDLP"
 	},
 	{
 		"address": "0xB51EA53058D4f548CbabFa7C639725EEf494e13d",
 		"abi_name": "SBTCxUSDFARM",
 		"name": "SBTC-xUSD FARM",
+		"display_name": "SBTC - xUSD",
 		"symbol": "SBTCxUSD",
 		"wei_unit": "ether",
 		"is_paired_asset_surge_token": true,
 		"surge_token": "SurgeBTC",
 		"paired_asset": "SBTC",
-		"split_rewards": true
+		"paired_asset_underlying_asset": "BTC",
+		"split_rewards": true,
+		"farm_logo": "surge_btc_farm_icon.png",
+		"lp_address": "0xF3B1FA8c271eE1017D58C84860a968Fc89c3F828",
+		"lp_abi_name": "SBTCxUSDLP"
 	},
 	{
 		"address": "0xb7207B3e14Eb50aA02A5AD76941e61a4EeF47b4b",
 		"abi_name": "SADAxUSDFARM",
 		"name": "SADA-xUSD FARM",
+		"display_name": "SADA - xUSD",
 		"symbol": "SADAxUSD",
 		"wei_unit": "ether",
 		"is_paired_asset_surge_token": true,
 		"surge_token": "SurgeADA",
 		"paired_asset": "SADA",
-		"split_rewards": true
+		"paired_asset_underlying_asset": "ADA",
+		"split_rewards": true,
+		"farm_logo": "surge_ada_farm_icon.png",
+		"lp_address": "0x9270a88948e3777cc2f1d68b3a5f00599b91fb09",
+		"lp_abi_name": "SADAxUSDLP"
 	},
 	{
 		"address": "0x0cD3A3C1e1F246f13e45b4b0eD07C8De355a54F4",
 		"abi_name": "SUSELESSxUSDFARM",
 		"name": "SUSELESS-xUSD FARM",
+		"display_name": "SUSLS - xUSD",
 		"symbol": "SUSELESSxUSD",
 		"wei_unit": "ether",
 		"is_paired_asset_surge_token": true,
 		"surge_token": "SurgeUSELESS",
-		"paired_asset": "SUSELESS",
-		"split_rewards": true
+		"paired_asset": "SUSLS",
+		"paired_asset_underlying_asset": "USLS",
+		"split_rewards": true,
+		"farm_logo": "surge_usls_farm_icon.png",
+		"lp_address": "0xd68cf27584f73c42d60a16910cae8a0ede6b4b99",
+		"lp_abi_name": "SUSELESSxUSDLP"
 	}
 ]

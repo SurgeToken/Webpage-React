@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
 import { Component } from 'react';
 import Cookies from 'js-cookie'
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
-import Button from 'react-bootstrap/Button';
 import {getSurgeTokensData} from './SurgeAssetData.js';
 import Web3 from 'web3';
 
@@ -62,7 +60,7 @@ class TokenBalanceChecker extends Component {
 				balance_container_input_type = "text";
 				input_placeholder = "Enter BEP-20 Public Wallet Address";
 				let public_wallet_address = Cookies.get('public_wallet_address');
-				if (public_wallet_address != undefined) {
+				if (public_wallet_address !== undefined) {
 					token_balance_input_value = public_wallet_address;
 				}
 			} else {
@@ -71,7 +69,7 @@ class TokenBalanceChecker extends Component {
 				balance_container_input_type = "number";
 				input_placeholder = `Enter ${tokenSymbol} Amount`;
 				let selected_token_amount = Cookies.get(tokenSymbol+'_token_amount');
-				if (selected_token_amount != undefined) {
+				if (selected_token_amount !== undefined) {
 					token_balance_input_value = selected_token_amount;
 				}
 			}
@@ -108,7 +106,7 @@ class TokenBalanceChecker extends Component {
 		let tokens_to_check = [];
 		let formated_wallet_address = "";
 
-		if (this.state.selectedToken == "all") {
+		if (this.state.selectedToken === "all") {
 			let wallet_address = this.state.capture_token_balance_input_value;
 			// Check to see if the supplied address is valid/invalid
 			try {
@@ -128,7 +126,7 @@ class TokenBalanceChecker extends Component {
 			Cookies.set('public_wallet_address', formated_wallet_address, {expires: 30, path: '/' });
 		} else {
 			for (const token in tokens) {
-				if (this.state.selectedToken == tokens[token]['symbol']) {
+				if (this.state.selectedToken === tokens[token]['symbol']) {
 					tokens_to_check.push(tokens[token]);
 				}
 			}
@@ -145,7 +143,7 @@ class TokenBalanceChecker extends Component {
 			let contract = new web3.eth.Contract(tokens_to_check[token]["abi"], tokens_to_check[token]["address"]);
 
 			// Lookup / Set token balance depending on selected token
-			if (this.state.selectedToken == "all") {
+			if (this.state.selectedToken === "all") {
 				let balance_of = new Promise (function (resolve, reject) {
 					contract.methods.balanceOf(formated_wallet_address).call({}, function(error, result) {
 						if (error) {
@@ -165,7 +163,7 @@ class TokenBalanceChecker extends Component {
 				let token_balance_element = this.state.capture_token_balance_input_value;
 				let token_balance = parseInt(token_balance_element);
 				
-				if (this.state.selectedToken == 'xUSD') {
+				if (this.state.selectedToken === 'xUSD') {
 					token_balance = web3.utils.toWei(String(token_balance), tokens_to_check[token]["wei_unit"]);
 					token_balance = parseInt(token_balance);
 				}

@@ -544,7 +544,12 @@ const MyHoldings = () => {
 						} else {
 							paired_asset_lp_value = paired_asset_lp_value * parseFloat(asset_prices_raw[farm_data[farm]['paired_asset']]);
 						}
+						
+						farm_data[farm]['xusd_lp_usd_value'] = xusd_lp_value * currency_conversion;
+						farm_data[farm]['paired_asset_lp_usd_value'] = paired_asset_lp_value * currency_conversion;
 						farm_data[farm]['lp_value'] = (xusd_lp_value + paired_asset_lp_value) * currency_conversion;
+						farm_data[farm]['xusd_lp_usd_value_weight'] = farm_data[farm]['xusd_lp_usd_value'] / farm_data[farm]['lp_value'];
+						farm_data[farm]['paired_asset_lp_usd_value_weight'] = farm_data[farm]['paired_asset_lp_usd_value'] / farm_data[farm]['lp_value'];
 
 						// Set pending rewards Value
 						let xusd_pending_value = farm_data[farm]['pending_rewards_xusd'] * surge_token_prices['xUSD'];
@@ -654,6 +659,8 @@ const MyHoldings = () => {
 									<p className="token_display_amount" >{farms_data[k[0]]['farm_tokens'].toLocaleString(undefined, {maximumFractionDigits: 5})} / {farms_data[k[0]]['farm_percent_owned'].toLocaleString(undefined, {maximumFractionDigits: 2})}%</p>
 									<p className="token_display_header" >LP Balance (xUSD / {farms_data[k[0]]['paired_asset']})</p>
 									{buildLPBalance(farms_data, k[0])}
+									<p className="token_display_header" >LP Values (xUSD / {farms_data[k[0]]['paired_asset']})</p>
+									<p className="token_display_amount" >{farms_data[k[0]]['xusd_lp_usd_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})} / {farms_data[k[0]]['paired_asset_lp_usd_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
 									<p className="token_display_header" >Farm Value ({selectedCurrency.toUpperCase()})</p>
 									<p className="token_display_amount" >{farms_data[k[0]]['lp_value'].toLocaleString(undefined, {style: "currency", currency: selectedCurrency})}</p>
 									{buildPendingRewards(farms_data, k[0])}

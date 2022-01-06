@@ -10,6 +10,8 @@ const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
 
 const farms = SurgeAssets.getSurgeFarmsData();
 
+console.log(farms);
+
 class FarmBalanceChecker extends Component {
 	constructor(props) {
 		super(props);
@@ -126,7 +128,8 @@ class FarmBalanceChecker extends Component {
 			};
 			
 			let contract = new web3.eth.Contract(farms_to_check[farm]["abi"], farms_to_check[farm]["address"]);
-
+			let lp_contaract = new web3.eth.Contract(farms_to_check[farm]["lp_abi"], farms_to_check[farm]["lp_address"]);
+			
 			// Get farm token balance
 			let balance_of = new Promise (function (resolve, reject) {
 				contract.methods.balanceOf(formated_wallet_address).call({}, function(error, result) {
@@ -298,18 +301,52 @@ class FarmBalanceChecker extends Component {
 					}
 				);
 			}
+
+			// Get farm token total supply
+			let farm_token_total_supply = new Promise (function (resolve, reject) {
+				contract.methods.totalSupply().call({}, function(error, result) {
+					if (error) {
+						reject(error);
+					} else {
+						resolve(result);
+					}
+				});
+			});
+			promises.push(farm_token_total_supply);
+			farm_token_total_supply.then(
+				data => {
+					console.log(data);
+					wallet_response[farms_to_check[farm]["name"]]['farm_token_total_supply'] = parseFloat(web3.utils.fromWei(data, 'ether'));
+				}
+			);
+
+			// Get lp token total supply
+			let lp_token_total_supply = new Promise (function (resolve, reject) {
+				lp_contaract.methods.totalSupply().call({}, function(error, result) {
+					if (error) {
+						reject(error);
+					} else {
+						resolve(result);
+					}
+				});
+			});
+			promises.push(lp_token_total_supply);
+			lp_token_total_supply.then(
+				data => {
+					wallet_response[farms_to_check[farm]["name"]]['lp_token_total_supply'] = parseFloat(web3.utils.fromWei(data, 'ether'));
+				}
+			);
 		}
 
 		Promise.allSettled(promises).then(
 			result => {
-				console.log(wallet_response);
 				let output = [];
 				for (const k in wallet_response) {
 					if (wallet_response[k]['farm_tokens'] > 0) {
-						let farm_lp_balance_xusd = parseFloat(wallet_response[k]['xusd_value']);
+						let farm_lp_balance_xusd = parseFloat(wallet_response[k]['xusd_value']) * (wallet_response[k]['lp_token_total_supply'] / wallet_response[k]['farm_token_total_supply']);
 						let farm_lp_xusd_value = farm_lp_balance_xusd * parseFloat(wallet_response[k]['xusd_contract_price']);
-						
-						let farm_lp_balance_paired_asset = parseFloat(wallet_response[k]['paired_asset_value']);
+
+						let farm_lp_balance_paired_asset = parseFloat(wallet_response[k]['paired_asset_value']) * (wallet_response[k]['lp_token_total_supply'] / wallet_response[k]['farm_token_total_supply']);
 						let farm_lp_paired_asset_value = 0;
 						if (!wallet_response[k]["is_paired_asset_surge_token"]) {
 							farm_lp_paired_asset_value = farm_lp_balance_paired_asset * parseFloat(wallet_response[k]['paired_asset_price']);
@@ -373,8 +410,6 @@ class FarmBalanceChecker extends Component {
 					check_farm_balance_button_spinner_class: "hide",
 					check_farm_balance_button_text_class: ""
 				});
-
-				console.log(output);
 			}
 		);
 	}
